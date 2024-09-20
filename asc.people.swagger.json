@@ -12,6 +12,7 @@
         ],
         "summary": "Returns the general information about all the groups, such as group ID and group manager.",
         "description": "This method returns partial group information.",
+        "operationId": "getGroups",
         "parameters": [
           {
             "name": "userId",
@@ -19,18 +20,18 @@
             "description": "User ID",
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           },
           {
             "name": "manager",
             "in": "query",
             "description": "Specifies if the user is a manager or not",
             "schema": {
-              "type": "boolean"
-            },
-            "example": true
+              "type": "boolean",
+              "example": true
+            }
           }
         ],
         "responses": {
@@ -76,8 +77,8 @@
           "Group"
         ],
         "summary": "Adds a new group with the group manager, name, and members specified in the request.",
+        "operationId": "addGroup",
         "requestBody": {
-          "description": "Group request parameters",
           "content": {
             "application/json": {
               "schema": {
@@ -142,6 +143,7 @@
         ],
         "summary": "Returns the detailed information about the selected group.",
         "description": "This method returns full group information.",
+        "operationId": "getGroup",
         "parameters": [
           {
             "name": "id",
@@ -150,9 +152,18 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
+          },
+          {
+            "name": "includeMembers",
+            "in": "query",
+            "description": "Include members",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           }
         ],
         "responses": {
@@ -198,6 +209,7 @@
           "Group"
         ],
         "summary": "Updates the existing group changing the group manager, name, and/or members.",
+        "operationId": "updateGroup",
         "parameters": [
           {
             "name": "id",
@@ -206,27 +218,27 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "requestBody": {
-          "description": "Group request parameters",
+          "description": "Update group parameters",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateGroupRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateGroupRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateGroupRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateGroupRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateGroupRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateGroupRequest"
               }
             }
           }
@@ -274,6 +286,7 @@
           "Group"
         ],
         "summary": "Deletes a group with the ID specified in the request from the list of groups on the portal.",
+        "operationId": "deleteGroup",
         "parameters": [
           {
             "name": "id",
@@ -282,9 +295,9 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "responses": {
@@ -332,6 +345,7 @@
           "Group"
         ],
         "summary": "Returns a list of groups for the user with the ID specified in the request.",
+        "operationId": "getByUserId",
         "parameters": [
           {
             "name": "userid",
@@ -340,9 +354,9 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "responses": {
@@ -390,6 +404,7 @@
           "Group"
         ],
         "summary": "Moves all the members from the selected group to another one specified in the request.",
+        "operationId": "transferMembersTo",
         "parameters": [
           {
             "name": "fromId",
@@ -398,9 +413,9 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           },
           {
             "name": "toId",
@@ -409,9 +424,9 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "responses": {
@@ -459,6 +474,7 @@
           "Group"
         ],
         "summary": "Replaces the group members with those specified in the request.",
+        "operationId": "setMembersTo",
         "parameters": [
           {
             "name": "id",
@@ -467,27 +483,27 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "requestBody": {
-          "description": "Group request parameters",
+          "description": "Members",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequest"
               }
             }
           }
@@ -535,6 +551,7 @@
           "Group"
         ],
         "summary": "Adds new group members to the group with the ID specified in the request.",
+        "operationId": "addMembersTo",
         "parameters": [
           {
             "name": "id",
@@ -543,27 +560,27 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "requestBody": {
-          "description": "Group request parameters",
+          "description": "Members",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequest"
               }
             }
           }
@@ -611,6 +628,7 @@
           "Group"
         ],
         "summary": "Removes the group members specified in the request from the selected group.",
+        "operationId": "removeMembersFrom",
         "parameters": [
           {
             "name": "id",
@@ -619,27 +637,27 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "requestBody": {
-          "description": "Group request parameters",
+          "description": "Members",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.MembersRequest"
               }
             }
           }
@@ -689,6 +707,7 @@
           "Group"
         ],
         "summary": "Sets a user with the ID specified in the request as a group manager.",
+        "operationId": "setManager",
         "parameters": [
           {
             "name": "id",
@@ -697,27 +716,27 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "requestBody": {
-          "description": "Request parameters for setting a group manager",
+          "description": "Set manager",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SetManagerRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SetManagerRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SetManagerRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SetManagerRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SetManagerRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SetManagerRequest"
               }
             }
           }
@@ -766,21 +785,26 @@
         "tags": [
           "Group / Rooms"
         ],
+        "operationId": "getGroupsWithShared",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID",
             "required": true,
             "schema": {
               "type": "integer",
-              "format": "int32"
+              "format": "int32",
+              "example": 1234
             }
           },
           {
             "name": "excludeShared",
             "in": "query",
+            "description": "Exclude shared",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "example": true
             }
           }
         ],
@@ -837,6 +861,7 @@
           "People / Contacts"
         ],
         "summary": "Deletes the contacts of the user with the ID specified in the request from the portal.",
+        "operationId": "deleteMemberContacts",
         "parameters": [
           {
             "name": "userid",
@@ -844,27 +869,27 @@
             "description": "User ID",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "requestBody": {
-          "description": "Request parameters for updating user contacts",
+          "description": "Contacts",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequest"
               }
             }
           }
@@ -912,6 +937,7 @@
           "People / Contacts"
         ],
         "summary": "Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.",
+        "operationId": "setMemberContacts",
         "parameters": [
           {
             "name": "userid",
@@ -919,27 +945,27 @@
             "description": "User ID",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "requestBody": {
-          "description": "Request parameters for updating user contacts",
+          "description": "Contacts",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequest"
               }
             }
           }
@@ -987,6 +1013,7 @@
           "People / Contacts"
         ],
         "summary": "Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.",
+        "operationId": "updateMemberContacts",
         "parameters": [
           {
             "name": "userid",
@@ -994,27 +1021,27 @@
             "description": "User ID",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "requestBody": {
-          "description": "Request parameters for updating user contacts",
+          "description": "Contacts",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ContactsRequest"
               }
             }
           }
@@ -1064,6 +1091,7 @@
           "People / Password"
         ],
         "summary": "Sets a new password to the user with the ID specified in the request.",
+        "operationId": "changeUserPassword",
         "parameters": [
           {
             "name": "userid",
@@ -1072,13 +1100,13 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "requestBody": {
-          "description": "Request parameters for setting new password",
+          "description": "Member base",
           "content": {
             "application/json": {
               "schema": {
@@ -1142,8 +1170,8 @@
           "People / Password"
         ],
         "summary": "Reminds a password to the user using the email address specified in the request.",
+        "operationId": "sendUserPassword",
         "requestBody": {
-          "description": "Member request parameters",
           "content": {
             "application/json": {
               "schema": {
@@ -1187,6 +1215,7 @@
           "People / Photos"
         ],
         "summary": "Creates photo thumbnails by coordinates of the original image specified in the request.",
+        "operationId": "createMemberPhotoThumbnails",
         "parameters": [
           {
             "name": "userid",
@@ -1194,27 +1223,27 @@
             "description": "User ID",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "requestBody": {
-          "description": "Thumbnail request parameters",
+          "description": "Thumbnails",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ThumbnailsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ThumbnailsRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ThumbnailsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ThumbnailsRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ThumbnailsRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.ThumbnailsRequest"
               }
             }
           }
@@ -1264,6 +1293,7 @@
           "People / Photos"
         ],
         "summary": "Deletes a photo of the user with the ID specified in the request.",
+        "operationId": "deleteMemberPhoto",
         "parameters": [
           {
             "name": "userid",
@@ -1271,9 +1301,9 @@
             "description": "User ID",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -1319,6 +1349,7 @@
           "People / Photos"
         ],
         "summary": "Returns a photo of the user with the ID specified in the request.",
+        "operationId": "getMemberPhoto",
         "parameters": [
           {
             "name": "userid",
@@ -1326,9 +1357,9 @@
             "description": "User ID",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -1374,6 +1405,7 @@
           "People / Photos"
         ],
         "summary": "Updates a photo of the user with the ID specified in the request.",
+        "operationId": "updateMemberPhoto",
         "parameters": [
           {
             "name": "userid",
@@ -1381,27 +1413,27 @@
             "description": "User ID",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "requestBody": {
-          "description": "Request parameters for updating user photo",
+          "description": "Update photo",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdatePhotoMemberRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdatePhotoMemberRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdatePhotoMemberRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdatePhotoMemberRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdatePhotoMemberRequestDto"
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdatePhotoMemberRequest"
               }
             }
           }
@@ -1449,6 +1481,7 @@
           "People / Photos"
         ],
         "summary": "Uploads a photo of the user with the ID specified in the request.",
+        "operationId": "uploadMemberPhoto",
         "parameters": [
           {
             "name": "userid",
@@ -1456,12 +1489,13 @@
             "description": "User ID",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "requestBody": {
+          "description": "Image data",
           "content": {
             "multipart/form-data": {
               "schema": {
@@ -1469,9 +1503,8 @@
                 "properties": {
                   "formCollection": {
                     "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair<System.String, Microsoft.Extensions.Primitives.StringValues>"
-                    }
+                    "items": { },
+                    "description": "Image data"
                   }
                 }
               },
@@ -1528,8 +1561,8 @@
           "People / Profiles"
         ],
         "summary": "Sends a notification to the user with the ID specified in the request to change their phone number.",
+        "operationId": "sendNotificationToChange",
         "requestBody": {
-          "description": "Request parameters for updating user contacts",
           "content": {
             "application/json": {
               "schema": {
@@ -1587,8 +1620,8 @@
           "People / Profiles"
         ],
         "summary": "Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.",
+        "operationId": "addMember",
         "requestBody": {
-          "description": "Member request parameters",
           "content": {
             "application/json": {
               "schema": {
@@ -1650,6 +1683,7 @@
           "People / Profiles"
         ],
         "summary": "Returns a list of profiles for all the portal users.",
+        "operationId": "getAll",
         "responses": {
           "200": {
             "description": "List of users with the detailed information",
@@ -1695,8 +1729,8 @@
           "People / Profiles"
         ],
         "summary": "Invites users specified in the request to the current portal.",
+        "operationId": "inviteUsers",
         "requestBody": {
-          "description": "Request parameters for inviting users",
           "content": {
             "application/json": {
               "schema": {
@@ -1758,8 +1792,8 @@
           "People / Profiles"
         ],
         "summary": "Resends emails to the users who have not activated their emails.",
+        "operationId": "resendUserInvites",
         "requestBody": {
-          "description": "Request parameters for updating portal users",
           "content": {
             "application/json": {
               "schema": {
@@ -1823,6 +1857,7 @@
           "People / Profiles"
         ],
         "summary": "Deletes a user with the ID specified in the request from the portal.",
+        "operationId": "deleteMember",
         "parameters": [
           {
             "name": "userid",
@@ -1830,9 +1865,9 @@
             "description": "User ID",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -1873,11 +1908,12 @@
         ],
         "x-shortName": "Delete a user"
       },
-      "put": {
+      "get": {
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.",
+        "summary": "Returns the detailed information about a profile of the user with the name specified in the request.",
+        "operationId": "getById",
         "parameters": [
           {
             "name": "userid",
@@ -1885,13 +1921,69 @@
             "description": "User ID",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detailed profile information",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Api.Models.EmployeeFullDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Api.Models.EmployeeFullDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Api.Models.EmployeeFullDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "x-shortName": "Get a profile by user name"
+      },
+      "put": {
+        "tags": [
+          "People / Profiles"
+        ],
+        "summary": "Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.",
+        "operationId": "updateMember",
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "requestBody": {
-          "description": "Member request parameters",
+          "description": "Update member",
           "content": {
             "application/json": {
               "schema": {
@@ -1955,6 +2047,7 @@
           "People / Profiles"
         ],
         "summary": "Deletes the current user profile.",
+        "operationId": "deleteProfile",
         "responses": {
           "200": {
             "description": "Detailed information about my profile",
@@ -1998,6 +2091,7 @@
           "People / Profiles"
         ],
         "summary": "Returns the detailed information about the current user profile.",
+        "operationId": "self",
         "responses": {
           "200": {
             "description": "Detailed information about my profile",
@@ -2043,15 +2137,16 @@
           "People / Profiles"
         ],
         "summary": "Returns the detailed information about a profile of the user with the email specified in the request.",
+        "operationId": "getByEmail",
         "parameters": [
           {
             "name": "email",
             "in": "query",
             "description": "User email address",
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -2097,8 +2192,8 @@
           "People / Profiles"
         ],
         "summary": "Sends a message to the user email with the instructions to change the email address connected to the portal.",
+        "operationId": "sendEmailChangeInstructions",
         "requestBody": {
-          "description": "Request parameters for updating user information",
           "content": {
             "application/json": {
               "schema": {
@@ -2150,71 +2245,14 @@
         "x-shortName": "Send instructions to change email"
       }
     },
-    "/api/2.0/people/{username}": {
-      "get": {
-        "tags": [
-          "People / Profiles"
-        ],
-        "summary": "Returns the detailed information about a profile of the user with the name specified in the request.",
-        "parameters": [
-          {
-            "name": "username",
-            "in": "path",
-            "description": "User name",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "example": "some text"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Detailed profile information",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Api.Models.EmployeeFullDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Api.Models.EmployeeFullDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Api.Models.EmployeeFullDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          }
-        ],
-        "x-shortName": "Get a profile by user name"
-      }
-    },
     "/api/2.0/people/delete": {
       "put": {
         "tags": [
           "People / Profiles"
         ],
         "summary": "Deletes a list of the users with the IDs specified in the request.",
+        "operationId": "removeUsers",
         "requestBody": {
-          "description": "Request parameters for updating portal users",
           "content": {
             "application/json": {
               "schema": {
@@ -2278,6 +2316,7 @@
           "People / Profiles"
         ],
         "summary": "Updates the user language with the parameter specified in the request.",
+        "operationId": "updateMemberCulture",
         "parameters": [
           {
             "name": "userid",
@@ -2285,13 +2324,13 @@
             "description": "User ID",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "requestBody": {
-          "description": "Request parameters for updating user information",
+          "description": "Update member",
           "content": {
             "application/json": {
               "schema": {
@@ -2355,8 +2394,8 @@
           "People / Quota"
         ],
         "summary": "Changes a quota limit for the users with the IDs specified in the request.",
+        "operationId": "updateUserQuota",
         "requestBody": {
-          "description": "Request parameters for updating user information",
           "content": {
             "application/json": {
               "schema": {
@@ -2420,8 +2459,8 @@
           "People / Quota"
         ],
         "summary": "Resets a user quota limit with the ID specified in the request from the portal.",
+        "operationId": "resetUsersQuota",
         "requestBody": {
-          "description": "Request parameters for updating user information",
           "content": {
             "application/json": {
               "schema": {
@@ -2484,6 +2523,7 @@
         "tags": [
           "People / Search"
         ],
+        "operationId": "getAccountsEntriesWithShared",
         "parameters": [
           {
             "name": "id",
@@ -2563,6 +2603,7 @@
           "People / Search"
         ],
         "summary": "Returns a list of users matching the status filter and search query.",
+        "operationId": "getAdvanced",
         "parameters": [
           {
             "name": "status",
@@ -2578,9 +2619,9 @@
             "in": "query",
             "description": "Search query",
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -2628,6 +2669,7 @@
           "People / Search"
         ],
         "summary": "Returns a list of users with full information about them matching the parameters specified in the request.",
+        "operationId": "getFullByFilter",
         "parameters": [
           {
             "name": "employeeStatus",
@@ -2643,9 +2685,9 @@
             "description": "Group ID",
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           },
           {
             "name": "activationStatus",
@@ -2661,8 +2703,7 @@
             "description": "User type",
             "schema": {
               "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
-            },
-            "example": "All"
+            }
           },
           {
             "name": "employeeTypes",
@@ -2671,7 +2712,18 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "[All - All, RoomAdmin - Room admin, User - User, DocSpaceAdmin - DocSpace admin, Collaborator - Collaborator]",
+                    "example": "All"
+                  },
+                  {
+                    "type": "integer",
+                    "description": "[0 - All, 1 - Room admin, 2 - User, 3 - DocSpace admin, 4 - Collaborator]",
+                    "example": 0
+                  }
+                ]
               }
             }
           },
@@ -2680,9 +2732,9 @@
             "in": "query",
             "description": "Specifies if the user is an administrator or not",
             "schema": {
-              "type": "boolean"
-            },
-            "example": true
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "payments",
@@ -2713,18 +2765,18 @@
             "in": "query",
             "description": "Specifies whether the user should be a member of a group or not",
             "schema": {
-              "type": "boolean"
-            },
-            "example": true
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "excludeGroup",
             "in": "query",
             "description": "Specifies whether or not the user should be a member of the group with the specified ID",
             "schema": {
-              "type": "boolean"
-            },
-            "example": true
+              "type": "boolean",
+              "example": true
+            }
           }
         ],
         "responses": {
@@ -2772,15 +2824,16 @@
           "People / Search"
         ],
         "summary": "Returns a list of users matching the search query. This method uses the query parameters.",
+        "operationId": "getPeopleSearch",
         "parameters": [
           {
             "name": "query",
             "in": "query",
             "description": "Search query",
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -2828,6 +2881,7 @@
           "People / Search"
         ],
         "summary": "Returns a list of users matching the search query.",
+        "operationId": "getSearch",
         "parameters": [
           {
             "name": "query",
@@ -2835,9 +2889,9 @@
             "description": "Search query",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -2885,6 +2939,7 @@
           "People / Search"
         ],
         "summary": "Returns a list of users matching the parameters specified in the request.",
+        "operationId": "getSimpleByFilter",
         "parameters": [
           {
             "name": "employeeStatus",
@@ -2900,9 +2955,9 @@
             "description": "Group ID",
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           },
           {
             "name": "activationStatus",
@@ -2918,8 +2973,7 @@
             "description": "User type",
             "schema": {
               "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
-            },
-            "example": "All"
+            }
           },
           {
             "name": "employeeTypes",
@@ -2928,7 +2982,18 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "[All - All, RoomAdmin - Room admin, User - User, DocSpaceAdmin - DocSpace admin, Collaborator - Collaborator]",
+                    "example": "All"
+                  },
+                  {
+                    "type": "integer",
+                    "description": "[0 - All, 1 - Room admin, 2 - User, 3 - DocSpace admin, 4 - Collaborator]",
+                    "example": 0
+                  }
+                ]
               }
             }
           },
@@ -2937,9 +3002,9 @@
             "in": "query",
             "description": "Specifies if the user is an administrator or not",
             "schema": {
-              "type": "boolean"
-            },
-            "example": true
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "payments",
@@ -2970,18 +3035,18 @@
             "in": "query",
             "description": "Specifies whether the user should be a member of a group or not",
             "schema": {
-              "type": "boolean"
-            },
-            "example": true
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "excludeGroup",
             "in": "query",
             "description": "Specifies whether or not the user should be a member of the group with the specified ID",
             "schema": {
-              "type": "boolean"
-            },
-            "example": true
+              "type": "boolean",
+              "example": true
+            }
           }
         ],
         "responses": {
@@ -3028,19 +3093,23 @@
         "tags": [
           "People / Search"
         ],
+        "operationId": "getUsersWithRoomShared",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Id",
             "required": true,
             "schema": {
               "type": "integer",
-              "format": "int32"
+              "format": "int32",
+              "example": 1234
             }
           },
           {
             "name": "employeeStatus",
             "in": "query",
+            "description": "Employee status",
             "schema": {
               "$ref": "#/components/schemas/ASC.Core.Users.EmployeeStatus"
             }
@@ -3048,6 +3117,7 @@
           {
             "name": "activationStatus",
             "in": "query",
+            "description": "Activation status",
             "schema": {
               "$ref": "#/components/schemas/ASC.Core.Users.EmployeeActivationStatus"
             }
@@ -3055,8 +3125,10 @@
           {
             "name": "excludeShared",
             "in": "query",
+            "description": "Exclude shared",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "example": true
             }
           }
         ],
@@ -3113,6 +3185,7 @@
           "People / Theme"
         ],
         "summary": "Returns a theme which is set to the current portal.",
+        "operationId": "getTheme",
         "responses": {
           "200": {
             "description": "Theme",
@@ -3156,8 +3229,8 @@
           "People / Theme"
         ],
         "summary": "Changes the current portal theme.",
+        "operationId": "changeTheme",
         "requestBody": {
-          "description": "Theme settings request parameters",
           "content": {
             "application/json": {
               "schema": {
@@ -3221,42 +3294,43 @@
           "People / Third-party accounts"
         ],
         "summary": "Returns a list of the available third-party accounts.",
+        "operationId": "getAuthProviders",
         "parameters": [
           {
             "name": "inviteView",
             "in": "query",
             "description": "Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers",
             "schema": {
-              "type": "boolean"
-            },
-            "example": true
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "settingsView",
             "in": "query",
             "description": "Specifies whether to return URLs in the format that is used on the Settings page",
             "schema": {
-              "type": "boolean"
-            },
-            "example": true
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "clientCallback",
             "in": "query",
             "description": "Method that is called after authorization",
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           },
           {
             "name": "fromOnly",
             "in": "query",
             "description": "Provider name if the response only from this provider is needed",
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -3290,8 +3364,8 @@
           "People / Third-party accounts"
         ],
         "summary": "Links a third-party account specified in the request to the user profile.",
+        "operationId": "linkAccount",
         "requestBody": {
-          "description": "Request parameters for linking accounts",
           "content": {
             "application/json": {
               "schema": {
@@ -3338,8 +3412,8 @@
           "People / Third-party accounts"
         ],
         "summary": "Creates a third-party account with the parameters specified in the request.",
+        "operationId": "signupAccount",
         "requestBody": {
-          "description": "Request parameters for creating a third-party account",
           "content": {
             "application/json": {
               "schema": {
@@ -3372,15 +3446,16 @@
           "People / Third-party accounts"
         ],
         "summary": "Unlinks a third-party account specified in the request from the user profile.",
+        "operationId": "unlinkAccount",
         "parameters": [
           {
             "name": "provider",
             "in": "query",
             "description": "Provider name",
             "schema": {
-              "type": "string"
-            },
-            "example": "some text"
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -3411,17 +3486,18 @@
           "People / User data"
         ],
         "summary": "Returns the progress of the started data reassignment for the user with the ID specified in the request.",
+        "operationId": "getReassignProgress",
         "parameters": [
           {
-            "name": "userId",
+            "name": "userid",
             "in": "path",
             "description": "User ID whose data is reassigned",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "responses": {
@@ -3469,8 +3545,8 @@
           "People / User data"
         ],
         "summary": "Starts the data reassignment for the user with the ID specified in the request.",
+        "operationId": "startReassign",
         "requestBody": {
-          "description": "Request parameters for starting the reassignment process",
           "content": {
             "application/json": {
               "schema": {
@@ -3534,8 +3610,8 @@
           "People / User data"
         ],
         "summary": "Terminates the data reassignment for the user with the ID specified in the request.",
+        "operationId": "terminateReassign",
         "requestBody": {
-          "description": "Request parameters for terminating the reassignment process",
           "content": {
             "application/json": {
               "schema": {
@@ -3599,17 +3675,18 @@
           "People / User data"
         ],
         "summary": "Returns the progress of the started data deletion for the user with the ID specified in the request.",
+        "operationId": "getRemoveProgress",
         "parameters": [
           {
-            "name": "userId",
+            "name": "userid",
             "in": "path",
-            "description": "User ID",
+            "description": "User ID whose data is reassigned",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "responses": {
@@ -3657,6 +3734,7 @@
           "People / User data"
         ],
         "summary": "Sends instructions for deleting a user profile.",
+        "operationId": "sendInstructionsToDelete",
         "responses": {
           "200": {
             "description": "Information message",
@@ -3696,8 +3774,8 @@
           "People / User data"
         ],
         "summary": "Starts the data deletion for the user with the ID specified in the request.",
+        "operationId": "startRemove",
         "requestBody": {
-          "description": "Request parameters for starting the deletion process",
           "content": {
             "application/json": {
               "schema": {
@@ -3761,8 +3839,8 @@
           "People / User data"
         ],
         "summary": "Terminates the data deletion for the user with the ID specified in the request.",
+        "operationId": "terminateRemove",
         "requestBody": {
-          "description": "Request parameters for terminating the deletion process",
           "content": {
             "application/json": {
               "schema": {
@@ -3809,6 +3887,7 @@
           "People / User status"
         ],
         "summary": "Returns a list of profiles filtered by user status.",
+        "operationId": "getByStatus",
         "parameters": [
           {
             "name": "status",
@@ -3863,6 +3942,7 @@
           "People / User status"
         ],
         "summary": "Changes a status for the users with the IDs specified in the request.",
+        "operationId": "updateUserStatus",
         "parameters": [
           {
             "name": "status",
@@ -3875,7 +3955,7 @@
           }
         ],
         "requestBody": {
-          "description": "Request parameters for updating user information",
+          "description": "Update members",
           "content": {
             "application/json": {
               "schema": {
@@ -3939,6 +4019,7 @@
           "People / User status"
         ],
         "summary": "Sets the required activation status to the list of users with the IDs specified in the request.",
+        "operationId": "updateEmployeeActivationStatus",
         "parameters": [
           {
             "name": "activationstatus",
@@ -3951,7 +4032,7 @@
           }
         ],
         "requestBody": {
-          "description": "Request parameters for updating user information",
+          "description": "Update members",
           "content": {
             "application/json": {
               "schema": {
@@ -4015,6 +4096,7 @@
           "People / User type"
         ],
         "summary": "Changes a type for the users with the IDs specified in the request.",
+        "operationId": "updateUserType",
         "parameters": [
           {
             "name": "type",
@@ -4023,12 +4105,11 @@
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
-            },
-            "example": "All"
+            }
           }
         ],
         "requestBody": {
-          "description": "Request parameters for updating user information",
+          "description": "Update members",
           "content": {
             "application/json": {
               "schema": {
@@ -4094,14 +4175,12 @@
         "properties": {
           "utcTime": {
             "type": "string",
-            "description": "UtcTime",
             "format": "date-time",
             "readOnly": true,
             "example": "2008-04-10T06:30:00.0000000+04:00"
           },
           "timeZoneOffset": {
             "type": "string",
-            "description": "TimeZoneOffset",
             "format": "date-span",
             "readOnly": true,
             "example": "00:00:00"
@@ -4117,9 +4196,18 @@
           "Canceled",
           "Failted"
         ],
-        "type": "integer",
-        "description": "[0 - Created, 1 - Running, 2 - Completed, 3 - Canceled, 4 - Failted]",
-        "format": "int32"
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[Created - Created, Running - Running, Completed - Completed, Canceled - Canceled, Failted - Failted]",
+            "example": "Created"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - Created, 1 - Running, 2 - Completed, 3 - Canceled, 4 - Failted]",
+            "example": 0
+          }
+        ]
       },
       "ASC.Core.AccountLoginType": {
         "enum": [
@@ -4127,18 +4215,36 @@
           "LDAP",
           "Standart"
         ],
-        "type": "integer",
-        "description": "[0 - SSO, 1 - LDAP, 2 - Standart]",
-        "format": "int32"
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[SSO - SSO, LDAP - LDAP, Standart - Standart]",
+            "example": "SSO"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - SSO, 1 - LDAP, 2 - Standart]",
+            "example": 0
+          }
+        ]
       },
       "ASC.Core.Payments": {
         "enum": [
           "Paid",
           "Free"
         ],
-        "type": "integer",
-        "description": "[0 - Paid, 1 - Free]",
-        "format": "int32"
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[Paid - Paid, Free - Free]",
+            "example": "Paid"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - Paid, 1 - Free]",
+            "example": 0
+          }
+        ]
       },
       "ASC.Core.QuotaFilter": {
         "enum": [
@@ -4146,9 +4252,18 @@
           "Default",
           "Custom"
         ],
-        "type": "integer",
-        "description": "[0 - All, 1 - Default, 2 - Custom]",
-        "format": "int32"
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[All - All, Default - Default, Custom - Custom]",
+            "example": "All"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - All, 1 - Default, 2 - Custom]",
+            "example": 0
+          }
+        ]
       },
       "ASC.Core.Users.EmployeeActivationStatus": {
         "enum": [
@@ -4157,9 +4272,18 @@
           "Pending",
           "AutoGenerated"
         ],
-        "type": "integer",
-        "description": "[0 - Not activated, 1 - Activated, 2 - Pending, 4 - Auto generated]",
-        "format": "int32"
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[NotActivated - Not activated, Activated - Activated, Pending - Pending, AutoGenerated - Auto generated]",
+            "example": "NotActivated"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - Not activated, 1 - Activated, 2 - Pending, 4 - Auto generated]",
+            "example": 0
+          }
+        ]
       },
       "ASC.Core.Users.EmployeeStatus": {
         "enum": [
@@ -4169,9 +4293,18 @@
           "Default",
           "All"
         ],
-        "type": "integer",
-        "description": "[1 - Active, 2 - Terminated, 4 - Pending, 5 - Default, 7 - All]",
-        "format": "int32"
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[Active - Active, Terminated - Terminated, Pending - Pending, Default - Default, All - All]",
+            "example": "Active"
+          },
+          {
+            "type": "integer",
+            "description": "[1 - Active, 2 - Terminated, 4 - Pending, 5 - Default, 7 - All]",
+            "example": 1
+          }
+        ]
       },
       "ASC.Core.Users.EmployeeType": {
         "enum": [
@@ -4181,31 +4314,49 @@
           "DocSpaceAdmin",
           "Collaborator"
         ],
-        "type": "string",
-        "description": "[0 - All, 1 - Room admin, 2 - User, 3 - DocSpace admin, 4 - Collaborator]"
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[All - All, RoomAdmin - Room admin, User - User, DocSpaceAdmin - DocSpace admin, Collaborator - Collaborator]",
+            "example": "All"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - All, 1 - Room admin, 2 - User, 3 - DocSpace admin, 4 - Collaborator]",
+            "example": 0
+          }
+        ]
       },
       "ASC.Core.Users.MobilePhoneActivationStatus": {
         "enum": [
           "NotActivated",
           "Activated"
         ],
-        "type": "integer",
-        "description": "[0 - Not activated, 1 - Activated]",
-        "format": "int32"
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[NotActivated - Not activated, Activated - Activated]",
+            "example": "NotActivated"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - Not activated, 1 - Activated]",
+            "example": 0
+          }
+        ]
       },
-      "ASC.People.ApiModels.RequestDto.ContactsRequestDto": {
+      "ASC.People.ApiModels.RequestDto.ContactsRequest": {
         "type": "object",
         "properties": {
           "contacts": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ASC.Web.Api.Models.Contact"
-            },
+            "items": { },
             "description": "List of user contacts",
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Parameters for updating user contacts"
       },
       "ASC.People.ApiModels.RequestDto.DarkThemeSettingsRequestDto": {
         "type": "object",
@@ -4214,7 +4365,8 @@
             "$ref": "#/components/schemas/ASC.Web.Core.Users.DarkThemeSettingsType"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Theme settings request parameters"
       },
       "ASC.People.ApiModels.RequestDto.EmailMemberRequestDto": {
         "type": "object",
@@ -4226,7 +4378,8 @@
             "example": "some text"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Member request parameters"
       },
       "ASC.People.ApiModels.RequestDto.GroupRequestDto": {
         "type": "object",
@@ -4245,25 +4398,23 @@
           },
           "members": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
+            "items": { },
             "description": "List of group member IDs",
             "nullable": true,
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": [
+              "75a5f745-f697-4418-b38d-0fe0d277e258"
+            ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Group request parameters"
       },
       "ASC.People.ApiModels.RequestDto.InviteUsersRequestDto": {
         "type": "object",
         "properties": {
           "invitations": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UserInvitation"
-            },
+            "items": { },
             "description": "List of user invitations",
             "nullable": true
           },
@@ -4274,7 +4425,8 @@
             "example": "some text"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for inviting users"
       },
       "ASC.People.ApiModels.RequestDto.LinkAccountRequestDto": {
         "type": "object",
@@ -4286,7 +4438,8 @@
             "example": "some text"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for linking accounts"
       },
       "ASC.People.ApiModels.RequestDto.MemberBaseRequestDto": {
         "type": "object",
@@ -4310,7 +4463,8 @@
             "example": "some text"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for setting new password"
       },
       "ASC.People.ApiModels.RequestDto.MemberRequestDto": {
         "type": "object",
@@ -4356,13 +4510,12 @@
           },
           "department": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
+            "items": { },
             "description": "List of user departments",
             "nullable": true,
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": [
+              "75a5f745-f697-4418-b38d-0fe0d277e258"
+            ]
           },
           "title": {
             "type": "string",
@@ -4377,10 +4530,7 @@
             "example": "some text"
           },
           "sex": {
-            "type": "string",
-            "description": "Sex (male or female)",
-            "nullable": true,
-            "example": "some text"
+            "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
           },
           "birthday": {
             "$ref": "#/components/schemas/ASC.Api.Core.ApiDateTime"
@@ -4396,16 +4546,13 @@
           },
           "contacts": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ASC.Web.Api.Models.Contact"
-            },
+            "items": { },
             "description": "List of user contacts",
             "nullable": true
           },
           "files": {
             "type": "string",
             "description": "Avatar photo URL",
-            "format": "uri",
             "nullable": true,
             "example": "some text"
           },
@@ -4433,25 +4580,26 @@
             "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Member request parameters"
       },
-      "ASC.People.ApiModels.RequestDto.MembersRequestDto": {
+      "ASC.People.ApiModels.RequestDto.MembersRequest": {
         "type": "object",
         "properties": {
           "members": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
+            "items": { },
             "description": "List of group member IDs",
             "nullable": true,
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": [
+              "75a5f745-f697-4418-b38d-0fe0d277e258"
+            ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Group request parameters"
       },
-      "ASC.People.ApiModels.RequestDto.SetManagerRequestDto": {
+      "ASC.People.ApiModels.RequestDto.SetManagerRequest": {
         "type": "object",
         "properties": {
           "userId": {
@@ -4461,7 +4609,26 @@
             "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for setting a group manager"
+      },
+      "ASC.People.ApiModels.RequestDto.SexEnum": {
+        "enum": [
+          "Female",
+          "Male"
+        ],
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[Female - Female, Male - Male]",
+            "example": "Female"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - Female, 1 - Male]",
+            "example": 0
+          }
+        ]
       },
       "ASC.People.ApiModels.RequestDto.SignupAccountRequestDto": {
         "type": "object",
@@ -4509,10 +4676,11 @@
             "type": "string",
             "description": "Culture",
             "nullable": true,
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": "some text"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for creating a third-party account"
       },
       "ASC.People.ApiModels.RequestDto.StartReassignRequestDto": {
         "type": "object",
@@ -4535,7 +4703,8 @@
             "example": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for starting the reassignment process"
       },
       "ASC.People.ApiModels.RequestDto.TerminateRequestDto": {
         "type": "object",
@@ -4547,9 +4716,10 @@
             "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for terminating the reassignment process"
       },
-      "ASC.People.ApiModels.RequestDto.ThumbnailsRequestDto": {
+      "ASC.People.ApiModels.RequestDto.ThumbnailsRequest": {
         "type": "object",
         "properties": {
           "tmpFile": {
@@ -4583,9 +4753,10 @@
             "example": 1234
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Thumbnail request parameters"
       },
-      "ASC.People.ApiModels.RequestDto.UpdateGroupRequestDto": {
+      "ASC.People.ApiModels.RequestDto.UpdateGroupRequest": {
         "type": "object",
         "properties": {
           "groupManager": {
@@ -4602,26 +4773,25 @@
           },
           "membersToAdd": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
+            "items": { },
             "description": "List of user IDs to add to the group",
             "nullable": true,
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": [
+              "75a5f745-f697-4418-b38d-0fe0d277e258"
+            ]
           },
           "membersToRemove": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
+            "items": { },
             "description": "List of user IDs to remove from the group",
             "nullable": true,
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": [
+              "75a5f745-f697-4418-b38d-0fe0d277e258"
+            ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Group request parameters"
       },
       "ASC.People.ApiModels.RequestDto.UpdateMemberRequestDto": {
         "type": "object",
@@ -4667,13 +4837,12 @@
           },
           "department": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
+            "items": { },
             "description": "List of user departments",
             "nullable": true,
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": [
+              "75a5f745-f697-4418-b38d-0fe0d277e258"
+            ]
           },
           "title": {
             "type": "string",
@@ -4688,10 +4857,7 @@
             "example": "some text"
           },
           "sex": {
-            "type": "string",
-            "description": "Sex (male or female)",
-            "nullable": true,
-            "example": "some text"
+            "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
           },
           "birthday": {
             "$ref": "#/components/schemas/ASC.Api.Core.ApiDateTime"
@@ -4707,16 +4873,13 @@
           },
           "contacts": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ASC.Web.Api.Models.Contact"
-            },
+            "items": { },
             "description": "List of user contacts",
             "nullable": true
           },
           "files": {
             "type": "string",
             "description": "Avatar photo URL",
-            "format": "uri",
             "nullable": true,
             "example": "some text"
           },
@@ -4756,7 +4919,8 @@
             "example": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for updating user information"
       },
       "ASC.People.ApiModels.RequestDto.UpdateMemberSimpleRequestDto": {
         "type": "object",
@@ -4768,41 +4932,42 @@
             "example": "some text"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for updating user contacts"
       },
       "ASC.People.ApiModels.RequestDto.UpdateMembersQuotaRequestDto": {
         "type": "object",
         "properties": {
           "userIds": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
+            "items": { },
             "description": "List of user IDs",
             "nullable": true,
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": [
+              "75a5f745-f697-4418-b38d-0fe0d277e258"
+            ]
           },
           "quota": {
-            "description": "List of user IDs",
+            "type": "integer",
+            "description": "Quota",
             "format": "int64",
-            "example": "User quota"
+            "example": 1234
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for updating user information"
       },
       "ASC.People.ApiModels.RequestDto.UpdateMembersRequestDto": {
         "type": "object",
         "properties": {
           "userIds": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
+            "items": { },
             "description": "List of user IDs",
             "nullable": true,
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": [
+              "75a5f745-f697-4418-b38d-0fe0d277e258"
+            ]
           },
           "resendAll": {
             "type": "boolean",
@@ -4810,27 +4975,27 @@
             "example": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for updating user information"
       },
-      "ASC.People.ApiModels.RequestDto.UpdatePhotoMemberRequestDto": {
+      "ASC.People.ApiModels.RequestDto.UpdatePhotoMemberRequest": {
         "type": "object",
         "properties": {
           "files": {
             "type": "string",
             "description": "Avatar photo URL",
-            "format": "uri",
             "nullable": true,
             "example": "some text"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Request parameters for updating user photo"
       },
       "ASC.People.ApiModels.RequestDto.UserInvitation": {
         "type": "object",
         "properties": {
           "email": {
             "type": "string",
-            "description": "Email address",
             "nullable": true,
             "example": "some text"
           },
@@ -4879,6 +5044,20 @@
             "example": true
           },
           "data": {
+            "properties": {
+              "key1": {
+                "type": "integer",
+                "example": 1234
+              },
+              "key2": {
+                "type": "string",
+                "example": "some text"
+              },
+              "key3": {
+                "type": "boolean",
+                "example": false
+              }
+            },
             "description": "Data",
             "nullable": true
           },
@@ -4889,7 +5068,8 @@
             "example": "some text"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "File upload result dto"
       },
       "ASC.People.ApiModels.ResponseDto.GroupDto": {
         "type": "object",
@@ -4929,9 +5109,7 @@
           },
           "members": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ASC.Web.Api.Models.EmployeeFullDto"
-            },
+            "items": { },
             "description": "List of members",
             "nullable": true
           },
@@ -4989,37 +5167,37 @@
             "type": "string",
             "description": "Original photo",
             "nullable": true,
-            "example": "some text"
+            "example": "default_user_photo_size_1280-1280.png"
           },
           "retina": {
             "type": "string",
             "description": "Retina",
             "nullable": true,
-            "example": "some text"
+            "example": "default_user_photo_size_360-360.png"
           },
           "max": {
             "type": "string",
             "description": "Maximum size",
             "nullable": true,
-            "example": "some text"
+            "example": "default_user_photo_size_200-200.png"
           },
           "big": {
             "type": "string",
             "description": "Big",
             "nullable": true,
-            "example": "some text"
+            "example": "default_user_photo_size_82-82.png"
           },
           "medium": {
             "type": "string",
             "description": "Medium",
             "nullable": true,
-            "example": "some text"
+            "example": "default_user_photo_size_48-48.png"
           },
           "small": {
             "type": "string",
             "description": "Small",
             "nullable": true,
-            "example": "some text"
+            "example": "default_user_photo_size_32-32.png"
           }
         },
         "additionalProperties": false
@@ -5029,13 +5207,11 @@
         "properties": {
           "type": {
             "type": "string",
-            "description": "Contact type",
             "nullable": true,
             "example": "GTalk"
           },
           "value": {
             "type": "string",
-            "description": "Contact value",
             "nullable": true,
             "example": "my@gmail.com"
           }
@@ -5047,66 +5223,55 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "ID",
             "format": "uuid",
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": "{00000000-0000-0000-0000-000000000000}"
           },
           "displayName": {
             "type": "string",
-            "description": "Display name",
             "nullable": true,
-            "example": "some text"
+            "example": "Mike Zanyatski"
           },
           "title": {
             "type": "string",
-            "description": "Title",
             "nullable": true,
-            "example": "some text"
+            "example": "Manager"
           },
           "avatar": {
             "type": "string",
-            "description": "Avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarOriginal": {
             "type": "string",
-            "description": "Original size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarMax": {
             "type": "string",
-            "description": "Maximum size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarMedium": {
             "type": "string",
-            "description": "Medium size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarSmall": {
             "type": "string",
-            "description": "Small avatar",
             "nullable": true,
-            "example": "some text"
+            "example": "url to small avatar"
           },
           "profileUrl": {
             "type": "string",
-            "description": "Profile URL",
             "nullable": true,
             "example": "some text"
           },
           "hasAvatar": {
             "type": "boolean",
-            "description": "Specifies if the user has an avatar or not",
             "example": true
           },
           "isAnonim": {
             "type": "boolean",
-            "description": "Specifies if the user is an anonim or not",
             "example": true
           }
         },
@@ -5117,98 +5282,80 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "ID",
             "format": "uuid",
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": "{00000000-0000-0000-0000-000000000000}"
           },
           "displayName": {
             "type": "string",
-            "description": "Display name",
             "nullable": true,
-            "example": "some text"
+            "example": "Mike Zanyatski"
           },
           "title": {
             "type": "string",
-            "description": "Title",
             "nullable": true,
-            "example": "some text"
+            "example": "Manager"
           },
           "avatar": {
             "type": "string",
-            "description": "Avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarOriginal": {
             "type": "string",
-            "description": "Original size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarMax": {
             "type": "string",
-            "description": "Maximum size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarMedium": {
             "type": "string",
-            "description": "Medium size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarSmall": {
             "type": "string",
-            "description": "Small avatar",
             "nullable": true,
-            "example": "some text"
+            "example": "url to small avatar"
           },
           "profileUrl": {
             "type": "string",
-            "description": "Profile URL",
             "nullable": true,
             "example": "some text"
           },
           "hasAvatar": {
             "type": "boolean",
-            "description": "Specifies if the user has an avatar or not",
             "example": true
           },
           "isAnonim": {
             "type": "boolean",
-            "description": "Specifies if the user is an anonim or not",
             "example": true
           },
           "firstName": {
             "type": "string",
-            "description": "First name",
             "nullable": true,
-            "example": "some text"
+            "example": "Mike"
           },
           "lastName": {
             "type": "string",
-            "description": "Last name",
             "nullable": true,
-            "example": "some text"
+            "example": "Zanyatski"
           },
           "userName": {
             "type": "string",
-            "description": "Username",
             "nullable": true,
-            "example": "some text"
+            "example": "Mike.Zanyatski"
           },
           "email": {
             "type": "string",
-            "description": "Email",
             "nullable": true,
-            "example": "some text"
+            "example": "my@gmail.com"
           },
           "contacts": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ASC.Web.Api.Models.Contact"
-            },
-            "description": "List of contacts",
+            "items": { },
             "nullable": true
           },
           "birthday": {
@@ -5216,9 +5363,8 @@
           },
           "sex": {
             "type": "string",
-            "description": "Sex",
             "nullable": true,
-            "example": "some text"
+            "example": "male"
           },
           "status": {
             "$ref": "#/components/schemas/ASC.Core.Users.EmployeeStatus"
@@ -5231,81 +5377,64 @@
           },
           "department": {
             "type": "string",
-            "description": "Department",
             "nullable": true,
-            "example": "some text"
+            "example": "Marketing"
           },
           "workFrom": {
             "$ref": "#/components/schemas/ASC.Api.Core.ApiDateTime"
           },
           "groups": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ASC.Web.Api.Models.GroupSummaryDto"
-            },
-            "description": "List of groups",
+            "items": { },
             "nullable": true
           },
           "location": {
             "type": "string",
-            "description": "Location",
             "nullable": true,
-            "example": "some text"
+            "example": "Palo Alto"
           },
           "notes": {
             "type": "string",
-            "description": "Notes",
             "nullable": true,
-            "example": "some text"
+            "example": "Notes to worker"
           },
           "isAdmin": {
             "type": "boolean",
-            "description": "Specifies if the user is an administrator or not",
             "example": false
           },
           "isRoomAdmin": {
             "type": "boolean",
-            "description": "Specifies if the user is a room administrator or not",
             "example": true
           },
           "isLDAP": {
             "type": "boolean",
-            "description": "Specifies if the LDAP settings are enabled for the user or not",
-            "example": true
+            "example": false
           },
           "listAdminModules": {
             "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "List of administrator modules",
+            "items": { },
             "nullable": true,
-            "example": "some text"
+            "example": "[\"projects\", \"crm\"]"
           },
           "isOwner": {
             "type": "boolean",
-            "description": "Specifies if the user is a portal owner or not",
             "example": true
           },
           "isVisitor": {
             "type": "boolean",
-            "description": "Specifies if the user is a portal visitor or not",
             "example": true
           },
           "isCollaborator": {
             "type": "boolean",
-            "description": "Specifies if the user is a portal collaborator or not",
             "example": true
           },
           "cultureName": {
             "type": "string",
-            "description": "Language",
             "nullable": true,
-            "example": "some text"
+            "example": "en-EN"
           },
           "mobilePhone": {
             "type": "string",
-            "description": "Mobile phone number",
             "nullable": true,
             "example": "some text"
           },
@@ -5314,37 +5443,38 @@
           },
           "isSSO": {
             "type": "boolean",
-            "description": "Specifies if the SSO settings are enabled for the user or not",
-            "example": true
+            "example": false
           },
           "theme": {
             "$ref": "#/components/schemas/ASC.Web.Core.Users.DarkThemeSettingsType"
           },
           "quotaLimit": {
             "type": "integer",
-            "description": "Quota limit",
             "format": "int64",
             "nullable": true,
             "example": 1234
           },
           "usedSpace": {
             "type": "number",
-            "description": "Portal used space",
             "format": "double",
             "nullable": true,
             "example": 12345
           },
           "shared": {
             "type": "boolean",
-            "description": "Shared",
             "nullable": true,
             "example": true
           },
           "isCustomQuota": {
             "type": "boolean",
-            "description": "Specifies if the user has a custom quota or not",
             "nullable": true,
             "example": true
+          },
+          "loginEventId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true,
+            "example": 1234
           }
         },
         "additionalProperties": false
@@ -5354,21 +5484,18 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "ID",
             "format": "uuid",
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": "{00000000-0000-0000-0000-000000000000}"
           },
           "name": {
             "type": "string",
-            "description": "Name",
             "nullable": true,
-            "example": "some text"
+            "example": "Group Name"
           },
           "manager": {
             "type": "string",
-            "description": "Manager",
             "nullable": true,
-            "example": "some text"
+            "example": "Jake.Zazhitski"
           }
         },
         "additionalProperties": false
@@ -5388,31 +5515,44 @@
           "Dark",
           "System"
         ],
-        "type": "string",
-        "description": "[0 - Base, 1 - Dark, 2 - System]"
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[Base - Base, Dark - Dark, System - System]",
+            "example": "Base"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - Base, 1 - Dark, 2 - System]",
+            "example": 0
+          }
+        ]
       },
       "Microsoft.AspNetCore.Mvc.NoContentResult": {
         "type": "object",
         "properties": {
           "statusCode": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1234
           }
         },
         "additionalProperties": false
       },
-      "System.Collections.Generic.KeyValuePair<System.String, Microsoft.Extensions.Primitives.StringValues>": {
+      "System.Collections.Generic.KeyValuePair.System.String.Microsoft.Extensions.Primitives.StringValues": {
         "type": "object",
         "properties": {
           "key": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "example": "some text"
           },
           "value": {
             "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "items": { },
+            "example": [
+              "some text"
+            ]
           }
         },
         "additionalProperties": false
@@ -5421,6 +5561,7 @@
     "securitySchemes": {
       "asc_auth_key": {
         "type": "apiKey",
+        "name": "asc_auth_key",
         "in": "cookie"
       }
     }
