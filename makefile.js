@@ -92,6 +92,7 @@ function patch(d) {
 
       if ("x-shortName" in mo && typeof mo["x-shortName"] === "string") {
         mo.summary = mo["x-shortName"]
+        delete mo["x-shortName"]
       }
     }
   }
