@@ -10,7 +10,8 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Returns the backup schedule of the current portal.",
+        "summary": "Get the backup schedule",
+        "operationId": "getBackupSchedule",
         "responses": {
           "200": {
             "description": "Backup schedule",
@@ -47,7 +48,7 @@
             ]
           }
         ],
-        "x-shortName": "Get the backup schedule"
+        "description": "Returns the backup schedule of the current portal."
       }
     },
     "/api/2.0/backup/createbackupschedule": {
@@ -55,9 +56,9 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Creates the backup schedule of the current portal with the parameters specified in the request.",
+        "summary": "Create the backup schedule",
+        "operationId": "createBackupSchedule",
         "requestBody": {
-          "description": "Backup schedule parameters",
           "content": {
             "application/json": {
               "schema": {
@@ -112,7 +113,7 @@
             ]
           }
         ],
-        "x-shortName": "Create the backup schedule"
+        "description": "Creates the backup schedule of the current portal with the parameters specified in the request."
       }
     },
     "/api/2.0/backup/deletebackupschedule": {
@@ -120,7 +121,8 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Deletes the backup schedule of the current portal.",
+        "summary": "Delete the backup schedule",
+        "operationId": "deleteBackupSchedule",
         "responses": {
           "200": {
             "description": "Boolean value: true if the operation is successful",
@@ -157,7 +159,7 @@
             ]
           }
         ],
-        "x-shortName": "Delete the backup schedule"
+        "description": "Deletes the backup schedule of the current portal."
       }
     },
     "/api/2.0/backup/startbackup": {
@@ -165,9 +167,9 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Starts the backup of the current portal with the parameters specified in the request.",
+        "summary": "Start the backup",
+        "operationId": "startBackup",
         "requestBody": {
-          "description": "Backup parameters",
           "content": {
             "application/json": {
               "schema": {
@@ -222,7 +224,7 @@
             ]
           }
         ],
-        "x-shortName": "Start the backup"
+        "description": "Starts the backup of the current portal with the parameters specified in the request."
       }
     },
     "/api/2.0/backup/getbackupprogress": {
@@ -230,7 +232,8 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Returns the progress of the started backup.",
+        "summary": "Get the backup progress",
+        "operationId": "getBackupProgress",
         "responses": {
           "200": {
             "description": "Backup progress: completed or not, progress percentage, error, tenant ID, backup progress item (Backup, Restore, Transfer), link",
@@ -267,7 +270,7 @@
             ]
           }
         ],
-        "x-shortName": "Get the backup progress"
+        "description": "Returns the progress of the started backup."
       }
     },
     "/api/2.0/backup/getbackuphistory": {
@@ -275,7 +278,8 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Returns the history of the started backup.",
+        "summary": "Get the backup history",
+        "operationId": "getBackupHistory",
         "responses": {
           "200": {
             "description": "List of backup history records",
@@ -312,7 +316,7 @@
             ]
           }
         ],
-        "x-shortName": "Get the backup history"
+        "description": "Returns the history of the started backup."
       }
     },
     "/api/2.0/backup/deletebackup/{id}": {
@@ -320,18 +324,19 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Deletes the backup with the ID specified in the request.",
+        "summary": "Delete the backup",
+        "operationId": "deleteBackup",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Backup ID",
+            "description": "Backup Id",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uuid"
-            },
-            "example": "9924256A-739C-462b-AF15-E652A3B1B6EB"
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
           }
         ],
         "responses": {
@@ -370,7 +375,7 @@
             ]
           }
         ],
-        "x-shortName": "Delete the backup"
+        "description": "Deletes the backup with the ID specified in the request."
       }
     },
     "/api/2.0/backup/deletebackuphistory": {
@@ -378,7 +383,8 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Deletes the backup history of the current portal.",
+        "summary": "Delete the backup history",
+        "operationId": "deleteBackupHistory",
         "responses": {
           "200": {
             "description": "Boolean value: true if the operation is successful",
@@ -415,7 +421,7 @@
             ]
           }
         ],
-        "x-shortName": "Delete the backup history"
+        "description": "Deletes the backup history of the current portal."
       }
     },
     "/api/2.0/backup/startrestore": {
@@ -423,9 +429,9 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Starts the data restoring process of the current portal with the parameters specified in the request.",
+        "summary": "Start the restoring process",
+        "operationId": "startBackupRestore",
         "requestBody": {
-          "description": "Restoring parameters",
           "content": {
             "application/json": {
               "schema": {
@@ -480,7 +486,7 @@
             ]
           }
         ],
-        "x-shortName": "Start the restoring process"
+        "description": "Starts the data restoring process of the current portal with the parameters specified in the request."
       }
     },
     "/api/2.0/backup/getrestoreprogress": {
@@ -488,7 +494,8 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Returns the progress of the started restoring process.",
+        "summary": "Get the restoring progress",
+        "operationId": "getRestoreProgress",
         "responses": {
           "200": {
             "description": "Backup progress: completed or not, progress percentage, error, tenant ID, backup progress item (Backup, Restore, Transfer), link",
@@ -511,40 +518,28 @@
             }
           }
         },
-        "x-shortName": "Get the restoring progress"
+        "description": "Returns the progress of the started restoring process."
       }
     }
   },
   "components": {
     "schemas": {
-      "ASC.Api.Collections.ItemKeyValuePair<System.Object, System.Object>": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "nullable": true
-          },
-          "value": {
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ASC.Data.Backup.ApiModels.BackupDto": {
         "type": "object",
         "properties": {
           "storageType": {
-            "type": "string",
-            "description": "Storage type",
-            "nullable": true,
-            "example": "some text"
+            "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupStorageType"
           },
           "storageParams": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair<System.Object, System.Object>"
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
             },
             "description": "Storage parameters",
-            "nullable": true
+            "nullable": true,
+            "example": [
+              {}
+            ]
           },
           "dump": {
             "type": "boolean",
@@ -552,7 +547,8 @@
             "example": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Backup parameters"
       },
       "ASC.Data.Backup.ApiModels.BackupRestoreDto": {
         "type": "object",
@@ -564,17 +560,22 @@
             "example": "some text"
           },
           "storageType": {
+            "type": "integer",
             "description": "Storage type",
+            "format": "int32",
             "nullable": true,
-            "example": "some text"
+            "example": 1234
           },
           "storageParams": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair<System.Object, System.Object>"
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
             },
             "description": "Storage parameters",
-            "nullable": true
+            "nullable": true,
+            "example": [
+              {}
+            ]
           },
           "notify": {
             "type": "boolean",
@@ -582,30 +583,32 @@
             "example": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Restoring parameters"
       },
       "ASC.Data.Backup.ApiModels.BackupScheduleDto": {
         "type": "object",
         "properties": {
           "storageType": {
-            "type": "string",
-            "description": "Storage type",
-            "nullable": true,
-            "example": "some text"
+            "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupStorageType"
           },
           "storageParams": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair<System.Object, System.Object>"
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
             },
             "description": "Storage parameters",
-            "nullable": true
+            "nullable": true,
+            "example": [
+              {}
+            ]
           },
           "backupsStored": {
-            "type": "string",
+            "type": "integer",
             "description": "Maximum number of the stored backup copies",
+            "format": "int32",
             "nullable": true,
-            "example": "some text"
+            "example": 1234
           },
           "cronParams": {
             "$ref": "#/components/schemas/ASC.Data.Backup.ApiModels.Cron"
@@ -616,43 +619,10 @@
             "example": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Backup schedule parameters"
       },
       "ASC.Data.Backup.ApiModels.Cron": {
-        "type": "object",
-        "properties": {
-          "period": {
-            "type": "string",
-            "description": "Period",
-            "nullable": true,
-            "example": "0"
-          },
-          "hour": {
-            "type": "string",
-            "description": "Hour",
-            "nullable": true,
-            "example": "0"
-          },
-          "day": {
-            "type": "string",
-            "description": "Day",
-            "nullable": true,
-            "example": "0"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ASC.Data.Backup.BackupAjaxHandler_BackupPeriod": {
-        "enum": [
-          "EveryDay",
-          "EveryWeek",
-          "EveryMonth"
-        ],
-        "type": "integer",
-        "description": "[0 - Every day, 1 - Every week, 2 - Every month]",
-        "format": "int32"
-      },
-      "ASC.Data.Backup.BackupAjaxHandler_CronParams": {
         "type": "object",
         "properties": {
           "period": {
@@ -662,11 +632,50 @@
             "type": "integer",
             "description": "Hour",
             "format": "int32",
-            "example": 1234
+            "example": 0
           },
           "day": {
             "type": "integer",
             "description": "Day",
+            "format": "int32",
+            "example": 0
+          }
+        },
+        "additionalProperties": false,
+        "description": "Cron parameters"
+      },
+      "ASC.Data.Backup.BackupAjaxHandler_BackupPeriod": {
+        "enum": [
+          "EveryDay",
+          "EveryWeek",
+          "EveryMonth"
+        ],
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[EveryDay - Every day, EveryWeek - Every week, EveryMonth - Every month]",
+            "example": "EveryDay"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - Every day, 1 - Every week, 2 - Every month]",
+            "example": 0
+          }
+        ]
+      },
+      "ASC.Data.Backup.BackupAjaxHandler_CronParams": {
+        "type": "object",
+        "properties": {
+          "period": {
+            "$ref": "#/components/schemas/ASC.Data.Backup.BackupAjaxHandler_BackupPeriod"
+          },
+          "hour": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1234
+          },
+          "day": {
+            "type": "integer",
             "format": "int32",
             "example": 1234
           }
@@ -685,28 +694,30 @@
               "type": "string",
               "nullable": true
             },
-            "description": "Storage parameters",
-            "nullable": true
+            "nullable": true,
+            "example": [
+              {
+                "key": "some text",
+                "value": "some text"
+              }
+            ]
           },
           "cronParams": {
             "$ref": "#/components/schemas/ASC.Data.Backup.BackupAjaxHandler_CronParams"
           },
           "backupsStored": {
             "type": "integer",
-            "description": "Maximum number of the stored backup copies",
             "format": "int32",
             "nullable": true,
             "example": 1234
           },
           "lastBackupTime": {
             "type": "string",
-            "description": "Last backup creation time",
             "format": "date-time",
             "example": "2008-04-10T06:30:00.0000000+04:00"
           },
           "dump": {
             "type": "boolean",
-            "description": "Dump",
             "example": false
           }
         },
@@ -717,13 +728,11 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Backup ID",
             "format": "uuid",
             "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
           },
           "fileName": {
             "type": "string",
-            "description": "File name",
             "nullable": true,
             "example": "some text"
           },
@@ -732,13 +741,11 @@
           },
           "createdOn": {
             "type": "string",
-            "description": "Creation date",
             "format": "date-time",
             "example": "2008-04-10T06:30:00.0000000+04:00"
           },
           "expiresOn": {
             "type": "string",
-            "description": "Expiration date",
             "format": "date-time",
             "example": "2008-04-10T06:30:00.0000000+04:00"
           }
@@ -750,31 +757,25 @@
         "properties": {
           "isCompleted": {
             "type": "boolean",
-            "description": "Completed or not",
             "example": true
           },
           "progress": {
             "type": "integer",
-            "description": "Progress",
             "format": "int32",
             "example": 1234
           },
           "error": {
             "type": "string",
-            "description": "Error",
             "nullable": true,
             "example": "some text"
           },
           "link": {
             "type": "string",
-            "description": "Link",
-            "format": "uri",
             "nullable": true,
             "example": "some text"
           },
           "tenantId": {
             "type": "integer",
-            "description": "Tenant id",
             "format": "int32",
             "example": 1234
           },
@@ -783,7 +784,6 @@
           },
           "taskId": {
             "type": "string",
-            "description": "Task id",
             "nullable": true,
             "example": "some text"
           }
@@ -796,9 +796,18 @@
           "Restore",
           "Transfer"
         ],
-        "type": "integer",
-        "description": "[0 - Backup, 1 - Restore, 2 - Transfer]",
-        "format": "int32"
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[Backup - Backup, Restore - Restore, Transfer - Transfer]",
+            "example": "Backup"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - Backup, 1 - Restore, 2 - Transfer]",
+            "example": 0
+          }
+        ]
       },
       "ASC.Data.Backup.Contracts.BackupStorageType": {
         "enum": [
@@ -809,14 +818,24 @@
           "DataStore",
           "ThirdPartyConsumer"
         ],
-        "type": "integer",
-        "description": "[0 - Documents, 1 - Thridparty documents, 2 - Custom cloud, 3 - Local, 4 - Data store, 5 - Thirdparty consumer]",
-        "format": "int32"
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "[Documents - Documents, ThridpartyDocuments - Thridparty documents, CustomCloud - Custom cloud, Local - Local, DataStore - Data store, ThirdPartyConsumer - Thirdparty consumer]",
+            "example": "Documents"
+          },
+          {
+            "type": "integer",
+            "description": "[0 - Documents, 1 - Thridparty documents, 2 - Custom cloud, 3 - Local, 4 - Data store, 5 - Thirdparty consumer]",
+            "example": 0
+          }
+        ]
       }
     },
     "securitySchemes": {
       "asc_auth_key": {
         "type": "apiKey",
+        "name": "asc_auth_key",
         "in": "cookie"
       }
     }
