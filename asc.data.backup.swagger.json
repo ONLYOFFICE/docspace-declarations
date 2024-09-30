@@ -4,6 +4,12 @@
     "title": "ASC.Data.Backup",
     "version": "v2"
   },
+  "servers": [
+    {
+      "url": "http://localhost:8092/",
+      "description": "Local server"
+    }
+  ],
   "paths": {
     "/api/2.0/backup/getbackupschedule": {
       "get": {
@@ -538,7 +544,18 @@
             "description": "Storage parameters",
             "nullable": true,
             "example": [
-              { }
+              {
+                "key": {
+                  "int": 1234,
+                  "string": "some text",
+                  "boolean": true
+                },
+                "value": {
+                  "int": 1234,
+                  "string": "some text",
+                  "boolean": true
+                }
+              }
             ]
           },
           "dump": {
@@ -574,7 +591,18 @@
             "description": "Storage parameters",
             "nullable": true,
             "example": [
-              { }
+              {
+                "key": {
+                  "int": 1234,
+                  "string": "some text",
+                  "boolean": true
+                },
+                "value": {
+                  "int": 1234,
+                  "string": "some text",
+                  "boolean": true
+                }
+              }
             ]
           },
           "notify": {
@@ -600,7 +628,18 @@
             "description": "Storage parameters",
             "nullable": true,
             "example": [
-              { }
+              {
+                "key": {
+                  "int": 1234,
+                  "string": "some text",
+                  "boolean": true
+                },
+                "value": {
+                  "int": 1234,
+                  "string": "some text",
+                  "boolean": true
+                }
+              }
             ]
           },
           "backupsStored": {
@@ -645,18 +684,23 @@
         "description": "Cron parameters"
       },
       "ASC.Data.Backup.BackupAjaxHandler_BackupPeriod": {
-        "enum": [
-          "EveryDay",
-          "EveryWeek",
-          "EveryMonth"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "EveryDay",
+              "EveryWeek",
+              "EveryMonth"
+            ],
             "type": "string",
             "description": "[EveryDay - Every day, EveryWeek - Every week, EveryMonth - Every month]",
             "example": "EveryDay"
           },
           {
+            "enum": [
+              0,
+              1,
+              2
+            ],
             "type": "integer",
             "description": "[0 - Every day, 1 - Every week, 2 - Every month]",
             "example": 0
@@ -729,7 +773,7 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": "e8d23e31-3323-4a2e-94a6-912e238446af"
           },
           "fileName": {
             "type": "string",
@@ -791,18 +835,23 @@
         "additionalProperties": false
       },
       "ASC.Data.Backup.Contracts.BackupProgressEnum": {
-        "enum": [
-          "Backup",
-          "Restore",
-          "Transfer"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "Backup",
+              "Restore",
+              "Transfer"
+            ],
             "type": "string",
             "description": "[Backup - Backup, Restore - Restore, Transfer - Transfer]",
             "example": "Backup"
           },
           {
+            "enum": [
+              0,
+              1,
+              2
+            ],
             "type": "integer",
             "description": "[0 - Backup, 1 - Restore, 2 - Transfer]",
             "example": 0
@@ -810,21 +859,29 @@
         ]
       },
       "ASC.Data.Backup.Contracts.BackupStorageType": {
-        "enum": [
-          "Documents",
-          "ThridpartyDocuments",
-          "CustomCloud",
-          "Local",
-          "DataStore",
-          "ThirdPartyConsumer"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "Documents",
+              "ThridpartyDocuments",
+              "CustomCloud",
+              "Local",
+              "DataStore",
+              "ThirdPartyConsumer"
+            ],
             "type": "string",
             "description": "[Documents - Documents, ThridpartyDocuments - Thridparty documents, CustomCloud - Custom cloud, Local - Local, DataStore - Data store, ThirdPartyConsumer - Thirdparty consumer]",
             "example": "Documents"
           },
           {
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
             "type": "integer",
             "description": "[0 - Documents, 1 - Thridparty documents, 2 - Custom cloud, 3 - Local, 4 - Data store, 5 - Thirdparty consumer]",
             "example": 0
@@ -839,5 +896,11 @@
         "in": "cookie"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Backup",
+      "description": "Operations for working with backup"
+    }
+  ]
 }

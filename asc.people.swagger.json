@@ -4,6 +4,12 @@
     "title": "ASC.People",
     "version": "v2"
   },
+  "servers": [
+    {
+      "url": "http://localhost:8092/",
+      "description": "Local server"
+    }
+  ],
   "paths": {
     "/api/2.0/groups": {
       "get": {
@@ -21,7 +27,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "79a82cb4-5ac8-4dce-92bf-557e154dbb2b"
             }
           },
           {
@@ -153,7 +159,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "6b0809de-873c-4bde-b351-22ffca648213"
             }
           },
           {
@@ -219,7 +225,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "af68362b-1b29-436d-82bb-403382db6e55"
             }
           }
         ],
@@ -296,7 +302,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "ac58c7e8-789e-42ca-9c73-99e7a7066ecb"
             }
           }
         ],
@@ -355,7 +361,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "8a66093b-e15e-4bf3-bb82-81d8c48358fa"
             }
           }
         ],
@@ -484,7 +490,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "89e0914c-617c-4b07-9a40-799db16d7c75"
             }
           }
         ],
@@ -561,7 +567,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "8a8f52ab-cfa9-4c7d-9b48-61dfb1270e63"
             }
           }
         ],
@@ -638,7 +644,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "5f066f02-e3f0-42ab-a164-43ca0b7d4405"
             }
           }
         ],
@@ -717,7 +723,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "aa0f47f1-91a4-4554-b282-aab334e2e448"
             }
           }
         ],
@@ -785,6 +791,7 @@
         "tags": [
           "Group / Rooms"
         ],
+        "summary": "Gets groups with shared",
         "operationId": "getGroupsWithShared",
         "parameters": [
           {
@@ -795,7 +802,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1234
+              "example": 2598
             }
           },
           {
@@ -870,7 +877,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "4689"
             }
           }
         ],
@@ -946,7 +953,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "6242"
             }
           }
         ],
@@ -1022,7 +1029,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "6936"
             }
           }
         ],
@@ -1101,7 +1108,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "d5addeaa-c478-4b6e-b8e6-fafaf1cf0626"
             }
           }
         ],
@@ -1224,7 +1231,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "9196"
             }
           }
         ],
@@ -1302,7 +1309,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "107"
             }
           }
         ],
@@ -1358,7 +1365,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "8736"
             }
           }
         ],
@@ -1414,7 +1421,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "272"
             }
           }
         ],
@@ -1490,7 +1497,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "4894"
             }
           }
         ],
@@ -1866,7 +1873,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "3901"
             }
           }
         ],
@@ -1922,7 +1929,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "3272"
             }
           }
         ],
@@ -1978,7 +1985,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "443"
             }
           }
         ],
@@ -2145,7 +2152,8 @@
             "description": "User email address",
             "schema": {
               "type": "string",
-              "example": "some text"
+              "format": "email",
+              "example": "Israel_McCullough30@gmail.com"
             }
           }
         ],
@@ -2325,7 +2333,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "some text"
+              "example": "1170"
             }
           }
         ],
@@ -2523,6 +2531,7 @@
         "tags": [
           "People / Search"
         ],
+        "summary": "Gets accounts entries with shared",
         "operationId": "getAccountsEntriesWithShared",
         "parameters": [
           {
@@ -2531,7 +2540,8 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "format": "int32"
+              "format": "int32",
+              "example": 3951
             }
           },
           {
@@ -2552,7 +2562,8 @@
             "name": "excludeShared",
             "in": "query",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "example": true
             }
           }
         ],
@@ -2709,16 +2720,31 @@
             "name": "employeeTypes",
             "in": "query",
             "description": "List of user types",
+            "style": "deepObject",
             "schema": {
               "type": "array",
               "items": {
                 "anyOf": [
                   {
+                    "enum": [
+                      "All",
+                      "RoomAdmin",
+                      "User",
+                      "DocSpaceAdmin",
+                      "Collaborator"
+                    ],
                     "type": "string",
                     "description": "[All - All, RoomAdmin - Room admin, User - User, DocSpaceAdmin - DocSpace admin, Collaborator - Collaborator]",
                     "example": "All"
                   },
                   {
+                    "enum": [
+                      0,
+                      1,
+                      2,
+                      3,
+                      4
+                    ],
                     "type": "integer",
                     "description": "[0 - All, 1 - Room admin, 2 - User, 3 - DocSpace admin, 4 - Collaborator]",
                     "example": 0
@@ -2979,16 +3005,31 @@
             "name": "employeeTypes",
             "in": "query",
             "description": "List of user types",
+            "style": "deepObject",
             "schema": {
               "type": "array",
               "items": {
                 "anyOf": [
                   {
+                    "enum": [
+                      "All",
+                      "RoomAdmin",
+                      "User",
+                      "DocSpaceAdmin",
+                      "Collaborator"
+                    ],
                     "type": "string",
                     "description": "[All - All, RoomAdmin - Room admin, User - User, DocSpaceAdmin - DocSpace admin, Collaborator - Collaborator]",
                     "example": "All"
                   },
                   {
+                    "enum": [
+                      0,
+                      1,
+                      2,
+                      3,
+                      4
+                    ],
                     "type": "integer",
                     "description": "[0 - All, 1 - Room admin, 2 - User, 3 - DocSpace admin, 4 - Collaborator]",
                     "example": 0
@@ -3093,6 +3134,7 @@
         "tags": [
           "People / Search"
         ],
+        "summary": "Gets users with shared in room ID specified in request",
         "operationId": "getUsersWithRoomShared",
         "parameters": [
           {
@@ -3103,7 +3145,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1234
+              "example": 2588
             }
           },
           {
@@ -3496,7 +3538,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "e711a7d4-f33c-46d2-8553-ea594b975fca"
             }
           }
         ],
@@ -3685,7 +3727,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "0e69f83e-9337-4940-9812-d81b26393234"
             }
           }
         ],
@@ -4189,20 +4231,27 @@
         "additionalProperties": false
       },
       "ASC.Common.Threading.DistributedTaskStatus": {
-        "enum": [
-          "Created",
-          "Running",
-          "Completed",
-          "Canceled",
-          "Failted"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "Created",
+              "Running",
+              "Completed",
+              "Canceled",
+              "Failted"
+            ],
             "type": "string",
             "description": "[Created - Created, Running - Running, Completed - Completed, Canceled - Canceled, Failted - Failted]",
             "example": "Created"
           },
           {
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
             "type": "integer",
             "description": "[0 - Created, 1 - Running, 2 - Completed, 3 - Canceled, 4 - Failted]",
             "example": 0
@@ -4210,18 +4259,23 @@
         ]
       },
       "ASC.Core.AccountLoginType": {
-        "enum": [
-          "SSO",
-          "LDAP",
-          "Standart"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "SSO",
+              "LDAP",
+              "Standart"
+            ],
             "type": "string",
             "description": "[SSO - SSO, LDAP - LDAP, Standart - Standart]",
             "example": "SSO"
           },
           {
+            "enum": [
+              0,
+              1,
+              2
+            ],
             "type": "integer",
             "description": "[0 - SSO, 1 - LDAP, 2 - Standart]",
             "example": 0
@@ -4229,17 +4283,21 @@
         ]
       },
       "ASC.Core.Payments": {
-        "enum": [
-          "Paid",
-          "Free"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "Paid",
+              "Free"
+            ],
             "type": "string",
             "description": "[Paid - Paid, Free - Free]",
             "example": "Paid"
           },
           {
+            "enum": [
+              0,
+              1
+            ],
             "type": "integer",
             "description": "[0 - Paid, 1 - Free]",
             "example": 0
@@ -4247,18 +4305,23 @@
         ]
       },
       "ASC.Core.QuotaFilter": {
-        "enum": [
-          "All",
-          "Default",
-          "Custom"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "All",
+              "Default",
+              "Custom"
+            ],
             "type": "string",
             "description": "[All - All, Default - Default, Custom - Custom]",
             "example": "All"
           },
           {
+            "enum": [
+              0,
+              1,
+              2
+            ],
             "type": "integer",
             "description": "[0 - All, 1 - Default, 2 - Custom]",
             "example": 0
@@ -4266,19 +4329,25 @@
         ]
       },
       "ASC.Core.Users.EmployeeActivationStatus": {
-        "enum": [
-          "NotActivated",
-          "Activated",
-          "Pending",
-          "AutoGenerated"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "NotActivated",
+              "Activated",
+              "Pending",
+              "AutoGenerated"
+            ],
             "type": "string",
             "description": "[NotActivated - Not activated, Activated - Activated, Pending - Pending, AutoGenerated - Auto generated]",
             "example": "NotActivated"
           },
           {
+            "enum": [
+              0,
+              1,
+              2,
+              4
+            ],
             "type": "integer",
             "description": "[0 - Not activated, 1 - Activated, 2 - Pending, 4 - Auto generated]",
             "example": 0
@@ -4286,20 +4355,27 @@
         ]
       },
       "ASC.Core.Users.EmployeeStatus": {
-        "enum": [
-          "Active",
-          "Terminated",
-          "Pending",
-          "Default",
-          "All"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "Active",
+              "Terminated",
+              "Pending",
+              "Default",
+              "All"
+            ],
             "type": "string",
             "description": "[Active - Active, Terminated - Terminated, Pending - Pending, Default - Default, All - All]",
             "example": "Active"
           },
           {
+            "enum": [
+              1,
+              2,
+              4,
+              5,
+              7
+            ],
             "type": "integer",
             "description": "[1 - Active, 2 - Terminated, 4 - Pending, 5 - Default, 7 - All]",
             "example": 1
@@ -4307,20 +4383,27 @@
         ]
       },
       "ASC.Core.Users.EmployeeType": {
-        "enum": [
-          "All",
-          "RoomAdmin",
-          "User",
-          "DocSpaceAdmin",
-          "Collaborator"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "All",
+              "RoomAdmin",
+              "User",
+              "DocSpaceAdmin",
+              "Collaborator"
+            ],
             "type": "string",
             "description": "[All - All, RoomAdmin - Room admin, User - User, DocSpaceAdmin - DocSpace admin, Collaborator - Collaborator]",
             "example": "All"
           },
           {
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
             "type": "integer",
             "description": "[0 - All, 1 - Room admin, 2 - User, 3 - DocSpace admin, 4 - Collaborator]",
             "example": 0
@@ -4328,17 +4411,21 @@
         ]
       },
       "ASC.Core.Users.MobilePhoneActivationStatus": {
-        "enum": [
-          "NotActivated",
-          "Activated"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "NotActivated",
+              "Activated"
+            ],
             "type": "string",
             "description": "[NotActivated - Not activated, Activated - Activated]",
             "example": "NotActivated"
           },
           {
+            "enum": [
+              0,
+              1
+            ],
             "type": "integer",
             "description": "[0 - Not activated, 1 - Activated]",
             "example": 0
@@ -4352,7 +4439,14 @@
             "type": "array",
             "items": { },
             "description": "List of user contacts",
-            "nullable": true
+            "nullable": true,
+            "example": [
+              {
+                "int": 1234,
+                "string": "some text",
+                "boolean": true
+              }
+            ]
           }
         },
         "additionalProperties": false,
@@ -4374,8 +4468,9 @@
           "email": {
             "type": "string",
             "description": "Email",
+            "format": "email",
             "nullable": true,
-            "example": "some text"
+            "example": "Guido_Weimann@hotmail.com"
           }
         },
         "additionalProperties": false,
@@ -4410,13 +4505,22 @@
         "description": "Group request parameters"
       },
       "ASC.People.ApiModels.RequestDto.InviteUsersRequestDto": {
+        "required": [
+          "invitations"
+        ],
         "type": "object",
         "properties": {
           "invitations": {
             "type": "array",
             "items": { },
             "description": "List of user invitations",
-            "nullable": true
+            "example": [
+              {
+                "int": 1234,
+                "string": "some text",
+                "boolean": true
+              }
+            ]
           },
           "culture": {
             "type": "string",
@@ -4447,14 +4551,15 @@
           "email": {
             "type": "string",
             "description": "Email",
+            "format": "email",
             "nullable": true,
-            "example": "some text"
+            "example": "Zachariah_Lesch5@gmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "some text"
+            "example": "hLY1ZeprtP"
           },
           "passwordHash": {
             "type": "string",
@@ -4472,14 +4577,15 @@
           "email": {
             "type": "string",
             "description": "Email",
+            "format": "email",
             "nullable": true,
-            "example": "some text"
+            "example": "Jayson67@gmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "some text"
+            "example": "SiG8Ix1a7u"
           },
           "passwordHash": {
             "type": "string",
@@ -4496,17 +4602,17 @@
             "nullable": true,
             "example": true
           },
-          "firstname": {
+          "firstName": {
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "some text"
+            "example": "Leslie"
           },
-          "lastname": {
+          "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "some text"
+            "example": "Brown"
           },
           "department": {
             "type": "array",
@@ -4521,13 +4627,13 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "some text"
+            "example": "facilitate_wooden_rest"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "some text"
+            "example": "747 Trent Meadows, Hansenchester, Malaysia"
           },
           "sex": {
             "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
@@ -4548,7 +4654,14 @@
             "type": "array",
             "items": { },
             "description": "List of user contacts",
-            "nullable": true
+            "nullable": true,
+            "example": [
+              {
+                "int": 1234,
+                "string": "some text",
+                "boolean": true
+              }
+            ]
           },
           "files": {
             "type": "string",
@@ -4606,24 +4719,28 @@
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": "ddd83194-7fcf-4e9d-acfc-6fbb799d5858"
           }
         },
         "additionalProperties": false,
         "description": "Request parameters for setting a group manager"
       },
       "ASC.People.ApiModels.RequestDto.SexEnum": {
-        "enum": [
-          "Female",
-          "Male"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "Female",
+              "Male"
+            ],
             "type": "string",
             "description": "[Female - Female, Male - Male]",
             "example": "Female"
           },
           {
+            "enum": [
+              0,
+              1
+            ],
             "type": "integer",
             "description": "[0 - Female, 1 - Male]",
             "example": 0
@@ -4646,19 +4763,20 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "some text"
+            "example": "Zelda"
           },
           "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "some text"
+            "example": "Zieme"
           },
           "email": {
             "type": "string",
             "description": "Email address",
+            "format": "email",
             "nullable": true,
-            "example": "some text"
+            "example": "Toby88@hotmail.com"
           },
           "passwordHash": {
             "type": "string",
@@ -4713,7 +4831,7 @@
             "type": "string",
             "description": "User ID whose data is reassigned/removed",
             "format": "uuid",
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": "c9ccbdc8-37af-4763-8a0c-fed325766a7c"
           }
         },
         "additionalProperties": false,
@@ -4799,14 +4917,15 @@
           "email": {
             "type": "string",
             "description": "Email",
+            "format": "email",
             "nullable": true,
-            "example": "some text"
+            "example": "Dora.Kuvalis31@yahoo.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "some text"
+            "example": "hebDQ6czY6"
           },
           "passwordHash": {
             "type": "string",
@@ -4823,17 +4942,17 @@
             "nullable": true,
             "example": true
           },
-          "firstname": {
+          "firstName": {
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "some text"
+            "example": "Terrell"
           },
-          "lastname": {
+          "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "some text"
+            "example": "Bins"
           },
           "department": {
             "type": "array",
@@ -4848,13 +4967,13 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "some text"
+            "example": "accounts"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "some text"
+            "example": "707 Skiles Throughway, Carolynburgh, Lao People's Democratic Republic"
           },
           "sex": {
             "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
@@ -4875,7 +4994,14 @@
             "type": "array",
             "items": { },
             "description": "List of user contacts",
-            "nullable": true
+            "nullable": true,
+            "example": [
+              {
+                "int": 1234,
+                "string": "some text",
+                "boolean": true
+              }
+            ]
           },
           "files": {
             "type": "string",
@@ -4910,7 +5036,7 @@
             "type": "string",
             "description": "User ID",
             "nullable": true,
-            "example": "some text"
+            "example": "882"
           },
           "disable": {
             "type": "boolean",
@@ -4929,7 +5055,7 @@
             "type": "string",
             "description": "User ID",
             "nullable": true,
-            "example": "some text"
+            "example": "2784"
           }
         },
         "additionalProperties": false,
@@ -4996,8 +5122,9 @@
         "properties": {
           "email": {
             "type": "string",
+            "format": "email",
             "nullable": true,
-            "example": "some text"
+            "example": "Breanna.Moen82@yahoo.com"
           },
           "type": {
             "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
@@ -5044,22 +5171,13 @@
             "example": true
           },
           "data": {
-            "properties": {
-              "key1": {
-                "type": "integer",
-                "example": 1234
-              },
-              "key2": {
-                "type": "string",
-                "example": "some text"
-              },
-              "key3": {
-                "type": "boolean",
-                "example": false
-              }
-            },
             "description": "Data",
-            "nullable": true
+            "nullable": true,
+            "example": {
+              "int": 1234,
+              "string": "some text",
+              "boolean": true
+            }
           },
           "message": {
             "type": "string",
@@ -5078,7 +5196,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "some text"
+            "example": "Chandler Schimmel"
           },
           "parent": {
             "type": "string",
@@ -5097,7 +5215,7 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            "example": "db96df1a-108f-4162-a254-ff3b6f1d32cc"
           },
           "isLDAP": {
             "type": "boolean",
@@ -5135,7 +5253,7 @@
             "type": "string",
             "description": "ID",
             "nullable": true,
-            "example": "some text"
+            "example": "2288"
           },
           "error": {
             "type": "string",
@@ -5350,6 +5468,7 @@
           },
           "email": {
             "type": "string",
+            "format": "email",
             "nullable": true,
             "example": "my@gmail.com"
           },
@@ -5510,18 +5629,23 @@
         "additionalProperties": false
       },
       "ASC.Web.Core.Users.DarkThemeSettingsType": {
-        "enum": [
-          "Base",
-          "Dark",
-          "System"
-        ],
         "oneOf": [
           {
+            "enum": [
+              "Base",
+              "Dark",
+              "System"
+            ],
             "type": "string",
             "description": "[Base - Base, Dark - Dark, System - System]",
             "example": "Base"
           },
           {
+            "enum": [
+              0,
+              1,
+              2
+            ],
             "type": "integer",
             "description": "[0 - Base, 1 - Dark, 2 - System]",
             "example": 0
@@ -5565,5 +5689,59 @@
         "in": "cookie"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Group",
+      "description": "Operations for working with groups."
+    },
+    {
+      "name": "Group / Rooms",
+      "description": "Operations for getting groups with access rights to a room."
+    },
+    {
+      "name": "People / Contacts",
+      "description": "Operations for working with user contacts."
+    },
+    {
+      "name": "People / Password",
+      "description": "Operations for working with user passwords."
+    },
+    {
+      "name": "People / Photos",
+      "description": "Operations for working with user photos."
+    },
+    {
+      "name": "People / Profiles",
+      "description": "Operations  for working with user profiles."
+    },
+    {
+      "name": "People / Quota",
+      "description": "Operations for working with user quotas."
+    },
+    {
+      "name": "People / Search",
+      "description": "Operations for searching users."
+    },
+    {
+      "name": "People / Theme",
+      "description": "Operations for working with portal theme."
+    },
+    {
+      "name": "People / Third-party accounts",
+      "description": "Operations for working with third-party accounts."
+    },
+    {
+      "name": "People / User data",
+      "description": "Operations for working with user data."
+    },
+    {
+      "name": "People / User status",
+      "description": "Operations for working with user status."
+    },
+    {
+      "name": "People / User type",
+      "description": "Operations for working with user types."
+    }
+  ]
 }
