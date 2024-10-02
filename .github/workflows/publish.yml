@@ -6,7 +6,6 @@ permissions:
 on:
   push:
     branches:
-    - src
     # Some tools that use GitHub Actions syntax do not support the
     # workflow_dispatch trigger. For these, you can manually simulate this
     # trigger using a push one.
