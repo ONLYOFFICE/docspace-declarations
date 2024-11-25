@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8092/",
+      "url": "http://localhost:8092",
       "description": "Local server"
     }
   ],
@@ -16,7 +16,7 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Returns the backup schedule of the current portal.",
+        "summary": "Get the backup schedule",
         "operationId": "getBackupSchedule",
         "responses": {
           "200": {
@@ -39,11 +39,11 @@
               }
             }
           },
+          "402": {
+            "description": "Your pricing plan does not support this option"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -54,7 +54,7 @@
             ]
           }
         ],
-        "x-shortName": "Get the backup schedule"
+        "description": "Returns the backup schedule of the current portal."
       }
     },
     "/api/2.0/backup/createbackupschedule": {
@@ -62,7 +62,7 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Creates the backup schedule of the current portal with the parameters specified in the request.",
+        "summary": "Create the backup schedule",
         "operationId": "createBackupSchedule",
         "requestBody": {
           "content": {
@@ -104,11 +104,20 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "400": {
+            "description": "BackupStored must be 1 - 30 or backup can not start as dump"
+          },
+          "402": {
+            "description": "Your pricing plan does not support this option"
           },
           "403": {
-            "description": "Forbidden"
+            "description": "You don't have enough permission to create"
+          },
+          "404": {
+            "description": "The required folder was not found"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -119,7 +128,7 @@
             ]
           }
         ],
-        "x-shortName": "Create the backup schedule"
+        "description": "Creates the backup schedule of the current portal with the parameters specified in the request."
       }
     },
     "/api/2.0/backup/deletebackupschedule": {
@@ -127,7 +136,7 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Deletes the backup schedule of the current portal.",
+        "summary": "Delete the backup schedule",
         "operationId": "deleteBackupSchedule",
         "responses": {
           "200": {
@@ -150,11 +159,11 @@
               }
             }
           },
+          "402": {
+            "description": "Your pricing plan does not support this option"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -165,7 +174,7 @@
             ]
           }
         ],
-        "x-shortName": "Delete the backup schedule"
+        "description": "Deletes the backup schedule of the current portal."
       }
     },
     "/api/2.0/backup/startbackup": {
@@ -173,7 +182,7 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Starts the backup of the current portal with the parameters specified in the request.",
+        "summary": "Start the backup",
         "operationId": "startBackup",
         "requestBody": {
           "content": {
@@ -215,11 +224,20 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "400": {
+            "description": "Wrong folder type or backup can`t start as dump"
+          },
+          "402": {
+            "description": "Your pricing plan does not support this option"
           },
           "403": {
-            "description": "Forbidden"
+            "description": "You don't have enough permission to create"
+          },
+          "404": {
+            "description": "The required folder was not found"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -230,7 +248,7 @@
             ]
           }
         ],
-        "x-shortName": "Start the backup"
+        "description": "Starts the backup of the current portal with the parameters specified in the request."
       }
     },
     "/api/2.0/backup/getbackupprogress": {
@@ -238,7 +256,7 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Returns the progress of the started backup.",
+        "summary": "Get the backup progress",
         "operationId": "getBackupProgress",
         "responses": {
           "200": {
@@ -261,11 +279,11 @@
               }
             }
           },
+          "402": {
+            "description": "Your pricing plan does not support this option"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -276,7 +294,7 @@
             ]
           }
         ],
-        "x-shortName": "Get the backup progress"
+        "description": "Returns the progress of the started backup."
       }
     },
     "/api/2.0/backup/getbackuphistory": {
@@ -284,7 +302,7 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Returns the history of the started backup.",
+        "summary": "Get the backup history",
         "operationId": "getBackupHistory",
         "responses": {
           "200": {
@@ -307,11 +325,11 @@
               }
             }
           },
+          "402": {
+            "description": "Your pricing plan does not support this option"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -322,7 +340,7 @@
             ]
           }
         ],
-        "x-shortName": "Get the backup history"
+        "description": "Returns the history of the started backup."
       }
     },
     "/api/2.0/backup/deletebackup/{id}": {
@@ -330,7 +348,7 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Deletes the backup with the ID specified in the request.",
+        "summary": "Delete the backup",
         "operationId": "deleteBackup",
         "parameters": [
           {
@@ -366,11 +384,11 @@
               }
             }
           },
+          "402": {
+            "description": "Your pricing plan does not support this option"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -381,7 +399,7 @@
             ]
           }
         ],
-        "x-shortName": "Delete the backup"
+        "description": "Deletes the backup with the ID specified in the request."
       }
     },
     "/api/2.0/backup/deletebackuphistory": {
@@ -389,7 +407,7 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Deletes the backup history of the current portal.",
+        "summary": "Delete the backup history",
         "operationId": "deleteBackupHistory",
         "responses": {
           "200": {
@@ -412,11 +430,11 @@
               }
             }
           },
+          "402": {
+            "description": "Your pricing plan does not support this option"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -427,7 +445,7 @@
             ]
           }
         ],
-        "x-shortName": "Delete the backup history"
+        "description": "Deletes the backup history of the current portal."
       }
     },
     "/api/2.0/backup/startrestore": {
@@ -435,7 +453,7 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Starts the data restoring process of the current portal with the parameters specified in the request.",
+        "summary": "Start the restoring process",
         "operationId": "startBackupRestore",
         "requestBody": {
           "content": {
@@ -477,11 +495,20 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "400": {
+            "description": "Backup can not start as dump"
+          },
+          "402": {
+            "description": "Your pricing plan does not support this option"
           },
           "403": {
-            "description": "Forbidden"
+            "description": "You don't have enough permission to create"
+          },
+          "404": {
+            "description": "The required file or folder was not found"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -492,7 +519,7 @@
             ]
           }
         ],
-        "x-shortName": "Start the restoring process"
+        "description": "Starts the data restoring process of the current portal with the parameters specified in the request."
       }
     },
     "/api/2.0/backup/getrestoreprogress": {
@@ -500,7 +527,7 @@
         "tags": [
           "Backup"
         ],
-        "summary": "Returns the progress of the started restoring process.",
+        "summary": "Get the restoring progress",
         "operationId": "getRestoreProgress",
         "responses": {
           "200": {
@@ -524,12 +551,34 @@
             }
           }
         },
-        "x-shortName": "Get the restoring progress"
+        "description": "Returns the progress of the started restoring process."
       }
     }
   },
   "components": {
     "schemas": {
+      "ASC.Api.Collections.ItemKeyValuePair.System.Object.System.Object": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "nullable": true,
+            "example": {
+              "int": 1234,
+              "string": "some text",
+              "boolean": true
+            }
+          },
+          "value": {
+            "nullable": true,
+            "example": {
+              "int": 1234,
+              "string": "some text",
+              "boolean": true
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "ASC.Data.Backup.ApiModels.BackupDto": {
         "type": "object",
         "properties": {
@@ -537,26 +586,12 @@
             "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupStorageType"
           },
           "storageParams": {
-            "type": "object",
-            "additionalProperties": {
-              "nullable": true
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair.System.Object.System.Object"
             },
             "description": "Storage parameters",
-            "nullable": true,
-            "example": [
-              {
-                "key": {
-                  "int": 1234,
-                  "string": "some text",
-                  "boolean": true
-                },
-                "value": {
-                  "int": 1234,
-                  "string": "some text",
-                  "boolean": true
-                }
-              }
-            ]
+            "nullable": true
           },
           "dump": {
             "type": "boolean",
@@ -577,33 +612,15 @@
             "example": "some text"
           },
           "storageType": {
-            "type": "integer",
-            "description": "Storage type",
-            "format": "int32",
-            "nullable": true,
-            "example": 1234
+            "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupStorageType"
           },
           "storageParams": {
-            "type": "object",
-            "additionalProperties": {
-              "nullable": true
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair.System.Object.System.Object"
             },
             "description": "Storage parameters",
-            "nullable": true,
-            "example": [
-              {
-                "key": {
-                  "int": 1234,
-                  "string": "some text",
-                  "boolean": true
-                },
-                "value": {
-                  "int": 1234,
-                  "string": "some text",
-                  "boolean": true
-                }
-              }
-            ]
+            "nullable": true
           },
           "notify": {
             "type": "boolean",
@@ -621,26 +638,12 @@
             "$ref": "#/components/schemas/ASC.Data.Backup.Contracts.BackupStorageType"
           },
           "storageParams": {
-            "type": "object",
-            "additionalProperties": {
-              "nullable": true
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair.System.Object.System.Object"
             },
             "description": "Storage parameters",
-            "nullable": true,
-            "example": [
-              {
-                "key": {
-                  "int": 1234,
-                  "string": "some text",
-                  "boolean": true
-                },
-                "value": {
-                  "int": 1234,
-                  "string": "some text",
-                  "boolean": true
-                }
-              }
-            ]
+            "nullable": true
           },
           "backupsStored": {
             "type": "integer",
@@ -677,6 +680,7 @@
             "type": "integer",
             "description": "Day",
             "format": "int32",
+            "nullable": true,
             "example": 0
           }
         },
@@ -773,7 +777,7 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "example": "e8d23e31-3323-4a2e-94a6-912e238446af"
+            "example": "6a0af7f7-0f29-42fc-84ef-df97d5319d91"
           },
           "fileName": {
             "type": "string",

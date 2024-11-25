@@ -6,18 +6,18 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8092/",
+      "url": "http://localhost:8092",
       "description": "Local server"
     }
   ],
   "paths": {
-    "/api/2.0/groups": {
+    "/api/2.0/group": {
       "get": {
         "tags": [
           "Group"
         ],
-        "summary": "Returns the general information about all the groups, such as group ID and group manager.",
-        "description": "This method returns partial group information.",
+        "summary": "Get groups",
+        "description": "Returns the general information about all the groups, such as group ID and group manager.\n\n**Note**: **Note**: This method returns partial group information.",
         "operationId": "getGroups",
         "parameters": [
           {
@@ -27,7 +27,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "79a82cb4-5ac8-4dce-92bf-557e154dbb2b"
+              "example": "44fe7430-31e1-48c4-89f5-b1a628628fa2"
             }
           },
           {
@@ -63,9 +63,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -75,14 +72,13 @@
               "write"
             ]
           }
-        ],
-        "x-shortName": "Get groups"
+        ]
       },
       "post": {
         "tags": [
           "Group"
         ],
-        "summary": "Adds a new group with the group manager, name, and members specified in the request.",
+        "summary": "Add a new group",
         "operationId": "addGroup",
         "requestBody": {
           "content": {
@@ -126,9 +122,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -139,16 +132,16 @@
             ]
           }
         ],
-        "x-shortName": "Add a new group"
+        "description": "Adds a new group with the group manager, name, and members specified in the request."
       }
     },
-    "/api/2.0/groups/{id}": {
+    "/api/2.0/group/{id}": {
       "get": {
         "tags": [
           "Group"
         ],
-        "summary": "Returns the detailed information about the selected group.",
-        "description": "This method returns full group information.",
+        "summary": "Get a group",
+        "description": "Returns the detailed information about the selected group.\n\n**Note**: **Note**: This method returns full group information.",
         "operationId": "getGroup",
         "parameters": [
           {
@@ -159,7 +152,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "6b0809de-873c-4bde-b351-22ffca648213"
+              "example": "e297337b-67a7-4cd2-aa57-800c90dac581"
             }
           },
           {
@@ -193,11 +186,11 @@
               }
             }
           },
+          "404": {
+            "description": "Group not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -207,14 +200,13 @@
               "write"
             ]
           }
-        ],
-        "x-shortName": "Get a group"
+        ]
       },
       "put": {
         "tags": [
           "Group"
         ],
-        "summary": "Updates the existing group changing the group manager, name, and/or members.",
+        "summary": "Update a group",
         "operationId": "updateGroup",
         "parameters": [
           {
@@ -225,7 +217,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "af68362b-1b29-436d-82bb-403382db6e55"
+              "example": "c70bc77f-c5fb-4479-beb8-01e9b186f393"
             }
           }
         ],
@@ -270,11 +262,11 @@
               }
             }
           },
+          "404": {
+            "description": "Group not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -285,13 +277,13 @@
             ]
           }
         ],
-        "x-shortName": "Update a group"
+        "description": "Updates the existing group changing the group manager, name, and/or members."
       },
       "delete": {
         "tags": [
           "Group"
         ],
-        "summary": "Deletes a group with the ID specified in the request from the list of groups on the portal.",
+        "summary": "Delete a group",
         "operationId": "deleteGroup",
         "parameters": [
           {
@@ -302,7 +294,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "ac58c7e8-789e-42ca-9c73-99e7a7066ecb"
+              "example": "1770518d-230e-4e03-af9c-6f3b0778bc25"
             }
           }
         ],
@@ -327,11 +319,11 @@
               }
             }
           },
+          "404": {
+            "description": "Group not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -342,15 +334,15 @@
             ]
           }
         ],
-        "x-shortName": "Delete a group"
+        "description": "Deletes a group with the ID specified in the request from the list of groups on the portal."
       }
     },
-    "/api/2.0/groups/user/{userid}": {
+    "/api/2.0/group/user/{userid}": {
       "get": {
         "tags": [
           "Group"
         ],
-        "summary": "Returns a list of groups for the user with the ID specified in the request.",
+        "summary": "Get user groups",
         "operationId": "getByUserId",
         "parameters": [
           {
@@ -361,7 +353,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "8a66093b-e15e-4bf3-bb82-81d8c48358fa"
+              "example": "4e117da9-e13b-4533-86ba-5e108a3a5aad"
             }
           }
         ],
@@ -388,9 +380,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -401,15 +390,15 @@
             ]
           }
         ],
-        "x-shortName": "Get user groups"
+        "description": "Returns a list of groups for the user with the ID specified in the request."
       }
     },
-    "/api/2.0/groups/{fromId}/members/{toId}": {
+    "/api/2.0/group/{fromid}/members/{toid}": {
       "put": {
         "tags": [
           "Group"
         ],
-        "summary": "Moves all the members from the selected group to another one specified in the request.",
+        "summary": "Move group members",
         "operationId": "transferMembersTo",
         "parameters": [
           {
@@ -456,11 +445,11 @@
               }
             }
           },
+          "404": {
+            "description": "Group not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -471,15 +460,15 @@
             ]
           }
         ],
-        "x-shortName": "Move group members"
+        "description": "Moves all the members from the selected group to another one specified in the request."
       }
     },
-    "/api/2.0/groups/{id}/members": {
+    "/api/2.0/group/{id}/members": {
       "post": {
         "tags": [
           "Group"
         ],
-        "summary": "Replaces the group members with those specified in the request.",
+        "summary": "Replace group members",
         "operationId": "setMembersTo",
         "parameters": [
           {
@@ -490,7 +479,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "89e0914c-617c-4b07-9a40-799db16d7c75"
+              "example": "cf630826-340b-42d9-ad49-9833afa88ff5"
             }
           }
         ],
@@ -537,9 +526,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -550,13 +536,13 @@
             ]
           }
         ],
-        "x-shortName": "Replace group members"
+        "description": "Replaces the group members with those specified in the request."
       },
       "put": {
         "tags": [
           "Group"
         ],
-        "summary": "Adds new group members to the group with the ID specified in the request.",
+        "summary": "Add group members",
         "operationId": "addMembersTo",
         "parameters": [
           {
@@ -567,7 +553,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "8a8f52ab-cfa9-4c7d-9b48-61dfb1270e63"
+              "example": "12257908-a359-44a7-abec-7ce8ad5a7444"
             }
           }
         ],
@@ -612,11 +598,11 @@
               }
             }
           },
+          "404": {
+            "description": "Group not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -627,13 +613,13 @@
             ]
           }
         ],
-        "x-shortName": "Add group members"
+        "description": "Adds new group members to the group with the ID specified in the request."
       },
       "delete": {
         "tags": [
           "Group"
         ],
-        "summary": "Removes the group members specified in the request from the selected group.",
+        "summary": "Remove group members",
         "operationId": "removeMembersFrom",
         "parameters": [
           {
@@ -644,7 +630,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "5f066f02-e3f0-42ab-a164-43ca0b7d4405"
+              "example": "4addf6fd-0a15-4480-b4d4-b08257603514"
             }
           }
         ],
@@ -689,11 +675,11 @@
               }
             }
           },
+          "404": {
+            "description": "Group not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -704,15 +690,15 @@
             ]
           }
         ],
-        "x-shortName": "Remove group members"
+        "description": "Removes the group members specified in the request from the selected group."
       }
     },
-    "/api/2.0/groups/{id}/manager": {
+    "/api/2.0/group/{id}/manager": {
       "put": {
         "tags": [
           "Group"
         ],
-        "summary": "Sets a user with the ID specified in the request as a group manager.",
+        "summary": "Set a group manager",
         "operationId": "setManager",
         "parameters": [
           {
@@ -723,7 +709,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "aa0f47f1-91a4-4554-b282-aab334e2e448"
+              "example": "8355dfe5-8109-4f40-a853-8c2308311786"
             }
           }
         ],
@@ -768,11 +754,11 @@
               }
             }
           },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -783,7 +769,7 @@
             ]
           }
         ],
-        "x-shortName": "Set a group manager"
+        "description": "Sets a user with the ID specified in the request as a group manager."
       }
     },
     "/api/2.0/group/room/{id}": {
@@ -802,7 +788,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2598
+              "example": 1348
             }
           },
           {
@@ -817,7 +803,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Ok",
             "content": {
               "text/plain": {
                 "schema": {
@@ -845,11 +831,11 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -859,7 +845,8 @@
               "write"
             ]
           }
-        ]
+        ],
+        "description": "Gets groups with shared"
       }
     },
     "/api/2.0/people/{userid}/contacts": {
@@ -867,7 +854,7 @@
         "tags": [
           "People / Contacts"
         ],
-        "summary": "Deletes the contacts of the user with the ID specified in the request from the portal.",
+        "summary": "Delete user contacts",
         "operationId": "deleteMemberContacts",
         "parameters": [
           {
@@ -877,7 +864,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "4689"
+              "example": "6162"
             }
           }
         ],
@@ -922,11 +909,14 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -937,13 +927,13 @@
             ]
           }
         ],
-        "x-shortName": "Delete user contacts"
+        "description": "Deletes the contacts of the user with the ID specified in the request from the portal."
       },
       "post": {
         "tags": [
           "People / Contacts"
         ],
-        "summary": "Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data.",
+        "summary": "Set user contacts",
         "operationId": "setMemberContacts",
         "parameters": [
           {
@@ -953,7 +943,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "6242"
+              "example": "5936"
             }
           }
         ],
@@ -998,11 +988,14 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1013,13 +1006,13 @@
             ]
           }
         ],
-        "x-shortName": "Set user contacts"
+        "description": "Sets the contacts of the user with the ID specified in the request replacing the current portal data with the new data."
       },
       "put": {
         "tags": [
           "People / Contacts"
         ],
-        "summary": "Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data.",
+        "summary": "Update user contacts",
         "operationId": "updateMemberContacts",
         "parameters": [
           {
@@ -1029,7 +1022,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "6936"
+              "example": "9172"
             }
           }
         ],
@@ -1074,11 +1067,14 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1089,7 +1085,55 @@
             ]
           }
         ],
-        "x-shortName": "Update user contacts"
+        "description": "Updates the contact information of the user with the ID specified in the request merging the new data into the current portal data."
+      }
+    },
+    "/api/2.0/people/guests": {
+      "delete": {
+        "tags": [
+          "People / Guests"
+        ],
+        "summary": "Removes guests from the list and from rooms",
+        "operationId": "deleteGuests",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateMembersRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateMembersRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateMembersRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request parameters for deleting guests"
+          },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "description": "Removes guests from the list and excludes them from rooms to which you have invited them"
       }
     },
     "/api/2.0/people/{userid}/password": {
@@ -1097,7 +1141,7 @@
         "tags": [
           "People / Password"
         ],
-        "summary": "Sets a new password to the user with the ID specified in the request.",
+        "summary": "Change a user password",
         "operationId": "changeUserPassword",
         "parameters": [
           {
@@ -1108,7 +1152,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "d5addeaa-c478-4b6e-b8e6-fafaf1cf0626"
+              "example": "3e265a78-0da9-49da-a6b8-6c0b9c73f9e8"
             }
           }
         ],
@@ -1153,11 +1197,17 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "400": {
+            "description": "Incorrect email"
           },
           "403": {
-            "description": "Forbidden"
+            "description": "The invitation link is invalid or its validity has expired"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -1168,7 +1218,7 @@
             ]
           }
         ],
-        "x-shortName": "Change a user password"
+        "description": "Sets a new password to the user with the ID specified in the request."
       }
     },
     "/api/2.0/people/password": {
@@ -1176,7 +1226,7 @@
         "tags": [
           "People / Password"
         ],
-        "summary": "Reminds a password to the user using the email address specified in the request.",
+        "summary": "Remind a user password",
         "operationId": "sendUserPassword",
         "requestBody": {
           "content": {
@@ -1202,18 +1252,21 @@
             "description": "Email with the password",
             "content": {
               "text/plain": {
-                "schema": { }
+                "schema": {}
               },
               "application/json": {
-                "schema": { }
+                "schema": {}
               },
               "text/json": {
-                "schema": { }
+                "schema": {}
               }
             }
+          },
+          "403": {
+            "description": "No permissions to perform this action"
           }
         },
-        "x-shortName": "Remind a user password"
+        "description": "Reminds a password to the user using the email address specified in the request."
       }
     },
     "/api/2.0/people/{userid}/photo/thumbnails": {
@@ -1221,7 +1274,7 @@
         "tags": [
           "People / Photos"
         ],
-        "summary": "Creates photo thumbnails by coordinates of the original image specified in the request.",
+        "summary": "Create photo thumbnails",
         "operationId": "createMemberPhotoThumbnails",
         "parameters": [
           {
@@ -1231,7 +1284,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "9196"
+              "example": "6996"
             }
           }
         ],
@@ -1276,11 +1329,14 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1291,7 +1347,7 @@
             ]
           }
         ],
-        "x-shortName": "Create photo thumbnails"
+        "description": "Creates photo thumbnails by coordinates of the original image specified in the request."
       }
     },
     "/api/2.0/people/{userid}/photo": {
@@ -1299,7 +1355,7 @@
         "tags": [
           "People / Photos"
         ],
-        "summary": "Deletes a photo of the user with the ID specified in the request.",
+        "summary": "Delete a user photo",
         "operationId": "deleteMemberPhoto",
         "parameters": [
           {
@@ -1309,7 +1365,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "107"
+              "example": "4153"
             }
           }
         ],
@@ -1334,11 +1390,14 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1349,13 +1408,13 @@
             ]
           }
         ],
-        "x-shortName": "Delete a user photo"
+        "description": "Deletes a photo of the user with the ID specified in the request."
       },
       "get": {
         "tags": [
           "People / Photos"
         ],
-        "summary": "Returns a photo of the user with the ID specified in the request.",
+        "summary": "Get a user photo",
         "operationId": "getMemberPhoto",
         "parameters": [
           {
@@ -1365,7 +1424,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "8736"
+              "example": "9262"
             }
           }
         ],
@@ -1390,11 +1449,14 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1405,13 +1467,13 @@
             ]
           }
         ],
-        "x-shortName": "Get a user photo"
+        "description": "Returns a photo of the user with the ID specified in the request."
       },
       "put": {
         "tags": [
           "People / Photos"
         ],
-        "summary": "Updates a photo of the user with the ID specified in the request.",
+        "summary": "Update a user photo",
         "operationId": "updateMemberPhoto",
         "parameters": [
           {
@@ -1421,7 +1483,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "272"
+              "example": "6059"
             }
           }
         ],
@@ -1466,11 +1528,14 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1481,13 +1546,13 @@
             ]
           }
         ],
-        "x-shortName": "Update a user photo"
+        "description": "Updates a photo of the user with the ID specified in the request."
       },
       "post": {
         "tags": [
           "People / Photos"
         ],
-        "summary": "Uploads a photo of the user with the ID specified in the request.",
+        "summary": "Upload a user photo",
         "operationId": "uploadMemberPhoto",
         "parameters": [
           {
@@ -1497,12 +1562,11 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "4894"
+              "example": "3683"
             }
           }
         ],
         "requestBody": {
-          "description": "Image data",
           "content": {
             "multipart/form-data": {
               "schema": {
@@ -1510,7 +1574,7 @@
                 "properties": {
                   "formCollection": {
                     "type": "array",
-                    "items": { },
+                    "items": {},
                     "description": "Image data"
                   }
                 }
@@ -1546,9 +1610,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1559,55 +1620,33 @@
             ]
           }
         ],
-        "x-shortName": "Upload a user photo"
+        "description": "Uploads a photo of the user with the ID specified in the request."
       }
     },
-    "/api/2.0/people/phone": {
-      "post": {
+    "/api/2.0/people/tokendiagnostics": {
+      "get": {
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Sends a notification to the user with the ID specified in the request to change their phone number.",
-        "operationId": "sendNotificationToChange",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateMemberSimpleRequestDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateMemberSimpleRequestDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UpdateMemberSimpleRequestDto"
-              }
-            }
-          }
-        },
+        "summary": "Gets claims",
+        "operationId": "getClaims",
         "responses": {
           "200": {
-            "description": "Notification",
+            "description": "Claims",
             "content": {
               "text/plain": {
-                "schema": { }
+                "schema": {}
               },
               "application/json": {
-                "schema": { }
+                "schema": {}
               },
               "text/json": {
-                "schema": { }
+                "schema": {}
               }
             }
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1618,7 +1657,7 @@
             ]
           }
         ],
-        "x-shortName": "Send a notification to change a phone"
+        "description": "Gets claims"
       }
     },
     "/api/2.0/people": {
@@ -1626,7 +1665,7 @@
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request.",
+        "summary": "Add a user",
         "operationId": "addMember",
         "requestBody": {
           "content": {
@@ -1668,11 +1707,11 @@
               }
             }
           },
+          "403": {
+            "description": "The invitation link is invalid or its validity has expired"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1683,13 +1722,13 @@
             ]
           }
         ],
-        "x-shortName": "Add a user"
+        "description": "Adds a new portal user with the first name, last name, email address, and several optional parameters specified in the request."
       },
       "get": {
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Returns a list of profiles for all the portal users.",
+        "summary": "Get profiles",
         "operationId": "getAll",
         "responses": {
           "200": {
@@ -1714,9 +1753,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1727,7 +1763,7 @@
             ]
           }
         ],
-        "x-shortName": "Get profiles"
+        "description": "Returns a list of profiles for all the portal users."
       }
     },
     "/api/2.0/people/invite": {
@@ -1735,7 +1771,7 @@
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Invites users specified in the request to the current portal.",
+        "summary": "Invite users",
         "operationId": "inviteUsers",
         "requestBody": {
           "content": {
@@ -1777,11 +1813,11 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1792,13 +1828,13 @@
             ]
           }
         ],
-        "x-shortName": "Invite users"
+        "description": "Invites users specified in the request to the current portal."
       },
       "put": {
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Resends emails to the users who have not activated their emails.",
+        "summary": "Resend activation emails",
         "operationId": "resendUserInvites",
         "requestBody": {
           "content": {
@@ -1840,11 +1876,11 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1855,7 +1891,7 @@
             ]
           }
         ],
-        "x-shortName": "Resend activation emails"
+        "description": "Resends emails to the users who have not activated their emails."
       }
     },
     "/api/2.0/people/{userid}": {
@@ -1863,7 +1899,7 @@
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Deletes a user with the ID specified in the request from the portal.",
+        "summary": "Delete a user",
         "operationId": "deleteMember",
         "parameters": [
           {
@@ -1873,7 +1909,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "3901"
+              "example": "6429"
             }
           }
         ],
@@ -1898,11 +1934,14 @@
               }
             }
           },
+          "403": {
+            "description": "You don't have enough permission to perform the operation"
+          },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1913,13 +1952,13 @@
             ]
           }
         ],
-        "x-shortName": "Delete a user"
+        "description": "Deletes a user with the ID specified in the request from the portal."
       },
       "get": {
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Returns the detailed information about a profile of the user with the name specified in the request.",
+        "summary": "Get a profile by user name",
         "operationId": "getById",
         "parameters": [
           {
@@ -1929,7 +1968,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "3272"
+              "example": "2621"
             }
           }
         ],
@@ -1954,11 +1993,14 @@
               }
             }
           },
+          "400": {
+            "description": "Incorect UserId"
+          },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -1969,13 +2011,13 @@
             ]
           }
         ],
-        "x-shortName": "Get a profile by user name"
+        "description": "Returns the detailed information about a profile of the user with the name specified in the request."
       },
       "put": {
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.",
+        "summary": "Update a user",
         "operationId": "updateMember",
         "parameters": [
           {
@@ -1985,7 +2027,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "443"
+              "example": "4653"
             }
           }
         ],
@@ -2030,11 +2072,17 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "400": {
+            "description": "Incorrect user name"
           },
           "403": {
-            "description": "Forbidden"
+            "description": "You don't have enough permission to perform the operation"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -2045,7 +2093,7 @@
             ]
           }
         ],
-        "x-shortName": "Update a user"
+        "description": "Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request."
       }
     },
     "/api/2.0/people/@self": {
@@ -2053,7 +2101,7 @@
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Deletes the current user profile.",
+        "summary": "Delete my profile",
         "operationId": "deleteProfile",
         "responses": {
           "200": {
@@ -2076,11 +2124,14 @@
               }
             }
           },
+          "403": {
+            "description": "You don't have enough permission to perform the operation"
+          },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -2091,13 +2142,13 @@
             ]
           }
         ],
-        "x-shortName": "Delete my profile"
+        "description": "Deletes the current user profile."
       },
       "get": {
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Returns the detailed information about the current user profile.",
+        "summary": "Get my profile",
         "operationId": "self",
         "responses": {
           "200": {
@@ -2122,9 +2173,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -2135,7 +2183,7 @@
             ]
           }
         ],
-        "x-shortName": "Get my profile"
+        "description": "Returns the detailed information about the current user profile."
       }
     },
     "/api/2.0/people/email": {
@@ -2143,7 +2191,7 @@
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Returns the detailed information about a profile of the user with the email specified in the request.",
+        "summary": "Get a profile by user email",
         "operationId": "getByEmail",
         "parameters": [
           {
@@ -2153,7 +2201,7 @@
             "schema": {
               "type": "string",
               "format": "email",
-              "example": "Israel_McCullough30@gmail.com"
+              "example": "Waino.Hudson@hotmail.com"
             }
           }
         ],
@@ -2178,11 +2226,11 @@
               }
             }
           },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -2193,13 +2241,13 @@
             ]
           }
         ],
-        "x-shortName": "Get a profile by user email"
+        "description": "Returns the detailed information about a profile of the user with the email specified in the request."
       },
       "post": {
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Sends a message to the user email with the instructions to change the email address connected to the portal.",
+        "summary": "Send instructions to change email",
         "operationId": "sendEmailChangeInstructions",
         "requestBody": {
           "content": {
@@ -2225,21 +2273,27 @@
             "description": "Message text",
             "content": {
               "text/plain": {
-                "schema": { }
+                "schema": {}
               },
               "application/json": {
-                "schema": { }
+                "schema": {}
               },
               "text/json": {
-                "schema": { }
+                "schema": {}
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "400": {
+            "description": "Incorrect userId or email"
           },
           "403": {
-            "description": "Forbidden"
+            "description": "No permissions to perform this action"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -2250,7 +2304,7 @@
             ]
           }
         ],
-        "x-shortName": "Send instructions to change email"
+        "description": "Sends a message to the user email with the instructions to change the email address connected to the portal."
       }
     },
     "/api/2.0/people/delete": {
@@ -2258,7 +2312,7 @@
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Deletes a list of the users with the IDs specified in the request.",
+        "summary": "Delete users",
         "operationId": "removeUsers",
         "requestBody": {
           "content": {
@@ -2302,9 +2356,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -2315,7 +2366,7 @@
             ]
           }
         ],
-        "x-shortName": "Delete users"
+        "description": "Deletes a list of the users with the IDs specified in the request."
       }
     },
     "/api/2.0/people/{userid}/culture": {
@@ -2323,7 +2374,7 @@
         "tags": [
           "People / Profiles"
         ],
-        "summary": "Updates the user language with the parameter specified in the request.",
+        "summary": "Update user language",
         "operationId": "updateMemberCulture",
         "parameters": [
           {
@@ -2333,7 +2384,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "1170"
+              "example": "8520"
             }
           }
         ],
@@ -2378,11 +2429,14 @@
               }
             }
           },
+          "403": {
+            "description": "You don't have enough permission to perform the operation"
+          },
+          "404": {
+            "description": "User not found"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -2393,7 +2447,7 @@
             ]
           }
         ],
-        "x-shortName": "Update user language"
+        "description": "Updates the user language with the parameter specified in the request."
       }
     },
     "/api/2.0/people/userquota": {
@@ -2401,7 +2455,7 @@
         "tags": [
           "People / Quota"
         ],
-        "summary": "Changes a quota limit for the users with the IDs specified in the request.",
+        "summary": "Change a user quota limit",
         "operationId": "updateUserQuota",
         "requestBody": {
           "content": {
@@ -2443,11 +2497,11 @@
               }
             }
           },
+          "402": {
+            "description": "Failed to set quota per user. The entered value is greater than the total DocSpace storage"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -2458,7 +2512,7 @@
             ]
           }
         ],
-        "x-shortName": "Change a user quota limit"
+        "description": "Changes a quota limit for the users with the IDs specified in the request."
       }
     },
     "/api/2.0/people/resetquota": {
@@ -2466,7 +2520,7 @@
         "tags": [
           "People / Quota"
         ],
-        "summary": "Resets a user quota limit with the ID specified in the request from the portal.",
+        "summary": "Reset a user quota limit",
         "operationId": "resetUsersQuota",
         "requestBody": {
           "content": {
@@ -2508,11 +2562,14 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "402": {
+            "description": "Your pricing plan does not support this option"
           },
           "403": {
-            "description": "Forbidden"
+            "description": "The invitation link is invalid or its validity has expired"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -2523,7 +2580,7 @@
             ]
           }
         ],
-        "x-shortName": "Reset a user quota limit"
+        "description": "Resets a user quota limit with the ID specified in the request from the portal."
       }
     },
     "/api/2.0/accounts/room/{id}/search": {
@@ -2537,16 +2594,18 @@
           {
             "name": "id",
             "in": "path",
+            "description": "ID",
             "required": true,
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3951
+              "example": 5953
             }
           },
           {
             "name": "employeeStatus",
             "in": "query",
+            "description": "Employee status",
             "schema": {
               "$ref": "#/components/schemas/ASC.Core.Users.EmployeeStatus"
             }
@@ -2554,6 +2613,7 @@
           {
             "name": "activationStatus",
             "in": "query",
+            "description": "Activation status",
             "schema": {
               "$ref": "#/components/schemas/ASC.Core.Users.EmployeeActivationStatus"
             }
@@ -2561,41 +2621,69 @@
           {
             "name": "excludeShared",
             "in": "query",
+            "description": "Exclude shared",
             "schema": {
               "type": "boolean",
               "example": true
+            }
+          },
+          {
+            "name": "invitedByMe",
+            "in": "query",
+            "description": "Invited by me",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "inviterId",
+            "in": "query",
+            "description": "Inviter Id",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
+          },
+          {
+            "name": "area",
+            "in": "query",
+            "description": "Area",
+            "schema": {
+              "$ref": "#/components/schemas/ASC.Core.Common.Core.Area"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Ok",
             "content": {
               "text/plain": {
                 "schema": {
                   "type": "array",
-                  "items": { }
+                  "items": {}
                 }
               },
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { }
+                  "items": {}
                 }
               },
               "text/json": {
                 "schema": {
                   "type": "array",
-                  "items": { }
+                  "items": {}
                 }
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -2605,7 +2693,8 @@
               "write"
             ]
           }
-        ]
+        ],
+        "description": "Gets accounts entries with shared"
       }
     },
     "/api/2.0/people/status/{status}/search": {
@@ -2613,7 +2702,7 @@
         "tags": [
           "People / Search"
         ],
-        "summary": "Returns a list of users matching the status filter and search query.",
+        "summary": "Search users by status filter",
         "operationId": "getAdvanced",
         "parameters": [
           {
@@ -2658,9 +2747,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -2671,7 +2757,7 @@
             ]
           }
         ],
-        "x-shortName": "Search users by status filter"
+        "description": "Returns a list of users matching the status filter and search query."
       }
     },
     "/api/2.0/people/filter": {
@@ -2679,7 +2765,7 @@
         "tags": [
           "People / Search"
         ],
-        "summary": "Returns a list of users with full information about them matching the parameters specified in the request.",
+        "summary": "Search users and their information by extended filter",
         "operationId": "getFullByFilter",
         "parameters": [
           {
@@ -2729,12 +2815,12 @@
                     "enum": [
                       "All",
                       "RoomAdmin",
-                      "User",
+                      "Guest",
                       "DocSpaceAdmin",
-                      "Collaborator"
+                      "User"
                     ],
                     "type": "string",
-                    "description": "[All - All, RoomAdmin - Room admin, User - User, DocSpaceAdmin - DocSpace admin, Collaborator - Collaborator]",
+                    "description": "[All - All, RoomAdmin - Room admin, Guest - Guest, DocSpaceAdmin - DocSpace admin, User - User]",
                     "example": "All"
                   },
                   {
@@ -2746,7 +2832,7 @@
                       4
                     ],
                     "type": "integer",
-                    "description": "[0 - All, 1 - Room admin, 2 - User, 3 - DocSpace admin, 4 - Collaborator]",
+                    "description": "[0 - All, 1 - Room admin, 2 - Guest, 3 - DocSpace admin, 4 - User]",
                     "example": 0
                   }
                 ]
@@ -2803,6 +2889,33 @@
               "type": "boolean",
               "example": true
             }
+          },
+          {
+            "name": "invitedByMe",
+            "in": "query",
+            "description": "Invited by me",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "inviterId",
+            "in": "query",
+            "description": "Inviter Id",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
+          },
+          {
+            "name": "area",
+            "in": "query",
+            "description": "Area",
+            "schema": {
+              "$ref": "#/components/schemas/ASC.Core.Common.Core.Area"
+            }
           }
         ],
         "responses": {
@@ -2826,11 +2939,11 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -2841,7 +2954,7 @@
             ]
           }
         ],
-        "x-shortName": "Search users and their information by extended filter"
+        "description": "Returns a list of users with full information about them matching the parameters specified in the request."
       }
     },
     "/api/2.0/people/search": {
@@ -2849,7 +2962,7 @@
         "tags": [
           "People / Search"
         ],
-        "summary": "Returns a list of users matching the search query. This method uses the query parameters.",
+        "summary": "Search users (using query parameters)",
         "operationId": "getPeopleSearch",
         "parameters": [
           {
@@ -2885,9 +2998,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -2898,7 +3008,7 @@
             ]
           }
         ],
-        "x-shortName": "Search users (using query parameters)"
+        "description": "Returns a list of users matching the search query. This method uses the query parameters."
       }
     },
     "/api/2.0/people/@search/{query}": {
@@ -2906,7 +3016,7 @@
         "tags": [
           "People / Search"
         ],
-        "summary": "Returns a list of users matching the search query.",
+        "summary": "Search users",
         "operationId": "getSearch",
         "parameters": [
           {
@@ -2943,9 +3053,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -2956,7 +3063,7 @@
             ]
           }
         ],
-        "x-shortName": "Search users"
+        "description": "Returns a list of users matching the search query."
       }
     },
     "/api/2.0/people/simple/filter": {
@@ -2964,7 +3071,7 @@
         "tags": [
           "People / Search"
         ],
-        "summary": "Returns a list of users matching the parameters specified in the request.",
+        "summary": "Search users by extended filter",
         "operationId": "getSimpleByFilter",
         "parameters": [
           {
@@ -3014,12 +3121,12 @@
                     "enum": [
                       "All",
                       "RoomAdmin",
-                      "User",
+                      "Guest",
                       "DocSpaceAdmin",
-                      "Collaborator"
+                      "User"
                     ],
                     "type": "string",
-                    "description": "[All - All, RoomAdmin - Room admin, User - User, DocSpaceAdmin - DocSpace admin, Collaborator - Collaborator]",
+                    "description": "[All - All, RoomAdmin - Room admin, Guest - Guest, DocSpaceAdmin - DocSpace admin, User - User]",
                     "example": "All"
                   },
                   {
@@ -3031,7 +3138,7 @@
                       4
                     ],
                     "type": "integer",
-                    "description": "[0 - All, 1 - Room admin, 2 - User, 3 - DocSpace admin, 4 - Collaborator]",
+                    "description": "[0 - All, 1 - Room admin, 2 - Guest, 3 - DocSpace admin, 4 - User]",
                     "example": 0
                   }
                 ]
@@ -3088,6 +3195,33 @@
               "type": "boolean",
               "example": true
             }
+          },
+          {
+            "name": "invitedByMe",
+            "in": "query",
+            "description": "Invited by me",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "inviterId",
+            "in": "query",
+            "description": "Inviter Id",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
+          },
+          {
+            "name": "area",
+            "in": "query",
+            "description": "Area",
+            "schema": {
+              "$ref": "#/components/schemas/ASC.Core.Common.Core.Area"
+            }
           }
         ],
         "responses": {
@@ -3111,11 +3245,11 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3126,7 +3260,7 @@
             ]
           }
         ],
-        "x-shortName": "Search users by extended filter"
+        "description": "Returns a list of users matching the parameters specified in the request."
       }
     },
     "/api/2.0/people/room/{id}": {
@@ -3145,7 +3279,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2588
+              "example": 7923
             }
           },
           {
@@ -3172,11 +3306,38 @@
               "type": "boolean",
               "example": true
             }
+          },
+          {
+            "name": "invitedByMe",
+            "in": "query",
+            "description": "Invited by me",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "inviterId",
+            "in": "query",
+            "description": "Inviter Id",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
+          },
+          {
+            "name": "area",
+            "in": "query",
+            "description": "Area",
+            "schema": {
+              "$ref": "#/components/schemas/ASC.Core.Common.Core.Area"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Ok",
             "content": {
               "text/plain": {
                 "schema": {
@@ -3204,11 +3365,11 @@
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3218,7 +3379,8 @@
               "write"
             ]
           }
-        ]
+        ],
+        "description": "Gets users with shared in room ID specified in request"
       }
     },
     "/api/2.0/people/theme": {
@@ -3226,7 +3388,7 @@
         "tags": [
           "People / Theme"
         ],
-        "summary": "Returns a theme which is set to the current portal.",
+        "summary": "Get portal theme",
         "operationId": "getTheme",
         "responses": {
           "200": {
@@ -3251,9 +3413,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3264,13 +3423,13 @@
             ]
           }
         ],
-        "x-shortName": "Get portal theme"
+        "description": "Returns a theme which is set to the current portal."
       },
       "put": {
         "tags": [
           "People / Theme"
         ],
-        "summary": "Changes the current portal theme.",
+        "summary": "Change portal theme",
         "operationId": "changeTheme",
         "requestBody": {
           "content": {
@@ -3314,9 +3473,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3327,7 +3483,7 @@
             ]
           }
         ],
-        "x-shortName": "Change portal theme"
+        "description": "Changes the current portal theme."
       }
     },
     "/api/2.0/people/thirdparty/providers": {
@@ -3335,7 +3491,7 @@
         "tags": [
           "People / Third-party accounts"
         ],
-        "summary": "Returns a list of the available third-party accounts.",
+        "summary": "Get third-party accounts",
         "operationId": "getAuthProviders",
         "parameters": [
           {
@@ -3397,7 +3553,7 @@
             }
           }
         },
-        "x-shortName": "Get third-party accounts"
+        "description": "Returns a list of the available third-party accounts."
       }
     },
     "/api/2.0/people/thirdparty/linkaccount": {
@@ -3405,7 +3561,7 @@
         "tags": [
           "People / Third-party accounts"
         ],
-        "summary": "Links a third-party account specified in the request to the user profile.",
+        "summary": "Link a third-pary account",
         "operationId": "linkAccount",
         "requestBody": {
           "content": {
@@ -3428,13 +3584,13 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Ok"
+          },
+          "405": {
+            "description": "Error not allowed option"
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3445,7 +3601,7 @@
             ]
           }
         ],
-        "x-shortName": "Link a third-pary account"
+        "description": "Links a third-party account specified in the request to the user profile."
       }
     },
     "/api/2.0/people/thirdparty/signup": {
@@ -3453,7 +3609,7 @@
         "tags": [
           "People / Third-party accounts"
         ],
-        "summary": "Creates a third-party account with the parameters specified in the request.",
+        "summary": "Create a third-pary account",
         "operationId": "signupAccount",
         "requestBody": {
           "content": {
@@ -3476,10 +3632,16 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Ok"
+          },
+          "400": {
+            "description": "Incorrect email"
+          },
+          "403": {
+            "description": "The invitation link is invalid or its validity has expired"
           }
         },
-        "x-shortName": "Create a third-pary account"
+        "description": "Creates a third-party account with the parameters specified in the request."
       }
     },
     "/api/2.0/people/thirdparty/unlinkaccount": {
@@ -3487,7 +3649,7 @@
         "tags": [
           "People / Third-party accounts"
         ],
-        "summary": "Unlinks a third-party account specified in the request from the user profile.",
+        "summary": "Unlink a third-pary account",
         "operationId": "unlinkAccount",
         "parameters": [
           {
@@ -3506,9 +3668,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3519,7 +3678,7 @@
             ]
           }
         ],
-        "x-shortName": "Unlink a third-pary account"
+        "description": "Unlinks a third-party account specified in the request from the user profile."
       }
     },
     "/api/2.0/people/reassign/progress/{userid}": {
@@ -3527,7 +3686,7 @@
         "tags": [
           "People / User data"
         ],
-        "summary": "Returns the progress of the started data reassignment for the user with the ID specified in the request.",
+        "summary": "Get the reassignment progress",
         "operationId": "getReassignProgress",
         "parameters": [
           {
@@ -3538,7 +3697,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "e711a7d4-f33c-46d2-8553-ea594b975fca"
+              "example": "2a0536a9-919b-491a-9889-9085fc59cb6d"
             }
           }
         ],
@@ -3565,9 +3724,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3578,7 +3734,7 @@
             ]
           }
         ],
-        "x-shortName": "Get the reassignment progress"
+        "description": "Returns the progress of the started data reassignment for the user with the ID specified in the request."
       }
     },
     "/api/2.0/people/reassign/start": {
@@ -3586,7 +3742,7 @@
         "tags": [
           "People / User data"
         ],
-        "summary": "Starts the data reassignment for the user with the ID specified in the request.",
+        "summary": "Start the data reassignment",
         "operationId": "startReassign",
         "requestBody": {
           "content": {
@@ -3628,11 +3784,11 @@
               }
             }
           },
+          "400": {
+            "description": "Can not reassign data to user or from user"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3643,7 +3799,7 @@
             ]
           }
         ],
-        "x-shortName": "Start the data reassignment"
+        "description": "Starts the data reassignment for the user with the ID specified in the request."
       }
     },
     "/api/2.0/people/reassign/terminate": {
@@ -3651,7 +3807,7 @@
         "tags": [
           "People / User data"
         ],
-        "summary": "Terminates the data reassignment for the user with the ID specified in the request.",
+        "summary": "Terminate the data reassignment",
         "operationId": "terminateReassign",
         "requestBody": {
           "content": {
@@ -3695,9 +3851,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3708,7 +3861,7 @@
             ]
           }
         ],
-        "x-shortName": "Terminate the data reassignment"
+        "description": "Terminates the data reassignment for the user with the ID specified in the request."
       }
     },
     "/api/2.0/people/remove/progress/{userid}": {
@@ -3716,7 +3869,7 @@
         "tags": [
           "People / User data"
         ],
-        "summary": "Returns the progress of the started data deletion for the user with the ID specified in the request.",
+        "summary": "Get the deletion progress",
         "operationId": "getRemoveProgress",
         "parameters": [
           {
@@ -3727,7 +3880,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0e69f83e-9337-4940-9812-d81b26393234"
+              "example": "95c97c17-07c9-4bf1-8cc6-e398a89d65e9"
             }
           }
         ],
@@ -3754,9 +3907,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3767,7 +3917,7 @@
             ]
           }
         ],
-        "x-shortName": "Get the deletion progress"
+        "description": "Returns the progress of the started data deletion for the user with the ID specified in the request."
       }
     },
     "/api/2.0/people/self/delete": {
@@ -3775,28 +3925,28 @@
         "tags": [
           "People / User data"
         ],
-        "summary": "Sends instructions for deleting a user profile.",
+        "summary": "Send the deletion instructions",
         "operationId": "sendInstructionsToDelete",
         "responses": {
           "200": {
             "description": "Information message",
             "content": {
               "text/plain": {
-                "schema": { }
+                "schema": {}
               },
               "application/json": {
-                "schema": { }
+                "schema": {}
               },
               "text/json": {
-                "schema": { }
+                "schema": {}
               }
             }
           },
+          "403": {
+            "description": "No permissions to perform this action"
+          },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3807,7 +3957,7 @@
             ]
           }
         ],
-        "x-shortName": "Send the deletion instructions"
+        "description": "Sends instructions for deleting a user profile."
       }
     },
     "/api/2.0/people/remove/start": {
@@ -3815,7 +3965,7 @@
         "tags": [
           "People / User data"
         ],
-        "summary": "Starts the data deletion for the user with the ID specified in the request.",
+        "summary": "Start the data deletion",
         "operationId": "startRemove",
         "requestBody": {
           "content": {
@@ -3857,11 +4007,17 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "400": {
+            "description": "User exception"
           },
           "403": {
-            "description": "Forbidden"
+            "description": "No permissions to perform this action"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -3872,7 +4028,7 @@
             ]
           }
         ],
-        "x-shortName": "Start the data deletion"
+        "description": "Starts the data deletion for the user with the ID specified in the request."
       }
     },
     "/api/2.0/people/remove/terminate": {
@@ -3880,7 +4036,7 @@
         "tags": [
           "People / User data"
         ],
-        "summary": "Terminates the data deletion for the user with the ID specified in the request.",
+        "summary": "Terminate the data deletion",
         "operationId": "terminateRemove",
         "requestBody": {
           "content": {
@@ -3907,9 +4063,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3920,7 +4073,7 @@
             ]
           }
         ],
-        "x-shortName": "Terminate the data deletion"
+        "description": "Terminates the data deletion for the user with the ID specified in the request."
       }
     },
     "/api/2.0/people/status/{status}": {
@@ -3928,7 +4081,7 @@
         "tags": [
           "People / User status"
         ],
-        "summary": "Returns a list of profiles filtered by user status.",
+        "summary": "Get profiles by status",
         "operationId": "getByStatus",
         "parameters": [
           {
@@ -3964,9 +4117,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -3977,13 +4127,13 @@
             ]
           }
         ],
-        "x-shortName": "Get profiles by status"
+        "description": "Returns a list of profiles filtered by user status."
       },
       "put": {
         "tags": [
           "People / User status"
         ],
-        "summary": "Changes a status for the users with the IDs specified in the request.",
+        "summary": "Change a user status",
         "operationId": "updateUserStatus",
         "parameters": [
           {
@@ -4039,9 +4189,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -4052,7 +4199,7 @@
             ]
           }
         ],
-        "x-shortName": "Change a user status"
+        "description": "Changes a status for the users with the IDs specified in the request."
       }
     },
     "/api/2.0/people/activationstatus/{activationstatus}": {
@@ -4060,7 +4207,7 @@
         "tags": [
           "People / User status"
         ],
-        "summary": "Sets the required activation status to the list of users with the IDs specified in the request.",
+        "summary": "Set an activation status to the users",
         "operationId": "updateEmployeeActivationStatus",
         "parameters": [
           {
@@ -4116,9 +4263,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -4129,7 +4273,7 @@
             ]
           }
         ],
-        "x-shortName": "Set an activation status to the users"
+        "description": "Sets the required activation status to the list of users with the IDs specified in the request."
       }
     },
     "/api/2.0/people/type/{type}": {
@@ -4137,7 +4281,7 @@
         "tags": [
           "People / User type"
         ],
-        "summary": "Changes a type for the users with the IDs specified in the request.",
+        "summary": "Change a user type",
         "operationId": "updateUserType",
         "parameters": [
           {
@@ -4193,9 +4337,6 @@
           },
           "401": {
             "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         },
         "security": [
@@ -4206,7 +4347,7 @@
             ]
           }
         ],
-        "x-shortName": "Change a user type"
+        "description": "Changes a type for the users with the IDs specified in the request."
       }
     }
   },
@@ -4217,12 +4358,14 @@
         "properties": {
           "utcTime": {
             "type": "string",
+            "description": "UtcTime",
             "format": "date-time",
             "readOnly": true,
             "example": "2008-04-10T06:30:00.0000000+04:00"
           },
           "timeZoneOffset": {
             "type": "string",
+            "description": "TimeZoneOffset",
             "format": "date-span",
             "readOnly": true,
             "example": "00:00:00"
@@ -4281,6 +4424,15 @@
             "example": 0
           }
         ]
+      },
+      "ASC.Core.Common.Core.Area": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "ASC.Core.Payments": {
         "oneOf": [
@@ -4388,12 +4540,12 @@
             "enum": [
               "All",
               "RoomAdmin",
-              "User",
+              "Guest",
               "DocSpaceAdmin",
-              "Collaborator"
+              "User"
             ],
             "type": "string",
-            "description": "[All - All, RoomAdmin - Room admin, User - User, DocSpaceAdmin - DocSpace admin, Collaborator - Collaborator]",
+            "description": "[All - All, RoomAdmin - Room admin, Guest - Guest, DocSpaceAdmin - DocSpace admin, User - User]",
             "example": "All"
           },
           {
@@ -4405,7 +4557,7 @@
               4
             ],
             "type": "integer",
-            "description": "[0 - All, 1 - Room admin, 2 - User, 3 - DocSpace admin, 4 - Collaborator]",
+            "description": "[0 - All, 1 - Room admin, 2 - Guest, 3 - DocSpace admin, 4 - User]",
             "example": 0
           }
         ]
@@ -4437,16 +4589,11 @@
         "properties": {
           "contacts": {
             "type": "array",
-            "items": { },
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Api.Models.Contact"
+            },
             "description": "List of user contacts",
-            "nullable": true,
-            "example": [
-              {
-                "int": 1234,
-                "string": "some text",
-                "boolean": true
-              }
-            ]
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -4470,7 +4617,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Guido_Weimann@hotmail.com"
+            "example": "Fatima71@yahoo.com"
           }
         },
         "additionalProperties": false,
@@ -4493,7 +4640,7 @@
           },
           "members": {
             "type": "array",
-            "items": { },
+            "items": {},
             "description": "List of group member IDs",
             "nullable": true,
             "example": [
@@ -4512,15 +4659,10 @@
         "properties": {
           "invitations": {
             "type": "array",
-            "items": { },
-            "description": "List of user invitations",
-            "example": [
-              {
-                "int": 1234,
-                "string": "some text",
-                "boolean": true
-              }
-            ]
+            "items": {
+              "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.UserInvitation"
+            },
+            "description": "List of user invitations"
           },
           "culture": {
             "type": "string",
@@ -4553,13 +4695,13 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Zachariah_Lesch5@gmail.com"
+            "example": "Ruthie.Bayer19@gmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "hLY1ZeprtP"
+            "example": "Rnck9_7MqL"
           },
           "passwordHash": {
             "type": "string",
@@ -4579,13 +4721,13 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Jayson67@gmail.com"
+            "example": "Thelma_Dicki@gmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "SiG8Ix1a7u"
+            "example": "yOadGdZfkL"
           },
           "passwordHash": {
             "type": "string",
@@ -4603,20 +4745,24 @@
             "example": true
           },
           "firstName": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Leslie"
+            "example": "Johnny"
           },
           "lastName": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Brown"
+            "example": "Kohler"
           },
           "department": {
             "type": "array",
-            "items": { },
+            "items": {},
             "description": "List of user departments",
             "nullable": true,
             "example": [
@@ -4624,16 +4770,18 @@
             ]
           },
           "title": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "facilitate_wooden_rest"
+            "example": "shoals_harness"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "747 Trent Meadows, Hansenchester, Malaysia"
+            "example": "512 Columbus Rest, Zboncakport, Saint Helena"
           },
           "sex": {
             "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
@@ -4652,16 +4800,11 @@
           },
           "contacts": {
             "type": "array",
-            "items": { },
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Api.Models.Contact"
+            },
             "description": "List of user contacts",
-            "nullable": true,
-            "example": [
-              {
-                "int": 1234,
-                "string": "some text",
-                "boolean": true
-              }
-            ]
+            "nullable": true
           },
           "files": {
             "type": "string",
@@ -4691,6 +4834,12 @@
             "description": "Target",
             "format": "uuid",
             "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+          },
+          "spam": {
+            "type": "boolean",
+            "description": "Spam",
+            "nullable": true,
+            "example": true
           }
         },
         "additionalProperties": false,
@@ -4701,7 +4850,7 @@
         "properties": {
           "members": {
             "type": "array",
-            "items": { },
+            "items": {},
             "description": "List of group member IDs",
             "nullable": true,
             "example": [
@@ -4719,7 +4868,7 @@
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "ddd83194-7fcf-4e9d-acfc-6fbb799d5858"
+            "example": "4a4152fd-dd76-43b6-9f5e-8cfa47bc9e8e"
           }
         },
         "additionalProperties": false,
@@ -4763,20 +4912,20 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Zelda"
+            "example": "Erik"
           },
           "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Zieme"
+            "example": "Mayert"
           },
           "email": {
             "type": "string",
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Toby88@hotmail.com"
+            "example": "Kirsten_Schiller@yahoo.com"
           },
           "passwordHash": {
             "type": "string",
@@ -4831,7 +4980,7 @@
             "type": "string",
             "description": "User ID whose data is reassigned/removed",
             "format": "uuid",
-            "example": "c9ccbdc8-37af-4763-8a0c-fed325766a7c"
+            "example": "cda15522-a3a4-4b5f-8d49-7a254ef00ae7"
           }
         },
         "additionalProperties": false,
@@ -4891,7 +5040,7 @@
           },
           "membersToAdd": {
             "type": "array",
-            "items": { },
+            "items": {},
             "description": "List of user IDs to add to the group",
             "nullable": true,
             "example": [
@@ -4900,7 +5049,7 @@
           },
           "membersToRemove": {
             "type": "array",
-            "items": { },
+            "items": {},
             "description": "List of user IDs to remove from the group",
             "nullable": true,
             "example": [
@@ -4919,13 +5068,13 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Dora.Kuvalis31@yahoo.com"
+            "example": "Jett_Fisher@yahoo.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "hebDQ6czY6"
+            "example": "s0xd7fMLLq"
           },
           "passwordHash": {
             "type": "string",
@@ -4943,20 +5092,24 @@
             "example": true
           },
           "firstName": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Terrell"
+            "example": "Jerald"
           },
           "lastName": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Bins"
+            "example": "Gutkowski"
           },
           "department": {
             "type": "array",
-            "items": { },
+            "items": {},
             "description": "List of user departments",
             "nullable": true,
             "example": [
@@ -4964,16 +5117,18 @@
             ]
           },
           "title": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "accounts"
+            "example": "assistant_singapore_fresh"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "707 Skiles Throughway, Carolynburgh, Lao People's Democratic Republic"
+            "example": "2380 Grayson Branch, Port Kendall, Lebanon"
           },
           "sex": {
             "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
@@ -4992,16 +5147,11 @@
           },
           "contacts": {
             "type": "array",
-            "items": { },
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Api.Models.Contact"
+            },
             "description": "List of user contacts",
-            "nullable": true,
-            "example": [
-              {
-                "int": 1234,
-                "string": "some text",
-                "boolean": true
-              }
-            ]
+            "nullable": true
           },
           "files": {
             "type": "string",
@@ -5032,11 +5182,17 @@
             "format": "uuid",
             "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
           },
+          "spam": {
+            "type": "boolean",
+            "description": "Spam",
+            "nullable": true,
+            "example": true
+          },
           "userId": {
             "type": "string",
             "description": "User ID",
             "nullable": true,
-            "example": "882"
+            "example": "5369"
           },
           "disable": {
             "type": "boolean",
@@ -5048,25 +5204,12 @@
         "additionalProperties": false,
         "description": "Request parameters for updating user information"
       },
-      "ASC.People.ApiModels.RequestDto.UpdateMemberSimpleRequestDto": {
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "string",
-            "description": "User ID",
-            "nullable": true,
-            "example": "2784"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Request parameters for updating user contacts"
-      },
       "ASC.People.ApiModels.RequestDto.UpdateMembersQuotaRequestDto": {
         "type": "object",
         "properties": {
           "userIds": {
             "type": "array",
-            "items": { },
+            "items": {},
             "description": "List of user IDs",
             "nullable": true,
             "example": [
@@ -5074,10 +5217,17 @@
             ]
           },
           "quota": {
-            "type": "integer",
-            "description": "Quota",
-            "format": "int64",
-            "example": 1234
+            "oneOf": [
+              {
+                "type": "integer",
+                "example": 1234
+              },
+              {
+                "type": "string",
+                "example": "some text"
+              }
+            ],
+            "description": "Quota"
           }
         },
         "additionalProperties": false,
@@ -5088,7 +5238,7 @@
         "properties": {
           "userIds": {
             "type": "array",
-            "items": { },
+            "items": {},
             "description": "List of user IDs",
             "nullable": true,
             "example": [
@@ -5122,9 +5272,10 @@
         "properties": {
           "email": {
             "type": "string",
+            "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Breanna.Moen82@yahoo.com"
+            "example": "Eddie23@gmail.com"
           },
           "type": {
             "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
@@ -5196,7 +5347,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Chandler Schimmel"
+            "example": "Kattie Carter"
           },
           "parent": {
             "type": "string",
@@ -5215,7 +5366,7 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "db96df1a-108f-4162-a254-ff3b6f1d32cc"
+            "example": "038ed3f7-6bc3-4d02-8c28-70e3b4ec7975"
           },
           "isLDAP": {
             "type": "boolean",
@@ -5227,7 +5378,7 @@
           },
           "members": {
             "type": "array",
-            "items": { },
+            "items": {},
             "description": "List of members",
             "nullable": true
           },
@@ -5253,7 +5404,7 @@
             "type": "string",
             "description": "ID",
             "nullable": true,
-            "example": "2288"
+            "example": "1887"
           },
           "error": {
             "type": "string",
@@ -5325,11 +5476,13 @@
         "properties": {
           "type": {
             "type": "string",
+            "description": "Contact type",
             "nullable": true,
             "example": "GTalk"
           },
           "value": {
             "type": "string",
+            "description": "Contact value",
             "nullable": true,
             "example": "my@gmail.com"
           }
@@ -5341,55 +5494,66 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "ID",
             "format": "uuid",
             "example": "{00000000-0000-0000-0000-000000000000}"
           },
           "displayName": {
             "type": "string",
+            "description": "Display name",
             "nullable": true,
             "example": "Mike Zanyatski"
           },
           "title": {
             "type": "string",
+            "description": "Title",
             "nullable": true,
             "example": "Manager"
           },
           "avatar": {
             "type": "string",
+            "description": "Avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarOriginal": {
             "type": "string",
+            "description": "Original size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarMax": {
             "type": "string",
+            "description": "Maximum size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarMedium": {
             "type": "string",
+            "description": "Medium size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarSmall": {
             "type": "string",
+            "description": "Small avatar",
             "nullable": true,
             "example": "url to small avatar"
           },
           "profileUrl": {
             "type": "string",
+            "description": "Profile URL",
             "nullable": true,
             "example": "some text"
           },
           "hasAvatar": {
             "type": "boolean",
+            "description": "Specifies if the user has an avatar or not",
             "example": true
           },
           "isAnonim": {
             "type": "boolean",
+            "description": "Specifies if the user is an anonim or not",
             "example": true
           }
         },
@@ -5400,81 +5564,97 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "ID",
             "format": "uuid",
             "example": "{00000000-0000-0000-0000-000000000000}"
           },
           "displayName": {
             "type": "string",
+            "description": "Display name",
             "nullable": true,
             "example": "Mike Zanyatski"
           },
           "title": {
             "type": "string",
+            "description": "Title",
             "nullable": true,
             "example": "Manager"
           },
           "avatar": {
             "type": "string",
+            "description": "Avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarOriginal": {
             "type": "string",
+            "description": "Original size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarMax": {
             "type": "string",
+            "description": "Maximum size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarMedium": {
             "type": "string",
+            "description": "Medium size avatar",
             "nullable": true,
             "example": "some text"
           },
           "avatarSmall": {
             "type": "string",
+            "description": "Small avatar",
             "nullable": true,
             "example": "url to small avatar"
           },
           "profileUrl": {
             "type": "string",
+            "description": "Profile URL",
             "nullable": true,
             "example": "some text"
           },
           "hasAvatar": {
             "type": "boolean",
+            "description": "Specifies if the user has an avatar or not",
             "example": true
           },
           "isAnonim": {
             "type": "boolean",
+            "description": "Specifies if the user is an anonim or not",
             "example": true
           },
           "firstName": {
             "type": "string",
+            "description": "First name",
             "nullable": true,
             "example": "Mike"
           },
           "lastName": {
             "type": "string",
+            "description": "Last name",
             "nullable": true,
             "example": "Zanyatski"
           },
           "userName": {
             "type": "string",
+            "description": "Username",
             "nullable": true,
             "example": "Mike.Zanyatski"
           },
           "email": {
             "type": "string",
+            "description": "Email",
             "format": "email",
             "nullable": true,
             "example": "my@gmail.com"
           },
           "contacts": {
             "type": "array",
-            "items": { },
+            "items": {},
+            "description": "List of contacts",
             "nullable": true
           },
           "birthday": {
@@ -5482,6 +5662,7 @@
           },
           "sex": {
             "type": "string",
+            "description": "Sex",
             "nullable": true,
             "example": "male"
           },
@@ -5496,6 +5677,7 @@
           },
           "department": {
             "type": "string",
+            "description": "Department",
             "nullable": true,
             "example": "Marketing"
           },
@@ -5504,56 +5686,68 @@
           },
           "groups": {
             "type": "array",
-            "items": { },
+            "items": {},
+            "description": "List of groups",
             "nullable": true
           },
           "location": {
             "type": "string",
+            "description": "Location",
             "nullable": true,
             "example": "Palo Alto"
           },
           "notes": {
             "type": "string",
+            "description": "Notes",
             "nullable": true,
             "example": "Notes to worker"
           },
           "isAdmin": {
             "type": "boolean",
+            "description": "Specifies if the user is an administrator or not",
             "example": false
           },
           "isRoomAdmin": {
             "type": "boolean",
+            "description": "Specifies if the user is a room administrator or not",
             "example": true
           },
           "isLDAP": {
             "type": "boolean",
+            "description": "Specifies if the LDAP settings are enabled for the user or not",
             "example": false
           },
           "listAdminModules": {
             "type": "array",
-            "items": { },
+            "items": {},
+            "description": "List of administrator modules",
             "nullable": true,
             "example": "[\"projects\", \"crm\"]"
           },
           "isOwner": {
             "type": "boolean",
+            "description": "Specifies if the user is a portal owner or not",
             "example": true
           },
           "isVisitor": {
             "type": "boolean",
+            "description": "Specifies if the user is a portal visitor or not",
             "example": true
           },
           "isCollaborator": {
             "type": "boolean",
+            "description": "Specifies if the user is a portal collaborator or not",
             "example": true
           },
           "cultureName": {
             "type": "string",
+            "description": "Language",
             "nullable": true,
             "example": "en-EN"
           },
           "mobilePhone": {
             "type": "string",
+            "description": "Mobile phone number",
             "nullable": true,
             "example": "some text"
           },
@@ -5562,6 +5756,7 @@
           },
           "isSSO": {
             "type": "boolean",
+            "description": "Specifies if the SSO settings are enabled for the user or not",
             "example": false
           },
           "theme": {
@@ -5569,31 +5764,42 @@
           },
           "quotaLimit": {
             "type": "integer",
+            "description": "Quota limit",
             "format": "int64",
             "nullable": true,
             "example": 1234
           },
           "usedSpace": {
             "type": "number",
+            "description": "Portal used space",
             "format": "double",
             "nullable": true,
             "example": 12345
           },
           "shared": {
             "type": "boolean",
+            "description": "Shared",
             "nullable": true,
             "example": true
           },
           "isCustomQuota": {
             "type": "boolean",
+            "description": "Specifies if the user has a custom quota or not",
             "nullable": true,
             "example": true
           },
           "loginEventId": {
             "type": "integer",
+            "description": "Current login event ID",
             "format": "int32",
             "nullable": true,
             "example": 1234
+          },
+          "createdBy": {
+            "$ref": "#/components/schemas/ASC.Web.Api.Models.EmployeeDto"
+          },
+          "registrationDate": {
+            "$ref": "#/components/schemas/ASC.Api.Core.ApiDateTime"
           }
         },
         "additionalProperties": false
@@ -5603,16 +5809,19 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "ID",
             "format": "uuid",
             "example": "{00000000-0000-0000-0000-000000000000}"
           },
           "name": {
             "type": "string",
+            "description": "Name",
             "nullable": true,
             "example": "Group Name"
           },
           "manager": {
             "type": "string",
+            "description": "Manager",
             "nullable": true,
             "example": "Jake.Zazhitski"
           }
@@ -5626,7 +5835,8 @@
             "$ref": "#/components/schemas/ASC.Web.Core.Users.DarkThemeSettingsType"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": ""
       },
       "ASC.Web.Core.Users.DarkThemeSettingsType": {
         "oneOf": [
@@ -5673,7 +5883,7 @@
           },
           "value": {
             "type": "array",
-            "items": { },
+            "items": {},
             "example": [
               "some text"
             ]
@@ -5702,6 +5912,10 @@
     {
       "name": "People / Contacts",
       "description": "Operations for working with user contacts."
+    },
+    {
+      "name": "People / Guests",
+      "description": "Operations for workig with gursts"
     },
     {
       "name": "People / Password",
