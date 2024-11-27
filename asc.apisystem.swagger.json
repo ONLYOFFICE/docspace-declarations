@@ -216,7 +216,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Giovanny"
+              "example": "Ruby"
             }
           },
           {
@@ -228,7 +228,7 @@
               "minLength": 0,
               "type": "string",
               "format": "email",
-              "example": "Myron_Glover@hotmail.com"
+              "example": "Nola_Crona65@gmail.com"
             }
           },
           {
@@ -260,7 +260,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Stamm"
+              "example": "Kreiger"
             }
           },
           {
@@ -282,7 +282,7 @@
               "maxLength": 30,
               "minLength": 0,
               "type": "string",
-              "example": "HRx8pjTgnV"
+              "example": "ywIo6BxW4l"
             }
           },
           {
@@ -663,7 +663,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Lennie"
+              "example": "Electa"
             }
           },
           {
@@ -675,7 +675,7 @@
               "minLength": 0,
               "type": "string",
               "format": "email",
-              "example": "Vincenzo_Satterfield@gmail.com"
+              "example": "Flossie_Grady52@hotmail.com"
             }
           },
           {
@@ -707,7 +707,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Bartoletti"
+              "example": "D'Amore"
             }
           },
           {
@@ -729,7 +729,7 @@
               "maxLength": 30,
               "minLength": 0,
               "type": "string",
-              "example": "t_Q8BUN5qF"
+              "example": "ll_nbWEyq1"
             }
           },
           {
@@ -1474,7 +1474,10 @@
         "properties": {
           "userIds": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "User ids",
             "nullable": true,
             "example": [
@@ -1619,7 +1622,7 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Genevieve"
+            "example": "Mose"
           },
           "email": {
             "maxLength": 255,
@@ -1628,7 +1631,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Rhiannon82@yahoo.com"
+            "example": "Kameron_Medhurst@yahoo.com"
           },
           "industry": {
             "type": "integer",
@@ -1650,7 +1653,7 @@
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Leuschke"
+            "example": "Nikolaus"
           },
           "module": {
             "maxLength": 38,
@@ -1666,7 +1669,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "i_ktHub2px"
+            "example": "uRMhABtY6s"
           },
           "passwordHash": {
             "type": "string",

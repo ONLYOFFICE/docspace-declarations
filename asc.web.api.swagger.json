@@ -1294,7 +1294,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "80e5994a-d58d-4fff-9fe9-24cdc8ec29d0"
+              "example": "ec7aff0a-8710-4c33-a4ec-225aa29d0fbd"
             }
           }
         ],
@@ -1589,7 +1589,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "12f5244a-f027-4880-80d4-4b5735c6e33b"
+              "example": "f9ba3618-7089-4489-a1a8-83ce592eb850"
             }
           }
         ],
@@ -1668,7 +1668,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8639
+              "example": 3583
             }
           }
         ],
@@ -1772,7 +1772,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "40e54ceb-9229-46b8-aa09-e5b1ac4ab51e"
+              "example": "b6bb4303-7c8d-4693-a0c2-8c0844d21439"
             }
           },
           {
@@ -2385,7 +2385,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "083fabbe-7487-4be8-a0d6-5d80b692a031"
+              "example": "41ca2a5a-1d8e-461a-8534-962f2cb3b887"
             }
           },
           {
@@ -3332,7 +3332,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6788
+              "example": 688
             }
           }
         ],
@@ -3399,68 +3399,6 @@
           }
         ],
         "description": "Closes the admin helper notification."
-      }
-    },
-    "/api/2.0/settings/emailactivation": {
-      "put": {
-        "tags": [
-          "Settings / Common settings"
-        ],
-        "summary": "Update the email activation settings",
-        "operationId": "updateEmailActivationSettings",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Updated email activation settings",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          }
-        ],
-        "description": "Updates the email activation settings."
       }
     },
     "/api/2.0/settings/socket": {
@@ -3635,249 +3573,6 @@
           }
         ],
         "description": "Updates the cookies lifetime value in minutes."
-      }
-    },
-    "/api/2.0/settings/customnavigation/getall": {
-      "get": {
-        "tags": [
-          "Settings / Custom Navigation"
-        ],
-        "summary": "Get the custom navigation items",
-        "operationId": "getCustomNavigationItems",
-        "responses": {
-          "200": {
-            "description": "List of the custom navigation items",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          }
-        ],
-        "description": "Returns a list of the custom navigation items."
-      }
-    },
-    "/api/2.0/settings/customnavigation/getsample": {
-      "get": {
-        "tags": [
-          "Settings / Custom Navigation"
-        ],
-        "summary": "Get a custom navigation item sample",
-        "operationId": "getCustomNavigationItemSample",
-        "responses": {
-          "200": {
-            "description": "Custom navigation item",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          }
-        ],
-        "description": "Returns a custom navigation item sample."
-      }
-    },
-    "/api/2.0/settings/customnavigation/get/{id}": {
-      "get": {
-        "tags": [
-          "Settings / Custom Navigation"
-        ],
-        "summary": "Get a custom navigation item by ID",
-        "operationId": "getCustomNavigationItem",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid",
-              "example": "b284b039-39fd-4e74-82de-be623ca3517b"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Custom navigation item",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          }
-        ],
-        "description": "Returns a custom navigation item by the ID specified in the request."
-      }
-    },
-    "/api/2.0/settings/customnavigation/create": {
-      "post": {
-        "tags": [
-          "Settings / Custom Navigation"
-        ],
-        "summary": "Add a custom navigation item",
-        "operationId": "createCustomNavigationItem",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Custom navigation item",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          }
-        ],
-        "description": "Adds a custom navigation item with the parameters specified in the request."
-      }
-    },
-    "/api/2.0/settings/customnavigation/delete/{id}": {
-      "delete": {
-        "tags": [
-          "Settings / Custom Navigation"
-        ],
-        "summary": "Delete a custom navigation item",
-        "operationId": "deleteCustomNavigationItem",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid",
-              "example": "487c9246-74fd-446d-8048-53651966eeb0"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          }
-        ],
-        "description": "Deletes a custom navigation item with the ID specified in the request."
       }
     },
     "/api/2.0/settings/encryption/start": {
@@ -6160,7 +5855,9 @@
             "style": "deepObject",
             "schema": {
               "type": "array",
-              "items": {},
+              "items": {
+                "type": "string"
+              },
               "example": [
                 "some text"
               ]
@@ -6282,7 +5979,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "148f2778-fe97-4ad6-8256-60e393f2fb5d"
+              "example": "e74b4689-9d3e-4bf7-a4a7-7fa1cfdf1a5e"
             }
           }
         ],
@@ -6546,7 +6243,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "1d01b890-3e57-49ff-961a-e70807bea1b9"
+              "example": "f2a43c06-d93d-4c15-9d79-ce3cb90db201"
             }
           }
         ],
@@ -6601,7 +6298,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "630dad1e-10e5-450c-993e-c971f7263cbc"
+              "example": "06802df4-49da-4969-b055-f17ab36a9eb9"
             }
           },
           {
@@ -6611,7 +6308,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "b18b2118-f925-4020-8977-8c9bc83ea9cc"
+              "example": "57907d13-458c-4f99-8b02-9764d2065a6d"
             }
           }
         ],
@@ -6934,7 +6631,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "2ff0d65c-82f9-4f72-8323-9a5eb0eb52c1"
+              "example": "ad3a6cc7-fd25-46c9-b6d2-26fb6d07c17a"
             }
           }
         ],
@@ -7562,7 +7259,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "282"
+              "example": "2185"
             }
           }
         ],
@@ -8378,7 +8075,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 693
+              "example": 3997
             }
           }
         ],
@@ -8432,7 +8129,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9095
+              "example": 4436
             }
           }
         ],
@@ -8600,7 +8297,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4376
+              "example": 683
             }
           }
         ],
@@ -8881,7 +8578,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "Araceli Bradtke"
+              "example": "Nona Prosacco"
             }
           }
         ],
@@ -8937,7 +8634,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "Idell Graham"
+              "example": "Jarvis Abernathy"
             }
           }
         ],
@@ -8996,7 +8693,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "Louvenia Hauck"
+              "example": "Derek Price"
             }
           }
         ],
@@ -9097,7 +8794,7 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "133f4c02-dee8-4bb1-84d3-14b4e8646539"
+            "example": "beb95349-9dc3-4709-b5e5-543c909cadd3"
           },
           "appName": {
             "type": "string",
@@ -9109,7 +8806,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "optimization"
+            "example": "practical_steel_ball_berkshire_handcrafted_fresh_keyboard"
           },
           "link": {
             "type": "string",
@@ -9305,10 +9002,11 @@
               "ProjectsSettings",
               "General",
               "Products",
-              "Rooms"
+              "Rooms",
+              "OAuth"
             ],
             "type": "string",
-            "description": "[None - None, Files - Files, Folders - Folders, DocumentsSettings - Documents settings, Companies - Companies, Persons - Persons, Contacts - Contacts, CrmTasks - Crm tasks, Opportunities - Opportunities, Invoices - Invoices, Cases - Cases, CommonCrmSettings - Common crm settings, ContactsSettings - Contacts settings, ContactTypes - Contact types, InvoiceSettings - Invoice settings, OtherCrmSettings - Other crm settings, Users - Users, Groups - Groups, Projects - Projects, Milestones - Milestones, Tasks - Tasks, Discussions - Discussions, TimeTracking - Time tracking, Reports - Reports, ProjectsSettings - Projects settings, General - General, Products - Products, Rooms - Rooms]",
+            "description": "[None - None, Files - Files, Folders - Folders, DocumentsSettings - Documents settings, Companies - Companies, Persons - Persons, Contacts - Contacts, CrmTasks - Crm tasks, Opportunities - Opportunities, Invoices - Invoices, Cases - Cases, CommonCrmSettings - Common crm settings, ContactsSettings - Contacts settings, ContactTypes - Contact types, InvoiceSettings - Invoice settings, OtherCrmSettings - Other crm settings, Users - Users, Groups - Groups, Projects - Projects, Milestones - Milestones, Tasks - Tasks, Discussions - Discussions, TimeTracking - Time tracking, Reports - Reports, ProjectsSettings - Projects settings, General - General, Products - Products, Rooms - Rooms, OAuth - OAuth]",
             "example": "None"
           },
           {
@@ -9340,10 +9038,11 @@
               24,
               25,
               26,
-              27
+              27,
+              28
             ],
             "type": "integer",
-            "description": "[0 - None, 1 - Files, 2 - Folders, 3 - Documents settings, 4 - Companies, 5 - Persons, 6 - Contacts, 7 - Crm tasks, 8 - Opportunities, 9 - Invoices, 10 - Cases, 11 - Common crm settings, 12 - Contacts settings, 13 - Contact types, 14 - Invoice settings, 15 - Other crm settings, 16 - Users, 17 - Groups, 18 - Projects, 19 - Milestones, 20 - Tasks, 21 - Discussions, 22 - Time tracking, 23 - Reports, 24 - Projects settings, 25 - General, 26 - Products, 27 - Rooms]",
+            "description": "[0 - None, 1 - Files, 2 - Folders, 3 - Documents settings, 4 - Companies, 5 - Persons, 6 - Contacts, 7 - Crm tasks, 8 - Opportunities, 9 - Invoices, 10 - Cases, 11 - Common crm settings, 12 - Contacts settings, 13 - Contact types, 14 - Invoice settings, 15 - Other crm settings, 16 - Users, 17 - Groups, 18 - Projects, 19 - Milestones, 20 - Tasks, 21 - Discussions, 22 - Time tracking, 23 - Reports, 24 - Projects settings, 25 - General, 26 - Products, 27 - Rooms, 28 - OAuth]",
             "example": 0
           }
         ]
@@ -9385,7 +9084,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 555
+            "example": 6620
           },
           "quantity": {
             "type": "integer",
@@ -9403,7 +9102,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 2256
+            "example": 6129
           },
           "state": {
             "$ref": "#/components/schemas/ASC.Core.Billing.TariffState"
@@ -9434,7 +9133,9 @@
           },
           "quotas": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Core.Billing.Quota"
+            },
             "description": "List of quotas",
             "nullable": true
           }
@@ -9474,13 +9175,13 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 406
+            "example": 7666
           },
           "userId": {
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "ce7cbc54-a6fe-4cb5-89cf-73fb187f7de4"
+            "example": "a5d1f703-42d2-4dac-b974-b37618787b4d"
           },
           "tenantId": {
             "type": "integer",
@@ -9519,13 +9220,13 @@
             "type": "integer",
             "description": "Id",
             "format": "int32",
-            "example": 1403
+            "example": 324
           },
           "name": {
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Camylle Yundt"
+            "example": "Francisca Steuber"
           },
           "alias": {
             "type": "string",
@@ -9802,7 +9503,7 @@
             "type": "string",
             "description": "Product ID",
             "nullable": true,
-            "example": "4859"
+            "example": "9055"
           },
           "visible": {
             "type": "boolean",
@@ -10154,19 +9855,19 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "35865800-4a26-4287-b1be-d12410259132"
+            "example": "54063ada-1e40-4cff-a465-dce54bbd511f"
           },
           "firstName": {
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Shirley"
+            "example": "Jett"
           },
           "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Halvorson"
+            "example": "Jast"
           },
           "userName": {
             "type": "string",
@@ -10204,7 +9905,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "tools_markets_moroccan_dirham"
+            "example": "licensed_granite_computer"
           },
           "workFromDate": {
             "type": "string",
@@ -10218,7 +9919,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Israel6@gmail.com"
+            "example": "Pedro.Lemke75@hotmail.com"
           },
           "contacts": {
             "type": "string",
@@ -10228,7 +9929,9 @@
           },
           "contactsList": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "description": "List of contacts",
             "nullable": true,
             "example": [
@@ -10239,7 +9942,7 @@
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "4892 Barrows Trail, Kasandrachester, Peru"
+            "example": "134 Ramiro Shore, Myrtieshire, Iran"
           },
           "notes": {
             "type": "string",
@@ -10405,7 +10108,7 @@
           "id": {
             "type": "integer",
             "format": "int32",
-            "example": 2884
+            "example": 5754
           },
           "tenantId": {
             "type": "integer",
@@ -10686,10 +10389,19 @@
               "UserCreatedAndAddedToRoom",
               "GuestCreatedAndAddedToRoom",
               "ContactSalesMailSent",
+              "CreateClient",
+              "UpdateClient",
+              "RegenerateSecret",
+              "DeleteClient",
+              "ChangeClientActivation",
+              "ChangeClientVisibility",
+              "RevokeUserClient",
+              "GenerateAuthorizationCodeToken",
+              "GeneratePersonalAccessToken",
               "None"
             ],
             "type": "string",
-            "description": "[LoginSuccess - Login success, LoginSuccessViaSocialAccount - Login success via social account, LoginFailInvalidCombination - Login fail invalid combination, LoginFailSocialAccountNotFound - Login fail social account not found, LoginFailDisabledProfile - Login fail disabled profile, LoginFail - Login fail, Logout - Logout, LoginSuccessViaSms - Login success via sms, LoginFailViaSms - Login fail via sms, LoginFailIpSecurity - Login fail ip security, LoginSuccessViaApi - Login success via api, LoginSuccessViaSocialApp - Login success via social app, LoginSuccessViaApiSms - Login success via api sms, LoginFailViaApi - Login fail via api, LoginFailViaApiSms - Login fail via api sms, LoginSuccessViaSSO - Login success via SSO, SessionStarted - Session started, SessionCompleted - Session completed, LoginFailViaSSO - Login fail via SSO, LoginSuccessViaApiSocialAccount - Login success via api social account, LoginFailViaApiSocialAccount - Login fail via api social account, LoginSuccesViaTfaApp - Login succes via tfa app, LoginFailViaTfaApp - Login fail via Tfa app, LoginFailBruteForce - Login fail brute force, LoginSuccessViaApiTfa - Login success via api tfa, LoginFailViaApiTfa - Login fail via api tfa, LoginFailRecaptcha - Login fail recaptcha, UserCreated - User created, GuestCreated - Guest created, UserCreatedViaInvite - User created via invite, GuestCreatedViaInvite - Guest created via invite, UserActivated - User activated, GuestActivated - Guest activated, UserUpdated - User updated, UserUpdatedLanguage - User updated language, UserAddedAvatar - User added avatar, UserDeletedAvatar - User deleted avatar, UserUpdatedAvatarThumbnails - User updated avatar thumbnails, UserLinkedSocialAccount - User linked social account, UserUnlinkedSocialAccount - User unlinked social account, UserSentActivationInstructions - User sent activation instructions, UserSentEmailChangeInstructions - User sent email change instructions, UserSentPasswordChangeInstructions - User sent password change instructions, UserSentDeleteInstructions - User sent delete instructions, UserUpdatedPassword - User updated password, UserDeleted - User deleted, UsersUpdatedType - Users updated type, UsersUpdatedStatus - Users updated status, UsersSentActivationInstructions - Users sent activation instructions, UsersDeleted - Users deleted, SentInviteInstructions - Sent invite instructions, UserImported - User imported, GuestImported - Guest imported, GroupCreated - Group created, GroupUpdated - Group updated, GroupDeleted - Group deleted, UserUpdatedMobileNumber - User updated mobile number, UserDataReassigns - User data reassigns, UserDataRemoving - User data removing, UserConnectedTfaApp - User connected tfa app, UserDisconnectedTfaApp - User disconnected tfa app, UserLogoutActiveConnections - User logout active connections, UserLogoutActiveConnection - User logout active connection, UserLogoutActiveConnectionsForUser - User logout active connections for user, SendJoinInvite - Send join invite, FileCreated - File created, FileRenamed - File renamed, FileUpdated - File updated, FileCreatedVersion - File created version, FileDeletedVersion - File deleted version, FileUpdatedRevisionComment - File updated revision comment, FileLocked - File locked, FileUnlocked - File unlocked, FileUpdatedAccess - File updated access, FileDownloaded - File downloaded, FileDownloadedAs - File downloaded as, FileUploaded - File uploaded, FileImported - File imported, FileCopied - File copied, FileCopiedWithOverwriting - File copied with overwriting, FileMoved - File moved, FileMovedWithOverwriting - File moved with overwriting, FileMovedToTrash - File moved to trash, FileDeleted - File deleted, FolderCreated - Folder created, FolderRenamed - Folder renamed, FolderUpdatedAccess - Folder updated access, FolderCopied - Folder copied, FolderCopiedWithOverwriting - Folder copied with overwriting, FolderMoved - Folder moved, FolderMovedWithOverwriting - Folder moved with overwriting, FolderMovedToTrash - Folder moved to trash, FolderDeleted - Folder deleted, ThirdPartyCreated - ThirdParty created, ThirdPartyUpdated - ThirdParty updated, ThirdPartyDeleted - ThirdParty deleted, DocumentsThirdPartySettingsUpdated - Documents ThirdParty settings updated, DocumentsOverwritingSettingsUpdated - Documents overwriting settings updated, DocumentsUploadingFormatsSettingsUpdated - Documents uploading formats settings updated, UserFileUpdated - User file updated, FileConverted - File converted, FileSendAccessLink - File send access link, DocumentServiceLocationSetting - Document service location setting, AuthorizationKeysSetting - Authorization keys setting, FullTextSearchSetting - Full text search setting, StartTransferSetting - Start transfer setting, StartBackupSetting - Start backup setting, LicenseKeyUploaded - License key uploaded, FileChangeOwner - File change owner, FileRestoreVersion - File restore version, DocumentSendToSign - Document send to sign, DocumentSignComplete - Document sign complete, UserUpdatedEmail - User updated email, DocumentsStoreForcesave - Documents store forcesave, DocumentsForcesave - Documents forcesave, StartStorageEncryption - Start storage encryption, PrivacyRoomEnable - Privacy room enable, PrivacyRoomDisable - Privacy room disable, StartStorageDecryption - Start storage decryption, FileOpenedForChange - File opened for change, FileMarkedAsFavorite - File marked as favorite, FileRemovedFromFavorite - File removed from favorite, FolderDownloaded - Folder downloaded, FileRemovedFromList - File removed from list, FolderRemovedFromList - Folder removed from list, FileExternalLinkAccessUpdated - File external link access updated, TrashEmptied - Trash emptied, FileRevisionDownloaded - File revision downloaded, FileMarkedAsRead - File marked as read, FileReaded - File readed, FolderMarkedAsRead - Folder marked as read, FolderUpdatedAccessFor - Folder updated access for, FileUpdatedAccessFor - File updated access for, DocumentsExternalShareSettingsUpdated - Documents external share settings updated, RoomCreated - Room created, RoomRenamed - Room renamed, RoomArchived - Room archived, RoomUnarchived - Room unarchived, RoomDeleted - Room deleted, RoomUpdateAccessForUser - Room update access for user, TagCreated - Tag created, TagsDeleted - Tags deleted, AddedRoomTags - Added room tags, DeletedRoomTags - Deleted room tags, RoomLogoCreated - Room logo created, RoomLogoDeleted - Room logo deleted, RoomInvitationLinkUpdated - Room invitation link updated, DocumentsKeepNewFileNameSettingsUpdated - Documents keep new file name settings updated, RoomRemoveUser - Room remove user, RoomCreateUser - Room create user, RoomInvitationLinkCreated - Room invitation link created, RoomInvitationLinkDeleted - Room invitation link deleted, RoomExternalLinkCreated - Room external link created, RoomExternalLinkUpdated - Room external link updated, RoomExternalLinkDeleted - Room external link deleted, FileExternalLinkCreated - File external link created, FileExternalLinkUpdated - File external link updated, FileExternalLinkDeleted - File external link deleted, RoomGroupAdded - Room group added, RoomUpdateAccessForGroup - Room update access for group, RoomGroupRemove - Room group remove, RoomExternalLinkRevoked - Room external link revoked, RoomExternalLinkRenamed - Room external link renamed, FileUploadedWithOverwriting - File uploaded with overwriting, RoomCopied - Room copied, DocumentsDisplayFileExtensionUpdated - Documents display file extension updated, RoomColorChanged - Room color changed, RoomCoverChanged - Room cover changed, RoomIndexingChanged - Room indexing changed, RoomDenyDownloadChanged - Room deny download changed, RoomIndexExportSaved - Room index export saved, FolderIndexChanged - Folder index changed, FolderIndexReordered - Folder index reordered, RoomDenyDownloadEnabled - Room deny download enabled, RoomDenyDownloadDisabled - Room deny download disabled, FileIndexChanged - File index changed, RoomWatermarkSet - Room watermark set, RoomWatermarkDisabled - Room watermark disabled, RoomIndexingEnabled - Room index export saved, RoomIndexingDisabled - Room indexing disabled, RoomLifeTimeSet - Room life time set, RoomLifeTimeDisabled - Room life time disabled, RoomInviteResend - Room invite resend, LanguageSettingsUpdated - Language settings updated, TimeZoneSettingsUpdated - Time zone settings updated, DnsSettingsUpdated - Dns settings updated, TrustedMailDomainSettingsUpdated - Trusted mail domain settings updated, PasswordStrengthSettingsUpdated - Password strength settings updated, TwoFactorAuthenticationSettingsUpdated - Two factor authentication settings updated, AdministratorMessageSettingsUpdated - Administrator message settings updated, DefaultStartPageSettingsUpdated - Default start page settings updated, ProductsListUpdated - Products list updated, AdministratorAdded - Administrator added, AdministratorOpenedFullAccess - Administrator opened full access, AdministratorDeleted - Administrator deleted, UsersOpenedProductAccess - Users opened product access, GroupsOpenedProductAccess - Groups opened product access, ProductAccessOpened - Product access opened, ProductAccessRestricted - Product access restricted, ProductAddedAdministrator - Product added administrator, ProductDeletedAdministrator - Product deleted administrator, GreetingSettingsUpdated - Greeting settings updated, TeamTemplateChanged - Team template changed, ColorThemeChanged - Color theme changed, OwnerSentChangeOwnerInstructions - Owner sent change owner instructions, OwnerUpdated - Owner updated, OwnerSentPortalDeactivationInstructions - Owner sent portal deactivation instructions, OwnerSentPortalDeleteInstructions - Owner sent portal delete instructions, PortalDeactivated - Portal deactivated, PortalDeleted - Portal deleted, LoginHistoryReportDownloaded - Login history report downloaded, AuditTrailReportDownloaded - Audit trail report downloaded, SSOEnabled - SSO enabled, SSODisabled - SSO disabled, PortalAccessSettingsUpdated - Portal access settings updated, CookieSettingsUpdated - Cookie settings updated, MailServiceSettingsUpdated - Mail service settings updated, CustomNavigationSettingsUpdated - Custom navigation settings updated, AuditSettingsUpdated - Audit settings updated, TwoFactorAuthenticationDisabled - Two factor authentication disabled, TwoFactorAuthenticationEnabledBySms - Two factor authentication enabled by sms, TwoFactorAuthenticationEnabledByTfaApp - Two factor authentication enabled by tfa app, PortalRenamed - Portal renamed, QuotaPerRoomChanged - Quota per room changed, QuotaPerRoomDisabled - Quota per room disabled, QuotaPerUserChanged - Quota per user changed, QuotaPerUserDisabled - Quota per user disabled, QuotaPerPortalChanged - Quota per portal changed, QuotaPerPortalDisabled - Quota per portal disabled, FormSubmit - Form submit, FormOpenedForFilling - Form opened for filling, CustomQuotaPerRoomDefault - Custom quota per room default, CustomQuotaPerRoomChanged - Custom quota per room changed, CustomQuotaPerRoomDisabled - Custom quota per room disabled, CustomQuotaPerUserDefault - Custom quota per user default, CustomQuotaPerUserChanged - Custom quota per user changed, CustomQuotaPerUserDisabled - Custom quota per user disabled, ContactAdminMailSent - Contact admin mail sent, RoomInviteLinkUsed - Room invite link used, UserCreatedAndAddedToRoom - User created and added to room, GuestCreatedAndAddedToRoom - Guest created and added to room, ContactSalesMailSent - Contact sales mail sent, None - None]",
+            "description": "[LoginSuccess - Login success, LoginSuccessViaSocialAccount - Login success via social account, LoginFailInvalidCombination - Login fail invalid combination, LoginFailSocialAccountNotFound - Login fail social account not found, LoginFailDisabledProfile - Login fail disabled profile, LoginFail - Login fail, Logout - Logout, LoginSuccessViaSms - Login success via sms, LoginFailViaSms - Login fail via sms, LoginFailIpSecurity - Login fail ip security, LoginSuccessViaApi - Login success via api, LoginSuccessViaSocialApp - Login success via social app, LoginSuccessViaApiSms - Login success via api sms, LoginFailViaApi - Login fail via api, LoginFailViaApiSms - Login fail via api sms, LoginSuccessViaSSO - Login success via SSO, SessionStarted - Session started, SessionCompleted - Session completed, LoginFailViaSSO - Login fail via SSO, LoginSuccessViaApiSocialAccount - Login success via api social account, LoginFailViaApiSocialAccount - Login fail via api social account, LoginSuccesViaTfaApp - Login succes via tfa app, LoginFailViaTfaApp - Login fail via Tfa app, LoginFailBruteForce - Login fail brute force, LoginSuccessViaApiTfa - Login success via api tfa, LoginFailViaApiTfa - Login fail via api tfa, LoginFailRecaptcha - Login fail recaptcha, UserCreated - User created, GuestCreated - Guest created, UserCreatedViaInvite - User created via invite, GuestCreatedViaInvite - Guest created via invite, UserActivated - User activated, GuestActivated - Guest activated, UserUpdated - User updated, UserUpdatedLanguage - User updated language, UserAddedAvatar - User added avatar, UserDeletedAvatar - User deleted avatar, UserUpdatedAvatarThumbnails - User updated avatar thumbnails, UserLinkedSocialAccount - User linked social account, UserUnlinkedSocialAccount - User unlinked social account, UserSentActivationInstructions - User sent activation instructions, UserSentEmailChangeInstructions - User sent email change instructions, UserSentPasswordChangeInstructions - User sent password change instructions, UserSentDeleteInstructions - User sent delete instructions, UserUpdatedPassword - User updated password, UserDeleted - User deleted, UsersUpdatedType - Users updated type, UsersUpdatedStatus - Users updated status, UsersSentActivationInstructions - Users sent activation instructions, UsersDeleted - Users deleted, SentInviteInstructions - Sent invite instructions, UserImported - User imported, GuestImported - Guest imported, GroupCreated - Group created, GroupUpdated - Group updated, GroupDeleted - Group deleted, UserUpdatedMobileNumber - User updated mobile number, UserDataReassigns - User data reassigns, UserDataRemoving - User data removing, UserConnectedTfaApp - User connected tfa app, UserDisconnectedTfaApp - User disconnected tfa app, UserLogoutActiveConnections - User logout active connections, UserLogoutActiveConnection - User logout active connection, UserLogoutActiveConnectionsForUser - User logout active connections for user, SendJoinInvite - Send join invite, FileCreated - File created, FileRenamed - File renamed, FileUpdated - File updated, FileCreatedVersion - File created version, FileDeletedVersion - File deleted version, FileUpdatedRevisionComment - File updated revision comment, FileLocked - File locked, FileUnlocked - File unlocked, FileUpdatedAccess - File updated access, FileDownloaded - File downloaded, FileDownloadedAs - File downloaded as, FileUploaded - File uploaded, FileImported - File imported, FileCopied - File copied, FileCopiedWithOverwriting - File copied with overwriting, FileMoved - File moved, FileMovedWithOverwriting - File moved with overwriting, FileMovedToTrash - File moved to trash, FileDeleted - File deleted, FolderCreated - Folder created, FolderRenamed - Folder renamed, FolderUpdatedAccess - Folder updated access, FolderCopied - Folder copied, FolderCopiedWithOverwriting - Folder copied with overwriting, FolderMoved - Folder moved, FolderMovedWithOverwriting - Folder moved with overwriting, FolderMovedToTrash - Folder moved to trash, FolderDeleted - Folder deleted, ThirdPartyCreated - ThirdParty created, ThirdPartyUpdated - ThirdParty updated, ThirdPartyDeleted - ThirdParty deleted, DocumentsThirdPartySettingsUpdated - Documents ThirdParty settings updated, DocumentsOverwritingSettingsUpdated - Documents overwriting settings updated, DocumentsUploadingFormatsSettingsUpdated - Documents uploading formats settings updated, UserFileUpdated - User file updated, FileConverted - File converted, FileSendAccessLink - File send access link, DocumentServiceLocationSetting - Document service location setting, AuthorizationKeysSetting - Authorization keys setting, FullTextSearchSetting - Full text search setting, StartTransferSetting - Start transfer setting, StartBackupSetting - Start backup setting, LicenseKeyUploaded - License key uploaded, FileChangeOwner - File change owner, FileRestoreVersion - File restore version, DocumentSendToSign - Document send to sign, DocumentSignComplete - Document sign complete, UserUpdatedEmail - User updated email, DocumentsStoreForcesave - Documents store forcesave, DocumentsForcesave - Documents forcesave, StartStorageEncryption - Start storage encryption, PrivacyRoomEnable - Privacy room enable, PrivacyRoomDisable - Privacy room disable, StartStorageDecryption - Start storage decryption, FileOpenedForChange - File opened for change, FileMarkedAsFavorite - File marked as favorite, FileRemovedFromFavorite - File removed from favorite, FolderDownloaded - Folder downloaded, FileRemovedFromList - File removed from list, FolderRemovedFromList - Folder removed from list, FileExternalLinkAccessUpdated - File external link access updated, TrashEmptied - Trash emptied, FileRevisionDownloaded - File revision downloaded, FileMarkedAsRead - File marked as read, FileReaded - File readed, FolderMarkedAsRead - Folder marked as read, FolderUpdatedAccessFor - Folder updated access for, FileUpdatedAccessFor - File updated access for, DocumentsExternalShareSettingsUpdated - Documents external share settings updated, RoomCreated - Room created, RoomRenamed - Room renamed, RoomArchived - Room archived, RoomUnarchived - Room unarchived, RoomDeleted - Room deleted, RoomUpdateAccessForUser - Room update access for user, TagCreated - Tag created, TagsDeleted - Tags deleted, AddedRoomTags - Added room tags, DeletedRoomTags - Deleted room tags, RoomLogoCreated - Room logo created, RoomLogoDeleted - Room logo deleted, RoomInvitationLinkUpdated - Room invitation link updated, DocumentsKeepNewFileNameSettingsUpdated - Documents keep new file name settings updated, RoomRemoveUser - Room remove user, RoomCreateUser - Room create user, RoomInvitationLinkCreated - Room invitation link created, RoomInvitationLinkDeleted - Room invitation link deleted, RoomExternalLinkCreated - Room external link created, RoomExternalLinkUpdated - Room external link updated, RoomExternalLinkDeleted - Room external link deleted, FileExternalLinkCreated - File external link created, FileExternalLinkUpdated - File external link updated, FileExternalLinkDeleted - File external link deleted, RoomGroupAdded - Room group added, RoomUpdateAccessForGroup - Room update access for group, RoomGroupRemove - Room group remove, RoomExternalLinkRevoked - Room external link revoked, RoomExternalLinkRenamed - Room external link renamed, FileUploadedWithOverwriting - File uploaded with overwriting, RoomCopied - Room copied, DocumentsDisplayFileExtensionUpdated - Documents display file extension updated, RoomColorChanged - Room color changed, RoomCoverChanged - Room cover changed, RoomIndexingChanged - Room indexing changed, RoomDenyDownloadChanged - Room deny download changed, RoomIndexExportSaved - Room index export saved, FolderIndexChanged - Folder index changed, FolderIndexReordered - Folder index reordered, RoomDenyDownloadEnabled - Room deny download enabled, RoomDenyDownloadDisabled - Room deny download disabled, FileIndexChanged - File index changed, RoomWatermarkSet - Room watermark set, RoomWatermarkDisabled - Room watermark disabled, RoomIndexingEnabled - Room index export saved, RoomIndexingDisabled - Room indexing disabled, RoomLifeTimeSet - Room life time set, RoomLifeTimeDisabled - Room life time disabled, RoomInviteResend - Room invite resend, LanguageSettingsUpdated - Language settings updated, TimeZoneSettingsUpdated - Time zone settings updated, DnsSettingsUpdated - Dns settings updated, TrustedMailDomainSettingsUpdated - Trusted mail domain settings updated, PasswordStrengthSettingsUpdated - Password strength settings updated, TwoFactorAuthenticationSettingsUpdated - Two factor authentication settings updated, AdministratorMessageSettingsUpdated - Administrator message settings updated, DefaultStartPageSettingsUpdated - Default start page settings updated, ProductsListUpdated - Products list updated, AdministratorAdded - Administrator added, AdministratorOpenedFullAccess - Administrator opened full access, AdministratorDeleted - Administrator deleted, UsersOpenedProductAccess - Users opened product access, GroupsOpenedProductAccess - Groups opened product access, ProductAccessOpened - Product access opened, ProductAccessRestricted - Product access restricted, ProductAddedAdministrator - Product added administrator, ProductDeletedAdministrator - Product deleted administrator, GreetingSettingsUpdated - Greeting settings updated, TeamTemplateChanged - Team template changed, ColorThemeChanged - Color theme changed, OwnerSentChangeOwnerInstructions - Owner sent change owner instructions, OwnerUpdated - Owner updated, OwnerSentPortalDeactivationInstructions - Owner sent portal deactivation instructions, OwnerSentPortalDeleteInstructions - Owner sent portal delete instructions, PortalDeactivated - Portal deactivated, PortalDeleted - Portal deleted, LoginHistoryReportDownloaded - Login history report downloaded, AuditTrailReportDownloaded - Audit trail report downloaded, SSOEnabled - SSO enabled, SSODisabled - SSO disabled, PortalAccessSettingsUpdated - Portal access settings updated, CookieSettingsUpdated - Cookie settings updated, MailServiceSettingsUpdated - Mail service settings updated, CustomNavigationSettingsUpdated - Custom navigation settings updated, AuditSettingsUpdated - Audit settings updated, TwoFactorAuthenticationDisabled - Two factor authentication disabled, TwoFactorAuthenticationEnabledBySms - Two factor authentication enabled by sms, TwoFactorAuthenticationEnabledByTfaApp - Two factor authentication enabled by tfa app, PortalRenamed - Portal renamed, QuotaPerRoomChanged - Quota per room changed, QuotaPerRoomDisabled - Quota per room disabled, QuotaPerUserChanged - Quota per user changed, QuotaPerUserDisabled - Quota per user disabled, QuotaPerPortalChanged - Quota per portal changed, QuotaPerPortalDisabled - Quota per portal disabled, FormSubmit - Form submit, FormOpenedForFilling - Form opened for filling, CustomQuotaPerRoomDefault - Custom quota per room default, CustomQuotaPerRoomChanged - Custom quota per room changed, CustomQuotaPerRoomDisabled - Custom quota per room disabled, CustomQuotaPerUserDefault - Custom quota per user default, CustomQuotaPerUserChanged - Custom quota per user changed, CustomQuotaPerUserDisabled - Custom quota per user disabled, ContactAdminMailSent - Contact admin mail sent, RoomInviteLinkUsed - Room invite link used, UserCreatedAndAddedToRoom - User created and added to room, GuestCreatedAndAddedToRoom - Guest created and added to room, ContactSalesMailSent - Contact sales mail sent, CreateClient - Create client, UpdateClient - Update client, RegenerateSecret - Regenerate secret, DeleteClient - Delete client, ChangeClientActivation - Change client activation, ChangeClientVisibility - Change client visibility, RevokeUserClient - Revoke user client, GenerateAuthorizationCodeToken - Generate authorization code token, GeneratePersonalAccessToken - Generate personal access token, None - None]",
             "example": "LoginSuccess"
           },
           {
@@ -10936,10 +10648,19 @@
               7002,
               7003,
               7004,
+              9901,
+              9902,
+              9903,
+              9904,
+              9905,
+              9906,
+              9907,
+              9908,
+              9909,
               -1
             ],
             "type": "integer",
-            "description": "[1000 - Login success, 1001 - Login success via social account, 1002 - Login fail invalid combination, 1003 - Login fail social account not found, 1004 - Login fail disabled profile, 1005 - Login fail, 1006 - Logout, 1007 - Login success via sms, 1008 - Login fail via sms, 1009 - Login fail ip security, 1010 - Login success via api, 1011 - Login success via social app, 1012 - Login success via api sms, 1013 - Login fail via api, 1014 - Login fail via api sms, 1015 - Login success via SSO, 1016 - Session started, 1017 - Session completed, 1018 - Login fail via SSO, 1019 - Login success via api social account, 1020 - Login fail via api social account, 1021 - Login succes via tfa app, 1022 - Login fail via Tfa app, 1023 - Login fail brute force, 1024 - Login success via api tfa, 1025 - Login fail via api tfa, 1026 - Login fail recaptcha, 4000 - User created, 4001 - Guest created, 4002 - User created via invite, 4003 - Guest created via invite, 4004 - User activated, 4005 - Guest activated, 4006 - User updated, 4007 - User updated language, 4008 - User added avatar, 4009 - User deleted avatar, 4010 - User updated avatar thumbnails, 4011 - User linked social account, 4012 - User unlinked social account, 4013 - User sent activation instructions, 4014 - User sent email change instructions, 4015 - User sent password change instructions, 4016 - User sent delete instructions, 4017 - User updated password, 4018 - User deleted, 4019 - Users updated type, 4020 - Users updated status, 4021 - Users sent activation instructions, 4022 - Users deleted, 4023 - Sent invite instructions, 4024 - User imported, 4025 - Guest imported, 4026 - Group created, 4027 - Group updated, 4028 - Group deleted, 4029 - User updated mobile number, 4030 - User data reassigns, 4031 - User data removing, 4032 - User connected tfa app, 4033 - User disconnected tfa app, 4034 - User logout active connections, 4035 - User logout active connection, 4036 - User logout active connections for user, 4037 - Send join invite, 5000 - File created, 5001 - File renamed, 5002 - File updated, 5003 - File created version, 5004 - File deleted version, 5005 - File updated revision comment, 5006 - File locked, 5007 - File unlocked, 5008 - File updated access, 5009 - File downloaded, 5010 - File downloaded as, 5011 - File uploaded, 5012 - File imported, 5013 - File copied, 5014 - File copied with overwriting, 5015 - File moved, 5016 - File moved with overwriting, 5017 - File moved to trash, 5018 - File deleted, 5019 - Folder created, 5020 - Folder renamed, 5021 - Folder updated access, 5022 - Folder copied, 5023 - Folder copied with overwriting, 5024 - Folder moved, 5025 - Folder moved with overwriting, 5026 - Folder moved to trash, 5027 - Folder deleted, 5028 - ThirdParty created, 5029 - ThirdParty updated, 5030 - ThirdParty deleted, 5031 - Documents ThirdParty settings updated, 5032 - Documents overwriting settings updated, 5033 - Documents uploading formats settings updated, 5034 - User file updated, 5035 - File converted, 5036 - File send access link, 5037 - Document service location setting, 5038 - Authorization keys setting, 5039 - Full text search setting, 5040 - Start transfer setting, 5041 - Start backup setting, 5042 - License key uploaded, 5043 - File change owner, 5044 - File restore version, 5045 - Document send to sign, 5046 - Document sign complete, 5047 - User updated email, 5048 - Documents store forcesave, 5049 - Documents forcesave, 5050 - Start storage encryption, 5051 - Privacy room enable, 5052 - Privacy room disable, 5053 - Start storage decryption, 5054 - File opened for change, 5055 - File marked as favorite, 5056 - File removed from favorite, 5057 - Folder downloaded, 5058 - File removed from list, 5059 - Folder removed from list, 5060 - File external link access updated, 5061 - Trash emptied, 5062 - File revision downloaded, 5063 - File marked as read, 5064 - File readed, 5065 - Folder marked as read, 5066 - Folder updated access for, 5068 - File updated access for, 5069 - Documents external share settings updated, 5070 - Room created, 5071 - Room renamed, 5072 - Room archived, 5073 - Room unarchived, 5074 - Room deleted, 5075 - Room update access for user, 5076 - Tag created, 5077 - Tags deleted, 5078 - Added room tags, 5079 - Deleted room tags, 5080 - Room logo created, 5081 - Room logo deleted, 5082 - Room invitation link updated, 5083 - Documents keep new file name settings updated, 5084 - Room remove user, 5085 - Room create user, 5086 - Room invitation link created, 5087 - Room invitation link deleted, 5088 - Room external link created, 5089 - Room external link updated, 5090 - Room external link deleted, 5091 - File external link created, 5092 - File external link updated, 5093 - File external link deleted, 5094 - Room group added, 5095 - Room update access for group, 5096 - Room group remove, 5097 - Room external link revoked, 5098 - Room external link renamed, 5099 - File uploaded with overwriting, 5100 - Room copied, 5101 - Documents display file extension updated, 5102 - Room color changed, 5103 - Room cover changed, 5104 - Room indexing changed, 5105 - Room deny download changed, 5106 - Room index export saved, 5107 - Folder index changed, 5108 - Folder index reordered, 5109 - Room deny download enabled, 5110 - Room deny download disabled, 5111 - File index changed, 5112 - Room watermark set, 5113 - Room watermark disabled, 5114 - Room index export saved, 5115 - Room indexing disabled, 5116 - Room life time set, 5117 - Room life time disabled, 5118 - Room invite resend, 6000 - Language settings updated, 6001 - Time zone settings updated, 6002 - Dns settings updated, 6003 - Trusted mail domain settings updated, 6004 - Password strength settings updated, 6005 - Two factor authentication settings updated, 6006 - Administrator message settings updated, 6007 - Default start page settings updated, 6008 - Products list updated, 6009 - Administrator added, 6010 - Administrator opened full access, 6011 - Administrator deleted, 6012 - Users opened product access, 6013 - Groups opened product access, 6014 - Product access opened, 6015 - Product access restricted, 6016 - Product added administrator, 6017 - Product deleted administrator, 6018 - Greeting settings updated, 6019 - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded, 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034 - Custom navigation settings updated, 6035 - Audit settings updated, 6036 - Two factor authentication disabled, 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049 - Custom quota per room changed, 6050 - Custom quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom quota per user changed, 6053 - Custom quota per user disabled, 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002 - User created and added to room, 7003 - Guest created and added to room, 7004 - Contact sales mail sent, -1 - None]",
+            "description": "[1000 - Login success, 1001 - Login success via social account, 1002 - Login fail invalid combination, 1003 - Login fail social account not found, 1004 - Login fail disabled profile, 1005 - Login fail, 1006 - Logout, 1007 - Login success via sms, 1008 - Login fail via sms, 1009 - Login fail ip security, 1010 - Login success via api, 1011 - Login success via social app, 1012 - Login success via api sms, 1013 - Login fail via api, 1014 - Login fail via api sms, 1015 - Login success via SSO, 1016 - Session started, 1017 - Session completed, 1018 - Login fail via SSO, 1019 - Login success via api social account, 1020 - Login fail via api social account, 1021 - Login succes via tfa app, 1022 - Login fail via Tfa app, 1023 - Login fail brute force, 1024 - Login success via api tfa, 1025 - Login fail via api tfa, 1026 - Login fail recaptcha, 4000 - User created, 4001 - Guest created, 4002 - User created via invite, 4003 - Guest created via invite, 4004 - User activated, 4005 - Guest activated, 4006 - User updated, 4007 - User updated language, 4008 - User added avatar, 4009 - User deleted avatar, 4010 - User updated avatar thumbnails, 4011 - User linked social account, 4012 - User unlinked social account, 4013 - User sent activation instructions, 4014 - User sent email change instructions, 4015 - User sent password change instructions, 4016 - User sent delete instructions, 4017 - User updated password, 4018 - User deleted, 4019 - Users updated type, 4020 - Users updated status, 4021 - Users sent activation instructions, 4022 - Users deleted, 4023 - Sent invite instructions, 4024 - User imported, 4025 - Guest imported, 4026 - Group created, 4027 - Group updated, 4028 - Group deleted, 4029 - User updated mobile number, 4030 - User data reassigns, 4031 - User data removing, 4032 - User connected tfa app, 4033 - User disconnected tfa app, 4034 - User logout active connections, 4035 - User logout active connection, 4036 - User logout active connections for user, 4037 - Send join invite, 5000 - File created, 5001 - File renamed, 5002 - File updated, 5003 - File created version, 5004 - File deleted version, 5005 - File updated revision comment, 5006 - File locked, 5007 - File unlocked, 5008 - File updated access, 5009 - File downloaded, 5010 - File downloaded as, 5011 - File uploaded, 5012 - File imported, 5013 - File copied, 5014 - File copied with overwriting, 5015 - File moved, 5016 - File moved with overwriting, 5017 - File moved to trash, 5018 - File deleted, 5019 - Folder created, 5020 - Folder renamed, 5021 - Folder updated access, 5022 - Folder copied, 5023 - Folder copied with overwriting, 5024 - Folder moved, 5025 - Folder moved with overwriting, 5026 - Folder moved to trash, 5027 - Folder deleted, 5028 - ThirdParty created, 5029 - ThirdParty updated, 5030 - ThirdParty deleted, 5031 - Documents ThirdParty settings updated, 5032 - Documents overwriting settings updated, 5033 - Documents uploading formats settings updated, 5034 - User file updated, 5035 - File converted, 5036 - File send access link, 5037 - Document service location setting, 5038 - Authorization keys setting, 5039 - Full text search setting, 5040 - Start transfer setting, 5041 - Start backup setting, 5042 - License key uploaded, 5043 - File change owner, 5044 - File restore version, 5045 - Document send to sign, 5046 - Document sign complete, 5047 - User updated email, 5048 - Documents store forcesave, 5049 - Documents forcesave, 5050 - Start storage encryption, 5051 - Privacy room enable, 5052 - Privacy room disable, 5053 - Start storage decryption, 5054 - File opened for change, 5055 - File marked as favorite, 5056 - File removed from favorite, 5057 - Folder downloaded, 5058 - File removed from list, 5059 - Folder removed from list, 5060 - File external link access updated, 5061 - Trash emptied, 5062 - File revision downloaded, 5063 - File marked as read, 5064 - File readed, 5065 - Folder marked as read, 5066 - Folder updated access for, 5068 - File updated access for, 5069 - Documents external share settings updated, 5070 - Room created, 5071 - Room renamed, 5072 - Room archived, 5073 - Room unarchived, 5074 - Room deleted, 5075 - Room update access for user, 5076 - Tag created, 5077 - Tags deleted, 5078 - Added room tags, 5079 - Deleted room tags, 5080 - Room logo created, 5081 - Room logo deleted, 5082 - Room invitation link updated, 5083 - Documents keep new file name settings updated, 5084 - Room remove user, 5085 - Room create user, 5086 - Room invitation link created, 5087 - Room invitation link deleted, 5088 - Room external link created, 5089 - Room external link updated, 5090 - Room external link deleted, 5091 - File external link created, 5092 - File external link updated, 5093 - File external link deleted, 5094 - Room group added, 5095 - Room update access for group, 5096 - Room group remove, 5097 - Room external link revoked, 5098 - Room external link renamed, 5099 - File uploaded with overwriting, 5100 - Room copied, 5101 - Documents display file extension updated, 5102 - Room color changed, 5103 - Room cover changed, 5104 - Room indexing changed, 5105 - Room deny download changed, 5106 - Room index export saved, 5107 - Folder index changed, 5108 - Folder index reordered, 5109 - Room deny download enabled, 5110 - Room deny download disabled, 5111 - File index changed, 5112 - Room watermark set, 5113 - Room watermark disabled, 5114 - Room index export saved, 5115 - Room indexing disabled, 5116 - Room life time set, 5117 - Room life time disabled, 5118 - Room invite resend, 6000 - Language settings updated, 6001 - Time zone settings updated, 6002 - Dns settings updated, 6003 - Trusted mail domain settings updated, 6004 - Password strength settings updated, 6005 - Two factor authentication settings updated, 6006 - Administrator message settings updated, 6007 - Default start page settings updated, 6008 - Products list updated, 6009 - Administrator added, 6010 - Administrator opened full access, 6011 - Administrator deleted, 6012 - Users opened product access, 6013 - Groups opened product access, 6014 - Product access opened, 6015 - Product access restricted, 6016 - Product added administrator, 6017 - Product deleted administrator, 6018 - Greeting settings updated, 6019 - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded, 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034 - Custom navigation settings updated, 6035 - Audit settings updated, 6036 - Two factor authentication disabled, 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049 - Custom quota per room changed, 6050 - Custom quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom quota per user changed, 6053 - Custom quota per user disabled, 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002 - User created and added to room, 7003 - Guest created and added to room, 7004 - Contact sales mail sent, 9901 - Create client, 9902 - Update client, 9903 - Regenerate secret, 9904 - Delete client, 9905 - Change client activation, 9906 - Change client visibility, 9907 - Revoke user client, 9908 - Generate authorization code token, 9909 - Generate personal access token, -1 - None]",
             "example": 1000
           }
         ]
@@ -10984,7 +10705,9 @@
           },
           "userUidList": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "nullable": true,
             "example": [
               "some text"
@@ -11009,7 +10732,7 @@
             "type": "string",
             "format": "email",
             "nullable": true,
-            "example": "Crystal1@hotmail.com"
+            "example": "Raymundo72@hotmail.com"
           },
           "displayName": {
             "type": "string",
@@ -11019,12 +10742,12 @@
           "firstName": {
             "type": "string",
             "nullable": true,
-            "example": "Elinor"
+            "example": "Rico"
           },
           "lastName": {
             "type": "string",
             "nullable": true,
-            "example": "Hilpert"
+            "example": "Towne"
           },
           "userType": {
             "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
@@ -11050,7 +10773,9 @@
           },
           "failedArchives": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "nullable": true,
             "example": [
               "some text"
@@ -11058,22 +10783,30 @@
           },
           "users": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Migration.Core.Models.Api.MigratingApiUser"
+            },
             "nullable": true
           },
           "withoutEmailUsers": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Migration.Core.Models.Api.MigratingApiUser"
+            },
             "nullable": true
           },
           "existUsers": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Migration.Core.Models.Api.MigratingApiUser"
+            },
             "nullable": true
           },
           "groups": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Migration.Core.Models.Api.MigratingApiGroup"
+            },
             "nullable": true
           },
           "importPersonalFiles": {
@@ -11112,7 +10845,9 @@
           },
           "files": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "nullable": true,
             "example": [
               "some text"
@@ -11120,7 +10855,9 @@
           },
           "errors": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "nullable": true,
             "example": [
               "some text"
@@ -11146,7 +10883,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Tavares.Cummerata53@gmail.com"
+            "example": "Verla_Kiehn2@gmail.com"
           },
           "uiD": {
             "type": "string",
@@ -11168,7 +10905,7 @@
             "type": "string",
             "description": "Room ID",
             "nullable": true,
-            "example": "9404"
+            "example": "956"
           }
         },
         "additionalProperties": false,
@@ -11238,7 +10975,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Katrina67@yahoo.com"
+            "example": "Americo.Bergstrom81@yahoo.com"
           },
           "culture": {
             "type": "string",
@@ -11258,7 +10995,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Roger_Ondricka@yahoo.com"
+            "example": "Nathen.Mayert54@gmail.com"
           },
           "culture": {
             "type": "string",
@@ -11289,7 +11026,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "gtW6yvXjgx"
+            "example": "044LP3vr2j"
           },
           "passwordHash": {
             "type": "string",
@@ -11361,13 +11098,13 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Eliane Marvin"
+            "example": "Alexander West"
           },
           "title": {
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "neural"
+            "example": "unbranded_metal_chair_usb_soft"
           },
           "description": {
             "type": "string",
@@ -11388,7 +11125,9 @@
           },
           "props": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Studio.UserControls.Management.AuthKey"
+            },
             "description": "List of authorization keys",
             "nullable": true
           }
@@ -11404,7 +11143,7 @@
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Hugh.Corkery11@gmail.com"
+            "example": "Amanda.Ernser94@hotmail.com"
           },
           "first": {
             "type": "boolean",
@@ -11430,7 +11169,7 @@
             "type": "string",
             "description": "Tenant name",
             "nullable": true,
-            "example": "systems_bus_kids__electronics_&_clothing"
+            "example": "com"
           }
         },
         "additionalProperties": false,
@@ -11483,7 +11222,9 @@
           },
           "domains": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "description": "List of trusted domains",
             "nullable": true,
             "example": [
@@ -11557,7 +11298,7 @@
             "type": "string",
             "description": "Team template ID",
             "nullable": true,
-            "example": "8585"
+            "example": "2401"
           }
         },
         "additionalProperties": false,
@@ -11570,13 +11311,13 @@
             "type": "string",
             "description": "Team template ID",
             "nullable": true,
-            "example": "9848"
+            "example": "3401"
           },
           "name": {
             "type": "string",
             "description": "Team template name",
             "nullable": true,
-            "example": "Kevin Lindgren"
+            "example": "Winnifred Ankunding"
           },
           "userCaption": {
             "type": "string",
@@ -11643,13 +11384,13 @@
             "type": "string",
             "description": "Product ID",
             "format": "uuid",
-            "example": "da6fb29d-3432-4287-9452-28af5b2093d6"
+            "example": "18e95d00-6efd-48a6-b792-ff6329d45733"
           },
           "userId": {
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "68e55261-3cb6-407f-9968-14d79f9618d5"
+            "example": "9ec96e43-57c7-46db-b0aa-fd387f38929c"
           },
           "administrator": {
             "type": "boolean",
@@ -11749,11 +11490,13 @@
             "description": "User ID",
             "format": "uuid",
             "nullable": true,
-            "example": "a82ba990-8c83-4a16-bdc1-2b9b1b22b04b"
+            "example": "79ec6dcd-4617-4b7f-9ff1-6c3becf00e33"
           },
           "trustedIps": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "description": "List of trusted IP addresses",
             "nullable": true,
             "example": [
@@ -11762,7 +11505,10 @@
           },
           "mandatoryUsers": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of users who must use the TFA verification",
             "nullable": true,
             "example": [
@@ -11771,7 +11517,10 @@
           },
           "mandatoryGroups": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of groups who must use the TFA verification",
             "nullable": true,
             "example": [
@@ -11813,13 +11562,13 @@
             "type": "string",
             "description": "ID",
             "nullable": true,
-            "example": "5556"
+            "example": "3664"
           },
           "title": {
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "reintermediate_handmade"
+            "example": "eyeballs_indexing"
           },
           "enabled": {
             "type": "boolean",
@@ -11833,7 +11582,9 @@
           },
           "trustedIps": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "description": "List of trusted IP addresses",
             "nullable": true,
             "example": [
@@ -11842,7 +11593,10 @@
           },
           "mandatoryUsers": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of users who must use the TFA verification",
             "nullable": true,
             "example": [
@@ -11851,7 +11605,10 @@
           },
           "mandatoryGroups": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of groups who must use the TFA verification",
             "nullable": true,
             "example": [
@@ -11881,7 +11638,7 @@
             "type": "string",
             "description": "Time zone ID",
             "nullable": true,
-            "example": "4456"
+            "example": "9120"
           },
           "displayName": {
             "type": "string",
@@ -11923,7 +11680,7 @@
             "type": "string",
             "description": "Module ID",
             "nullable": true,
-            "example": "1313"
+            "example": "348"
           },
           "enabled": {
             "type": "boolean",
@@ -11932,7 +11689,10 @@
           },
           "subjects": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of user/group IDs with the access to the module",
             "nullable": true,
             "example": [
@@ -12009,7 +11769,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Kaylee_Larson69@hotmail.com"
+            "example": "Evalyn_Wiegand25@gmail.com"
           },
           "passwordHash": {
             "type": "string",
@@ -12051,7 +11811,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 6862
+            "example": 331
           },
           "date": {
             "$ref": "#/components/schemas/ASC.Api.Core.ApiDateTime"
@@ -12066,7 +11826,7 @@
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "e3c250e3-1ffd-41eb-8197-547f9100bb2e"
+            "example": "a81aa36c-79a7-4e7d-8898-d8ae8b98c4af"
           },
           "action": {
             "type": "string",
@@ -12124,7 +11884,9 @@
           },
           "target": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "description": "List of targets",
             "nullable": true,
             "example": [
@@ -12211,7 +11973,9 @@
           },
           "providers": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "description": "List of providers",
             "nullable": true,
             "example": [
@@ -12376,7 +12140,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 1923
+            "example": 9230
           },
           "date": {
             "$ref": "#/components/schemas/ASC.Api.Core.ApiDateTime"
@@ -12391,7 +12155,7 @@
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "ec29dc92-aa90-43c8-b71b-2758bfec7f72"
+            "example": "c62638c2-bd7e-4529-95b6-b6b15109a2bc"
           },
           "login": {
             "type": "string",
@@ -12479,13 +12243,17 @@
           },
           "users": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Api.Models.EmployeeDto"
+            },
             "description": "List of users with the access to the module",
             "nullable": true
           },
           "groups": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Api.Models.GroupSummaryDto"
+            },
             "description": "List of groups with the access to the module",
             "nullable": true
           },
@@ -12513,7 +12281,9 @@
           },
           "trustedDomains": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "description": "List of trusted domains",
             "nullable": true,
             "example": "mydomain.com"
@@ -12821,17 +12591,19 @@
             "type": "string",
             "description": "ID",
             "nullable": true,
-            "example": "9657"
+            "example": "9356"
           },
           "title": {
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "armenian_dram_health_synthesizing"
+            "example": "legacy_michigan"
           },
           "properties": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Studio.UserControls.Management.AuthKey"
+            },
             "description": "List of authentication keys",
             "nullable": true
           },
@@ -12888,7 +12660,9 @@
         "properties": {
           "domains": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "description": "Domains",
             "nullable": true,
             "example": [
@@ -13016,7 +12790,10 @@
         "properties": {
           "ids": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
             "description": "List of webhook IDs",
             "nullable": true,
             "example": [
@@ -13038,14 +12815,14 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 1974
+            "example": 2904
           },
           "name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "description": "Name",
-            "example": "Haylie Beatty"
+            "example": "Osvaldo Jakubowski"
           },
           "uri": {
             "minLength": 1,
@@ -13088,7 +12865,9 @@
           },
           "items": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Api.ApiModels.ResponseDto.ActiveConnectionsItemDto"
+            },
             "description": "Items",
             "nullable": true
           }
@@ -13102,7 +12881,7 @@
             "type": "integer",
             "description": "Id",
             "format": "int32",
-            "example": 1584
+            "example": 3984
           },
           "tenantId": {
             "type": "integer",
@@ -13114,7 +12893,7 @@
             "type": "string",
             "description": "User id",
             "format": "uuid",
-            "example": "8d5320fb-abaa-4154-a4e0-81448d6c672d"
+            "example": "006002ae-d78c-478b-956d-8d3a7b158063"
           },
           "mobile": {
             "type": "boolean",
@@ -13261,7 +13040,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Laurence45@hotmail.com"
+            "example": "Elwin17@yahoo.com"
           },
           "address": {
             "type": "string",
@@ -13298,13 +13077,13 @@
             "type": "string",
             "description": "Room id",
             "nullable": true,
-            "example": "8312"
+            "example": "3178"
           },
           "title": {
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "real_time"
+            "example": "soft_river_gorgeous_metal_computer"
           }
         },
         "additionalProperties": false
@@ -13331,7 +13110,9 @@
         "properties": {
           "domains": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "description": "Domains",
             "nullable": true,
             "example": [
@@ -13380,7 +13161,7 @@
             "type": "string",
             "description": "White label logo name",
             "nullable": true,
-            "example": "Axel Bayer"
+            "example": "Javonte Crooks"
           },
           "default": {
             "type": "boolean",
@@ -13514,7 +13295,9 @@
         "properties": {
           "disabledRooms": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "object"
+            },
             "description": "List of rooms with the disabled notifications",
             "nullable": true,
             "example": [
@@ -13599,7 +13382,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Tyrel Dare"
+            "example": "Johanna Botsford"
           },
           "ownerId": {
             "type": "string",
@@ -13636,7 +13419,9 @@
           },
           "trustedDomains": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "description": "List of trusted domains",
             "nullable": true,
             "example": [
@@ -13674,7 +13459,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Clarissa Breitenberg"
+            "example": "Shane Hudson"
           },
           "version": {
             "type": "string",
@@ -13765,13 +13550,13 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 6953
+            "example": 9858
           },
           "name": {
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Alayna Rutherford"
+            "example": "Darian Bogan"
           },
           "uri": {
             "type": "string",
@@ -13820,7 +13605,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 4446
+            "example": 6248
           },
           "configName": {
             "type": "string",
@@ -13893,7 +13678,7 @@
             "type": "string",
             "description": "File name",
             "nullable": true,
-            "example": "Alvis Denesik"
+            "example": "Keith Dicki"
           },
           "size": {
             "$ref": "#/components/schemas/SixLabors.ImageSharp.Size"
@@ -14294,7 +14079,7 @@
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Grover_Terry51@gmail.com"
+            "example": "Claire.Upton72@hotmail.com"
           },
           "address": {
             "maxLength": 255,
@@ -14331,65 +14116,6 @@
         "additionalProperties": false,
         "description": "Company white label settings"
       },
-      "ASC.Web.Studio.Core.CustomNavigationItem": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Id",
-            "format": "uuid",
-            "example": "5ca16542-6b48-4207-a1d0-d67d2f6a2192"
-          },
-          "label": {
-            "type": "string",
-            "description": "Label",
-            "nullable": true,
-            "example": "Label"
-          },
-          "url": {
-            "type": "string",
-            "description": "URL",
-            "nullable": true,
-            "example": "Url"
-          },
-          "bigImg": {
-            "type": "string",
-            "description": "Big image",
-            "nullable": true,
-            "example": "data:image\\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAgMAAAANjH3HAAAADFBMVEUAAADJycnJycnJycmiuNtHAAAAA3RSTlMAf4C\\/aSLHAAAAyElEQVR4Xu3NsQ3CMBSE4YubFB4ilHQegdGSjWACvEpGoEyBYiL05AdnXUGHolx10lf82MmOpfLeo5UoJUhBlpKkRCnhUy7b9XCWkqQMUkYlXVHSf8kTvkHKqKQrSnopg5SRxTMklLmS1MwaSWpmCSQ1MyOzWGZCYrEMEFksA4QqlAFuJJYBcCKxjM3FMySeIfEMC2dMOONCGZZgmdr1ly3TSrJMK9EyJBaaGrHQikYstAiJZRYSyiQEdyg5S8Evckih\\/YPscsdej0H6dc0TYw4AAAAASUVORK5CYII="
-          },
-          "smallImg": {
-            "type": "string",
-            "description": "Small image",
-            "nullable": true,
-            "example": "data:image\\/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8\\/9hAAAAUUlEQVR4AWMY\\/KC5o\\/cAEP9HxxgKcSpCGELYADyu2E6mAQjNxBlAWPNxkHdwGkBIM3KYYDUAr2ZCAE+oH8eujrAXDsA0k2EAAtDXAGLx4MpsADUgvkRKUlqfAAAAAElFTkSuQmCC"
-          },
-          "showInMenu": {
-            "type": "boolean",
-            "description": "Show in menu or not",
-            "example": true
-          },
-          "showOnHomePage": {
-            "type": "boolean",
-            "description": "Show on home page or not",
-            "example": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Custom navigation parameters"
-      },
-      "ASC.Web.Studio.Core.EmailActivationSettings": {
-        "type": "object",
-        "properties": {
-          "show": {
-            "type": "boolean",
-            "description": "Shown or hidden",
-            "example": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Email activation settings"
-      },
       "ASC.Web.Studio.Core.TipsSettings": {
         "type": "object",
         "properties": {
@@ -14409,7 +14135,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Penelope Schmitt"
+            "example": "Cristian Osinski"
           },
           "value": {
             "type": "string",
@@ -14421,7 +14147,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "practical_indexing_data"
+            "example": "open_source_kids_handcrafted"
           }
         },
         "additionalProperties": false
@@ -14480,32 +14206,32 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Alyce"
+            "example": "Arnoldo"
           },
           "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Howe"
+            "example": "Hickle"
           },
           "email": {
             "type": "string",
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Dariana_Green@hotmail.com"
+            "example": "Neoma35@yahoo.com"
           },
           "title": {
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "buckinghamshire"
+            "example": "quality"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "5396 Klocko Highway, Lednerborough, Macao"
+            "example": "05504 Senger Ridge, Kariborough, Andorra"
           },
           "phone": {
             "type": "string",
@@ -14610,7 +14336,9 @@
           },
           "idpCertificates": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Studio.UserControls.Management.SingleSignOnSettings.SsoCertificate"
+            },
             "description": "List of IDP certificates",
             "nullable": true
           },
@@ -14625,7 +14353,9 @@
           },
           "spCertificates": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Studio.UserControls.Management.SingleSignOnSettings.SsoCertificate"
+            },
             "description": "List of SP certificates",
             "nullable": true
           },
@@ -14755,7 +14485,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 3953
+            "example": 3062
           },
           "route": {
             "type": "string",
@@ -14779,7 +14509,7 @@
             "description": "Name",
             "nullable": true,
             "readOnly": true,
-            "example": "Nelle Upton"
+            "example": "Willie Von"
           },
           "description": {
             "type": "string",
@@ -14950,7 +14680,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "11528 Bashirian Circles, West Katherynville, Virgin Islands, British"
+            "example": "52876 Gene Alley, Lisettebury, Morocco"
           },
           "reflectionOnly": {
             "type": "boolean",
@@ -15029,7 +14759,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Christina Larson"
+            "example": "Luella Wyman"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15188,13 +14918,17 @@
           },
           "constructorArguments": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/System.Reflection.CustomAttributeTypedArgument"
+            },
             "nullable": true,
             "readOnly": true
           },
           "namedArguments": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/System.Reflection.CustomAttributeNamedArgument"
+            },
             "nullable": true,
             "readOnly": true
           }
@@ -15257,7 +14991,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Loyce Corkery"
+            "example": "Thea McCullough"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15350,7 +15084,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Kristian Powlowski"
+            "example": "Hailey Zieme"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15499,7 +15233,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Mallory Nader"
+            "example": "Waino Nicolas"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15585,7 +15319,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Hudson Grady"
+            "example": "Nelda Kirlin"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15757,7 +15491,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Otha White"
+            "example": "Tania Huels"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15930,7 +15664,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Lexus Champlin"
+            "example": "Augustine Bosco"
           },
           "mdStreamVersion": {
             "type": "integer",
@@ -16000,7 +15734,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Nyasia Schiller"
+            "example": "Fabian Harvey"
           },
           "parameterType": {
             "$ref": "#/components/schemas/System.Type"
@@ -16097,7 +15831,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Daniella Fay"
+            "example": "Kendra Runolfsson"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -16199,7 +15933,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Tyshawn Adams"
+            "example": "Kari Konopelski"
           },
           "customAttributes": {
             "type": "array",
@@ -16351,7 +16085,9 @@
           },
           "genericTypeArguments": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/System.Type"
+            },
             "nullable": true,
             "readOnly": true
           },
@@ -16548,7 +16284,9 @@
           },
           "genericTypeParameters": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/System.Type"
+            },
             "nullable": true,
             "readOnly": true
           },
@@ -16689,7 +16427,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Zella Labadie"
+            "example": "Bernhard Stamm"
           },
           "customAttributes": {
             "type": "array",
@@ -16841,7 +16579,9 @@
           },
           "genericTypeArguments": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/System.Type"
+            },
             "nullable": true,
             "readOnly": true
           },
@@ -17112,10 +16852,6 @@
     {
       "name": "Settings / Cookies",
       "description": "Operations for working with cookies settings."
-    },
-    {
-      "name": "Settings / Custom Navigation",
-      "description": "Operations for working with custom navigation settings."
     },
     {
       "name": "Settings / Encryption",

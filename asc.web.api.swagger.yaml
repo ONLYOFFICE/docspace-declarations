@@ -800,7 +800,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 46fd0ce6-a5ca-4702-b971-2a1f028cf8d1
+          example: dc22d7f2-d679-4ccb-a677-aa89436dd880
       responses:
         200:
           description: User information
@@ -985,7 +985,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 1daf206d-e6fa-400f-bcbc-c7f040162de9
+          example: ed123f3d-172f-42ca-a92f-9a9db9a60e15
       responses:
         200:
           description: Ok
@@ -1035,7 +1035,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8583
+          example: 8698
       responses:
         200:
           description: 'Boolean value: true if the operation is successful'
@@ -1099,7 +1099,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: bd604d0a-d031-4274-a223-53a3af9b8f93
+          example: bab42aa7-2aa9-43c5-b4ea-a141b37ca517
       - name: productType
         in: query
         description: Product
@@ -1476,7 +1476,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 7514b51e-7c60-4ba7-aca9-712bd1337b62
+          example: bea677bb-51e6-4a32-9611-3dcb147e106a
       - name: action
         in: query
         description: Action
@@ -2056,7 +2056,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5827
+          example: 2165
       responses:
         200:
           description: 'Portal theme settings: custom color theme settings, selected or not, limit'
@@ -2095,43 +2095,6 @@ paths:
         - read
         - write
       description: Closes the admin helper notification.
-  /api/2.0/settings/emailactivation:
-    put:
-      tags:
-      - Settings / Common settings
-      summary: Update the email activation settings
-      operationId: updateEmailActivationSettings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings'
-      responses:
-        200:
-          description: Updated email activation settings
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings'
-        401:
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      description: Updates the email activation settings.
   /api/2.0/settings/socket:
     get:
       tags:
@@ -2239,155 +2202,6 @@ paths:
         - read
         - write
       description: Updates the cookies lifetime value in minutes.
-  /api/2.0/settings/customnavigation/getall:
-    get:
-      tags:
-      - Settings / Custom Navigation
-      summary: Get the custom navigation items
-      operationId: getCustomNavigationItems
-      responses:
-        200:
-          description: List of the custom navigation items
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-        401:
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      description: Returns a list of the custom navigation items.
-  /api/2.0/settings/customnavigation/getsample:
-    get:
-      tags:
-      - Settings / Custom Navigation
-      summary: Get a custom navigation item sample
-      operationId: getCustomNavigationItemSample
-      responses:
-        200:
-          description: Custom navigation item
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-        401:
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      description: Returns a custom navigation item sample.
-  /api/2.0/settings/customnavigation/get/{id}:
-    get:
-      tags:
-      - Settings / Custom Navigation
-      summary: Get a custom navigation item by ID
-      operationId: getCustomNavigationItem
-      parameters:
-      - name: id
-        in: path
-        description: Id
-        required: true
-        schema:
-          type: string
-          format: uuid
-          example: ea290246-66ab-4906-a550-723946eb58b2
-      responses:
-        200:
-          description: Custom navigation item
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-        401:
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      description: Returns a custom navigation item by the ID specified in the request.
-  /api/2.0/settings/customnavigation/create:
-    post:
-      tags:
-      - Settings / Custom Navigation
-      summary: Add a custom navigation item
-      operationId: createCustomNavigationItem
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-      responses:
-        200:
-          description: Custom navigation item
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem'
-        401:
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      description: Adds a custom navigation item with the parameters specified in the request.
-  /api/2.0/settings/customnavigation/delete/{id}:
-    delete:
-      tags:
-      - Settings / Custom Navigation
-      summary: Delete a custom navigation item
-      operationId: deleteCustomNavigationItem
-      parameters:
-      - name: id
-        in: path
-        description: Id
-        required: true
-        schema:
-          type: string
-          format: uuid
-          example: 02fb4b1a-df22-4de9-a6c1-2969512bfc80
-      responses:
-        200:
-          description: OK
-        401:
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      description: Deletes a custom navigation item with the ID specified in the request.
   /api/2.0/settings/encryption/start:
     post:
       tags:
@@ -3787,7 +3601,8 @@ paths:
         style: deepObject
         schema:
           type: array
-          items: {}
+          items:
+            type: string
           example:
           - some text
       responses:
@@ -3862,7 +3677,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 11d6b88c-d568-4680-8471-d4e825ae4a79
+          example: 74b02911-e36f-4c42-988a-55ef05dde2c3
       responses:
         200:
           description: 'Boolean value: true - module is enabled, false - module is disabled'
@@ -4023,7 +3838,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 8d1c2abc-f1e1-4638-8bfb-59c12634f003
+          example: 08e40113-7bc9-4866-898f-01349f306360
       responses:
         200:
           description: List of product administrators with the following parameters
@@ -4057,14 +3872,14 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 44fe834b-e38c-43a8-adb7-efef1e4ad1c6
+          example: 0481f9a0-ad42-41c5-8201-fb9fd08e6650
       - name: userid
         in: query
         description: User ID
         schema:
           type: string
           format: uuid
-          example: a3f776aa-cd7a-4028-bd3e-d97780e93e51
+          example: b5209813-d05f-460b-8ef4-40f67b9ad26a
       responses:
         200:
           description: 'Object with the user security information: product ID, user ID, administrator or not'
@@ -4263,7 +4078,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 32e39b58-1368-48d7-8c6a-88c545c0733b
+          example: 0eb00c41-0638-4bef-b029-b35c305ab16f
       responses:
         200:
           description: Module space usage statistics
@@ -4647,7 +4462,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 318
+          example: 3557
       responses:
         200:
           description: Team template with the following parameters
@@ -5143,7 +4958,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4609
+          example: 5553
       responses:
         200:
           description: Tenant webhook with its config parameters
@@ -5177,7 +4992,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4115
+          example: 9408
       responses:
         200:
           description: Webhook settings
@@ -5285,7 +5100,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 905
+          example: 3598
       responses:
         200:
           description: Logs of the webhook activities
@@ -5457,7 +5272,7 @@ paths:
         required: true
         schema:
           type: string
-          example: Dewayne Green
+          example: Filiberto Labadie
       responses:
         200:
           description: Web plugin
@@ -5492,7 +5307,7 @@ paths:
         required: true
         schema:
           type: string
-          example: Shawna Ledner
+          example: Myah Johns
       requestBody:
         description: Web plugin
         content:
@@ -5529,7 +5344,7 @@ paths:
         required: true
         schema:
           type: string
-          example: Tre Roberts
+          example: Eric Smitham
       responses:
         200:
           description: Ok
@@ -5600,7 +5415,7 @@ components:
           type: string
           description: ID
           format: uuid
-          example: 8668b300-4f0f-408f-beaa-f081cb879505
+          example: dd8b91ba-fb78-4d74-88b7-57affd6f8cd7
         appName:
           type: string
           description: Product class name
@@ -5610,7 +5425,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: extensible_pound_sterling
+          example: driver
         link:
           type: string
           description: Start link
@@ -5774,8 +5589,9 @@ components:
         - General
         - Products
         - Rooms
+        - OAuth
         type: string
-        description: '[None - None, Files - Files, Folders - Folders, DocumentsSettings - Documents settings, Companies - Companies, Persons - Persons, Contacts - Contacts, CrmTasks - Crm tasks, Opportunities - Opportunities, Invoices - Invoices, Cases - Cases, CommonCrmSettings - Common crm settings, ContactsSettings - Contacts settings, ContactTypes - Contact types, InvoiceSettings - Invoice settings, OtherCrmSettings - Other crm settings, Users - Users, Groups - Groups, Projects - Projects, Milestones - Milestones, Tasks - Tasks, Discussions - Discussions, TimeTracking - Time tracking, Reports - Reports, ProjectsSettings - Projects settings, General - General, Products - Products, Rooms - Rooms]'
+        description: '[None - None, Files - Files, Folders - Folders, DocumentsSettings - Documents settings, Companies - Companies, Persons - Persons, Contacts - Contacts, CrmTasks - Crm tasks, Opportunities - Opportunities, Invoices - Invoices, Cases - Cases, CommonCrmSettings - Common crm settings, ContactsSettings - Contacts settings, ContactTypes - Contact types, InvoiceSettings - Invoice settings, OtherCrmSettings - Other crm settings, Users - Users, Groups - Groups, Projects - Projects, Milestones - Milestones, Tasks - Tasks, Discussions - Discussions, TimeTracking - Time tracking, Reports - Reports, ProjectsSettings - Projects settings, General - General, Products - Products, Rooms - Rooms, OAuth - OAuth]'
         example: None
       - enum:
         - 0
@@ -5806,8 +5622,9 @@ components:
         - 25
         - 26
         - 27
+        - 28
         type: integer
-        description: '[0 - None, 1 - Files, 2 - Folders, 3 - Documents settings, 4 - Companies, 5 - Persons, 6 - Contacts, 7 - Crm tasks, 8 - Opportunities, 9 - Invoices, 10 - Cases, 11 - Common crm settings, 12 - Contacts settings, 13 - Contact types, 14 - Invoice settings, 15 - Other crm settings, 16 - Users, 17 - Groups, 18 - Projects, 19 - Milestones, 20 - Tasks, 21 - Discussions, 22 - Time tracking, 23 - Reports, 24 - Projects settings, 25 - General, 26 - Products, 27 - Rooms]'
+        description: '[0 - None, 1 - Files, 2 - Folders, 3 - Documents settings, 4 - Companies, 5 - Persons, 6 - Contacts, 7 - Crm tasks, 8 - Opportunities, 9 - Invoices, 10 - Cases, 11 - Common crm settings, 12 - Contacts settings, 13 - Contact types, 14 - Invoice settings, 15 - Other crm settings, 16 - Users, 17 - Groups, 18 - Projects, 19 - Milestones, 20 - Tasks, 21 - Discussions, 22 - Time tracking, 23 - Reports, 24 - Projects settings, 25 - General, 26 - Products, 27 - Rooms, 28 - OAuth]'
         example: 0
     ASC.AuditTrail.Types.ProductType:
       oneOf:
@@ -5838,7 +5655,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 2362
+          example: 2847
         quantity:
           type: integer
           description: Quantity
@@ -5852,7 +5669,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 3165
+          example: 9266
         state:
           $ref: '#/components/schemas/ASC.Core.Billing.TariffState'
         dueDate:
@@ -5877,7 +5694,8 @@ components:
           example: some text
         quotas:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Core.Billing.Quota'
           description: List of quotas
           nullable: true
       additionalProperties: false
@@ -5906,12 +5724,12 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 7466
+          example: 3769
         userId:
           type: string
           description: User ID
           format: uuid
-          example: b712c134-aaf6-497e-ada2-1dda060cc81a
+          example: 13066ace-1ca8-4421-ac65-561dc28b57ff
         tenantId:
           type: integer
           description: Tenant ID
@@ -5942,12 +5760,12 @@ components:
           type: integer
           description: Id
           format: int32
-          example: 683
+          example: 5693
         name:
           type: string
           description: Name
           nullable: true
-          example: Solon Spencer
+          example: Lukas Berge
         alias:
           type: string
           description: Alias
@@ -6172,7 +5990,7 @@ components:
           type: string
           description: Product ID
           nullable: true
-          example: 8749
+          example: 9833
         visible:
           type: boolean
           description: Specifies if the tenant quota is visible or not
@@ -6438,17 +6256,17 @@ components:
           type: string
           description: ID
           format: uuid
-          example: 4bdfc918-4961-4ff2-8918-77744045243b
+          example: 2c58cfbe-cbf4-45cf-818b-c43a2b91d88b
         firstName:
           type: string
           description: First name
           nullable: true
-          example: Keshawn
+          example: Stephania
         lastName:
           type: string
           description: Last name
           nullable: true
-          example: Walter
+          example: Bergnaum
         userName:
           type: string
           description: Username
@@ -6479,7 +6297,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: systems_metical_frozen
+          example: manat
         workFromDate:
           type: string
           description: Registration date
@@ -6491,7 +6309,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Dell_Hodkiewicz74@yahoo.com
+          example: Lottie.Turner@hotmail.com
         contacts:
           type: string
           description: List of contacts in the string format
@@ -6499,7 +6317,8 @@ components:
           example: some text
         contactsList:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of contacts
           nullable: true
           example:
@@ -6508,7 +6327,7 @@ components:
           type: string
           description: Location
           nullable: true
-          example: 2891 Fidel Fall, Harrisport, British Indian Ocean Territory (Chagos Archipelago)
+          example: 885 Palma Fields, West Sigmund, Jordan
         notes:
           type: string
           description: Notes
@@ -6635,7 +6454,7 @@ components:
         id:
           type: integer
           format: int32
-          example: 2930
+          example: 889
         tenantId:
           type: integer
           format: int32
@@ -6904,9 +6723,18 @@ components:
         - UserCreatedAndAddedToRoom
         - GuestCreatedAndAddedToRoom
         - ContactSalesMailSent
+        - CreateClient
+        - UpdateClient
+        - RegenerateSecret
+        - DeleteClient
+        - ChangeClientActivation
+        - ChangeClientVisibility
+        - RevokeUserClient
+        - GenerateAuthorizationCodeToken
+        - GeneratePersonalAccessToken
         - None
         type: string
-        description: '[LoginSuccess - Login success, LoginSuccessViaSocialAccount - Login success via social account, LoginFailInvalidCombination - Login fail invalid combination, LoginFailSocialAccountNotFound - Login fail social account not found, LoginFailDisabledProfile - Login fail disabled profile, LoginFail - Login fail, Logout - Logout, LoginSuccessViaSms - Login success via sms, LoginFailViaSms - Login fail via sms, LoginFailIpSecurity - Login fail ip security, LoginSuccessViaApi - Login success via api, LoginSuccessViaSocialApp - Login success via social app, LoginSuccessViaApiSms - Login success via api sms, LoginFailViaApi - Login fail via api, LoginFailViaApiSms - Login fail via api sms, LoginSuccessViaSSO - Login success via SSO, SessionStarted - Session started, SessionCompleted - Session completed, LoginFailViaSSO - Login fail via SSO, LoginSuccessViaApiSocialAccount - Login success via api social account, LoginFailViaApiSocialAccount - Login fail via api social account, LoginSuccesViaTfaApp - Login succes via tfa app, LoginFailViaTfaApp - Login fail via Tfa app, LoginFailBruteForce - Login fail brute force, LoginSuccessViaApiTfa - Login success via api tfa, LoginFailViaApiTfa - Login fail via api tfa, LoginFailRecaptcha - Login fail recaptcha, UserCreated - User created, GuestCreated - Guest created, UserCreatedViaInvite - User created via invite, GuestCreatedViaInvite - Guest created via invite, UserActivated - User activated, GuestActivated - Guest activated, UserUpdated - User updated, UserUpdatedLanguage - User updated language, UserAddedAvatar - User added avatar, UserDeletedAvatar - User deleted avatar, UserUpdatedAvatarThumbnails - User updated avatar thumbnails, UserLinkedSocialAccount - User linked social account, UserUnlinkedSocialAccount - User unlinked social account, UserSentActivationInstructions - User sent activation instructions, UserSentEmailChangeInstructions - User sent email change instructions, UserSentPasswordChangeInstructions - User sent password change instructions, UserSentDeleteInstructions - User sent delete instructions, UserUpdatedPassword - User updated password, UserDeleted - User deleted, UsersUpdatedType - Users updated type, UsersUpdatedStatus - Users updated status, UsersSentActivationInstructions - Users sent activation instructions, UsersDeleted - Users deleted, SentInviteInstructions - Sent invite instructions, UserImported - User imported, GuestImported - Guest imported, GroupCreated - Group created, GroupUpdated - Group updated, GroupDeleted - Group deleted, UserUpdatedMobileNumber - User updated mobile number, UserDataReassigns - User data reassigns, UserDataRemoving - User data removing, UserConnectedTfaApp - User connected tfa app, UserDisconnectedTfaApp - User disconnected tfa app, UserLogoutActiveConnections - User logout active connections, UserLogoutActiveConnection - User logout active connection, UserLogoutActiveConnectionsForUser - User logout active connections for user, SendJoinInvite - Send join invite, FileCreated - File created, FileRenamed - File renamed, FileUpdated - File updated, FileCreatedVersion - File created version, FileDeletedVersion - File deleted version, FileUpdatedRevisionComment - File updated revision comment, FileLocked - File locked, FileUnlocked - File unlocked, FileUpdatedAccess - File updated access, FileDownloaded - File downloaded, FileDownloadedAs - File downloaded as, FileUploaded - File uploaded, FileImported - File imported, FileCopied - File copied, FileCopiedWithOverwriting - File copied with overwriting, FileMoved - File moved, FileMovedWithOverwriting - File moved with overwriting, FileMovedToTrash - File moved to trash, FileDeleted - File deleted, FolderCreated - Folder created, FolderRenamed - Folder renamed, FolderUpdatedAccess - Folder updated access, FolderCopied - Folder copied, FolderCopiedWithOverwriting - Folder copied with overwriting, FolderMoved - Folder moved, FolderMovedWithOverwriting - Folder moved with overwriting, FolderMovedToTrash - Folder moved to trash, FolderDeleted - Folder deleted, ThirdPartyCreated - ThirdParty created, ThirdPartyUpdated - ThirdParty updated, ThirdPartyDeleted - ThirdParty deleted, DocumentsThirdPartySettingsUpdated - Documents ThirdParty settings updated, DocumentsOverwritingSettingsUpdated - Documents overwriting settings updated, DocumentsUploadingFormatsSettingsUpdated - Documents uploading formats settings updated, UserFileUpdated - User file updated, FileConverted - File converted, FileSendAccessLink - File send access link, DocumentServiceLocationSetting - Document service location setting, AuthorizationKeysSetting - Authorization keys setting, FullTextSearchSetting - Full text search setting, StartTransferSetting - Start transfer setting, StartBackupSetting - Start backup setting, LicenseKeyUploaded - License key uploaded, FileChangeOwner - File change owner, FileRestoreVersion - File restore version, DocumentSendToSign - Document send to sign, DocumentSignComplete - Document sign complete, UserUpdatedEmail - User updated email, DocumentsStoreForcesave - Documents store forcesave, DocumentsForcesave - Documents forcesave, StartStorageEncryption - Start storage encryption, PrivacyRoomEnable - Privacy room enable, PrivacyRoomDisable - Privacy room disable, StartStorageDecryption - Start storage decryption, FileOpenedForChange - File opened for change, FileMarkedAsFavorite - File marked as favorite, FileRemovedFromFavorite - File removed from favorite, FolderDownloaded - Folder downloaded, FileRemovedFromList - File removed from list, FolderRemovedFromList - Folder removed from list, FileExternalLinkAccessUpdated - File external link access updated, TrashEmptied - Trash emptied, FileRevisionDownloaded - File revision downloaded, FileMarkedAsRead - File marked as read, FileReaded - File readed, FolderMarkedAsRead - Folder marked as read, FolderUpdatedAccessFor - Folder updated access for, FileUpdatedAccessFor - File updated access for, DocumentsExternalShareSettingsUpdated - Documents external share settings updated, RoomCreated - Room created, RoomRenamed - Room renamed, RoomArchived - Room archived, RoomUnarchived - Room unarchived, RoomDeleted - Room deleted, RoomUpdateAccessForUser - Room update access for user, TagCreated - Tag created, TagsDeleted - Tags deleted, AddedRoomTags - Added room tags, DeletedRoomTags - Deleted room tags, RoomLogoCreated - Room logo created, RoomLogoDeleted - Room logo deleted, RoomInvitationLinkUpdated - Room invitation link updated, DocumentsKeepNewFileNameSettingsUpdated - Documents keep new file name settings updated, RoomRemoveUser - Room remove user, RoomCreateUser - Room create user, RoomInvitationLinkCreated - Room invitation link created, RoomInvitationLinkDeleted - Room invitation link deleted, RoomExternalLinkCreated - Room external link created, RoomExternalLinkUpdated - Room external link updated, RoomExternalLinkDeleted - Room external link deleted, FileExternalLinkCreated - File external link created, FileExternalLinkUpdated - File external link updated, FileExternalLinkDeleted - File external link deleted, RoomGroupAdded - Room group added, RoomUpdateAccessForGroup - Room update access for group, RoomGroupRemove - Room group remove, RoomExternalLinkRevoked - Room external link revoked, RoomExternalLinkRenamed - Room external link renamed, FileUploadedWithOverwriting - File uploaded with overwriting, RoomCopied - Room copied, DocumentsDisplayFileExtensionUpdated - Documents display file extension updated, RoomColorChanged - Room color changed, RoomCoverChanged - Room cover changed, RoomIndexingChanged - Room indexing changed, RoomDenyDownloadChanged - Room deny download changed, RoomIndexExportSaved - Room index export saved, FolderIndexChanged - Folder index changed, FolderIndexReordered - Folder index reordered, RoomDenyDownloadEnabled - Room deny download enabled, RoomDenyDownloadDisabled - Room deny download disabled, FileIndexChanged - File index changed, RoomWatermarkSet - Room watermark set, RoomWatermarkDisabled - Room watermark disabled, RoomIndexingEnabled - Room index export saved, RoomIndexingDisabled - Room indexing disabled, RoomLifeTimeSet - Room life time set, RoomLifeTimeDisabled - Room life time disabled, RoomInviteResend - Room invite resend, LanguageSettingsUpdated - Language settings updated, TimeZoneSettingsUpdated - Time zone settings updated, DnsSettingsUpdated - Dns settings updated, TrustedMailDomainSettingsUpdated - Trusted mail domain settings updated, PasswordStrengthSettingsUpdated - Password strength settings updated, TwoFactorAuthenticationSettingsUpdated - Two factor authentication settings updated, AdministratorMessageSettingsUpdated - Administrator message settings updated, DefaultStartPageSettingsUpdated - Default start page settings updated, ProductsListUpdated - Products list updated, AdministratorAdded - Administrator added, AdministratorOpenedFullAccess - Administrator opened full access, AdministratorDeleted - Administrator deleted, UsersOpenedProductAccess - Users opened product access, GroupsOpenedProductAccess - Groups opened product access, ProductAccessOpened - Product access opened, ProductAccessRestricted - Product access restricted, ProductAddedAdministrator - Product added administrator, ProductDeletedAdministrator - Product deleted administrator, GreetingSettingsUpdated - Greeting settings updated, TeamTemplateChanged - Team template changed, ColorThemeChanged - Color theme changed, OwnerSentChangeOwnerInstructions - Owner sent change owner instructions, OwnerUpdated - Owner updated, OwnerSentPortalDeactivationInstructions - Owner sent portal deactivation instructions, OwnerSentPortalDeleteInstructions - Owner sent portal delete instructions, PortalDeactivated - Portal deactivated, PortalDeleted - Portal deleted, LoginHistoryReportDownloaded - Login history report downloaded, AuditTrailReportDownloaded - Audit trail report downloaded, SSOEnabled - SSO enabled, SSODisabled - SSO disabled, PortalAccessSettingsUpdated - Portal access settings updated, CookieSettingsUpdated - Cookie settings updated, MailServiceSettingsUpdated - Mail service settings updated, CustomNavigationSettingsUpdated - Custom navigation settings updated, AuditSettingsUpdated - Audit settings updated, TwoFactorAuthenticationDisabled - Two factor authentication disabled, TwoFactorAuthenticationEnabledBySms - Two factor authentication enabled by sms, TwoFactorAuthenticationEnabledByTfaApp - Two factor authentication enabled by tfa app, PortalRenamed - Portal renamed, QuotaPerRoomChanged - Quota per room changed, QuotaPerRoomDisabled - Quota per room disabled, QuotaPerUserChanged - Quota per user changed, QuotaPerUserDisabled - Quota per user disabled, QuotaPerPortalChanged - Quota per portal changed, QuotaPerPortalDisabled - Quota per portal disabled, FormSubmit - Form submit, FormOpenedForFilling - Form opened for filling, CustomQuotaPerRoomDefault - Custom quota per room default, CustomQuotaPerRoomChanged - Custom quota per room changed, CustomQuotaPerRoomDisabled - Custom quota per room disabled, CustomQuotaPerUserDefault - Custom quota per user default, CustomQuotaPerUserChanged - Custom quota per user changed, CustomQuotaPerUserDisabled - Custom quota per user disabled, ContactAdminMailSent - Contact admin mail sent, RoomInviteLinkUsed - Room invite link used, UserCreatedAndAddedToRoom - User created and added to room, GuestCreatedAndAddedToRoom - Guest created and added to room, ContactSalesMailSent - Contact sales mail sent, None - None]'
+        description: '[LoginSuccess - Login success, LoginSuccessViaSocialAccount - Login success via social account, LoginFailInvalidCombination - Login fail invalid combination, LoginFailSocialAccountNotFound - Login fail social account not found, LoginFailDisabledProfile - Login fail disabled profile, LoginFail - Login fail, Logout - Logout, LoginSuccessViaSms - Login success via sms, LoginFailViaSms - Login fail via sms, LoginFailIpSecurity - Login fail ip security, LoginSuccessViaApi - Login success via api, LoginSuccessViaSocialApp - Login success via social app, LoginSuccessViaApiSms - Login success via api sms, LoginFailViaApi - Login fail via api, LoginFailViaApiSms - Login fail via api sms, LoginSuccessViaSSO - Login success via SSO, SessionStarted - Session started, SessionCompleted - Session completed, LoginFailViaSSO - Login fail via SSO, LoginSuccessViaApiSocialAccount - Login success via api social account, LoginFailViaApiSocialAccount - Login fail via api social account, LoginSuccesViaTfaApp - Login succes via tfa app, LoginFailViaTfaApp - Login fail via Tfa app, LoginFailBruteForce - Login fail brute force, LoginSuccessViaApiTfa - Login success via api tfa, LoginFailViaApiTfa - Login fail via api tfa, LoginFailRecaptcha - Login fail recaptcha, UserCreated - User created, GuestCreated - Guest created, UserCreatedViaInvite - User created via invite, GuestCreatedViaInvite - Guest created via invite, UserActivated - User activated, GuestActivated - Guest activated, UserUpdated - User updated, UserUpdatedLanguage - User updated language, UserAddedAvatar - User added avatar, UserDeletedAvatar - User deleted avatar, UserUpdatedAvatarThumbnails - User updated avatar thumbnails, UserLinkedSocialAccount - User linked social account, UserUnlinkedSocialAccount - User unlinked social account, UserSentActivationInstructions - User sent activation instructions, UserSentEmailChangeInstructions - User sent email change instructions, UserSentPasswordChangeInstructions - User sent password change instructions, UserSentDeleteInstructions - User sent delete instructions, UserUpdatedPassword - User updated password, UserDeleted - User deleted, UsersUpdatedType - Users updated type, UsersUpdatedStatus - Users updated status, UsersSentActivationInstructions - Users sent activation instructions, UsersDeleted - Users deleted, SentInviteInstructions - Sent invite instructions, UserImported - User imported, GuestImported - Guest imported, GroupCreated - Group created, GroupUpdated - Group updated, GroupDeleted - Group deleted, UserUpdatedMobileNumber - User updated mobile number, UserDataReassigns - User data reassigns, UserDataRemoving - User data removing, UserConnectedTfaApp - User connected tfa app, UserDisconnectedTfaApp - User disconnected tfa app, UserLogoutActiveConnections - User logout active connections, UserLogoutActiveConnection - User logout active connection, UserLogoutActiveConnectionsForUser - User logout active connections for user, SendJoinInvite - Send join invite, FileCreated - File created, FileRenamed - File renamed, FileUpdated - File updated, FileCreatedVersion - File created version, FileDeletedVersion - File deleted version, FileUpdatedRevisionComment - File updated revision comment, FileLocked - File locked, FileUnlocked - File unlocked, FileUpdatedAccess - File updated access, FileDownloaded - File downloaded, FileDownloadedAs - File downloaded as, FileUploaded - File uploaded, FileImported - File imported, FileCopied - File copied, FileCopiedWithOverwriting - File copied with overwriting, FileMoved - File moved, FileMovedWithOverwriting - File moved with overwriting, FileMovedToTrash - File moved to trash, FileDeleted - File deleted, FolderCreated - Folder created, FolderRenamed - Folder renamed, FolderUpdatedAccess - Folder updated access, FolderCopied - Folder copied, FolderCopiedWithOverwriting - Folder copied with overwriting, FolderMoved - Folder moved, FolderMovedWithOverwriting - Folder moved with overwriting, FolderMovedToTrash - Folder moved to trash, FolderDeleted - Folder deleted, ThirdPartyCreated - ThirdParty created, ThirdPartyUpdated - ThirdParty updated, ThirdPartyDeleted - ThirdParty deleted, DocumentsThirdPartySettingsUpdated - Documents ThirdParty settings updated, DocumentsOverwritingSettingsUpdated - Documents overwriting settings updated, DocumentsUploadingFormatsSettingsUpdated - Documents uploading formats settings updated, UserFileUpdated - User file updated, FileConverted - File converted, FileSendAccessLink - File send access link, DocumentServiceLocationSetting - Document service location setting, AuthorizationKeysSetting - Authorization keys setting, FullTextSearchSetting - Full text search setting, StartTransferSetting - Start transfer setting, StartBackupSetting - Start backup setting, LicenseKeyUploaded - License key uploaded, FileChangeOwner - File change owner, FileRestoreVersion - File restore version, DocumentSendToSign - Document send to sign, DocumentSignComplete - Document sign complete, UserUpdatedEmail - User updated email, DocumentsStoreForcesave - Documents store forcesave, DocumentsForcesave - Documents forcesave, StartStorageEncryption - Start storage encryption, PrivacyRoomEnable - Privacy room enable, PrivacyRoomDisable - Privacy room disable, StartStorageDecryption - Start storage decryption, FileOpenedForChange - File opened for change, FileMarkedAsFavorite - File marked as favorite, FileRemovedFromFavorite - File removed from favorite, FolderDownloaded - Folder downloaded, FileRemovedFromList - File removed from list, FolderRemovedFromList - Folder removed from list, FileExternalLinkAccessUpdated - File external link access updated, TrashEmptied - Trash emptied, FileRevisionDownloaded - File revision downloaded, FileMarkedAsRead - File marked as read, FileReaded - File readed, FolderMarkedAsRead - Folder marked as read, FolderUpdatedAccessFor - Folder updated access for, FileUpdatedAccessFor - File updated access for, DocumentsExternalShareSettingsUpdated - Documents external share settings updated, RoomCreated - Room created, RoomRenamed - Room renamed, RoomArchived - Room archived, RoomUnarchived - Room unarchived, RoomDeleted - Room deleted, RoomUpdateAccessForUser - Room update access for user, TagCreated - Tag created, TagsDeleted - Tags deleted, AddedRoomTags - Added room tags, DeletedRoomTags - Deleted room tags, RoomLogoCreated - Room logo created, RoomLogoDeleted - Room logo deleted, RoomInvitationLinkUpdated - Room invitation link updated, DocumentsKeepNewFileNameSettingsUpdated - Documents keep new file name settings updated, RoomRemoveUser - Room remove user, RoomCreateUser - Room create user, RoomInvitationLinkCreated - Room invitation link created, RoomInvitationLinkDeleted - Room invitation link deleted, RoomExternalLinkCreated - Room external link created, RoomExternalLinkUpdated - Room external link updated, RoomExternalLinkDeleted - Room external link deleted, FileExternalLinkCreated - File external link created, FileExternalLinkUpdated - File external link updated, FileExternalLinkDeleted - File external link deleted, RoomGroupAdded - Room group added, RoomUpdateAccessForGroup - Room update access for group, RoomGroupRemove - Room group remove, RoomExternalLinkRevoked - Room external link revoked, RoomExternalLinkRenamed - Room external link renamed, FileUploadedWithOverwriting - File uploaded with overwriting, RoomCopied - Room copied, DocumentsDisplayFileExtensionUpdated - Documents display file extension updated, RoomColorChanged - Room color changed, RoomCoverChanged - Room cover changed, RoomIndexingChanged - Room indexing changed, RoomDenyDownloadChanged - Room deny download changed, RoomIndexExportSaved - Room index export saved, FolderIndexChanged - Folder index changed, FolderIndexReordered - Folder index reordered, RoomDenyDownloadEnabled - Room deny download enabled, RoomDenyDownloadDisabled - Room deny download disabled, FileIndexChanged - File index changed, RoomWatermarkSet - Room watermark set, RoomWatermarkDisabled - Room watermark disabled, RoomIndexingEnabled - Room index export saved, RoomIndexingDisabled - Room indexing disabled, RoomLifeTimeSet - Room life time set, RoomLifeTimeDisabled - Room life time disabled, RoomInviteResend - Room invite resend, LanguageSettingsUpdated - Language settings updated, TimeZoneSettingsUpdated - Time zone settings updated, DnsSettingsUpdated - Dns settings updated, TrustedMailDomainSettingsUpdated - Trusted mail domain settings updated, PasswordStrengthSettingsUpdated - Password strength settings updated, TwoFactorAuthenticationSettingsUpdated - Two factor authentication settings updated, AdministratorMessageSettingsUpdated - Administrator message settings updated, DefaultStartPageSettingsUpdated - Default start page settings updated, ProductsListUpdated - Products list updated, AdministratorAdded - Administrator added, AdministratorOpenedFullAccess - Administrator opened full access, AdministratorDeleted - Administrator deleted, UsersOpenedProductAccess - Users opened product access, GroupsOpenedProductAccess - Groups opened product access, ProductAccessOpened - Product access opened, ProductAccessRestricted - Product access restricted, ProductAddedAdministrator - Product added administrator, ProductDeletedAdministrator - Product deleted administrator, GreetingSettingsUpdated - Greeting settings updated, TeamTemplateChanged - Team template changed, ColorThemeChanged - Color theme changed, OwnerSentChangeOwnerInstructions - Owner sent change owner instructions, OwnerUpdated - Owner updated, OwnerSentPortalDeactivationInstructions - Owner sent portal deactivation instructions, OwnerSentPortalDeleteInstructions - Owner sent portal delete instructions, PortalDeactivated - Portal deactivated, PortalDeleted - Portal deleted, LoginHistoryReportDownloaded - Login history report downloaded, AuditTrailReportDownloaded - Audit trail report downloaded, SSOEnabled - SSO enabled, SSODisabled - SSO disabled, PortalAccessSettingsUpdated - Portal access settings updated, CookieSettingsUpdated - Cookie settings updated, MailServiceSettingsUpdated - Mail service settings updated, CustomNavigationSettingsUpdated - Custom navigation settings updated, AuditSettingsUpdated - Audit settings updated, TwoFactorAuthenticationDisabled - Two factor authentication disabled, TwoFactorAuthenticationEnabledBySms - Two factor authentication enabled by sms, TwoFactorAuthenticationEnabledByTfaApp - Two factor authentication enabled by tfa app, PortalRenamed - Portal renamed, QuotaPerRoomChanged - Quota per room changed, QuotaPerRoomDisabled - Quota per room disabled, QuotaPerUserChanged - Quota per user changed, QuotaPerUserDisabled - Quota per user disabled, QuotaPerPortalChanged - Quota per portal changed, QuotaPerPortalDisabled - Quota per portal disabled, FormSubmit - Form submit, FormOpenedForFilling - Form opened for filling, CustomQuotaPerRoomDefault - Custom quota per room default, CustomQuotaPerRoomChanged - Custom quota per room changed, CustomQuotaPerRoomDisabled - Custom quota per room disabled, CustomQuotaPerUserDefault - Custom quota per user default, CustomQuotaPerUserChanged - Custom quota per user changed, CustomQuotaPerUserDisabled - Custom quota per user disabled, ContactAdminMailSent - Contact admin mail sent, RoomInviteLinkUsed - Room invite link used, UserCreatedAndAddedToRoom - User created and added to room, GuestCreatedAndAddedToRoom - Guest created and added to room, ContactSalesMailSent - Contact sales mail sent, CreateClient - Create client, UpdateClient - Update client, RegenerateSecret - Regenerate secret, DeleteClient - Delete client, ChangeClientActivation - Change client activation, ChangeClientVisibility - Change client visibility, RevokeUserClient - Revoke user client, GenerateAuthorizationCodeToken - Generate authorization code token, GeneratePersonalAccessToken - Generate personal access token, None - None]'
         example: LoginSuccess
       - enum:
         - 1000
@@ -7151,9 +6979,18 @@ components:
         - 7002
         - 7003
         - 7004
+        - 9901
+        - 9902
+        - 9903
+        - 9904
+        - 9905
+        - 9906
+        - 9907
+        - 9908
+        - 9909
         - -1
         type: integer
-        description: '[1000 - Login success, 1001 - Login success via social account, 1002 - Login fail invalid combination, 1003 - Login fail social account not found, 1004 - Login fail disabled profile, 1005 - Login fail, 1006 - Logout, 1007 - Login success via sms, 1008 - Login fail via sms, 1009 - Login fail ip security, 1010 - Login success via api, 1011 - Login success via social app, 1012 - Login success via api sms, 1013 - Login fail via api, 1014 - Login fail via api sms, 1015 - Login success via SSO, 1016 - Session started, 1017 - Session completed, 1018 - Login fail via SSO, 1019 - Login success via api social account, 1020 - Login fail via api social account, 1021 - Login succes via tfa app, 1022 - Login fail via Tfa app, 1023 - Login fail brute force, 1024 - Login success via api tfa, 1025 - Login fail via api tfa, 1026 - Login fail recaptcha, 4000 - User created, 4001 - Guest created, 4002 - User created via invite, 4003 - Guest created via invite, 4004 - User activated, 4005 - Guest activated, 4006 - User updated, 4007 - User updated language, 4008 - User added avatar, 4009 - User deleted avatar, 4010 - User updated avatar thumbnails, 4011 - User linked social account, 4012 - User unlinked social account, 4013 - User sent activation instructions, 4014 - User sent email change instructions, 4015 - User sent password change instructions, 4016 - User sent delete instructions, 4017 - User updated password, 4018 - User deleted, 4019 - Users updated type, 4020 - Users updated status, 4021 - Users sent activation instructions, 4022 - Users deleted, 4023 - Sent invite instructions, 4024 - User imported, 4025 - Guest imported, 4026 - Group created, 4027 - Group updated, 4028 - Group deleted, 4029 - User updated mobile number, 4030 - User data reassigns, 4031 - User data removing, 4032 - User connected tfa app, 4033 - User disconnected tfa app, 4034 - User logout active connections, 4035 - User logout active connection, 4036 - User logout active connections for user, 4037 - Send join invite, 5000 - File created, 5001 - File renamed, 5002 - File updated, 5003 - File created version, 5004 - File deleted version, 5005 - File updated revision comment, 5006 - File locked, 5007 - File unlocked, 5008 - File updated access, 5009 - File downloaded, 5010 - File downloaded as, 5011 - File uploaded, 5012 - File imported, 5013 - File copied, 5014 - File copied with overwriting, 5015 - File moved, 5016 - File moved with overwriting, 5017 - File moved to trash, 5018 - File deleted, 5019 - Folder created, 5020 - Folder renamed, 5021 - Folder updated access, 5022 - Folder copied, 5023 - Folder copied with overwriting, 5024 - Folder moved, 5025 - Folder moved with overwriting, 5026 - Folder moved to trash, 5027 - Folder deleted, 5028 - ThirdParty created, 5029 - ThirdParty updated, 5030 - ThirdParty deleted, 5031 - Documents ThirdParty settings updated, 5032 - Documents overwriting settings updated, 5033 - Documents uploading formats settings updated, 5034 - User file updated, 5035 - File converted, 5036 - File send access link, 5037 - Document service location setting, 5038 - Authorization keys setting, 5039 - Full text search setting, 5040 - Start transfer setting, 5041 - Start backup setting, 5042 - License key uploaded, 5043 - File change owner, 5044 - File restore version, 5045 - Document send to sign, 5046 - Document sign complete, 5047 - User updated email, 5048 - Documents store forcesave, 5049 - Documents forcesave, 5050 - Start storage encryption, 5051 - Privacy room enable, 5052 - Privacy room disable, 5053 - Start storage decryption, 5054 - File opened for change, 5055 - File marked as favorite, 5056 - File removed from favorite, 5057 - Folder downloaded, 5058 - File removed from list, 5059 - Folder removed from list, 5060 - File external link access updated, 5061 - Trash emptied, 5062 - File revision downloaded, 5063 - File marked as read, 5064 - File readed, 5065 - Folder marked as read, 5066 - Folder updated access for, 5068 - File updated access for, 5069 - Documents external share settings updated, 5070 - Room created, 5071 - Room renamed, 5072 - Room archived, 5073 - Room unarchived, 5074 - Room deleted, 5075 - Room update access for user, 5076 - Tag created, 5077 - Tags deleted, 5078 - Added room tags, 5079 - Deleted room tags, 5080 - Room logo created, 5081 - Room logo deleted, 5082 - Room invitation link updated, 5083 - Documents keep new file name settings updated, 5084 - Room remove user, 5085 - Room create user, 5086 - Room invitation link created, 5087 - Room invitation link deleted, 5088 - Room external link created, 5089 - Room external link updated, 5090 - Room external link deleted, 5091 - File external link created, 5092 - File external link updated, 5093 - File external link deleted, 5094 - Room group added, 5095 - Room update access for group, 5096 - Room group remove, 5097 - Room external link revoked, 5098 - Room external link renamed, 5099 - File uploaded with overwriting, 5100 - Room copied, 5101 - Documents display file extension updated, 5102 - Room color changed, 5103 - Room cover changed, 5104 - Room indexing changed, 5105 - Room deny download changed, 5106 - Room index export saved, 5107 - Folder index changed, 5108 - Folder index reordered, 5109 - Room deny download enabled, 5110 - Room deny download disabled, 5111 - File index changed, 5112 - Room watermark set, 5113 - Room watermark disabled, 5114 - Room index export saved, 5115 - Room indexing disabled, 5116 - Room life time set, 5117 - Room life time disabled, 5118 - Room invite resend, 6000 - Language settings updated, 6001 - Time zone settings updated, 6002 - Dns settings updated, 6003 - Trusted mail domain settings updated, 6004 - Password strength settings updated, 6005 - Two factor authentication settings updated, 6006 - Administrator message settings updated, 6007 - Default start page settings updated, 6008 - Products list updated, 6009 - Administrator added, 6010 - Administrator opened full access, 6011 - Administrator deleted, 6012 - Users opened product access, 6013 - Groups opened product access, 6014 - Product access opened, 6015 - Product access restricted, 6016 - Product added administrator, 6017 - Product deleted administrator, 6018 - Greeting settings updated, 6019 - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded, 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034 - Custom navigation settings updated, 6035 - Audit settings updated, 6036 - Two factor authentication disabled, 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049 - Custom quota per room changed, 6050 - Custom quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom quota per user changed, 6053 - Custom quota per user disabled, 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002 - User created and added to room, 7003 - Guest created and added to room, 7004 - Contact sales mail sent, -1 - None]'
+        description: '[1000 - Login success, 1001 - Login success via social account, 1002 - Login fail invalid combination, 1003 - Login fail social account not found, 1004 - Login fail disabled profile, 1005 - Login fail, 1006 - Logout, 1007 - Login success via sms, 1008 - Login fail via sms, 1009 - Login fail ip security, 1010 - Login success via api, 1011 - Login success via social app, 1012 - Login success via api sms, 1013 - Login fail via api, 1014 - Login fail via api sms, 1015 - Login success via SSO, 1016 - Session started, 1017 - Session completed, 1018 - Login fail via SSO, 1019 - Login success via api social account, 1020 - Login fail via api social account, 1021 - Login succes via tfa app, 1022 - Login fail via Tfa app, 1023 - Login fail brute force, 1024 - Login success via api tfa, 1025 - Login fail via api tfa, 1026 - Login fail recaptcha, 4000 - User created, 4001 - Guest created, 4002 - User created via invite, 4003 - Guest created via invite, 4004 - User activated, 4005 - Guest activated, 4006 - User updated, 4007 - User updated language, 4008 - User added avatar, 4009 - User deleted avatar, 4010 - User updated avatar thumbnails, 4011 - User linked social account, 4012 - User unlinked social account, 4013 - User sent activation instructions, 4014 - User sent email change instructions, 4015 - User sent password change instructions, 4016 - User sent delete instructions, 4017 - User updated password, 4018 - User deleted, 4019 - Users updated type, 4020 - Users updated status, 4021 - Users sent activation instructions, 4022 - Users deleted, 4023 - Sent invite instructions, 4024 - User imported, 4025 - Guest imported, 4026 - Group created, 4027 - Group updated, 4028 - Group deleted, 4029 - User updated mobile number, 4030 - User data reassigns, 4031 - User data removing, 4032 - User connected tfa app, 4033 - User disconnected tfa app, 4034 - User logout active connections, 4035 - User logout active connection, 4036 - User logout active connections for user, 4037 - Send join invite, 5000 - File created, 5001 - File renamed, 5002 - File updated, 5003 - File created version, 5004 - File deleted version, 5005 - File updated revision comment, 5006 - File locked, 5007 - File unlocked, 5008 - File updated access, 5009 - File downloaded, 5010 - File downloaded as, 5011 - File uploaded, 5012 - File imported, 5013 - File copied, 5014 - File copied with overwriting, 5015 - File moved, 5016 - File moved with overwriting, 5017 - File moved to trash, 5018 - File deleted, 5019 - Folder created, 5020 - Folder renamed, 5021 - Folder updated access, 5022 - Folder copied, 5023 - Folder copied with overwriting, 5024 - Folder moved, 5025 - Folder moved with overwriting, 5026 - Folder moved to trash, 5027 - Folder deleted, 5028 - ThirdParty created, 5029 - ThirdParty updated, 5030 - ThirdParty deleted, 5031 - Documents ThirdParty settings updated, 5032 - Documents overwriting settings updated, 5033 - Documents uploading formats settings updated, 5034 - User file updated, 5035 - File converted, 5036 - File send access link, 5037 - Document service location setting, 5038 - Authorization keys setting, 5039 - Full text search setting, 5040 - Start transfer setting, 5041 - Start backup setting, 5042 - License key uploaded, 5043 - File change owner, 5044 - File restore version, 5045 - Document send to sign, 5046 - Document sign complete, 5047 - User updated email, 5048 - Documents store forcesave, 5049 - Documents forcesave, 5050 - Start storage encryption, 5051 - Privacy room enable, 5052 - Privacy room disable, 5053 - Start storage decryption, 5054 - File opened for change, 5055 - File marked as favorite, 5056 - File removed from favorite, 5057 - Folder downloaded, 5058 - File removed from list, 5059 - Folder removed from list, 5060 - File external link access updated, 5061 - Trash emptied, 5062 - File revision downloaded, 5063 - File marked as read, 5064 - File readed, 5065 - Folder marked as read, 5066 - Folder updated access for, 5068 - File updated access for, 5069 - Documents external share settings updated, 5070 - Room created, 5071 - Room renamed, 5072 - Room archived, 5073 - Room unarchived, 5074 - Room deleted, 5075 - Room update access for user, 5076 - Tag created, 5077 - Tags deleted, 5078 - Added room tags, 5079 - Deleted room tags, 5080 - Room logo created, 5081 - Room logo deleted, 5082 - Room invitation link updated, 5083 - Documents keep new file name settings updated, 5084 - Room remove user, 5085 - Room create user, 5086 - Room invitation link created, 5087 - Room invitation link deleted, 5088 - Room external link created, 5089 - Room external link updated, 5090 - Room external link deleted, 5091 - File external link created, 5092 - File external link updated, 5093 - File external link deleted, 5094 - Room group added, 5095 - Room update access for group, 5096 - Room group remove, 5097 - Room external link revoked, 5098 - Room external link renamed, 5099 - File uploaded with overwriting, 5100 - Room copied, 5101 - Documents display file extension updated, 5102 - Room color changed, 5103 - Room cover changed, 5104 - Room indexing changed, 5105 - Room deny download changed, 5106 - Room index export saved, 5107 - Folder index changed, 5108 - Folder index reordered, 5109 - Room deny download enabled, 5110 - Room deny download disabled, 5111 - File index changed, 5112 - Room watermark set, 5113 - Room watermark disabled, 5114 - Room index export saved, 5115 - Room indexing disabled, 5116 - Room life time set, 5117 - Room life time disabled, 5118 - Room invite resend, 6000 - Language settings updated, 6001 - Time zone settings updated, 6002 - Dns settings updated, 6003 - Trusted mail domain settings updated, 6004 - Password strength settings updated, 6005 - Two factor authentication settings updated, 6006 - Administrator message settings updated, 6007 - Default start page settings updated, 6008 - Products list updated, 6009 - Administrator added, 6010 - Administrator opened full access, 6011 - Administrator deleted, 6012 - Users opened product access, 6013 - Groups opened product access, 6014 - Product access opened, 6015 - Product access restricted, 6016 - Product added administrator, 6017 - Product deleted administrator, 6018 - Greeting settings updated, 6019 - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded, 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034 - Custom navigation settings updated, 6035 - Audit settings updated, 6036 - Two factor authentication disabled, 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049 - Custom quota per room changed, 6050 - Custom quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom quota per user changed, 6053 - Custom quota per user disabled, 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002 - User created and added to room, 7003 - Guest created and added to room, 7004 - Contact sales mail sent, 9901 - Create client, 9902 - Update client, 9903 - Regenerate secret, 9904 - Delete client, 9905 - Change client activation, 9906 - Change client visibility, 9907 - Revoke user client, 9908 - Generate authorization code token, 9909 - Generate personal access token, -1 - None]'
         example: 1000
     ASC.Migration.Core.Models.Api.MigratingApiFiles:
       type: object
@@ -7187,7 +7024,8 @@ components:
           example: some text
         userUidList:
           type: array
-          items: {}
+          items:
+            type: string
           nullable: true
           example:
           - some text
@@ -7206,7 +7044,7 @@ components:
           type: string
           format: email
           nullable: true
-          example: Francisca.Dooley@hotmail.com
+          example: Jaron96@gmail.com
         displayName:
           type: string
           nullable: true
@@ -7214,11 +7052,11 @@ components:
         firstName:
           type: string
           nullable: true
-          example: Stefanie
+          example: Devon
         lastName:
           type: string
           nullable: true
-          example: Daniel
+          example: Goodwin
         userType:
           $ref: '#/components/schemas/ASC.Core.Users.EmployeeType'
         migratingFiles:
@@ -7237,25 +7075,30 @@ components:
           example: some text
         failedArchives:
           type: array
-          items: {}
+          items:
+            type: string
           nullable: true
           example:
           - some text
         users:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Migration.Core.Models.Api.MigratingApiUser'
           nullable: true
         withoutEmailUsers:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Migration.Core.Models.Api.MigratingApiUser'
           nullable: true
         existUsers:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Migration.Core.Models.Api.MigratingApiUser'
           nullable: true
         groups:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Migration.Core.Models.Api.MigratingApiGroup'
           nullable: true
         importPersonalFiles:
           type: boolean
@@ -7285,13 +7128,15 @@ components:
           example: 1234
         files:
           type: array
-          items: {}
+          items:
+            type: string
           nullable: true
           example:
           - some text
         errors:
           type: array
-          items: {}
+          items:
+            type: string
           nullable: true
           example:
           - some text
@@ -7311,7 +7156,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Dashawn78@hotmail.com
+          example: Earnest20@yahoo.com
         uiD:
           type: string
           description: User ID
@@ -7329,7 +7174,7 @@ components:
           type: string
           description: Room ID
           nullable: true
-          example: 6031
+          example: 2085
       additionalProperties: false
       description: Confirmation email parameters
     ASC.Security.Cryptography.EmailValidationKeyProvider_ValidationResult:
@@ -7383,7 +7228,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Charles_OKon24@yahoo.com
+          example: Dion.Homenick67@yahoo.com
         culture:
           type: string
           description: Culture
@@ -7399,7 +7244,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Foster28@gmail.com
+          example: Savanah_Crist49@yahoo.com
         culture:
           type: string
           description: Culture
@@ -7424,7 +7269,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: q7vOrcEORF
+          example: CQBzdFOH7g
         passwordHash:
           type: string
           description: Password hash
@@ -7482,12 +7327,12 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Zachariah Larkin
+          example: Isaiah Becker
         title:
           type: string
           description: Title
           nullable: true
-          example: practical_soft_tuna
+          example: open_source_borders
         description:
           type: string
           description: Description
@@ -7504,7 +7349,8 @@ components:
           example: true
         props:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Studio.UserControls.Management.AuthKey'
           description: List of authorization keys
           nullable: true
       additionalProperties: false
@@ -7517,7 +7363,7 @@ components:
           description: Email address
           format: email
           nullable: true
-          example: Santino.Dicki25@gmail.com
+          example: Jakob_White82@hotmail.com
         first:
           type: boolean
           description: Access an account for the first time or not
@@ -7538,7 +7384,7 @@ components:
           type: string
           description: Tenant name
           nullable: true
-          example: intuitive_technician
+          example: industrial_&_kids_lakes_benchmark
       additionalProperties: false
       description: Greeting settings
     ASC.Web.Api.ApiModel.RequestsDto.IpRestrictionsDto:
@@ -7578,7 +7424,8 @@ components:
           $ref: '#/components/schemas/ASC.Core.Tenants.TenantTrustedDomainsType'
         domains:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of trusted domains
           nullable: true
           example:
@@ -7632,7 +7479,7 @@ components:
           type: string
           description: Team template ID
           nullable: true
-          example: 7454
+          example: 1459
       additionalProperties: false
       description: Team template parameters
     ASC.Web.Api.ApiModel.RequestsDto.SchemaRequestsDto:
@@ -7642,12 +7489,12 @@ components:
           type: string
           description: Team template ID
           nullable: true
-          example: 5801
+          example: 3427
         name:
           type: string
           description: Team template name
           nullable: true
-          example: Lesley Ritchie
+          example: Frederik Gleason
         userCaption:
           type: string
           description: User caption
@@ -7702,12 +7549,12 @@ components:
           type: string
           description: Product ID
           format: uuid
-          example: e3500e06-88e1-4bc5-ae6a-b427380feddd
+          example: 399259ab-fc44-4c1a-9dc7-cedf9d7cfc77
         userId:
           type: string
           description: User ID
           format: uuid
-          example: 7c307761-0edb-4c6b-86ef-6be2b9ea777b
+          example: 06a7247f-9675-4cb8-833e-aac02215600c
         administrator:
           type: boolean
           description: Administrator or not
@@ -7784,24 +7631,29 @@ components:
           description: User ID
           format: uuid
           nullable: true
-          example: 0f568de7-4a0f-4bfe-9670-092b1b532071
+          example: e8333f9a-81c9-45e2-b98c-016864a1bc76
         trustedIps:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of trusted IP addresses
           nullable: true
           example:
           - some text
         mandatoryUsers:
           type: array
-          items: {}
+          items:
+            type: string
+            format: uuid
           description: List of users who must use the TFA verification
           nullable: true
           example:
           - 75a5f745-f697-4418-b38d-0fe0d277e258
         mandatoryGroups:
           type: array
-          items: {}
+          items:
+            type: string
+            format: uuid
           description: List of groups who must use the TFA verification
           nullable: true
           example:
@@ -7831,12 +7683,12 @@ components:
           type: string
           description: ID
           nullable: true
-          example: 8999
+          example: 1295
         title:
           type: string
           description: Title
           nullable: true
-          example: foreground
+          example: rustic_wooden_cheese_supervisor_awesome
         enabled:
           type: boolean
           description: Specifies if the TFA settings are enabled or not
@@ -7847,21 +7699,26 @@ components:
           example: true
         trustedIps:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of trusted IP addresses
           nullable: true
           example:
           - some text
         mandatoryUsers:
           type: array
-          items: {}
+          items:
+            type: string
+            format: uuid
           description: List of users who must use the TFA verification
           nullable: true
           example:
           - 75a5f745-f697-4418-b38d-0fe0d277e258
         mandatoryGroups:
           type: array
-          items: {}
+          items:
+            type: string
+            format: uuid
           description: List of groups who must use the TFA verification
           nullable: true
           example:
@@ -7884,7 +7741,7 @@ components:
           type: string
           description: Time zone ID
           nullable: true
-          example: 315
+          example: 400
         displayName:
           type: string
           description: Time zone display name
@@ -7916,14 +7773,16 @@ components:
           type: string
           description: Module ID
           nullable: true
-          example: 4921
+          example: 5276
         enabled:
           type: boolean
           description: Specifies if the module security settings are enabled or not
           example: true
         subjects:
           type: array
-          items: {}
+          items:
+            type: string
+            format: uuid
           description: List of user/group IDs with the access to the module
           nullable: true
           example:
@@ -7983,7 +7842,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Adrianna_Wyman@gmail.com
+          example: Gunnar_Abernathy53@gmail.com
         passwordHash:
           type: string
           description: Password hash
@@ -8017,7 +7876,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 6746
+          example: 3281
         date:
           $ref: '#/components/schemas/ASC.Api.Core.ApiDateTime'
         user:
@@ -8029,7 +7888,7 @@ components:
           type: string
           description: User ID
           format: uuid
-          example: 38756cae-2e4a-46dd-8efe-2b6f7a9cd2f5
+          example: 0958fc68-131f-4900-8324-44e1bd8f7af6
         action:
           type: string
           description: Action
@@ -8075,7 +7934,8 @@ components:
           $ref: '#/components/schemas/ASC.AuditTrail.Types.ModuleType'
         target:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of targets
           nullable: true
           example:
@@ -8144,7 +8004,8 @@ components:
           example: some text
         providers:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of providers
           nullable: true
           example:
@@ -8277,7 +8138,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 7501
+          example: 9748
         date:
           $ref: '#/components/schemas/ASC.Api.Core.ApiDateTime'
         user:
@@ -8289,7 +8150,7 @@ components:
           type: string
           description: User ID
           format: uuid
-          example: c68a97ab-7815-4290-b99c-5eb95394bfc0
+          example: 4b8e675f-691e-41a5-acdc-3f103972478a
         login:
           type: string
           description: Login
@@ -8359,12 +8220,14 @@ components:
           example: '{00000000-0000-0000-0000-000000000000}'
         users:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Api.Models.EmployeeDto'
           description: List of users with the access to the module
           nullable: true
         groups:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Api.Models.GroupSummaryDto'
           description: List of groups with the access to the module
           nullable: true
         enabled:
@@ -8386,7 +8249,8 @@ components:
           example: UTC
         trustedDomains:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of trusted domains
           nullable: true
           example: mydomain.com
@@ -8636,15 +8500,16 @@ components:
           type: string
           description: ID
           nullable: true
-          example: 1075
+          example: 9222
         title:
           type: string
           description: Title
           nullable: true
-          example: lane
+          example: transmit_interactive_egypt
         properties:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Studio.UserControls.Management.AuthKey'
           description: List of authentication keys
           nullable: true
         current:
@@ -8689,7 +8554,8 @@ components:
       properties:
         domains:
           type: array
-          items: {}
+          items:
+            type: string
           description: Domains
           nullable: true
           example:
@@ -8788,7 +8654,9 @@ components:
       properties:
         ids:
           type: array
-          items: {}
+          items:
+            type: integer
+            format: int32
           description: List of webhook IDs
           nullable: true
           example:
@@ -8805,13 +8673,13 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 6633
+          example: 8879
         name:
           maxLength: 50
           minLength: 0
           type: string
           description: Name
-          example: Cathy Harvey
+          example: Alanna Harris
         uri:
           minLength: 1
           type: string
@@ -8846,7 +8714,8 @@ components:
           example: 1234
         items:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Api.ApiModels.ResponseDto.ActiveConnectionsItemDto'
           description: Items
           nullable: true
       additionalProperties: false
@@ -8857,7 +8726,7 @@ components:
           type: integer
           description: Id
           format: int32
-          example: 8546
+          example: 3393
         tenantId:
           type: integer
           description: Tenant id
@@ -8867,7 +8736,7 @@ components:
           type: string
           description: User id
           format: uuid
-          example: bde53480-8931-4e16-b5e0-7f7c3188f7a3
+          example: 16a74883-eff7-4cb9-8d35-d0a43a25351e
         mobile:
           type: boolean
           description: Mobile
@@ -8986,7 +8855,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Morton_Gerhold20@yahoo.com
+          example: Dora50@yahoo.com
         address:
           type: string
           description: Address
@@ -9015,12 +8884,12 @@ components:
           type: string
           description: Room id
           nullable: true
-          example: 3843
+          example: 9324
         title:
           type: string
           description: Title
           nullable: true
-          example: quantify
+          example: field_montana_inverse
       additionalProperties: false
     ASC.Web.Api.ApiModels.ResponseDto.CookieSettingsDto:
       type: object
@@ -9040,7 +8909,8 @@ components:
       properties:
         domains:
           type: array
-          items: {}
+          items:
+            type: string
           description: Domains
           nullable: true
           example:
@@ -9078,7 +8948,7 @@ components:
           type: string
           description: White label logo name
           nullable: true
-          example: Jaylon Carter
+          example: Oliver Langosh
         default:
           type: boolean
           description: Specifies if the white label logo is default or not
@@ -9182,7 +9052,8 @@ components:
       properties:
         disabledRooms:
           type: array
-          items: {}
+          items:
+            type: object
           description: List of rooms with the disabled notifications
           nullable: true
           example:
@@ -9250,7 +9121,7 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Marilou Fay
+          example: Creola Dibbert
         ownerId:
           type: string
           description: Owner ID
@@ -9280,7 +9151,8 @@ components:
           example: some text
         trustedDomains:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of trusted domains
           nullable: true
           example:
@@ -9310,7 +9182,7 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Enola Erdman
+          example: Jessyca Koelpin
         version:
           type: string
           description: Version
@@ -9384,12 +9256,12 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 4540
+          example: 3608
         name:
           type: string
           description: Name
           nullable: true
-          example: Maryam O'Keefe
+          example: Josefina Wilderman
         uri:
           type: string
           description: URI
@@ -9427,7 +9299,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 8594
+          example: 8922
         configName:
           type: string
           description: Config name
@@ -9487,7 +9359,7 @@ components:
           type: string
           description: File name
           nullable: true
-          example: Jace Powlowski
+          example: Jovani Ziemann
         size:
           $ref: '#/components/schemas/SixLabors.ImageSharp.Size'
         path:
@@ -9799,7 +9671,7 @@ components:
           description: Email address
           format: email
           nullable: true
-          example: Jayson_Kilback@gmail.com
+          example: Orval.Stiedemann79@hotmail.com
         address:
           maxLength: 255
           minLength: 0
@@ -9827,53 +9699,6 @@ components:
           $ref: '#/components/schemas/ASC.Web.Core.WhiteLabel.CompanyWhiteLabelSettings'
       additionalProperties: false
       description: Company white label settings
-    ASC.Web.Studio.Core.CustomNavigationItem:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Id
-          format: uuid
-          example: 63e2bd1c-bb99-4c99-81bf-585a510d59c1
-        label:
-          type: string
-          description: Label
-          nullable: true
-          example: Label
-        url:
-          type: string
-          description: URL
-          nullable: true
-          example: Url
-        bigImg:
-          type: string
-          description: Big image
-          nullable: true
-          example: data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAgMAAAANjH3HAAAADFBMVEUAAADJycnJycnJycmiuNtHAAAAA3RSTlMAf4C\/aSLHAAAAyElEQVR4Xu3NsQ3CMBSE4YubFB4ilHQegdGSjWACvEpGoEyBYiL05AdnXUGHolx10lf82MmOpfLeo5UoJUhBlpKkRCnhUy7b9XCWkqQMUkYlXVHSf8kTvkHKqKQrSnopg5SRxTMklLmS1MwaSWpmCSQ1MyOzWGZCYrEMEFksA4QqlAFuJJYBcCKxjM3FMySeIfEMC2dMOONCGZZgmdr1ly3TSrJMK9EyJBaaGrHQikYstAiJZRYSyiQEdyg5S8Evckih\/YPscsdej0H6dc0TYw4AAAAASUVORK5CYII=
-        smallImg:
-          type: string
-          description: Small image
-          nullable: true
-          example: data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8\/9hAAAAUUlEQVR4AWMY\/KC5o\/cAEP9HxxgKcSpCGELYADyu2E6mAQjNxBlAWPNxkHdwGkBIM3KYYDUAr2ZCAE+oH8eujrAXDsA0k2EAAtDXAGLx4MpsADUgvkRKUlqfAAAAAElFTkSuQmCC
-        showInMenu:
-          type: boolean
-          description: Show in menu or not
-          example: true
-        showOnHomePage:
-          type: boolean
-          description: Show on home page or not
-          example: true
-      additionalProperties: false
-      description: Custom navigation parameters
-    ASC.Web.Studio.Core.EmailActivationSettings:
-      type: object
-      properties:
-        show:
-          type: boolean
-          description: Shown or hidden
-          example: true
-      additionalProperties: false
-      description: Email activation settings
     ASC.Web.Studio.Core.TipsSettings:
       type: object
       properties:
@@ -9890,7 +9715,7 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Issac Crist
+          example: Raymond Goldner
         value:
           type: string
           description: Value
@@ -9900,7 +9725,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: bandwidth
+          example: svalbard_&_jan_mayen_islands_sports__shoes_&_computers
       additionalProperties: false
     ASC.Web.Studio.UserControls.Management.SingleSignOnSettings.SsoCertificate:
       type: object
@@ -9947,28 +9772,28 @@ components:
           type: string
           description: First name
           nullable: true
-          example: Dion
+          example: Derek
         lastName:
           type: string
           description: Last name
           nullable: true
-          example: Rogahn
+          example: Turcotte
         email:
           type: string
           description: Email
           format: email
           nullable: true
-          example: Malcolm_Von@gmail.com
+          example: Zackery_Ortiz@gmail.com
         title:
           type: string
           description: Title
           nullable: true
-          example: withdrawal_reverse_engineered_rubber
+          example: granite_gorgeous_concrete_hat
         location:
           type: string
           description: Location
           nullable: true
-          example: 42481 Keeling Village, Durganbury, Poland
+          example: 682 Rachael Glens, Dayanatown, United States of America
         phone:
           type: string
           description: Phone
@@ -10051,7 +9876,8 @@ components:
           $ref: '#/components/schemas/ASC.Web.Studio.UserControls.Management.SingleSignOnSettings.SsoIdpSettings'
         idpCertificates:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Studio.UserControls.Management.SingleSignOnSettings.SsoCertificate'
           description: List of IDP certificates
           nullable: true
         idpCertificateAdvanced:
@@ -10063,7 +9889,8 @@ components:
           example: some text
         spCertificates:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Studio.UserControls.Management.SingleSignOnSettings.SsoCertificate'
           description: List of SP certificates
           nullable: true
         spCertificateAdvanced:
@@ -10169,7 +9996,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 2191
+          example: 9100
         route:
           type: string
           description: Route
@@ -10189,7 +10016,7 @@ components:
           description: Name
           nullable: true
           readOnly: true
-          example: Velda Jenkins
+          example: Priscilla Swift
         description:
           type: string
           description: Description
@@ -10320,7 +10147,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: 05495 McKenzie Ferry, Lynchport, Finland
+          example: 7155 Jarred Cove, Port Clyde, Virgin Islands, U.S.
         reflectionOnly:
           type: boolean
           readOnly: true
@@ -10382,7 +10209,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Susan Toy
+          example: Robert Mann
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -10504,12 +10331,14 @@ components:
           $ref: '#/components/schemas/System.Reflection.ConstructorInfo'
         constructorArguments:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/System.Reflection.CustomAttributeTypedArgument'
           nullable: true
           readOnly: true
         namedArguments:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/System.Reflection.CustomAttributeNamedArgument'
           nullable: true
           readOnly: true
       additionalProperties: false
@@ -10556,7 +10385,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Jessyca Balistreri
+          example: Emmett Schamberger
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -10629,7 +10458,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Dwight Langworth
+          example: Flossie Krajcik
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -10745,7 +10574,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Shaylee Legros
+          example: Torey Bradtke
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -10816,7 +10645,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Isabell Torp
+          example: Ruthe Heidenreich
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -10952,7 +10781,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Deron Larkin
+          example: Neha Stehr
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -11085,7 +10914,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Ramon Upton
+          example: Shanie Hodkiewicz
         mdStreamVersion:
           type: integer
           format: int32
@@ -11141,7 +10970,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Devyn Donnelly
+          example: Tina Adams
         parameterType:
           $ref: '#/components/schemas/System.Type'
         position:
@@ -11218,7 +11047,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Charlotte Moen
+          example: Maverick Gibson
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -11300,7 +11129,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Abbey Monahan
+          example: Shanel Miller
         customAttributes:
           type: array
           items:
@@ -11419,7 +11248,8 @@ components:
           example: true
         genericTypeArguments:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/System.Type'
           nullable: true
           readOnly: true
         genericParameterPosition:
@@ -11575,7 +11405,8 @@ components:
           example: true
         genericTypeParameters:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/System.Type'
           nullable: true
           readOnly: true
         declaredConstructors:
@@ -11679,7 +11510,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Don Pfeffer
+          example: Cristina Bayer
         customAttributes:
           type: array
           items:
@@ -11798,7 +11629,8 @@ components:
           example: true
         genericTypeArguments:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/System.Type'
           nullable: true
           readOnly: true
         genericParameterPosition:
@@ -11991,8 +11823,6 @@ tags:
   description: Operations for working with common settings.
 - name: Settings / Cookies
   description: Operations for working with cookies settings.
-- name: Settings / Custom Navigation
-  description: Operations for working with custom navigation settings.
 - name: Settings / Encryption
   description: Operations for working with encryption settings.
 - name: Settings / Greeting settings

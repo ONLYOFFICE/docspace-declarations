@@ -27,7 +27,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "44fe7430-31e1-48c4-89f5-b1a628628fa2"
+              "example": "dd1aae97-a24d-4943-aecd-91606399469d"
             }
           },
           {
@@ -152,7 +152,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "e297337b-67a7-4cd2-aa57-800c90dac581"
+              "example": "7127dfce-ffa5-46bf-9b99-27fe61e70b8d"
             }
           },
           {
@@ -217,7 +217,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "c70bc77f-c5fb-4479-beb8-01e9b186f393"
+              "example": "50e09fa3-b0b8-44c2-87b8-f7cd492d328d"
             }
           }
         ],
@@ -294,7 +294,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "1770518d-230e-4e03-af9c-6f3b0778bc25"
+              "example": "0a8412eb-9822-4872-8715-8231982aa4d3"
             }
           }
         ],
@@ -353,7 +353,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "4e117da9-e13b-4533-86ba-5e108a3a5aad"
+              "example": "c9d42a06-9dd5-4c8f-87f7-7950c12f8ba5"
             }
           }
         ],
@@ -479,7 +479,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "cf630826-340b-42d9-ad49-9833afa88ff5"
+              "example": "35c42e26-254b-4166-bf83-1be7b657c645"
             }
           }
         ],
@@ -553,7 +553,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "12257908-a359-44a7-abec-7ce8ad5a7444"
+              "example": "a5154d30-38b5-4df2-bde8-5e832ea505cb"
             }
           }
         ],
@@ -630,7 +630,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "4addf6fd-0a15-4480-b4d4-b08257603514"
+              "example": "ebd63fdc-612a-40df-a207-38491ba88763"
             }
           }
         ],
@@ -709,7 +709,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "8355dfe5-8109-4f40-a853-8c2308311786"
+              "example": "e5771b87-b4d3-4c68-89a5-4d547f693e7c"
             }
           }
         ],
@@ -788,7 +788,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1348
+              "example": 9922
             }
           },
           {
@@ -864,7 +864,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "6162"
+              "example": "6406"
             }
           }
         ],
@@ -943,7 +943,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "5936"
+              "example": "5507"
             }
           }
         ],
@@ -1022,7 +1022,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "9172"
+              "example": "6667"
             }
           }
         ],
@@ -1152,7 +1152,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "3e265a78-0da9-49da-a6b8-6c0b9c73f9e8"
+              "example": "00458eba-5789-41c5-8adb-5c920957d06b"
             }
           }
         ],
@@ -1284,7 +1284,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "6996"
+              "example": "3046"
             }
           }
         ],
@@ -1365,7 +1365,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "4153"
+              "example": "5768"
             }
           }
         ],
@@ -1424,7 +1424,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "9262"
+              "example": "208"
             }
           }
         ],
@@ -1483,7 +1483,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "6059"
+              "example": "8756"
             }
           }
         ],
@@ -1562,7 +1562,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "3683"
+              "example": "4992"
             }
           }
         ],
@@ -1574,7 +1574,9 @@
                 "properties": {
                   "formCollection": {
                     "type": "array",
-                    "items": {},
+                    "items": {
+                      "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair.System.String.Microsoft.Extensions.Primitives.StringValues"
+                    },
                     "description": "Image data"
                   }
                 }
@@ -1909,7 +1911,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "6429"
+              "example": "6770"
             }
           }
         ],
@@ -1968,7 +1970,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "2621"
+              "example": "269"
             }
           }
         ],
@@ -2027,7 +2029,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "4653"
+              "example": "8609"
             }
           }
         ],
@@ -2199,9 +2201,11 @@
             "in": "query",
             "description": "User email address",
             "schema": {
+              "maxLength": 255,
+              "minLength": 0,
               "type": "string",
               "format": "email",
-              "example": "Waino.Hudson@hotmail.com"
+              "example": "Billy_Hessel94@hotmail.com"
             }
           }
         ],
@@ -2384,7 +2388,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "8520"
+              "example": "217"
             }
           }
         ],
@@ -2599,7 +2603,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 5953
+              "example": 5551
             }
           },
           {
@@ -2660,22 +2664,13 @@
             "description": "Ok",
             "content": {
               "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {}
-                }
+                "schema": {}
               },
               "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {}
-                }
+                "schema": {}
               },
               "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {}
-                }
+                "schema": {}
               }
             }
           },
@@ -3279,7 +3274,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7923
+              "example": 7194
             }
           },
           {
@@ -3697,7 +3692,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "2a0536a9-919b-491a-9889-9085fc59cb6d"
+              "example": "26fec15f-2a79-493c-9c08-d7a5b12fe5c6"
             }
           }
         ],
@@ -3880,7 +3875,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "95c97c17-07c9-4bf1-8cc6-e398a89d65e9"
+              "example": "726d5646-c09b-4dbc-925e-14c879efe53c"
             }
           }
         ],
@@ -4613,11 +4608,13 @@
         "type": "object",
         "properties": {
           "email": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Fatima71@yahoo.com"
+            "example": "Alena_Kris@hotmail.com"
           }
         },
         "additionalProperties": false,
@@ -4640,7 +4637,10 @@
           },
           "members": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of group member IDs",
             "nullable": true,
             "example": [
@@ -4691,17 +4691,19 @@
         "type": "object",
         "properties": {
           "email": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Ruthie.Bayer19@gmail.com"
+            "example": "Tatyana99@gmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "Rnck9_7MqL"
+            "example": "GiIE2COnKe"
           },
           "passwordHash": {
             "type": "string",
@@ -4717,17 +4719,19 @@
         "type": "object",
         "properties": {
           "email": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Thelma_Dicki@gmail.com"
+            "example": "Angelica.Kutch@gmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "yOadGdZfkL"
+            "example": "OERS9gUwyy"
           },
           "passwordHash": {
             "type": "string",
@@ -4750,7 +4754,7 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Johnny"
+            "example": "Alfred"
           },
           "lastName": {
             "maxLength": 255,
@@ -4758,11 +4762,14 @@
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Kohler"
+            "example": "Feeney"
           },
           "department": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of user departments",
             "nullable": true,
             "example": [
@@ -4775,13 +4782,13 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "shoals_harness"
+            "example": "cross_platform_rustic_steel_soap_sas"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "512 Columbus Rest, Zboncakport, Saint Helena"
+            "example": "8617 Sally Forge, Hellerchester, Saint Kitts and Nevis"
           },
           "sex": {
             "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
@@ -4850,7 +4857,10 @@
         "properties": {
           "members": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of group member IDs",
             "nullable": true,
             "example": [
@@ -4868,7 +4878,7 @@
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "4a4152fd-dd76-43b6-9f5e-8cfa47bc9e8e"
+            "example": "c4248f65-dbc2-4dc8-a15c-976321674f1c"
           }
         },
         "additionalProperties": false,
@@ -4912,20 +4922,20 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Erik"
+            "example": "Laron"
           },
           "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Mayert"
+            "example": "Beer"
           },
           "email": {
             "type": "string",
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Kirsten_Schiller@yahoo.com"
+            "example": "Ethyl44@yahoo.com"
           },
           "passwordHash": {
             "type": "string",
@@ -4980,7 +4990,7 @@
             "type": "string",
             "description": "User ID whose data is reassigned/removed",
             "format": "uuid",
-            "example": "cda15522-a3a4-4b5f-8d49-7a254ef00ae7"
+            "example": "e35af2bc-8e80-46cd-8a11-10e480d055d3"
           }
         },
         "additionalProperties": false,
@@ -5040,7 +5050,10 @@
           },
           "membersToAdd": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of user IDs to add to the group",
             "nullable": true,
             "example": [
@@ -5049,7 +5062,10 @@
           },
           "membersToRemove": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of user IDs to remove from the group",
             "nullable": true,
             "example": [
@@ -5064,17 +5080,19 @@
         "type": "object",
         "properties": {
           "email": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Jett_Fisher@yahoo.com"
+            "example": "Vince58@hotmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "s0xd7fMLLq"
+            "example": "Iga5elNxPe"
           },
           "passwordHash": {
             "type": "string",
@@ -5097,7 +5115,7 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Jerald"
+            "example": "Durward"
           },
           "lastName": {
             "maxLength": 255,
@@ -5105,11 +5123,14 @@
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Gutkowski"
+            "example": "Steuber"
           },
           "department": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of user departments",
             "nullable": true,
             "example": [
@@ -5122,13 +5143,13 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "assistant_singapore_fresh"
+            "example": "unbranded_steel_car"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "2380 Grayson Branch, Port Kendall, Lebanon"
+            "example": "62615 Gaetano Greens, South Estelle, Cayman Islands"
           },
           "sex": {
             "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
@@ -5192,7 +5213,7 @@
             "type": "string",
             "description": "User ID",
             "nullable": true,
-            "example": "5369"
+            "example": "5152"
           },
           "disable": {
             "type": "boolean",
@@ -5209,7 +5230,10 @@
         "properties": {
           "userIds": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of user IDs",
             "nullable": true,
             "example": [
@@ -5238,7 +5262,10 @@
         "properties": {
           "userIds": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "description": "List of user IDs",
             "nullable": true,
             "example": [
@@ -5275,7 +5302,7 @@
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Eddie23@gmail.com"
+            "example": "Adele94@gmail.com"
           },
           "type": {
             "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
@@ -5347,7 +5374,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Kattie Carter"
+            "example": "Kayli West"
           },
           "parent": {
             "type": "string",
@@ -5366,7 +5393,7 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "038ed3f7-6bc3-4d02-8c28-70e3b4ec7975"
+            "example": "77c3d5b1-598c-484c-83d0-aacd54b0e71a"
           },
           "isLDAP": {
             "type": "boolean",
@@ -5378,7 +5405,9 @@
           },
           "members": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Api.Models.EmployeeFullDto"
+            },
             "description": "List of members",
             "nullable": true
           },
@@ -5404,7 +5433,7 @@
             "type": "string",
             "description": "ID",
             "nullable": true,
-            "example": "1887"
+            "example": "3576"
           },
           "error": {
             "type": "string",
@@ -5653,7 +5682,9 @@
           },
           "contacts": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Api.Models.Contact"
+            },
             "description": "List of contacts",
             "nullable": true
           },
@@ -5686,7 +5717,9 @@
           },
           "groups": {
             "type": "array",
-            "items": {},
+            "items": {
+              "$ref": "#/components/schemas/ASC.Web.Api.Models.GroupSummaryDto"
+            },
             "description": "List of groups",
             "nullable": true
           },
@@ -5719,7 +5752,9 @@
           },
           "listAdminModules": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "description": "List of administrator modules",
             "nullable": true,
             "example": "[\"projects\", \"crm\"]"
@@ -5883,7 +5918,9 @@
           },
           "value": {
             "type": "array",
-            "items": {},
+            "items": {
+              "type": "string"
+            },
             "example": [
               "some text"
             ]

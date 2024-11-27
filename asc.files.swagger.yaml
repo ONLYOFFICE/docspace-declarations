@@ -20,7 +20,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 963
+          example: 7448
       requestBody:
         content:
           multipart/form-data:
@@ -90,7 +90,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7940
+          example: 7756
       requestBody:
         description: Parameters for starting file editing
         content:
@@ -130,7 +130,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 726
+          example: 9315
       responses:
         200:
           description: Ok
@@ -157,7 +157,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6488
+          example: 662
       - name: tabId
         in: query
         description: Tab ID
@@ -207,7 +207,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9686
+          example: 4489
       - name: version
         in: query
         description: File version
@@ -268,7 +268,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8174
+          example: 5710
       responses:
         200:
           description: File download link
@@ -340,7 +340,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6822
+          example: 1808
       responses:
         200:
           description: List of users with their access rights to the protected file
@@ -381,7 +381,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1552
+          example: 3678
       - name: fromDate
         in: query
         description: Start date
@@ -430,7 +430,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3400
+          example: 9887
       requestBody:
         description: File
         content:
@@ -478,7 +478,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2810
+          example: 2020
       responses:
         200:
           description: 'Information about file versions: folder ID, version, version group, content length, pure content length, file status, URL to view a file, web URL, file type, file extension, comment, encrypted or not, thumbnail URL, thumbnail status, locked or not, user ID who locked a file, denies file downloading or not, denies file sharing or not, file accessibility'
@@ -507,7 +507,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2044
+          example: 7554
       responses:
         200:
           description: File download link
@@ -542,7 +542,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9290
+          example: 3230
       responses:
         200:
           description: 'Boolean value: true - the PDF file is form, false - the PDF file is not a form'
@@ -577,7 +577,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1080
+          example: 2811
       requestBody:
         description: File
         content:
@@ -635,7 +635,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2955
+          example: 7792
       requestBody:
         description: File
         content:
@@ -681,7 +681,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9636
+          example: 8298
       requestBody:
         description: File
         content:
@@ -730,7 +730,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9688
+          example: 3005
       requestBody:
         description: File
         content:
@@ -777,7 +777,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 605
+          example: 2029
       requestBody:
         description: File
         content:
@@ -823,7 +823,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3445
+          example: 5885
       - name: version
         in: query
         description: File version
@@ -858,7 +858,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8314
+          example: 8195
       requestBody:
         description: File
         content:
@@ -928,7 +928,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6872
+          example: 3334
       - name: version
         in: query
         description: File version
@@ -964,7 +964,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4799
+          example: 1102
       responses:
         200:
           description: Version history data
@@ -993,7 +993,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3432
+          example: 3029
       requestBody:
         description: Parameters for locking a file
         content:
@@ -1040,7 +1040,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2446
+          example: 4249
       - name: version
         in: query
         description: File version
@@ -1086,7 +1086,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2330
+          example: 7425
       requestBody:
         description: External link parameters
         content:
@@ -1134,7 +1134,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3284
+          example: 2714
       responses:
         200:
           description: File security information
@@ -1165,7 +1165,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 314
+          example: 5743
       requestBody:
         description: Order
         content:
@@ -1233,7 +1233,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 328
+          example: 4312
       responses:
         200:
           description: File security information
@@ -1267,7 +1267,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2181
+          example: 2017
       requestBody:
         description: External link parameters
         content:
@@ -1314,7 +1314,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 426
+          example: 2013
       requestBody:
         description: Parameters for saving file as pdf
         content:
@@ -1508,7 +1508,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9268
+          example: 4523
       requestBody:
         description: File
         content:
@@ -1582,21 +1582,27 @@ paths:
           application/json:
             schema:
               type: array
-              items: {}
+              items:
+                type: integer
+                format: int32
               description: File IDs
               example:
               - 1234
           text/json:
             schema:
               type: array
-              items: {}
+              items:
+                type: integer
+                format: int32
               description: File IDs
               example:
               - 1234
           application/*+json:
             schema:
               type: array
-              items: {}
+              items:
+                type: integer
+                format: int32
               description: File IDs
               example:
               - 1234
@@ -1671,7 +1677,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1679
+          example: 8784
       - name: fileSize
         in: query
         description: File size in bytes
@@ -1712,7 +1718,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3474
+          example: 8160
       - name: fromDate
         in: query
         description: Start date
@@ -1761,7 +1767,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7900
+          example: 834
       requestBody:
         description: Folder
         content:
@@ -1807,7 +1813,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9178
+          example: 3925
       requestBody:
         description: Parameters for deleting a folder
         content:
@@ -1853,7 +1859,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1666
+          example: 6233
       responses:
         200:
           description: Folder parameters
@@ -1881,7 +1887,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4418
+          example: 9100
       requestBody:
         description: Folder
         content:
@@ -1930,7 +1936,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2860
+          example: 6281
       requestBody:
         description: Order
         content:
@@ -1967,7 +1973,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3746
+          example: 5946
       - name: userIdOrGroupId
         in: query
         description: User or group ID
@@ -1986,7 +1992,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7356
+          example: 9859
       - name: searchInContent
         in: query
         description: Specifies whether to search within the section contents or not
@@ -2053,7 +2059,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1306
+          example: 9016
       responses:
         200:
           description: List of file entry information
@@ -2090,7 +2096,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 473
+          example: 7901
       responses:
         200:
           description: List of file entry information
@@ -2127,7 +2133,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 927
+          example: 8480
       responses:
         200:
           description: List of file entry information
@@ -2190,7 +2196,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5145
+          example: 3327
       responses:
         200:
           description: Folder security information
@@ -2457,7 +2463,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4694
+          example: 5537
       requestBody:
         description: Parameters for checking files uploading
         content:
@@ -2510,7 +2516,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2221
+          example: 9582
       requestBody:
         content:
           multipart/form-data:
@@ -2524,7 +2530,7 @@ paths:
                 InsertFile.Title:
                   type: string
                   description: File name
-                  example: communications_multi_layered
+                  example: ameliorated
                 InsertFile.CreateNewIfExist:
                   type: boolean
                   description: Specifies whether to create a new file if it already exists or not
@@ -2635,7 +2641,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3809
+          example: 2707
       requestBody:
         description: Upload data
         content:
@@ -2687,7 +2693,7 @@ paths:
                 Title:
                   type: string
                   description: File name
-                  example: back_up_holy_see_(vatican_city_state)
+                  example: convertible_marks_united_states_minor_outlying_islands_auxiliary
                 CreateNewIfExist:
                   type: boolean
                   description: Specifies whether to create a new file if it already exists or not
@@ -2830,7 +2836,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7320
+          example: 8584
       - name: start
         in: query
         description: Specifies if a conversion operation is started or not
@@ -2870,7 +2876,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9732
+          example: 9314
       requestBody:
         description: Check conversion
         content:
@@ -2917,7 +2923,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6316
+          example: 2952
       requestBody:
         description: Parameters for updating a comment
         content:
@@ -3299,7 +3305,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 4087
+          example: 2365
       responses:
         200:
           description: List of file operations
@@ -3341,7 +3347,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8664
+          example: 8966
       requestBody:
         description: Session
         content:
@@ -3594,7 +3600,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3307
+          example: 2619
       responses:
         200:
           description: Room information
@@ -3622,7 +3628,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 702
+          example: 4100
       requestBody:
         description: Update room
         content:
@@ -3668,7 +3674,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6478
+          example: 4855
       requestBody:
         description: Parameters for deleting a room
         content:
@@ -3715,7 +3721,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5127
+          example: 6675
       requestBody:
         description: Parameters for archiving a room
         content:
@@ -3762,7 +3768,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2742
+          example: 3257
       requestBody:
         description: Parameters for archiving a room
         content:
@@ -3809,7 +3815,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4274
+          example: 829
       requestBody:
         description: Room invitation
         content:
@@ -3855,7 +3861,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6168
+          example: 2064
       - name: filterType
         in: query
         description: Share filter type
@@ -3895,7 +3901,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 660
+          example: 7720
       requestBody:
         description: Room link
         content:
@@ -3941,7 +3947,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1938
+          example: 619
       - name: type
         in: query
         description: Link type
@@ -3981,7 +3987,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1849
+          example: 4977
       responses:
         200:
           description: Room security information
@@ -4018,7 +4024,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3551
+          example: 929
       requestBody:
         description: Batch tags
         content:
@@ -4066,7 +4072,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5572
+          example: 4038
       requestBody:
         description: Batch tags
         content:
@@ -4115,7 +4121,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 210
+          example: 7449
       requestBody:
         description: Logo
         content:
@@ -4163,7 +4169,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4732
+          example: 8587
       responses:
         200:
           description: Room information
@@ -4198,7 +4204,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7282
+          example: 4546
       requestBody:
         description: Parameters to change the room cover
         content:
@@ -4281,7 +4287,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6227
+          example: 4002
       responses:
         200:
           description: Room information
@@ -4316,7 +4322,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7396
+          example: 4412
       responses:
         200:
           description: Room information
@@ -4351,7 +4357,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6372
+          example: 5038
       requestBody:
         description: User invitation
         content:
@@ -4388,7 +4394,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8358
+          example: 8589
       responses:
         200:
           description: Room information
@@ -4423,7 +4429,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1524
+          example: 2003
       responses:
         200:
           description: List of file entry information
@@ -4463,7 +4469,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 3349
+          example: 6190
       requestBody:
         description: ThirdParty room
         content:
@@ -4596,7 +4602,8 @@ paths:
               properties:
                 FormCollection:
                   type: array
-                  items: {}
+                  items:
+                    $ref: '#/components/schemas/System.Collections.Generic.KeyValuePair.System.String.Microsoft.Extensions.Primitives.StringValues'
                   description: Image data
             encoding:
               FormCollection:
@@ -4637,7 +4644,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4225
+          example: 4438
       responses:
         200:
           description: Ok
@@ -5783,7 +5790,7 @@ components:
           type: string
           description: ID
           format: uuid
-          example: b278c15e-eb99-44e4-b824-e0fad24efd49
+          example: aed1cabf-33c6-4634-8415-d7f5097da68d
         appName:
           type: string
           description: Product class name
@@ -5793,7 +5800,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: holistic_gardens
+          example: neutral_personal_loan_account_real_time
         link:
           type: string
           description: Start link
@@ -5919,17 +5926,17 @@ components:
           type: string
           description: ID
           format: uuid
-          example: 3228ddaf-ec53-4bbf-a45d-66ad11fcce49
+          example: d307217e-146c-4d41-bb68-c34d3b6de37b
         firstName:
           type: string
           description: First name
           nullable: true
-          example: Clifford
+          example: Leopold
         lastName:
           type: string
           description: Last name
           nullable: true
-          example: Funk
+          example: Reichert
         userName:
           type: string
           description: Username
@@ -5960,7 +5967,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: convergence
+          example: synthesizing_up_sized
         workFromDate:
           type: string
           description: Registration date
@@ -5972,7 +5979,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Arvid.OConnell72@yahoo.com
+          example: Cicero63@gmail.com
         contacts:
           type: string
           description: List of contacts in the string format
@@ -5980,7 +5987,8 @@ components:
           example: some text
         contactsList:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of contacts
           nullable: true
           example:
@@ -5989,7 +5997,7 @@ components:
           type: string
           description: Location
           nullable: true
-          example: 4713 Betty Mews, South Hansstad, Holy See (Vatican City State)
+          example: 53250 Ruecker Roads, Kareemport, Luxembourg
         notes:
           type: string
           description: Notes
@@ -6115,7 +6123,7 @@ components:
           description: User email address
           format: email
           nullable: true
-          example: Albert_Lakin@gmail.com
+          example: Odie_Durgan46@hotmail.com
         access:
           $ref: '#/components/schemas/ASC.Files.Core.Security.FileShare'
       additionalProperties: false
@@ -6211,7 +6219,8 @@ components:
       properties:
         names:
           type: array
-          items: {}
+          items:
+            type: string
           description: Tag names
           nullable: true
           example:
@@ -6239,7 +6248,7 @@ components:
           type: integer
           description: File ID
           format: int32
-          example: 1816
+          example: 8447
         sync:
           type: boolean
           description: Specifies if the conversion process is synchronous or not
@@ -6257,7 +6266,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: kNJfm80sbs
+          example: MLx4eBg6Te
         outputType:
           type: string
           description: Output type
@@ -6319,7 +6328,8 @@ components:
       properties:
         filesTitle:
           type: array
-          items: {}
+          items:
+            type: string
           description: File title
           nullable: true
           example:
@@ -6349,7 +6359,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: if_LKv9tuQ
+          example: cHg1siRSFb
         toForm:
           type: boolean
           description: Convert to form
@@ -6380,7 +6390,7 @@ components:
           type: string
           description: File title
           nullable: true
-          example: legacy
+          example: compelling_maroon_black
         templateId:
           oneOf:
           - type: integer
@@ -6408,7 +6418,7 @@ components:
           type: string
           description: Folder title
           nullable: true
-          example: withdrawal_reintermediate
+          example: mill_checking_account
       additionalProperties: false
       description: 'Parameters for creating a folder: Title (string) - new folder title'
     ASC.Files.Core.ApiModels.RequestDto.CreateRoomRequestDto:
@@ -6420,7 +6430,7 @@ components:
           type: string
           description: Room name
           nullable: true
-          example: neural_beauty_programming
+          example: avon
         quota:
           type: integer
           description: Room quota
@@ -6445,7 +6455,8 @@ components:
           $ref: '#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.LogoRequest'
         tags:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of tags
           nullable: true
           example:
@@ -6487,7 +6498,7 @@ components:
           type: string
           description: Tag name
           nullable: true
-          example: Rey O'Connell
+          example: Katharina D'Amore
       additionalProperties: false
       description: Request parameters for creating a tag
     ASC.Files.Core.ApiModels.RequestDto.CreateTextOrHtmlFile:
@@ -6500,7 +6511,7 @@ components:
           minLength: 0
           type: string
           description: File title
-          example: proactive_http
+          example: intelligent_cotton
         content:
           type: string
           description: File contents
@@ -6523,7 +6534,7 @@ components:
           type: string
           description: Room name
           nullable: true
-          example: throughway_steel_kwanza
+          example: reactive_pennsylvania_industrial_&_games
         roomType:
           $ref: '#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.RoomType'
         private:
@@ -6550,7 +6561,8 @@ components:
           example: some text
         tags:
           type: array
-          items: {}
+          items:
+            type: string
           description: Tags
           nullable: true
           example:
@@ -6725,7 +6737,7 @@ components:
           type: string
           description: The unique system identifier
           nullable: true
-          example: 9931
+          example: 3575
         sourceFileId:
           type: integer
           description: Source file ID
@@ -6828,12 +6840,12 @@ components:
           description: Email address
           format: email
           nullable: true
-          example: Ken50@yahoo.com
+          example: Terrill91@yahoo.com
         id:
           type: string
           description: ID of the user with whom we want to share a room
           format: uuid
-          example: 5271fdd5-aa62-4026-838d-47793a5d6ddb
+          example: 032061ec-e2af-455e-b9c2-0c5f47c73762
         access:
           $ref: '#/components/schemas/ASC.Files.Core.Security.FileShare'
       additionalProperties: false
@@ -6880,7 +6892,7 @@ components:
           type: string
           description: Link name
           nullable: true
-          example: overriding
+          example: steel
         linkType:
           $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.LinkType'
         password:
@@ -6889,7 +6901,7 @@ components:
           type: string
           description: Link password
           nullable: true
-          example: vytzrNROCf
+          example: 6H6UOYXieD
         denyDownload:
           type: boolean
           description: Specifies whether downloading a file from a link is disabled or not
@@ -6923,12 +6935,12 @@ components:
           type: integer
           description: Folder ID
           format: int32
-          example: 4479
+          example: 9922
         title:
           type: string
           description: File title
           nullable: true
-          example: northern_mariana_islands_cotton_games__baby_&_outdoors
+          example: alabama_focus_group_specialist
       additionalProperties: false
       description: Parameters for saving file as pdf
     ASC.Files.Core.ApiModels.RequestDto.SessionRequest:
@@ -6984,7 +6996,9 @@ components:
       properties:
         fileIds:
           type: array
-          items: {}
+          items:
+            type: integer
+            format: int32
           description: List of file IDs
           nullable: true
           example:
@@ -7008,7 +7022,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: 4QXqqTlhv3
+          example: jctEx7O6Cp
         token:
           type: string
           description: Authentication token
@@ -7043,7 +7057,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: j3hX_g_9de
+          example: Kv67o1jxTe
         token:
           type: string
           description: Authentication token
@@ -7089,7 +7103,7 @@ components:
           type: string
           description: File title
           nullable: true
-          example: user_centric_5th_generation
+          example: auto_loan_account_nepal_brand
         lastVersion:
           type: integer
           description: Number of the latest file version
@@ -7106,7 +7120,7 @@ components:
           type: string
           description: Room name
           nullable: true
-          example: feed
+          example: synthesize_service_desk
         quota:
           type: integer
           description: Room quota
@@ -7131,7 +7145,8 @@ components:
           $ref: '#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.LogoRequest'
         tags:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of tags
           nullable: true
           example:
@@ -7231,7 +7246,9 @@ components:
       properties:
         usersIds:
           type: array
-          items: {}
+          items:
+            type: string
+            format: uuid
           description: List of user IDs
           nullable: true
           example:
@@ -7253,7 +7270,7 @@ components:
         additions:
           $ref: '#/components/schemas/ASC.Files.Core.VirtualRooms.WatermarkAdditions'
         text:
-          maxLength: 265
+          maxLength: 255
           minLength: 0
           type: string
           description: Watermark Text
@@ -7301,7 +7318,8 @@ components:
           $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.CheckDestFolderResult'
         files:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileEntryDto'
           description: Files
           nullable: true
       additionalProperties: false
@@ -7376,7 +7394,7 @@ components:
           type: string
           description: Operation ID
           nullable: true
-          example: 5471
+          example: 381
         Operation:
           $ref: '#/components/schemas/ASC.Web.Files.Services.WCFService.FileOperations.FileOperationType'
         progress:
@@ -7414,7 +7432,7 @@ components:
         id:
           type: string
           nullable: true
-          example: 2855
+          example: 6408
         data:
           type: string
           nullable: true
@@ -7447,7 +7465,7 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Dillan Beer
+          example: Hans Doyle
         www:
           type: string
           description: Site
@@ -7537,7 +7555,7 @@ components:
           type: string
           description: Id
           nullable: true
-          example: 6188
+          example: 2188
         error:
           type: string
           description: Error
@@ -7609,7 +7627,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: courts
+          example: integration
         url:
           type: string
           description: Url
@@ -7626,7 +7644,7 @@ components:
           type: integer
           description: InProcess folder ID
           format: int32
-          example: 652
+          example: 4506
         folderTitle:
           type: string
           description: InProcess folder title
@@ -7636,7 +7654,7 @@ components:
           type: integer
           description: Draft ID
           format: int32
-          example: 3540
+          example: 1893
         fileTitle:
           type: string
           description: Draft title
@@ -7685,7 +7703,8 @@ components:
           example: some text
         changes:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.EditHistoryChangesWrapper'
           description: List of history changes
           nullable: true
         serverVersion:
@@ -7734,12 +7753,14 @@ components:
           $ref: '#/components/schemas/ASC.Web.Files.Services.DocumentService.PluginsConfig'
         recent:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Files.Services.DocumentService.RecentConfig'
           description: Recent
           nullable: true
         templates:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Files.Services.DocumentService.TemplatesConfig'
           description: Templates
           nullable: true
         user:
@@ -7908,7 +7929,7 @@ components:
           type: integer
           description: Folder ID
           format: int32
-          example: 750
+          example: 4897
         version:
           type: integer
           description: Version
@@ -8116,7 +8137,7 @@ components:
           type: string
           description: Operation ID
           nullable: true
-          example: 6659
+          example: 5168
         Operation:
           $ref: '#/components/schemas/ASC.Web.Files.Services.WCFService.FileOperations.FileOperationType'
         progress:
@@ -8146,12 +8167,14 @@ components:
           example: some text
         files:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileEntryDto'
           description: List of files
           nullable: true
         folders:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileEntryDto'
           description: List of folders
           nullable: true
       additionalProperties: false
@@ -8187,84 +8210,96 @@ components:
       properties:
         extsImagePreviewed:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts image previewed
           nullable: true
           example:
           - some text
         extsMediaPreviewed:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts media previewed
           nullable: true
           example:
           - some text
         extsWebPreviewed:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts web previewed
           nullable: true
           example:
           - some text
         extsWebEdited:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts web edited
           nullable: true
           example:
           - some text
         extsWebEncrypt:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts web encrypt
           nullable: true
           example:
           - some text
         extsWebReviewed:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts web reviewed
           nullable: true
           example:
           - some text
         extsWebCustomFilterEditing:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts web custom filter editing
           nullable: true
           example:
           - some text
         extsWebRestrictedEditing:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts web restricted editing
           nullable: true
           example:
           - some text
         extsWebCommented:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts web commented
           nullable: true
           example:
           - some text
         extsWebTemplate:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts web template
           nullable: true
           example:
           - some text
         extsCoAuthoring:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts co authoring
           nullable: true
           example:
           - some text
         extsMustConvert:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts must convert
           nullable: true
           example:
@@ -8284,56 +8319,64 @@ components:
             - some text
         extsUploadable:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts uploadable
           nullable: true
           example:
           - some text
         extsArchive:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts archive
           nullable: true
           example:
           - some text
         extsVideo:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts video
           nullable: true
           example:
           - some text
         extsAudio:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts audio
           nullable: true
           example:
           - some text
         extsImage:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts image
           nullable: true
           example:
           - some text
         extsSpreadsheet:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts spreadsheet
           nullable: true
           example:
           - some text
         extsPresentation:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts presentation
           nullable: true
           example:
           - some text
         extsDocument:
           type: array
-          items: {}
+          items:
+            type: string
           description: Exts document
           nullable: true
           example:
@@ -8551,7 +8594,7 @@ components:
           type: string
           description: Folder title
           nullable: true
-          example: rss_payment_dam
+          example: deliverables_bypass_home_loan_account
         usedSpace:
           type: integer
           description: Used space
@@ -8588,7 +8631,7 @@ components:
           type: integer
           description: Room Id
           format: int32
-          example: 4634
+          example: 7295
         isRoomMember:
           type: boolean
           description: Is room member
@@ -8599,12 +8642,14 @@ components:
       properties:
         files:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileEntryDto'
           description: List of files
           nullable: true
         folders:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileEntryDto'
           description: List of folders
           nullable: true
         current:
@@ -8829,7 +8874,8 @@ components:
           example: true
         tags:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of tags
           nullable: true
           example:
@@ -9095,7 +9141,8 @@ components:
           example: true
         tags:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of tags
           nullable: true
           example:
@@ -9179,7 +9226,8 @@ components:
           $ref: '#/components/schemas/ASC.Files.Core.Core.Entries.HistoryData'
         related:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.HistoryDto'
           description: Related
           nullable: true
       additionalProperties: false
@@ -9203,7 +9251,8 @@ components:
           example: some text
         sharingSettings:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Files.Services.WCFService.AceShortWrapper'
           description: Sharing settings
           nullable: true
         type:
@@ -9287,7 +9336,7 @@ components:
           type: string
           description: Provider name
           nullable: true
-          example: Camille Altenwerth
+          example: Joany Durgan
         key:
           type: string
           description: Provider key
@@ -9436,7 +9485,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: ITH7uMfx82
+          example: G_6uu1qscF
         rawToken:
           type: string
           description: Raw token
@@ -9560,12 +9609,12 @@ components:
           type: string
           description: Id
           nullable: true
-          example: 9385
+          example: 1739
         name:
           type: string
           description: Name
           nullable: true
-          example: Jalon Gislason
+          example: Mohammad Kohler
       additionalProperties: false
     ASC.Files.Core.EditHistoryDataDto:
       type: object
@@ -9992,7 +10041,7 @@ components:
         id:
           type: string
           nullable: true
-          example: 4895
+          example: 7707
         data:
           type: string
           nullable: true
@@ -10288,9 +10337,18 @@ components:
         - UserCreatedAndAddedToRoom
         - GuestCreatedAndAddedToRoom
         - ContactSalesMailSent
+        - CreateClient
+        - UpdateClient
+        - RegenerateSecret
+        - DeleteClient
+        - ChangeClientActivation
+        - ChangeClientVisibility
+        - RevokeUserClient
+        - GenerateAuthorizationCodeToken
+        - GeneratePersonalAccessToken
         - None
         type: string
-        description: '[LoginSuccess - Login success, LoginSuccessViaSocialAccount - Login success via social account, LoginFailInvalidCombination - Login fail invalid combination, LoginFailSocialAccountNotFound - Login fail social account not found, LoginFailDisabledProfile - Login fail disabled profile, LoginFail - Login fail, Logout - Logout, LoginSuccessViaSms - Login success via sms, LoginFailViaSms - Login fail via sms, LoginFailIpSecurity - Login fail ip security, LoginSuccessViaApi - Login success via api, LoginSuccessViaSocialApp - Login success via social app, LoginSuccessViaApiSms - Login success via api sms, LoginFailViaApi - Login fail via api, LoginFailViaApiSms - Login fail via api sms, LoginSuccessViaSSO - Login success via SSO, SessionStarted - Session started, SessionCompleted - Session completed, LoginFailViaSSO - Login fail via SSO, LoginSuccessViaApiSocialAccount - Login success via api social account, LoginFailViaApiSocialAccount - Login fail via api social account, LoginSuccesViaTfaApp - Login succes via tfa app, LoginFailViaTfaApp - Login fail via Tfa app, LoginFailBruteForce - Login fail brute force, LoginSuccessViaApiTfa - Login success via api tfa, LoginFailViaApiTfa - Login fail via api tfa, LoginFailRecaptcha - Login fail recaptcha, UserCreated - User created, GuestCreated - Guest created, UserCreatedViaInvite - User created via invite, GuestCreatedViaInvite - Guest created via invite, UserActivated - User activated, GuestActivated - Guest activated, UserUpdated - User updated, UserUpdatedLanguage - User updated language, UserAddedAvatar - User added avatar, UserDeletedAvatar - User deleted avatar, UserUpdatedAvatarThumbnails - User updated avatar thumbnails, UserLinkedSocialAccount - User linked social account, UserUnlinkedSocialAccount - User unlinked social account, UserSentActivationInstructions - User sent activation instructions, UserSentEmailChangeInstructions - User sent email change instructions, UserSentPasswordChangeInstructions - User sent password change instructions, UserSentDeleteInstructions - User sent delete instructions, UserUpdatedPassword - User updated password, UserDeleted - User deleted, UsersUpdatedType - Users updated type, UsersUpdatedStatus - Users updated status, UsersSentActivationInstructions - Users sent activation instructions, UsersDeleted - Users deleted, SentInviteInstructions - Sent invite instructions, UserImported - User imported, GuestImported - Guest imported, GroupCreated - Group created, GroupUpdated - Group updated, GroupDeleted - Group deleted, UserUpdatedMobileNumber - User updated mobile number, UserDataReassigns - User data reassigns, UserDataRemoving - User data removing, UserConnectedTfaApp - User connected tfa app, UserDisconnectedTfaApp - User disconnected tfa app, UserLogoutActiveConnections - User logout active connections, UserLogoutActiveConnection - User logout active connection, UserLogoutActiveConnectionsForUser - User logout active connections for user, SendJoinInvite - Send join invite, FileCreated - File created, FileRenamed - File renamed, FileUpdated - File updated, FileCreatedVersion - File created version, FileDeletedVersion - File deleted version, FileUpdatedRevisionComment - File updated revision comment, FileLocked - File locked, FileUnlocked - File unlocked, FileUpdatedAccess - File updated access, FileDownloaded - File downloaded, FileDownloadedAs - File downloaded as, FileUploaded - File uploaded, FileImported - File imported, FileCopied - File copied, FileCopiedWithOverwriting - File copied with overwriting, FileMoved - File moved, FileMovedWithOverwriting - File moved with overwriting, FileMovedToTrash - File moved to trash, FileDeleted - File deleted, FolderCreated - Folder created, FolderRenamed - Folder renamed, FolderUpdatedAccess - Folder updated access, FolderCopied - Folder copied, FolderCopiedWithOverwriting - Folder copied with overwriting, FolderMoved - Folder moved, FolderMovedWithOverwriting - Folder moved with overwriting, FolderMovedToTrash - Folder moved to trash, FolderDeleted - Folder deleted, ThirdPartyCreated - ThirdParty created, ThirdPartyUpdated - ThirdParty updated, ThirdPartyDeleted - ThirdParty deleted, DocumentsThirdPartySettingsUpdated - Documents ThirdParty settings updated, DocumentsOverwritingSettingsUpdated - Documents overwriting settings updated, DocumentsUploadingFormatsSettingsUpdated - Documents uploading formats settings updated, UserFileUpdated - User file updated, FileConverted - File converted, FileSendAccessLink - File send access link, DocumentServiceLocationSetting - Document service location setting, AuthorizationKeysSetting - Authorization keys setting, FullTextSearchSetting - Full text search setting, StartTransferSetting - Start transfer setting, StartBackupSetting - Start backup setting, LicenseKeyUploaded - License key uploaded, FileChangeOwner - File change owner, FileRestoreVersion - File restore version, DocumentSendToSign - Document send to sign, DocumentSignComplete - Document sign complete, UserUpdatedEmail - User updated email, DocumentsStoreForcesave - Documents store forcesave, DocumentsForcesave - Documents forcesave, StartStorageEncryption - Start storage encryption, PrivacyRoomEnable - Privacy room enable, PrivacyRoomDisable - Privacy room disable, StartStorageDecryption - Start storage decryption, FileOpenedForChange - File opened for change, FileMarkedAsFavorite - File marked as favorite, FileRemovedFromFavorite - File removed from favorite, FolderDownloaded - Folder downloaded, FileRemovedFromList - File removed from list, FolderRemovedFromList - Folder removed from list, FileExternalLinkAccessUpdated - File external link access updated, TrashEmptied - Trash emptied, FileRevisionDownloaded - File revision downloaded, FileMarkedAsRead - File marked as read, FileReaded - File readed, FolderMarkedAsRead - Folder marked as read, FolderUpdatedAccessFor - Folder updated access for, FileUpdatedAccessFor - File updated access for, DocumentsExternalShareSettingsUpdated - Documents external share settings updated, RoomCreated - Room created, RoomRenamed - Room renamed, RoomArchived - Room archived, RoomUnarchived - Room unarchived, RoomDeleted - Room deleted, RoomUpdateAccessForUser - Room update access for user, TagCreated - Tag created, TagsDeleted - Tags deleted, AddedRoomTags - Added room tags, DeletedRoomTags - Deleted room tags, RoomLogoCreated - Room logo created, RoomLogoDeleted - Room logo deleted, RoomInvitationLinkUpdated - Room invitation link updated, DocumentsKeepNewFileNameSettingsUpdated - Documents keep new file name settings updated, RoomRemoveUser - Room remove user, RoomCreateUser - Room create user, RoomInvitationLinkCreated - Room invitation link created, RoomInvitationLinkDeleted - Room invitation link deleted, RoomExternalLinkCreated - Room external link created, RoomExternalLinkUpdated - Room external link updated, RoomExternalLinkDeleted - Room external link deleted, FileExternalLinkCreated - File external link created, FileExternalLinkUpdated - File external link updated, FileExternalLinkDeleted - File external link deleted, RoomGroupAdded - Room group added, RoomUpdateAccessForGroup - Room update access for group, RoomGroupRemove - Room group remove, RoomExternalLinkRevoked - Room external link revoked, RoomExternalLinkRenamed - Room external link renamed, FileUploadedWithOverwriting - File uploaded with overwriting, RoomCopied - Room copied, DocumentsDisplayFileExtensionUpdated - Documents display file extension updated, RoomColorChanged - Room color changed, RoomCoverChanged - Room cover changed, RoomIndexingChanged - Room indexing changed, RoomDenyDownloadChanged - Room deny download changed, RoomIndexExportSaved - Room index export saved, FolderIndexChanged - Folder index changed, FolderIndexReordered - Folder index reordered, RoomDenyDownloadEnabled - Room deny download enabled, RoomDenyDownloadDisabled - Room deny download disabled, FileIndexChanged - File index changed, RoomWatermarkSet - Room watermark set, RoomWatermarkDisabled - Room watermark disabled, RoomIndexingEnabled - Room index export saved, RoomIndexingDisabled - Room indexing disabled, RoomLifeTimeSet - Room life time set, RoomLifeTimeDisabled - Room life time disabled, RoomInviteResend - Room invite resend, LanguageSettingsUpdated - Language settings updated, TimeZoneSettingsUpdated - Time zone settings updated, DnsSettingsUpdated - Dns settings updated, TrustedMailDomainSettingsUpdated - Trusted mail domain settings updated, PasswordStrengthSettingsUpdated - Password strength settings updated, TwoFactorAuthenticationSettingsUpdated - Two factor authentication settings updated, AdministratorMessageSettingsUpdated - Administrator message settings updated, DefaultStartPageSettingsUpdated - Default start page settings updated, ProductsListUpdated - Products list updated, AdministratorAdded - Administrator added, AdministratorOpenedFullAccess - Administrator opened full access, AdministratorDeleted - Administrator deleted, UsersOpenedProductAccess - Users opened product access, GroupsOpenedProductAccess - Groups opened product access, ProductAccessOpened - Product access opened, ProductAccessRestricted - Product access restricted, ProductAddedAdministrator - Product added administrator, ProductDeletedAdministrator - Product deleted administrator, GreetingSettingsUpdated - Greeting settings updated, TeamTemplateChanged - Team template changed, ColorThemeChanged - Color theme changed, OwnerSentChangeOwnerInstructions - Owner sent change owner instructions, OwnerUpdated - Owner updated, OwnerSentPortalDeactivationInstructions - Owner sent portal deactivation instructions, OwnerSentPortalDeleteInstructions - Owner sent portal delete instructions, PortalDeactivated - Portal deactivated, PortalDeleted - Portal deleted, LoginHistoryReportDownloaded - Login history report downloaded, AuditTrailReportDownloaded - Audit trail report downloaded, SSOEnabled - SSO enabled, SSODisabled - SSO disabled, PortalAccessSettingsUpdated - Portal access settings updated, CookieSettingsUpdated - Cookie settings updated, MailServiceSettingsUpdated - Mail service settings updated, CustomNavigationSettingsUpdated - Custom navigation settings updated, AuditSettingsUpdated - Audit settings updated, TwoFactorAuthenticationDisabled - Two factor authentication disabled, TwoFactorAuthenticationEnabledBySms - Two factor authentication enabled by sms, TwoFactorAuthenticationEnabledByTfaApp - Two factor authentication enabled by tfa app, PortalRenamed - Portal renamed, QuotaPerRoomChanged - Quota per room changed, QuotaPerRoomDisabled - Quota per room disabled, QuotaPerUserChanged - Quota per user changed, QuotaPerUserDisabled - Quota per user disabled, QuotaPerPortalChanged - Quota per portal changed, QuotaPerPortalDisabled - Quota per portal disabled, FormSubmit - Form submit, FormOpenedForFilling - Form opened for filling, CustomQuotaPerRoomDefault - Custom quota per room default, CustomQuotaPerRoomChanged - Custom quota per room changed, CustomQuotaPerRoomDisabled - Custom quota per room disabled, CustomQuotaPerUserDefault - Custom quota per user default, CustomQuotaPerUserChanged - Custom quota per user changed, CustomQuotaPerUserDisabled - Custom quota per user disabled, ContactAdminMailSent - Contact admin mail sent, RoomInviteLinkUsed - Room invite link used, UserCreatedAndAddedToRoom - User created and added to room, GuestCreatedAndAddedToRoom - Guest created and added to room, ContactSalesMailSent - Contact sales mail sent, None - None]'
+        description: '[LoginSuccess - Login success, LoginSuccessViaSocialAccount - Login success via social account, LoginFailInvalidCombination - Login fail invalid combination, LoginFailSocialAccountNotFound - Login fail social account not found, LoginFailDisabledProfile - Login fail disabled profile, LoginFail - Login fail, Logout - Logout, LoginSuccessViaSms - Login success via sms, LoginFailViaSms - Login fail via sms, LoginFailIpSecurity - Login fail ip security, LoginSuccessViaApi - Login success via api, LoginSuccessViaSocialApp - Login success via social app, LoginSuccessViaApiSms - Login success via api sms, LoginFailViaApi - Login fail via api, LoginFailViaApiSms - Login fail via api sms, LoginSuccessViaSSO - Login success via SSO, SessionStarted - Session started, SessionCompleted - Session completed, LoginFailViaSSO - Login fail via SSO, LoginSuccessViaApiSocialAccount - Login success via api social account, LoginFailViaApiSocialAccount - Login fail via api social account, LoginSuccesViaTfaApp - Login succes via tfa app, LoginFailViaTfaApp - Login fail via Tfa app, LoginFailBruteForce - Login fail brute force, LoginSuccessViaApiTfa - Login success via api tfa, LoginFailViaApiTfa - Login fail via api tfa, LoginFailRecaptcha - Login fail recaptcha, UserCreated - User created, GuestCreated - Guest created, UserCreatedViaInvite - User created via invite, GuestCreatedViaInvite - Guest created via invite, UserActivated - User activated, GuestActivated - Guest activated, UserUpdated - User updated, UserUpdatedLanguage - User updated language, UserAddedAvatar - User added avatar, UserDeletedAvatar - User deleted avatar, UserUpdatedAvatarThumbnails - User updated avatar thumbnails, UserLinkedSocialAccount - User linked social account, UserUnlinkedSocialAccount - User unlinked social account, UserSentActivationInstructions - User sent activation instructions, UserSentEmailChangeInstructions - User sent email change instructions, UserSentPasswordChangeInstructions - User sent password change instructions, UserSentDeleteInstructions - User sent delete instructions, UserUpdatedPassword - User updated password, UserDeleted - User deleted, UsersUpdatedType - Users updated type, UsersUpdatedStatus - Users updated status, UsersSentActivationInstructions - Users sent activation instructions, UsersDeleted - Users deleted, SentInviteInstructions - Sent invite instructions, UserImported - User imported, GuestImported - Guest imported, GroupCreated - Group created, GroupUpdated - Group updated, GroupDeleted - Group deleted, UserUpdatedMobileNumber - User updated mobile number, UserDataReassigns - User data reassigns, UserDataRemoving - User data removing, UserConnectedTfaApp - User connected tfa app, UserDisconnectedTfaApp - User disconnected tfa app, UserLogoutActiveConnections - User logout active connections, UserLogoutActiveConnection - User logout active connection, UserLogoutActiveConnectionsForUser - User logout active connections for user, SendJoinInvite - Send join invite, FileCreated - File created, FileRenamed - File renamed, FileUpdated - File updated, FileCreatedVersion - File created version, FileDeletedVersion - File deleted version, FileUpdatedRevisionComment - File updated revision comment, FileLocked - File locked, FileUnlocked - File unlocked, FileUpdatedAccess - File updated access, FileDownloaded - File downloaded, FileDownloadedAs - File downloaded as, FileUploaded - File uploaded, FileImported - File imported, FileCopied - File copied, FileCopiedWithOverwriting - File copied with overwriting, FileMoved - File moved, FileMovedWithOverwriting - File moved with overwriting, FileMovedToTrash - File moved to trash, FileDeleted - File deleted, FolderCreated - Folder created, FolderRenamed - Folder renamed, FolderUpdatedAccess - Folder updated access, FolderCopied - Folder copied, FolderCopiedWithOverwriting - Folder copied with overwriting, FolderMoved - Folder moved, FolderMovedWithOverwriting - Folder moved with overwriting, FolderMovedToTrash - Folder moved to trash, FolderDeleted - Folder deleted, ThirdPartyCreated - ThirdParty created, ThirdPartyUpdated - ThirdParty updated, ThirdPartyDeleted - ThirdParty deleted, DocumentsThirdPartySettingsUpdated - Documents ThirdParty settings updated, DocumentsOverwritingSettingsUpdated - Documents overwriting settings updated, DocumentsUploadingFormatsSettingsUpdated - Documents uploading formats settings updated, UserFileUpdated - User file updated, FileConverted - File converted, FileSendAccessLink - File send access link, DocumentServiceLocationSetting - Document service location setting, AuthorizationKeysSetting - Authorization keys setting, FullTextSearchSetting - Full text search setting, StartTransferSetting - Start transfer setting, StartBackupSetting - Start backup setting, LicenseKeyUploaded - License key uploaded, FileChangeOwner - File change owner, FileRestoreVersion - File restore version, DocumentSendToSign - Document send to sign, DocumentSignComplete - Document sign complete, UserUpdatedEmail - User updated email, DocumentsStoreForcesave - Documents store forcesave, DocumentsForcesave - Documents forcesave, StartStorageEncryption - Start storage encryption, PrivacyRoomEnable - Privacy room enable, PrivacyRoomDisable - Privacy room disable, StartStorageDecryption - Start storage decryption, FileOpenedForChange - File opened for change, FileMarkedAsFavorite - File marked as favorite, FileRemovedFromFavorite - File removed from favorite, FolderDownloaded - Folder downloaded, FileRemovedFromList - File removed from list, FolderRemovedFromList - Folder removed from list, FileExternalLinkAccessUpdated - File external link access updated, TrashEmptied - Trash emptied, FileRevisionDownloaded - File revision downloaded, FileMarkedAsRead - File marked as read, FileReaded - File readed, FolderMarkedAsRead - Folder marked as read, FolderUpdatedAccessFor - Folder updated access for, FileUpdatedAccessFor - File updated access for, DocumentsExternalShareSettingsUpdated - Documents external share settings updated, RoomCreated - Room created, RoomRenamed - Room renamed, RoomArchived - Room archived, RoomUnarchived - Room unarchived, RoomDeleted - Room deleted, RoomUpdateAccessForUser - Room update access for user, TagCreated - Tag created, TagsDeleted - Tags deleted, AddedRoomTags - Added room tags, DeletedRoomTags - Deleted room tags, RoomLogoCreated - Room logo created, RoomLogoDeleted - Room logo deleted, RoomInvitationLinkUpdated - Room invitation link updated, DocumentsKeepNewFileNameSettingsUpdated - Documents keep new file name settings updated, RoomRemoveUser - Room remove user, RoomCreateUser - Room create user, RoomInvitationLinkCreated - Room invitation link created, RoomInvitationLinkDeleted - Room invitation link deleted, RoomExternalLinkCreated - Room external link created, RoomExternalLinkUpdated - Room external link updated, RoomExternalLinkDeleted - Room external link deleted, FileExternalLinkCreated - File external link created, FileExternalLinkUpdated - File external link updated, FileExternalLinkDeleted - File external link deleted, RoomGroupAdded - Room group added, RoomUpdateAccessForGroup - Room update access for group, RoomGroupRemove - Room group remove, RoomExternalLinkRevoked - Room external link revoked, RoomExternalLinkRenamed - Room external link renamed, FileUploadedWithOverwriting - File uploaded with overwriting, RoomCopied - Room copied, DocumentsDisplayFileExtensionUpdated - Documents display file extension updated, RoomColorChanged - Room color changed, RoomCoverChanged - Room cover changed, RoomIndexingChanged - Room indexing changed, RoomDenyDownloadChanged - Room deny download changed, RoomIndexExportSaved - Room index export saved, FolderIndexChanged - Folder index changed, FolderIndexReordered - Folder index reordered, RoomDenyDownloadEnabled - Room deny download enabled, RoomDenyDownloadDisabled - Room deny download disabled, FileIndexChanged - File index changed, RoomWatermarkSet - Room watermark set, RoomWatermarkDisabled - Room watermark disabled, RoomIndexingEnabled - Room index export saved, RoomIndexingDisabled - Room indexing disabled, RoomLifeTimeSet - Room life time set, RoomLifeTimeDisabled - Room life time disabled, RoomInviteResend - Room invite resend, LanguageSettingsUpdated - Language settings updated, TimeZoneSettingsUpdated - Time zone settings updated, DnsSettingsUpdated - Dns settings updated, TrustedMailDomainSettingsUpdated - Trusted mail domain settings updated, PasswordStrengthSettingsUpdated - Password strength settings updated, TwoFactorAuthenticationSettingsUpdated - Two factor authentication settings updated, AdministratorMessageSettingsUpdated - Administrator message settings updated, DefaultStartPageSettingsUpdated - Default start page settings updated, ProductsListUpdated - Products list updated, AdministratorAdded - Administrator added, AdministratorOpenedFullAccess - Administrator opened full access, AdministratorDeleted - Administrator deleted, UsersOpenedProductAccess - Users opened product access, GroupsOpenedProductAccess - Groups opened product access, ProductAccessOpened - Product access opened, ProductAccessRestricted - Product access restricted, ProductAddedAdministrator - Product added administrator, ProductDeletedAdministrator - Product deleted administrator, GreetingSettingsUpdated - Greeting settings updated, TeamTemplateChanged - Team template changed, ColorThemeChanged - Color theme changed, OwnerSentChangeOwnerInstructions - Owner sent change owner instructions, OwnerUpdated - Owner updated, OwnerSentPortalDeactivationInstructions - Owner sent portal deactivation instructions, OwnerSentPortalDeleteInstructions - Owner sent portal delete instructions, PortalDeactivated - Portal deactivated, PortalDeleted - Portal deleted, LoginHistoryReportDownloaded - Login history report downloaded, AuditTrailReportDownloaded - Audit trail report downloaded, SSOEnabled - SSO enabled, SSODisabled - SSO disabled, PortalAccessSettingsUpdated - Portal access settings updated, CookieSettingsUpdated - Cookie settings updated, MailServiceSettingsUpdated - Mail service settings updated, CustomNavigationSettingsUpdated - Custom navigation settings updated, AuditSettingsUpdated - Audit settings updated, TwoFactorAuthenticationDisabled - Two factor authentication disabled, TwoFactorAuthenticationEnabledBySms - Two factor authentication enabled by sms, TwoFactorAuthenticationEnabledByTfaApp - Two factor authentication enabled by tfa app, PortalRenamed - Portal renamed, QuotaPerRoomChanged - Quota per room changed, QuotaPerRoomDisabled - Quota per room disabled, QuotaPerUserChanged - Quota per user changed, QuotaPerUserDisabled - Quota per user disabled, QuotaPerPortalChanged - Quota per portal changed, QuotaPerPortalDisabled - Quota per portal disabled, FormSubmit - Form submit, FormOpenedForFilling - Form opened for filling, CustomQuotaPerRoomDefault - Custom quota per room default, CustomQuotaPerRoomChanged - Custom quota per room changed, CustomQuotaPerRoomDisabled - Custom quota per room disabled, CustomQuotaPerUserDefault - Custom quota per user default, CustomQuotaPerUserChanged - Custom quota per user changed, CustomQuotaPerUserDisabled - Custom quota per user disabled, ContactAdminMailSent - Contact admin mail sent, RoomInviteLinkUsed - Room invite link used, UserCreatedAndAddedToRoom - User created and added to room, GuestCreatedAndAddedToRoom - Guest created and added to room, ContactSalesMailSent - Contact sales mail sent, CreateClient - Create client, UpdateClient - Update client, RegenerateSecret - Regenerate secret, DeleteClient - Delete client, ChangeClientActivation - Change client activation, ChangeClientVisibility - Change client visibility, RevokeUserClient - Revoke user client, GenerateAuthorizationCodeToken - Generate authorization code token, GeneratePersonalAccessToken - Generate personal access token, None - None]'
         example: LoginSuccess
       - enum:
         - 1000
@@ -10535,9 +10593,18 @@ components:
         - 7002
         - 7003
         - 7004
+        - 9901
+        - 9902
+        - 9903
+        - 9904
+        - 9905
+        - 9906
+        - 9907
+        - 9908
+        - 9909
         - -1
         type: integer
-        description: '[1000 - Login success, 1001 - Login success via social account, 1002 - Login fail invalid combination, 1003 - Login fail social account not found, 1004 - Login fail disabled profile, 1005 - Login fail, 1006 - Logout, 1007 - Login success via sms, 1008 - Login fail via sms, 1009 - Login fail ip security, 1010 - Login success via api, 1011 - Login success via social app, 1012 - Login success via api sms, 1013 - Login fail via api, 1014 - Login fail via api sms, 1015 - Login success via SSO, 1016 - Session started, 1017 - Session completed, 1018 - Login fail via SSO, 1019 - Login success via api social account, 1020 - Login fail via api social account, 1021 - Login succes via tfa app, 1022 - Login fail via Tfa app, 1023 - Login fail brute force, 1024 - Login success via api tfa, 1025 - Login fail via api tfa, 1026 - Login fail recaptcha, 4000 - User created, 4001 - Guest created, 4002 - User created via invite, 4003 - Guest created via invite, 4004 - User activated, 4005 - Guest activated, 4006 - User updated, 4007 - User updated language, 4008 - User added avatar, 4009 - User deleted avatar, 4010 - User updated avatar thumbnails, 4011 - User linked social account, 4012 - User unlinked social account, 4013 - User sent activation instructions, 4014 - User sent email change instructions, 4015 - User sent password change instructions, 4016 - User sent delete instructions, 4017 - User updated password, 4018 - User deleted, 4019 - Users updated type, 4020 - Users updated status, 4021 - Users sent activation instructions, 4022 - Users deleted, 4023 - Sent invite instructions, 4024 - User imported, 4025 - Guest imported, 4026 - Group created, 4027 - Group updated, 4028 - Group deleted, 4029 - User updated mobile number, 4030 - User data reassigns, 4031 - User data removing, 4032 - User connected tfa app, 4033 - User disconnected tfa app, 4034 - User logout active connections, 4035 - User logout active connection, 4036 - User logout active connections for user, 4037 - Send join invite, 5000 - File created, 5001 - File renamed, 5002 - File updated, 5003 - File created version, 5004 - File deleted version, 5005 - File updated revision comment, 5006 - File locked, 5007 - File unlocked, 5008 - File updated access, 5009 - File downloaded, 5010 - File downloaded as, 5011 - File uploaded, 5012 - File imported, 5013 - File copied, 5014 - File copied with overwriting, 5015 - File moved, 5016 - File moved with overwriting, 5017 - File moved to trash, 5018 - File deleted, 5019 - Folder created, 5020 - Folder renamed, 5021 - Folder updated access, 5022 - Folder copied, 5023 - Folder copied with overwriting, 5024 - Folder moved, 5025 - Folder moved with overwriting, 5026 - Folder moved to trash, 5027 - Folder deleted, 5028 - ThirdParty created, 5029 - ThirdParty updated, 5030 - ThirdParty deleted, 5031 - Documents ThirdParty settings updated, 5032 - Documents overwriting settings updated, 5033 - Documents uploading formats settings updated, 5034 - User file updated, 5035 - File converted, 5036 - File send access link, 5037 - Document service location setting, 5038 - Authorization keys setting, 5039 - Full text search setting, 5040 - Start transfer setting, 5041 - Start backup setting, 5042 - License key uploaded, 5043 - File change owner, 5044 - File restore version, 5045 - Document send to sign, 5046 - Document sign complete, 5047 - User updated email, 5048 - Documents store forcesave, 5049 - Documents forcesave, 5050 - Start storage encryption, 5051 - Privacy room enable, 5052 - Privacy room disable, 5053 - Start storage decryption, 5054 - File opened for change, 5055 - File marked as favorite, 5056 - File removed from favorite, 5057 - Folder downloaded, 5058 - File removed from list, 5059 - Folder removed from list, 5060 - File external link access updated, 5061 - Trash emptied, 5062 - File revision downloaded, 5063 - File marked as read, 5064 - File readed, 5065 - Folder marked as read, 5066 - Folder updated access for, 5068 - File updated access for, 5069 - Documents external share settings updated, 5070 - Room created, 5071 - Room renamed, 5072 - Room archived, 5073 - Room unarchived, 5074 - Room deleted, 5075 - Room update access for user, 5076 - Tag created, 5077 - Tags deleted, 5078 - Added room tags, 5079 - Deleted room tags, 5080 - Room logo created, 5081 - Room logo deleted, 5082 - Room invitation link updated, 5083 - Documents keep new file name settings updated, 5084 - Room remove user, 5085 - Room create user, 5086 - Room invitation link created, 5087 - Room invitation link deleted, 5088 - Room external link created, 5089 - Room external link updated, 5090 - Room external link deleted, 5091 - File external link created, 5092 - File external link updated, 5093 - File external link deleted, 5094 - Room group added, 5095 - Room update access for group, 5096 - Room group remove, 5097 - Room external link revoked, 5098 - Room external link renamed, 5099 - File uploaded with overwriting, 5100 - Room copied, 5101 - Documents display file extension updated, 5102 - Room color changed, 5103 - Room cover changed, 5104 - Room indexing changed, 5105 - Room deny download changed, 5106 - Room index export saved, 5107 - Folder index changed, 5108 - Folder index reordered, 5109 - Room deny download enabled, 5110 - Room deny download disabled, 5111 - File index changed, 5112 - Room watermark set, 5113 - Room watermark disabled, 5114 - Room index export saved, 5115 - Room indexing disabled, 5116 - Room life time set, 5117 - Room life time disabled, 5118 - Room invite resend, 6000 - Language settings updated, 6001 - Time zone settings updated, 6002 - Dns settings updated, 6003 - Trusted mail domain settings updated, 6004 - Password strength settings updated, 6005 - Two factor authentication settings updated, 6006 - Administrator message settings updated, 6007 - Default start page settings updated, 6008 - Products list updated, 6009 - Administrator added, 6010 - Administrator opened full access, 6011 - Administrator deleted, 6012 - Users opened product access, 6013 - Groups opened product access, 6014 - Product access opened, 6015 - Product access restricted, 6016 - Product added administrator, 6017 - Product deleted administrator, 6018 - Greeting settings updated, 6019 - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded, 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034 - Custom navigation settings updated, 6035 - Audit settings updated, 6036 - Two factor authentication disabled, 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049 - Custom quota per room changed, 6050 - Custom quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom quota per user changed, 6053 - Custom quota per user disabled, 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002 - User created and added to room, 7003 - Guest created and added to room, 7004 - Contact sales mail sent, -1 - None]'
+        description: '[1000 - Login success, 1001 - Login success via social account, 1002 - Login fail invalid combination, 1003 - Login fail social account not found, 1004 - Login fail disabled profile, 1005 - Login fail, 1006 - Logout, 1007 - Login success via sms, 1008 - Login fail via sms, 1009 - Login fail ip security, 1010 - Login success via api, 1011 - Login success via social app, 1012 - Login success via api sms, 1013 - Login fail via api, 1014 - Login fail via api sms, 1015 - Login success via SSO, 1016 - Session started, 1017 - Session completed, 1018 - Login fail via SSO, 1019 - Login success via api social account, 1020 - Login fail via api social account, 1021 - Login succes via tfa app, 1022 - Login fail via Tfa app, 1023 - Login fail brute force, 1024 - Login success via api tfa, 1025 - Login fail via api tfa, 1026 - Login fail recaptcha, 4000 - User created, 4001 - Guest created, 4002 - User created via invite, 4003 - Guest created via invite, 4004 - User activated, 4005 - Guest activated, 4006 - User updated, 4007 - User updated language, 4008 - User added avatar, 4009 - User deleted avatar, 4010 - User updated avatar thumbnails, 4011 - User linked social account, 4012 - User unlinked social account, 4013 - User sent activation instructions, 4014 - User sent email change instructions, 4015 - User sent password change instructions, 4016 - User sent delete instructions, 4017 - User updated password, 4018 - User deleted, 4019 - Users updated type, 4020 - Users updated status, 4021 - Users sent activation instructions, 4022 - Users deleted, 4023 - Sent invite instructions, 4024 - User imported, 4025 - Guest imported, 4026 - Group created, 4027 - Group updated, 4028 - Group deleted, 4029 - User updated mobile number, 4030 - User data reassigns, 4031 - User data removing, 4032 - User connected tfa app, 4033 - User disconnected tfa app, 4034 - User logout active connections, 4035 - User logout active connection, 4036 - User logout active connections for user, 4037 - Send join invite, 5000 - File created, 5001 - File renamed, 5002 - File updated, 5003 - File created version, 5004 - File deleted version, 5005 - File updated revision comment, 5006 - File locked, 5007 - File unlocked, 5008 - File updated access, 5009 - File downloaded, 5010 - File downloaded as, 5011 - File uploaded, 5012 - File imported, 5013 - File copied, 5014 - File copied with overwriting, 5015 - File moved, 5016 - File moved with overwriting, 5017 - File moved to trash, 5018 - File deleted, 5019 - Folder created, 5020 - Folder renamed, 5021 - Folder updated access, 5022 - Folder copied, 5023 - Folder copied with overwriting, 5024 - Folder moved, 5025 - Folder moved with overwriting, 5026 - Folder moved to trash, 5027 - Folder deleted, 5028 - ThirdParty created, 5029 - ThirdParty updated, 5030 - ThirdParty deleted, 5031 - Documents ThirdParty settings updated, 5032 - Documents overwriting settings updated, 5033 - Documents uploading formats settings updated, 5034 - User file updated, 5035 - File converted, 5036 - File send access link, 5037 - Document service location setting, 5038 - Authorization keys setting, 5039 - Full text search setting, 5040 - Start transfer setting, 5041 - Start backup setting, 5042 - License key uploaded, 5043 - File change owner, 5044 - File restore version, 5045 - Document send to sign, 5046 - Document sign complete, 5047 - User updated email, 5048 - Documents store forcesave, 5049 - Documents forcesave, 5050 - Start storage encryption, 5051 - Privacy room enable, 5052 - Privacy room disable, 5053 - Start storage decryption, 5054 - File opened for change, 5055 - File marked as favorite, 5056 - File removed from favorite, 5057 - Folder downloaded, 5058 - File removed from list, 5059 - Folder removed from list, 5060 - File external link access updated, 5061 - Trash emptied, 5062 - File revision downloaded, 5063 - File marked as read, 5064 - File readed, 5065 - Folder marked as read, 5066 - Folder updated access for, 5068 - File updated access for, 5069 - Documents external share settings updated, 5070 - Room created, 5071 - Room renamed, 5072 - Room archived, 5073 - Room unarchived, 5074 - Room deleted, 5075 - Room update access for user, 5076 - Tag created, 5077 - Tags deleted, 5078 - Added room tags, 5079 - Deleted room tags, 5080 - Room logo created, 5081 - Room logo deleted, 5082 - Room invitation link updated, 5083 - Documents keep new file name settings updated, 5084 - Room remove user, 5085 - Room create user, 5086 - Room invitation link created, 5087 - Room invitation link deleted, 5088 - Room external link created, 5089 - Room external link updated, 5090 - Room external link deleted, 5091 - File external link created, 5092 - File external link updated, 5093 - File external link deleted, 5094 - Room group added, 5095 - Room update access for group, 5096 - Room group remove, 5097 - Room external link revoked, 5098 - Room external link renamed, 5099 - File uploaded with overwriting, 5100 - Room copied, 5101 - Documents display file extension updated, 5102 - Room color changed, 5103 - Room cover changed, 5104 - Room indexing changed, 5105 - Room deny download changed, 5106 - Room index export saved, 5107 - Folder index changed, 5108 - Folder index reordered, 5109 - Room deny download enabled, 5110 - Room deny download disabled, 5111 - File index changed, 5112 - Room watermark set, 5113 - Room watermark disabled, 5114 - Room index export saved, 5115 - Room indexing disabled, 5116 - Room life time set, 5117 - Room life time disabled, 5118 - Room invite resend, 6000 - Language settings updated, 6001 - Time zone settings updated, 6002 - Dns settings updated, 6003 - Trusted mail domain settings updated, 6004 - Password strength settings updated, 6005 - Two factor authentication settings updated, 6006 - Administrator message settings updated, 6007 - Default start page settings updated, 6008 - Products list updated, 6009 - Administrator added, 6010 - Administrator opened full access, 6011 - Administrator deleted, 6012 - Users opened product access, 6013 - Groups opened product access, 6014 - Product access opened, 6015 - Product access restricted, 6016 - Product added administrator, 6017 - Product deleted administrator, 6018 - Greeting settings updated, 6019 - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded, 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034 - Custom navigation settings updated, 6035 - Audit settings updated, 6036 - Two factor authentication disabled, 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049 - Custom quota per room changed, 6050 - Custom quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom quota per user changed, 6053 - Custom quota per user disabled, 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002 - User created and added to room, 7003 - Guest created and added to room, 7004 - Contact sales mail sent, 9901 - Create client, 9902 - Update client, 9903 - Regenerate secret, 9904 - Delete client, 9905 - Change client activation, 9906 - Change client visibility, 9907 - Revoke user client, 9908 - Generate authorization code token, 9909 - Generate personal access token, -1 - None]'
         example: 1000
     ASC.Web.Api.Models.Contact:
       type: object
@@ -10689,7 +10756,8 @@ components:
           example: my@gmail.com
         contacts:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Api.Models.Contact'
           description: List of contacts
           nullable: true
         birthday:
@@ -10714,7 +10782,8 @@ components:
           $ref: '#/components/schemas/ASC.Api.Core.ApiDateTime'
         groups:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Api.Models.GroupSummaryDto'
           description: List of groups
           nullable: true
         location:
@@ -10741,7 +10810,8 @@ components:
           example: false
         listAdminModules:
           type: array
-          items: {}
+          items:
+            type: string
           description: List of administrator modules
           nullable: true
           example: '["projects", "crm"]'
@@ -11032,7 +11102,7 @@ components:
           type: string
           description: Instance ID
           nullable: true
-          example: 8464
+          example: 6210
       additionalProperties: false
     ASC.Web.Files.Services.DocumentService.GobackConfig:
       type: object
@@ -11058,7 +11128,8 @@ components:
           example: 1234
         runs:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Files.Services.DocumentService.Run'
           nullable: true
       additionalProperties: false
     ASC.Web.Files.Services.DocumentService.PermissionsConfig:
@@ -11118,7 +11189,8 @@ components:
       properties:
         pluginsData:
           type: array
-          items: {}
+          items:
+            type: string
           nullable: true
           readOnly: true
           example:
@@ -11136,7 +11208,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: hacking_leverage_tcp
+          example: orchestrator
         url:
           type: string
           description: Url
@@ -11149,7 +11221,9 @@ components:
       properties:
         fill:
           type: array
-          items: {}
+          items:
+            type: integer
+            format: int32
           nullable: true
           example:
           - 1234
@@ -11174,7 +11248,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: transmitter_buckinghamshire
+          example: sleek_rubber_tuna_teal
         url:
           type: string
           description: Url
@@ -11189,12 +11263,12 @@ components:
           type: string
           description: Id
           nullable: true
-          example: 2926
+          example: 9603
         name:
           type: string
           description: Name
           nullable: true
-          example: Lorna Little
+          example: Roselyn Baumbach
         image:
           type: string
           description: Image
@@ -11216,7 +11290,9 @@ components:
           example: -8.5
         margins:
           type: array
-          items: {}
+          items:
+            type: integer
+            format: int32
           nullable: true
           example:
           - 1234
@@ -11234,7 +11310,8 @@ components:
           example: -8.5
         paragraphs:
           type: array
-          items: {}
+          items:
+            $ref: '#/components/schemas/ASC.Web.Files.Services.DocumentService.Paragraph'
           nullable: true
       additionalProperties: false
     ASC.Web.Files.Services.WCFService.AceShortWrapper:
@@ -11308,13 +11385,13 @@ components:
           format: email
           nullable: true
           readOnly: true
-          example: Janice.Pouros80@gmail.com
+          example: Christine.Renner57@hotmail.com
         id:
           type: string
           description: User ID
           nullable: true
           readOnly: true
-          example: 3009
+          example: 7795
         image:
           type: string
           description: User image
@@ -11331,7 +11408,7 @@ components:
           description: User display name
           nullable: true
           readOnly: true
-          example: Hazel Paucek
+          example: London Predovic
       additionalProperties: false
     ASC.Web.Files.Services.WCFService.ThirdPartyParams:
       type: object
@@ -11391,7 +11468,8 @@ components:
           example: some text
         value:
           type: array
-          items: {}
+          items:
+            type: string
           example:
           - some text
       additionalProperties: false
@@ -11449,7 +11527,7 @@ components:
         name:
           type: string
           nullable: true
-          example: Jarod Morar
+          example: Retha Mosciski
         parameters:
           type: array
           items: {}

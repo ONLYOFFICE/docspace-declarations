@@ -777,7 +777,7 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "example": "6a0af7f7-0f29-42fc-84ef-df97d5319d91"
+            "example": "5ca5ca70-64dc-4c33-8dd2-108a1d0f4b1b"
           },
           "fileName": {
             "type": "string",
