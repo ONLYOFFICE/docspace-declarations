@@ -138,7 +138,7 @@ paths:
           maxLength: 255
           minLength: 0
           type: string
-          example: Leanna
+          example: Deion
       - name: Email
         in: query
         description: Email
@@ -147,7 +147,7 @@ paths:
           minLength: 0
           type: string
           format: email
-          example: Kiarra.Gulgowski@gmail.com
+          example: Tomasa.Kilback2@yahoo.com
       - name: Industry
         in: query
         description: Industry
@@ -170,7 +170,7 @@ paths:
           maxLength: 255
           minLength: 0
           type: string
-          example: Kshlerin
+          example: Kozey
       - name: Module
         in: query
         description: Module
@@ -186,7 +186,7 @@ paths:
           maxLength: 30
           minLength: 0
           type: string
-          example: km2syf_4_k
+          example: ROYKWHSmz5
       - name: PasswordHash
         in: query
         description: Password hash
@@ -430,7 +430,7 @@ paths:
           maxLength: 255
           minLength: 0
           type: string
-          example: Ramon
+          example: Leon
       - name: Email
         in: query
         description: Email
@@ -439,7 +439,7 @@ paths:
           minLength: 0
           type: string
           format: email
-          example: Xavier27@gmail.com
+          example: Bryce.Waelchi27@gmail.com
       - name: Industry
         in: query
         description: Industry
@@ -462,7 +462,7 @@ paths:
           maxLength: 255
           minLength: 0
           type: string
-          example: Brown
+          example: Crist
       - name: Module
         in: query
         description: Module
@@ -478,7 +478,7 @@ paths:
           maxLength: 30
           minLength: 0
           type: string
-          example: SXx4uwplGo
+          example: QkduFg4rCs
       - name: PasswordHash
         in: query
         description: Password hash
@@ -1071,7 +1071,7 @@ components:
           type: string
           description: First name
           nullable: true
-          example: Robyn
+          example: Manley
         email:
           maxLength: 255
           minLength: 0
@@ -1079,7 +1079,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Santino.Satterfield36@yahoo.com
+          example: Narciso.Towne@gmail.com
         industry:
           type: integer
           description: Industry
@@ -1098,7 +1098,7 @@ components:
           type: string
           description: Last name
           nullable: true
-          example: Hermiston
+          example: Zboncak
         module:
           maxLength: 38
           minLength: 0
@@ -1112,7 +1112,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: 8UdPyZeh4a
+          example: wqL7Zal1ja
         passwordHash:
           type: string
           description: Password hash
@@ -1229,9 +1229,26 @@ components:
 tags:
 - name: People
   description: Operations for working with people
+  x-displayName: People
 - name: Portal
   description: Operations for working with portal
+  x-displayName: Portal
 - name: Settings
   description: Operations for working with settings
+  x-displayName: Settings
 - name: Tariff
   description: Operations for working with tariff
+  x-displayName: Tariff
+x-tagGroups:
+- name: People
+  tags:
+  - People
+- name: Portal
+  tags:
+  - Portal
+- name: Settings
+  tags:
+  - Settings
+- name: Tariff
+  tags:
+  - Tariff

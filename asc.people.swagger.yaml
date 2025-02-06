@@ -14,8 +14,7 @@ paths:
       description: >-
         Returns the general information about all the groups, such as group ID and group manager.
 
-
-        **Note**: **Note**: This method returns partial group information.
+         **Note**: This method returns partial group information.
       operationId: getGroups
       parameters:
       - name: userId
@@ -24,7 +23,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 60ddb1a6-47a0-4670-8e93-5852de7ef40f
+          example: 52a52988-cd31-4e25-8073-6cccbd91418f
       - name: manager
         in: query
         description: Specifies if the user is a manager or not
@@ -94,8 +93,7 @@ paths:
       description: >-
         Returns the detailed information about the selected group.
 
-
-        **Note**: **Note**: This method returns full group information.
+         **Note**: This method returns full group information.
       operationId: getGroup
       parameters:
       - name: id
@@ -105,7 +103,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: a07dc9fe-a09f-4759-9731-b31057f87e94
+          example: 1d371938-ecc7-4bf2-bbf0-3aff32f36836
       - name: includeMembers
         in: query
         description: Include members
@@ -146,7 +144,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 11a4d891-fbd6-44e7-bec6-6c340ab4c569
+          example: 71681844-febb-4533-8565-d247f688b55f
       requestBody:
         description: Update group parameters
         content:
@@ -194,7 +192,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: dc4dfd68-6226-4059-a037-395b5c225004
+          example: 325764a2-1199-4063-ba01-0a3d1cd92242
       responses:
         200:
           description: No content
@@ -231,7 +229,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 9081d61e-beaf-4664-8f63-9814df231bbd
+          example: c84453fa-b18f-41d0-8dec-03be9d03b700
       responses:
         200:
           description: List of groups
@@ -311,7 +309,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 714c725d-fa50-4318-9d27-3c5ebfeeacd1
+          example: 4aa9c714-ef25-40cd-86a8-002b89a26a66
       requestBody:
         description: Members
         content:
@@ -357,7 +355,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 0b24fca7-3b3d-4686-a83d-15aec9d7962c
+          example: 9da1d040-beff-416b-b717-5803c32ed6af
       requestBody:
         description: Members
         content:
@@ -405,7 +403,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 63333aa5-e1fe-4a1a-8994-21d9b655ac94
+          example: 0cdefefc-aa6c-4e4b-a17d-f85738ee435a
       requestBody:
         description: Members
         content:
@@ -454,7 +452,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: d523a3f8-4330-40f6-b025-8acb6e5cb06c
+          example: e28f113b-73c8-4e96-bfcd-b7c348a2c245
       requestBody:
         description: Set manager
         content:
@@ -503,7 +501,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6451
+          example: 1688
       - name: excludeShared
         in: query
         description: Exclude shared
@@ -551,7 +549,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 7744
+          example: 1222
       requestBody:
         description: Contacts
         content:
@@ -600,7 +598,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 2016
+          example: 624
       requestBody:
         description: Contacts
         content:
@@ -649,7 +647,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 8649
+          example: 1283
       requestBody:
         description: Contacts
         content:
@@ -729,7 +727,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: dd5952a3-aed3-4c28-928c-f7f342abb29d
+          example: 8a8e9730-7067-493f-8181-685570abb381
       requestBody:
         description: Member base
         content:
@@ -811,7 +809,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 4317
+          example: 2092
       requestBody:
         description: Thumbnails
         content:
@@ -861,7 +859,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 239
+          example: 3457
       responses:
         200:
           description: 'Thumbnail parameters: original photo, retina, maximum size photo, big, medium, small'
@@ -898,7 +896,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 4574
+          example: 5834
       responses:
         200:
           description: 'Thumbnail parameters: original photo, retina, maximum size photo, big, medium, small'
@@ -935,7 +933,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 1275
+          example: 8323
       requestBody:
         description: Update photo
         content:
@@ -984,7 +982,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 1155
+          example: 1840
       requestBody:
         content:
           multipart/form-data:
@@ -1196,7 +1194,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 5524
+          example: 8204
       responses:
         200:
           description: Deleted user detailed information
@@ -1233,7 +1231,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 8380
+          example: 9613
       responses:
         200:
           description: Detailed profile information
@@ -1270,7 +1268,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 6975
+          example: 9216
       requestBody:
         description: Update member
         content:
@@ -1379,7 +1377,7 @@ paths:
           minLength: 0
           type: string
           format: email
-          example: Delfina98@yahoo.com
+          example: Lillian74@gmail.com
       responses:
         200:
           description: Detailed profile information
@@ -1491,7 +1489,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 7887
+          example: 8640
       requestBody:
         description: Update member
         content:
@@ -1622,7 +1620,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5624
+          example: 4685
       - name: employeeStatus
         in: query
         description: Employee status
@@ -1662,11 +1660,17 @@ paths:
           description: Ok
           content:
             text/plain:
-              schema: {}
+              schema:
+                type: array
+                items: {}
             application/json:
-              schema: {}
+              schema:
+                type: array
+                items: {}
             text/json:
-              schema: {}
+              schema:
+                type: array
+                items: {}
         403:
           description: No permissions to perform this action
         401:
@@ -2052,7 +2056,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7782
+          example: 5663
       - name: employeeStatus
         in: query
         description: Employee status
@@ -2313,7 +2317,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 4c3a9011-d3d0-4fa3-80ef-7d1ea0b92158
+          example: 6cffaf14-6efd-46b2-894f-411fb793044f
       responses:
         200:
           description: Reassignment progress
@@ -2424,7 +2428,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: bda893cd-ec93-4284-9d85-b551c0f15e73
+          example: 3c4cffda-f288-4064-a06f-331bf74b3c2b
       responses:
         200:
           description: Deletion progress
@@ -2898,7 +2902,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Jeffrey_Pagac@gmail.com
+          example: Tomasa_Blanda30@gmail.com
       additionalProperties: false
       description: Member request parameters
     ASC.People.ApiModels.RequestDto.GroupRequestDto:
@@ -2962,12 +2966,12 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Ophelia.Fadel@hotmail.com
+          example: Osvaldo50@yahoo.com
         password:
           type: string
           description: Password
           nullable: true
-          example: S1APsPf9vv
+          example: dHD_6ofwuo
         passwordHash:
           type: string
           description: Password hash
@@ -2985,12 +2989,12 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Daphnee99@yahoo.com
+          example: Wilburn_Considine20@hotmail.com
         password:
           type: string
           description: Password
           nullable: true
-          example: kG3UQeXTkZ
+          example: bw1KiShEZV
         passwordHash:
           type: string
           description: Password hash
@@ -3009,14 +3013,14 @@ components:
           type: string
           description: First name
           nullable: true
-          example: Megane
+          example: Aisha
         lastName:
           maxLength: 255
           minLength: 0
           type: string
           description: Last name
           nullable: true
-          example: Schulist
+          example: Johnston
         department:
           type: array
           items:
@@ -3032,12 +3036,12 @@ components:
           type: string
           description: Title
           nullable: true
-          example: synthesizing_tan
+          example: convergence_lavender_solutions
         location:
           type: string
           description: Location
           nullable: true
-          example: 7009 Maybell Spurs, Zoilaton, Nepal
+          example: 832 Claudia Track, Angeloshire, Belize
         sex:
           $ref: '#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum'
         birthday:
@@ -3107,7 +3111,7 @@ components:
           type: string
           description: User ID
           format: uuid
-          example: 8117cdb2-b001-4f0a-a1ff-fabd9d4a0224
+          example: 8d4514cd-22e8-4c1a-951f-b4fbbb10ccbf
       additionalProperties: false
       description: Request parameters for setting a group manager
     ASC.People.ApiModels.RequestDto.SexEnum:
@@ -3138,18 +3142,18 @@ components:
           type: string
           description: First name
           nullable: true
-          example: Muriel
+          example: Katelin
         lastName:
           type: string
           description: Last name
           nullable: true
-          example: Haag
+          example: Windler
         email:
           type: string
           description: Email address
           format: email
           nullable: true
-          example: Angelica1@gmail.com
+          example: Lavonne79@hotmail.com
         passwordHash:
           type: string
           description: Password hash
@@ -3193,7 +3197,7 @@ components:
           type: string
           description: User ID whose data is reassigned/removed
           format: uuid
-          example: 9926bb4c-9f04-4778-8e99-15e67bfbe974
+          example: d425800d-f00c-4516-8d5b-3ff23c5ce06c
       additionalProperties: false
       description: Request parameters for terminating the reassignment process
     ASC.People.ApiModels.RequestDto.ThumbnailsRequest:
@@ -3269,12 +3273,12 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Josephine_Hodkiewicz35@hotmail.com
+          example: Noble8@gmail.com
         password:
           type: string
           description: Password
           nullable: true
-          example: 1iaSc0gOa0
+          example: wjiggcfyGU
         passwordHash:
           type: string
           description: Password hash
@@ -3293,14 +3297,14 @@ components:
           type: string
           description: First name
           nullable: true
-          example: Sydni
+          example: Shawna
         lastName:
           maxLength: 255
           minLength: 0
           type: string
           description: Last name
           nullable: true
-          example: Bechtelar
+          example: Gerlach
         department:
           type: array
           items:
@@ -3316,12 +3320,12 @@ components:
           type: string
           description: Title
           nullable: true
-          example: capacitor_roads_card
+          example: extend_turquoise
         location:
           type: string
           description: Location
           nullable: true
-          example: 620 Alivia Cove, Port Ernesto, Jersey
+          example: 12144 Yasmin Ranch, Hauckside, Micronesia
         sex:
           $ref: '#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum'
         birthday:
@@ -3372,7 +3376,7 @@ components:
           type: string
           description: User ID
           nullable: true
-          example: 420
+          example: 374
         disable:
           type: boolean
           description: Specifies whether to disable a user or not
@@ -3437,7 +3441,7 @@ components:
           description: Email address
           format: email
           nullable: true
-          example: Tiana.Murazik@gmail.com
+          example: Vance27@hotmail.com
         type:
           $ref: '#/components/schemas/ASC.Core.Users.EmployeeType'
       additionalProperties: false
@@ -3493,7 +3497,7 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Wava Jacobson
+          example: Esmeralda Ferry
         parent:
           type: string
           description: Parent
@@ -3509,7 +3513,7 @@ components:
           type: string
           description: ID
           format: uuid
-          example: addbc763-910d-43f2-972c-e947897ac6e0
+          example: 1a5d06fa-e753-4148-ba77-c5fb71b926e9
         isLDAP:
           type: boolean
           description: Specifies if the LDAP settings are enabled for the group or not
@@ -3540,7 +3544,7 @@ components:
           type: string
           description: ID
           nullable: true
-          example: 9843
+          example: 7912
         error:
           type: string
           description: Error
@@ -3936,29 +3940,62 @@ components:
 tags:
 - name: Group
   description: Operations for working with groups.
+  x-displayName: Group
 - name: Group / Rooms
   description: Operations for getting groups with access rights to a room.
+  x-displayName: Rooms
 - name: People / Contacts
   description: Operations for working with user contacts.
+  x-displayName: Contacts
 - name: People / Guests
   description: Operations for workig with gursts
+  x-displayName: Guests
 - name: People / Password
   description: Operations for working with user passwords.
+  x-displayName: Password
 - name: People / Photos
   description: Operations for working with user photos.
+  x-displayName: Photos
 - name: People / Profiles
   description: Operations  for working with user profiles.
+  x-displayName: Profiles
 - name: People / Quota
   description: Operations for working with user quotas.
+  x-displayName: Quota
 - name: People / Search
   description: Operations for searching users.
+  x-displayName: Search
 - name: People / Theme
   description: Operations for working with portal theme.
+  x-displayName: Theme
 - name: People / Third-party accounts
   description: Operations for working with third-party accounts.
+  x-displayName: Third-party accounts
 - name: People / User data
   description: Operations for working with user data.
+  x-displayName: User data
 - name: People / User status
   description: Operations for working with user status.
+  x-displayName: User status
 - name: People / User type
   description: Operations for working with user types.
+  x-displayName: User type
+x-tagGroups:
+- name: Group
+  tags:
+  - Group
+  - Group / Rooms
+- name: People
+  tags:
+  - People / Contacts
+  - People / Guests
+  - People / Password
+  - People / Photos
+  - People / Profiles
+  - People / Quota
+  - People / Search
+  - People / Theme
+  - People / Third-party accounts
+  - People / User data
+  - People / User status
+  - People / User type

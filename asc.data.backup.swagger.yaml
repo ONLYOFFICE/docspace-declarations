@@ -503,7 +503,7 @@ components:
         id:
           type: string
           format: uuid
-          example: d6f1eb9f-6cf2-453e-9a1c-03b354ee5892
+          example: 9cbacdd2-b53f-4055-b534-71a2948348eb
         fileName:
           type: string
           nullable: true
@@ -594,3 +594,8 @@ components:
 tags:
 - name: Backup
   description: Operations for working with backup
+  x-displayName: Backup
+x-tagGroups:
+- name: Backup
+  tags:
+  - Backup

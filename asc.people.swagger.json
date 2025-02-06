@@ -17,7 +17,7 @@
           "Group"
         ],
         "summary": "Get groups",
-        "description": "Returns the general information about all the groups, such as group ID and group manager.\n\n**Note**: **Note**: This method returns partial group information.",
+        "description": "Returns the general information about all the groups, such as group ID and group manager.\n\n **Note**: This method returns partial group information.",
         "operationId": "getGroups",
         "parameters": [
           {
@@ -27,7 +27,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "dd1aae97-a24d-4943-aecd-91606399469d"
+              "example": "ebc00c61-5c0a-480c-adb2-446da529aa5d"
             }
           },
           {
@@ -141,7 +141,7 @@
           "Group"
         ],
         "summary": "Get a group",
-        "description": "Returns the detailed information about the selected group.\n\n**Note**: **Note**: This method returns full group information.",
+        "description": "Returns the detailed information about the selected group.\n\n **Note**: This method returns full group information.",
         "operationId": "getGroup",
         "parameters": [
           {
@@ -152,7 +152,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "7127dfce-ffa5-46bf-9b99-27fe61e70b8d"
+              "example": "6fcb6dfb-4245-463a-856c-0abdaedc26fa"
             }
           },
           {
@@ -217,7 +217,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "50e09fa3-b0b8-44c2-87b8-f7cd492d328d"
+              "example": "54aa9123-a285-406a-b029-313baceff8a9"
             }
           }
         ],
@@ -294,7 +294,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "0a8412eb-9822-4872-8715-8231982aa4d3"
+              "example": "121d0068-0248-4510-8cc8-45e31e32fcab"
             }
           }
         ],
@@ -353,7 +353,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "c9d42a06-9dd5-4c8f-87f7-7950c12f8ba5"
+              "example": "70c9ccda-66d5-466a-884f-6cbbfcdd1ef3"
             }
           }
         ],
@@ -479,7 +479,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "35c42e26-254b-4166-bf83-1be7b657c645"
+              "example": "a6cf80d0-5000-4162-bea6-d758906e5d61"
             }
           }
         ],
@@ -553,7 +553,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "a5154d30-38b5-4df2-bde8-5e832ea505cb"
+              "example": "b4742ddb-01ec-4cd3-ad8b-5cc33a1a8b2c"
             }
           }
         ],
@@ -630,7 +630,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "ebd63fdc-612a-40df-a207-38491ba88763"
+              "example": "6f13950e-8940-4ec0-92f4-0b454788bcf4"
             }
           }
         ],
@@ -709,7 +709,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "e5771b87-b4d3-4c68-89a5-4d547f693e7c"
+              "example": "3097313b-3ed4-487b-aa36-593bb8acdfb3"
             }
           }
         ],
@@ -788,7 +788,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9922
+              "example": 8892
             }
           },
           {
@@ -864,7 +864,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "6406"
+              "example": "2570"
             }
           }
         ],
@@ -943,7 +943,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "5507"
+              "example": "4640"
             }
           }
         ],
@@ -1022,7 +1022,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "6667"
+              "example": "4833"
             }
           }
         ],
@@ -1152,7 +1152,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "00458eba-5789-41c5-8adb-5c920957d06b"
+              "example": "185126b0-251e-4365-8193-d465ba6e25c9"
             }
           }
         ],
@@ -1284,7 +1284,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "3046"
+              "example": "9022"
             }
           }
         ],
@@ -1365,7 +1365,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "5768"
+              "example": "4777"
             }
           }
         ],
@@ -1424,7 +1424,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "208"
+              "example": "1752"
             }
           }
         ],
@@ -1483,7 +1483,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "8756"
+              "example": "8524"
             }
           }
         ],
@@ -1562,7 +1562,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "4992"
+              "example": "4326"
             }
           }
         ],
@@ -1911,7 +1911,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "6770"
+              "example": "2572"
             }
           }
         ],
@@ -1970,7 +1970,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "269"
+              "example": "9047"
             }
           }
         ],
@@ -2029,7 +2029,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "8609"
+              "example": "8251"
             }
           }
         ],
@@ -2205,7 +2205,7 @@
               "minLength": 0,
               "type": "string",
               "format": "email",
-              "example": "Billy_Hessel94@hotmail.com"
+              "example": "Carlo_Schneider99@gmail.com"
             }
           }
         ],
@@ -2388,7 +2388,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "217"
+              "example": "7024"
             }
           }
         ],
@@ -2603,7 +2603,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 5551
+              "example": 8355
             }
           },
           {
@@ -2664,13 +2664,22 @@
             "description": "Ok",
             "content": {
               "text/plain": {
-                "schema": {}
+                "schema": {
+                  "type": "array",
+                  "items": {}
+                }
               },
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "array",
+                  "items": {}
+                }
               },
               "text/json": {
-                "schema": {}
+                "schema": {
+                  "type": "array",
+                  "items": {}
+                }
               }
             }
           },
@@ -3274,7 +3283,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7194
+              "example": 3183
             }
           },
           {
@@ -3692,7 +3701,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "26fec15f-2a79-493c-9c08-d7a5b12fe5c6"
+              "example": "864deb32-e2d1-41a7-8530-42ee031e88a4"
             }
           }
         ],
@@ -3875,7 +3884,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "726d5646-c09b-4dbc-925e-14c879efe53c"
+              "example": "af5408a0-556e-4672-a88d-97d1a48b3a8f"
             }
           }
         ],
@@ -4614,7 +4623,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Alena_Kris@hotmail.com"
+            "example": "Meggie_Abshire25@yahoo.com"
           }
         },
         "additionalProperties": false,
@@ -4697,13 +4706,13 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Tatyana99@gmail.com"
+            "example": "Daisha_Pagac@hotmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "GiIE2COnKe"
+            "example": "NXAiQgPH4K"
           },
           "passwordHash": {
             "type": "string",
@@ -4725,13 +4734,13 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Angelica.Kutch@gmail.com"
+            "example": "Jamir.Bergnaum@hotmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "OERS9gUwyy"
+            "example": "bgsEgi9U9R"
           },
           "passwordHash": {
             "type": "string",
@@ -4754,7 +4763,7 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Alfred"
+            "example": "Luisa"
           },
           "lastName": {
             "maxLength": 255,
@@ -4762,7 +4771,7 @@
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Feeney"
+            "example": "Terry"
           },
           "department": {
             "type": "array",
@@ -4782,13 +4791,13 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "cross_platform_rustic_steel_soap_sas"
+            "example": "bypass_upward_trending_navigating"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "8617 Sally Forge, Hellerchester, Saint Kitts and Nevis"
+            "example": "15357 Daugherty Locks, Hettiehaven, French Guiana"
           },
           "sex": {
             "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
@@ -4878,7 +4887,7 @@
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "c4248f65-dbc2-4dc8-a15c-976321674f1c"
+            "example": "7c9f3a97-2cb4-4f14-9470-064cbb4a6317"
           }
         },
         "additionalProperties": false,
@@ -4922,20 +4931,20 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Laron"
+            "example": "Ayana"
           },
           "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Beer"
+            "example": "Considine"
           },
           "email": {
             "type": "string",
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Ethyl44@yahoo.com"
+            "example": "Aleen35@gmail.com"
           },
           "passwordHash": {
             "type": "string",
@@ -4990,7 +4999,7 @@
             "type": "string",
             "description": "User ID whose data is reassigned/removed",
             "format": "uuid",
-            "example": "e35af2bc-8e80-46cd-8a11-10e480d055d3"
+            "example": "286329ac-8821-4c5a-b8e5-d70617a530e3"
           }
         },
         "additionalProperties": false,
@@ -5086,13 +5095,13 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Vince58@hotmail.com"
+            "example": "Karelle39@hotmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "Iga5elNxPe"
+            "example": "AeCNAMskLg"
           },
           "passwordHash": {
             "type": "string",
@@ -5115,7 +5124,7 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Durward"
+            "example": "Glennie"
           },
           "lastName": {
             "maxLength": 255,
@@ -5123,7 +5132,7 @@
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Steuber"
+            "example": "Torphy"
           },
           "department": {
             "type": "array",
@@ -5143,13 +5152,13 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "unbranded_steel_car"
+            "example": "licensed_wooden_bacon_payment_synthesizing"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "62615 Gaetano Greens, South Estelle, Cayman Islands"
+            "example": "020 Thiel Mount, East Kamryn, China"
           },
           "sex": {
             "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
@@ -5213,7 +5222,7 @@
             "type": "string",
             "description": "User ID",
             "nullable": true,
-            "example": "5152"
+            "example": "6177"
           },
           "disable": {
             "type": "boolean",
@@ -5302,7 +5311,7 @@
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Adele94@gmail.com"
+            "example": "Rafael.Welch@gmail.com"
           },
           "type": {
             "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
@@ -5374,7 +5383,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Kayli West"
+            "example": "Micheal Mante"
           },
           "parent": {
             "type": "string",
@@ -5393,7 +5402,7 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "77c3d5b1-598c-484c-83d0-aacd54b0e71a"
+            "example": "a25d99c5-ce9c-4f00-98c4-999c52bdf5c6"
           },
           "isLDAP": {
             "type": "boolean",
@@ -5433,7 +5442,7 @@
             "type": "string",
             "description": "ID",
             "nullable": true,
-            "example": "3576"
+            "example": "90"
           },
           "error": {
             "type": "string",
@@ -5940,59 +5949,99 @@
   "tags": [
     {
       "name": "Group",
-      "description": "Operations for working with groups."
+      "description": "Operations for working with groups.",
+      "x-displayName": "Group"
     },
     {
       "name": "Group / Rooms",
-      "description": "Operations for getting groups with access rights to a room."
+      "description": "Operations for getting groups with access rights to a room.",
+      "x-displayName": "Rooms"
     },
     {
       "name": "People / Contacts",
-      "description": "Operations for working with user contacts."
+      "description": "Operations for working with user contacts.",
+      "x-displayName": "Contacts"
     },
     {
       "name": "People / Guests",
-      "description": "Operations for workig with gursts"
+      "description": "Operations for workig with gursts",
+      "x-displayName": "Guests"
     },
     {
       "name": "People / Password",
-      "description": "Operations for working with user passwords."
+      "description": "Operations for working with user passwords.",
+      "x-displayName": "Password"
     },
     {
       "name": "People / Photos",
-      "description": "Operations for working with user photos."
+      "description": "Operations for working with user photos.",
+      "x-displayName": "Photos"
     },
     {
       "name": "People / Profiles",
-      "description": "Operations  for working with user profiles."
+      "description": "Operations  for working with user profiles.",
+      "x-displayName": "Profiles"
     },
     {
       "name": "People / Quota",
-      "description": "Operations for working with user quotas."
+      "description": "Operations for working with user quotas.",
+      "x-displayName": "Quota"
     },
     {
       "name": "People / Search",
-      "description": "Operations for searching users."
+      "description": "Operations for searching users.",
+      "x-displayName": "Search"
     },
     {
       "name": "People / Theme",
-      "description": "Operations for working with portal theme."
+      "description": "Operations for working with portal theme.",
+      "x-displayName": "Theme"
     },
     {
       "name": "People / Third-party accounts",
-      "description": "Operations for working with third-party accounts."
+      "description": "Operations for working with third-party accounts.",
+      "x-displayName": "Third-party accounts"
     },
     {
       "name": "People / User data",
-      "description": "Operations for working with user data."
+      "description": "Operations for working with user data.",
+      "x-displayName": "User data"
     },
     {
       "name": "People / User status",
-      "description": "Operations for working with user status."
+      "description": "Operations for working with user status.",
+      "x-displayName": "User status"
     },
     {
       "name": "People / User type",
-      "description": "Operations for working with user types."
+      "description": "Operations for working with user types.",
+      "x-displayName": "User type"
+    }
+  ],
+  "x-tagGroups": [
+    {
+      "name": "Group",
+      "tags": [
+        "Group",
+        "Group / Rooms"
+      ]
+    },
+    {
+      "name": "People",
+      "tags": [
+        "People / Contacts",
+        "People / Guests",
+        "People / Password",
+        "People / Photos",
+        "People / Profiles",
+        "People / Quota",
+        "People / Search",
+        "People / Theme",
+        "People / Third-party accounts",
+        "People / User data",
+        "People / User status",
+        "People / User type"
+      ]
     }
   ]
 }

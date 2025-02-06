@@ -27,7 +27,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3717
+              "example": 9057
             }
           }
         ],
@@ -134,7 +134,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 5331
+              "example": 9768
             }
           }
         ],
@@ -196,7 +196,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9587
+              "example": 7184
             }
           }
         ],
@@ -238,7 +238,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3096
+              "example": 1695
             }
           },
           {
@@ -314,7 +314,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8678
+              "example": 6898
             }
           },
           {
@@ -407,7 +407,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9313
+              "example": 633
             }
           }
         ],
@@ -525,7 +525,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7271
+              "example": 6133
             }
           }
         ],
@@ -590,7 +590,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6925
+              "example": 5106
             }
           },
           {
@@ -668,7 +668,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 5362
+              "example": 1905
             }
           }
         ],
@@ -745,7 +745,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9296
+              "example": 6953
             }
           }
         ],
@@ -790,7 +790,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4625
+              "example": 9299
             }
           }
         ],
@@ -846,7 +846,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2683
+              "example": 5993
             }
           }
         ],
@@ -902,7 +902,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7826
+              "example": 1218
             }
           }
         ],
@@ -977,7 +977,7 @@
           "Files / Files"
         ],
         "summary": "Create a file",
-        "description": "Creates a new file in the specified folder with the title specified in the request.\n\n**Note**: **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.",
+        "description": "Creates a new file in the specified folder with the title specified in the request.\n\n **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.",
         "operationId": "createFile",
         "parameters": [
           {
@@ -988,7 +988,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 770
+              "example": 4454
             }
           }
         ],
@@ -1063,7 +1063,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2695
+              "example": 5413
             }
           }
         ],
@@ -1142,7 +1142,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2806
+              "example": 330
             }
           }
         ],
@@ -1218,7 +1218,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4506
+              "example": 4013
             }
           }
         ],
@@ -1292,7 +1292,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8638
+              "example": 483
             }
           },
           {
@@ -1345,7 +1345,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2870
+              "example": 2869
             }
           }
         ],
@@ -1456,7 +1456,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1159
+              "example": 4583
             }
           },
           {
@@ -1511,7 +1511,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4598
+              "example": 9806
             }
           }
         ],
@@ -1556,7 +1556,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9163
+              "example": 2275
             }
           }
         ],
@@ -1632,7 +1632,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8640
+              "example": 7080
             }
           },
           {
@@ -1702,7 +1702,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3439
+              "example": 4804
             }
           }
         ],
@@ -1779,7 +1779,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 5912
+              "example": 6547
             }
           }
         ],
@@ -1827,7 +1827,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 382
+              "example": 1732
             }
           }
         ],
@@ -1937,7 +1937,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 498
+              "example": 2178
             }
           }
         ],
@@ -1991,7 +1991,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4752
+              "example": 73
             }
           }
         ],
@@ -2067,7 +2067,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3920
+              "example": 7725
             }
           }
         ],
@@ -2136,7 +2136,7 @@
           "Files / Files"
         ],
         "summary": "Create a file in the \"My documents\" section",
-        "description": "Creates a new file in the \"My documents\" section with the title specified in the request.\n\n**Note**: **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.",
+        "description": "Creates a new file in the \"My documents\" section with the title specified in the request.\n\n **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.",
         "operationId": "createFileMyDocuments",
         "requestBody": {
           "content": {
@@ -2380,7 +2380,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6328
+              "example": 9290
             }
           }
         ],
@@ -2651,7 +2651,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9166
+              "example": 1358
             }
           },
           {
@@ -2714,7 +2714,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6730
+              "example": 9325
             }
           },
           {
@@ -2792,7 +2792,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1771
+              "example": 6917
             }
           }
         ],
@@ -2866,7 +2866,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1784
+              "example": 2180
             }
           }
         ],
@@ -2940,7 +2940,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8397
+              "example": 7765
             }
           }
         ],
@@ -2983,7 +2983,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1166
+              "example": 282
             }
           }
         ],
@@ -3062,7 +3062,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2343
+              "example": 1533
             }
           }
         ],
@@ -3121,7 +3121,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8993
+              "example": 2644
             }
           },
           {
@@ -3149,7 +3149,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8634
+              "example": 3137
             }
           },
           {
@@ -3252,7 +3252,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7956
+              "example": 2812
             }
           }
         ],
@@ -3311,7 +3311,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2314
+              "example": 2845
             }
           }
         ],
@@ -3370,7 +3370,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6973
+              "example": 1491
             }
           }
         ],
@@ -3472,7 +3472,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2815
+              "example": 1789
             }
           }
         ],
@@ -3893,7 +3893,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1
+              "example": 8755
             }
           }
         ],
@@ -3978,7 +3978,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6025
+              "example": 616
             }
           }
         ],
@@ -3996,7 +3996,7 @@
                   "InsertFile.Title": {
                     "type": "string",
                     "description": "File name",
-                    "example": "sleek_cotton_chicken"
+                    "example": "transmitting"
                   },
                   "InsertFile.CreateNewIfExist": {
                     "type": "boolean",
@@ -4135,7 +4135,7 @@
           "Files / Folders"
         ],
         "summary": "Upload a file",
-        "description": "Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.\n\n**Note**: **Note**:  You can upload files in two different ways:\r\n <ol>\r\n<li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>\r\n<li>Using standart multipart/form-data method.</li>\r\n</ol>",
+        "description": "Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.\n\n **Note**:  You can upload files in two different ways:\r\n <ol>\r\n<li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>\r\n<li>Using standart multipart/form-data method.</li>\r\n</ol>",
         "operationId": "uploadFile",
         "parameters": [
           {
@@ -4146,7 +4146,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1857
+              "example": 7887
             }
           }
         ],
@@ -4226,7 +4226,7 @@
                   "Title": {
                     "type": "string",
                     "description": "File name",
-                    "example": "right_sized"
+                    "example": "refined_metal_bacon_ram_specialist"
                   },
                   "CreateNewIfExist": {
                     "type": "boolean",
@@ -4365,7 +4365,7 @@
           "Files / Folders"
         ],
         "summary": "Upload a file to the \"My documents\" section",
-        "description": "Uploads a file specified in the request to the \"My documents\" section by single file uploading or standart multipart/form-data method.\n\n**Note**: **Note**:  You can upload files in two different ways:\r\n <ol>\r\n<li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>\r\n<li>Using standart multipart/form-data method.</li>\r\n</ol>",
+        "description": "Uploads a file specified in the request to the \"My documents\" section by single file uploading or standart multipart/form-data method.\n\n **Note**:  You can upload files in two different ways:\r\n <ol>\r\n<li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>\r\n<li>Using standart multipart/form-data method.</li>\r\n</ol>",
         "operationId": "uploadFileToMy",
         "parameters": [
           {
@@ -4428,7 +4428,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7576
+              "example": 5580
             }
           },
           {
@@ -4491,7 +4491,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 474
+              "example": 2265
             }
           }
         ],
@@ -4567,7 +4567,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3193
+              "example": 7895
             }
           }
         ],
@@ -5197,7 +5197,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "3654"
+              "example": "9250"
             }
           }
         ],
@@ -5232,7 +5232,7 @@
           "Files / Operations"
         ],
         "summary": "Chunked upload",
-        "description": "Creates a session to upload large files in multiple chunks to the folder with the ID specified in the request.\n\n**Note**: **Note**: Each chunk can have different length but the length should be multiple of <b>512</b> and greater or equal to <b>10 mb</b>. Last chunk can have any size.\r\nAfter the initial response to the request with the <b>200 OK</b> status, you must get the <em>location</em> field value from the response. Send all your chunks to this location.\r\nEach chunk must be sent in the exact order the chunks appear in the file.\r\nAfter receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.\r\nWhen the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the <b>201 Created</b> status and sends you information about the uploaded file.",
+        "description": "Creates a session to upload large files in multiple chunks to the folder with the ID specified in the request.\n\n **Note**: Each chunk can have different length but the length should be multiple of <b>512</b> and greater or equal to <b>10 mb</b>. Last chunk can have any size.\r\nAfter the initial response to the request with the <b>200 OK</b> status, you must get the <em>location</em> field value from the response. Send all your chunks to this location.\r\nEach chunk must be sent in the exact order the chunks appear in the file.\r\nAfter receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.\r\nWhen the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the <b>201 Created</b> status and sends you information about the uploaded file.",
         "operationId": "createUploadSession",
         "parameters": [
           {
@@ -5243,7 +5243,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4685
+              "example": 4708
             }
           }
         ],
@@ -5653,7 +5653,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 824
+              "example": 2843
             }
           }
         ],
@@ -5696,7 +5696,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8463
+              "example": 9479
             }
           }
         ],
@@ -5770,7 +5770,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9983
+              "example": 6359
             }
           }
         ],
@@ -5846,7 +5846,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6011
+              "example": 497
             }
           }
         ],
@@ -5922,7 +5922,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9162
+              "example": 9085
             }
           }
         ],
@@ -5998,7 +5998,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2330
+              "example": 1673
             }
           }
         ],
@@ -6072,7 +6072,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6224
+              "example": 8271
             }
           },
           {
@@ -6136,7 +6136,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3975
+              "example": 5997
             }
           }
         ],
@@ -6210,7 +6210,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6468
+              "example": 9709
             }
           },
           {
@@ -6274,7 +6274,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 936
+              "example": 2010
             }
           }
         ],
@@ -6333,7 +6333,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 439
+              "example": 3037
             }
           }
         ],
@@ -6410,7 +6410,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4799
+              "example": 7758
             }
           }
         ],
@@ -6489,7 +6489,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9849
+              "example": 3792
             }
           }
         ],
@@ -6566,7 +6566,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7788
+              "example": 3089
             }
           }
         ],
@@ -6622,7 +6622,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1221
+              "example": 8557
             }
           }
         ],
@@ -6756,7 +6756,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 21
+              "example": 3650
             }
           }
         ],
@@ -6812,7 +6812,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6638
+              "example": 9774
             }
           }
         ],
@@ -6868,7 +6868,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 446
+              "example": 6319
             }
           }
         ],
@@ -6927,7 +6927,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9764
+              "example": 3963
             }
           }
         ],
@@ -6983,7 +6983,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4672
+              "example": 1745
             }
           }
         ],
@@ -7047,7 +7047,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "5706"
+              "example": "6501"
             }
           }
         ],
@@ -7332,7 +7332,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3180
+              "example": 4754
             }
           }
         ],
@@ -7666,7 +7666,7 @@
           "Files / Third-party integration"
         ],
         "summary": "Save a third-party account",
-        "description": "Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.\n\n**Note**: **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.",
+        "description": "Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.\n\n **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.",
         "operationId": "saveThirdParty",
         "requestBody": {
           "content": {
@@ -8794,7 +8794,7 @@
           "Files / Third-party integration"
         ],
         "summary": "Get providers",
-        "description": "Returns a list of the available providers.\n\n**Note**: **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.",
+        "description": "Returns a list of the available providers.\n\n **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.",
         "operationId": "capabilities",
         "responses": {
           "200": {
@@ -8989,7 +8989,7 @@
           "Files / Third-party integration"
         ],
         "summary": "Save a third-party account backup",
-        "description": "Saves a backup of the connected third-party account.\n\n**Note**: **Note**: List of provider key: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive",
+        "description": "Saves a backup of the connected third-party account.\n\n **Note**: List of provider key: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive",
         "operationId": "saveThirdPartyBackup",
         "requestBody": {
           "content": {
@@ -9051,7 +9051,7 @@
           "Files / Third-party integration"
         ],
         "summary": "Get all providers",
-        "description": "Returns a list of the all providers.\n\n**Note**: **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud",
+        "description": "Returns a list of the all providers.\n\n **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud",
         "operationId": "getAllProviders",
         "responses": {
           "200": {
@@ -9100,29 +9100,6 @@
   },
   "components": {
     "schemas": {
-      "ASC.Api.Collections.ItemKeyValuePair.System.Text.Json.JsonElement.System.String": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "oneOf": [
-              {
-                "type": "integer",
-                "example": 1234
-              },
-              {
-                "type": "string",
-                "example": "some text"
-              }
-            ]
-          },
-          "value": {
-            "type": "string",
-            "nullable": true,
-            "example": "some text"
-          }
-        },
-        "additionalProperties": false
-      },
       "ASC.Api.Core.ApiDateTime": {
         "type": "object",
         "properties": {
@@ -9150,7 +9127,7 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "946120e0-0036-4d83-b3b1-6ea21de3a34b"
+            "example": "b6e49c19-e197-4196-b90f-c00eb57c203c"
           },
           "appName": {
             "type": "string",
@@ -9162,7 +9139,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "adp_tactics_orchard"
+            "example": "investor_guarani_slovenia"
           },
           "link": {
             "type": "string",
@@ -9337,19 +9314,19 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "89a9a0de-6d8b-488e-ad38-686b3a586f66"
+            "example": "1ade02de-1990-41d7-a2f3-d27b27016f3d"
           },
           "firstName": {
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Alyce"
+            "example": "Winona"
           },
           "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Terry"
+            "example": "Nader"
           },
           "userName": {
             "type": "string",
@@ -9387,7 +9364,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "orchestrator_central"
+            "example": "tcp"
           },
           "workFromDate": {
             "type": "string",
@@ -9401,7 +9378,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Domenic.Boyer52@yahoo.com"
+            "example": "Lila.Reichert72@yahoo.com"
           },
           "contacts": {
             "type": "string",
@@ -9424,7 +9401,7 @@
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "289 Murazik Meadows, East Erlingville, Syrian Arab Republic"
+            "example": "96784 Doyle Courts, Giovannimouth, Grenada"
           },
           "notes": {
             "type": "string",
@@ -9580,7 +9557,7 @@
             "description": "User email address",
             "format": "email",
             "nullable": true,
-            "example": "Ollie.Schowalter@gmail.com"
+            "example": "Freeda_Conn@yahoo.com"
           },
           "access": {
             "$ref": "#/components/schemas/ASC.Files.Core.Security.FileShare"
@@ -9766,7 +9743,7 @@
             "type": "integer",
             "description": "File ID",
             "format": "int32",
-            "example": 1126
+            "example": 8843
           },
           "sync": {
             "type": "boolean",
@@ -9788,7 +9765,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "6lQFgSiwte"
+            "example": "ocOuDpFoZp"
           },
           "outputType": {
             "type": "string",
@@ -9910,7 +9887,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "USZilhkTar"
+            "example": "H9D5OJc8uO"
           },
           "toForm": {
             "type": "boolean",
@@ -9949,7 +9926,7 @@
             "type": "string",
             "description": "File title",
             "nullable": true,
-            "example": "sql_deposit_back_up"
+            "example": "invoice_latvia"
           },
           "templateId": {
             "oneOf": [
@@ -9988,7 +9965,7 @@
             "type": "string",
             "description": "Folder title",
             "nullable": true,
-            "example": "orchestration_incremental"
+            "example": "borders_program_hardware"
           }
         },
         "additionalProperties": false,
@@ -10003,7 +9980,7 @@
             "type": "string",
             "description": "Room name",
             "nullable": true,
-            "example": "dynamic_payment"
+            "example": "ergonomic_concrete_mouse_ergonomic_soft_cheese_investment_account"
           },
           "quota": {
             "type": "integer",
@@ -10089,7 +10066,7 @@
             "type": "string",
             "description": "Tag name",
             "nullable": true,
-            "example": "Araceli Friesen"
+            "example": "Norbert Nikolaus"
           }
         },
         "additionalProperties": false,
@@ -10106,7 +10083,7 @@
             "minLength": 0,
             "type": "string",
             "description": "File title",
-            "example": "summit"
+            "example": "bedfordshire"
           },
           "content": {
             "type": "string",
@@ -10135,7 +10112,7 @@
             "type": "string",
             "description": "Room name",
             "nullable": true,
-            "example": "boliviano_boliviano_system"
+            "example": "connect"
           },
           "roomType": {
             "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.RoomType"
@@ -10334,7 +10311,7 @@
           "fileConvertIds": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ASC.Api.Collections.ItemKeyValuePair.System.Text.Json.JsonElement.System.String"
+              "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.DownloadRequestItemDto"
             },
             "description": "List of file IDs which will be converted",
             "nullable": true
@@ -10342,6 +10319,34 @@
         },
         "additionalProperties": false,
         "description": "Request parameters for downloading files"
+      },
+      "ASC.Files.Core.ApiModels.RequestDto.DownloadRequestItemDto": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "example": 1234
+              },
+              {
+                "type": "string",
+                "example": "some text"
+              }
+            ]
+          },
+          "value": {
+            "type": "string",
+            "nullable": true,
+            "example": "some text"
+          },
+          "password": {
+            "type": "string",
+            "nullable": true,
+            "example": "sWUQQGBTzU"
+          }
+        },
+        "additionalProperties": false
       },
       "ASC.Files.Core.ApiModels.RequestDto.DuplicateRequestDto": {
         "type": "object",
@@ -10425,7 +10430,7 @@
             "type": "string",
             "description": "The unique system identifier",
             "nullable": true,
-            "example": "9694"
+            "example": "3536"
           },
           "sourceFileId": {
             "type": "integer",
@@ -10556,13 +10561,13 @@
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Nathanael.Mayer55@gmail.com"
+            "example": "Chet.Heller@yahoo.com"
           },
           "id": {
             "type": "string",
             "description": "ID of the user with whom we want to share a room",
             "format": "uuid",
-            "example": "6941feb5-054e-4164-9706-a2acfb484098"
+            "example": "c78cc7de-d8c0-4b12-b57c-acdcc1cd4e0d"
           },
           "access": {
             "$ref": "#/components/schemas/ASC.Files.Core.Security.FileShare"
@@ -10623,7 +10628,7 @@
             "type": "string",
             "description": "Link name",
             "nullable": true,
-            "example": "ergonomic_frozen_towels_ram_morph"
+            "example": "integrated_avon_officer"
           },
           "linkType": {
             "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.LinkType"
@@ -10634,7 +10639,7 @@
             "type": "string",
             "description": "Link password",
             "nullable": true,
-            "example": "h8Iz0WvT1j"
+            "example": "4ucvI6uBrq"
           },
           "denyDownload": {
             "type": "boolean",
@@ -10680,13 +10685,13 @@
             "type": "integer",
             "description": "Folder ID",
             "format": "int32",
-            "example": 4984
+            "example": 2795
           },
           "title": {
             "type": "string",
             "description": "File title",
             "nullable": true,
-            "example": "cotton_savings_account_quantifying"
+            "example": "css"
           }
         },
         "additionalProperties": false,
@@ -10792,7 +10797,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "ZRZW2anKol"
+            "example": "iGLcv8Rajt"
           },
           "token": {
             "type": "string",
@@ -10835,7 +10840,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "k93KIx6QPG"
+            "example": "IgvJ5h9E01"
           },
           "token": {
             "type": "string",
@@ -10892,7 +10897,7 @@
             "type": "string",
             "description": "File title",
             "nullable": true,
-            "example": "refined_granite_chicken"
+            "example": "wooden_web_readiness"
           },
           "lastVersion": {
             "type": "integer",
@@ -10913,7 +10918,7 @@
             "type": "string",
             "description": "Room name",
             "nullable": true,
-            "example": "central_local_area_network_awesome_plastic_bike"
+            "example": "web"
           },
           "quota": {
             "type": "integer",
@@ -11276,7 +11281,7 @@
             "type": "string",
             "description": "Operation ID",
             "nullable": true,
-            "example": "1356"
+            "example": "2226"
           },
           "Operation": {
             "$ref": "#/components/schemas/ASC.Web.Files.Services.WCFService.FileOperations.FileOperationType"
@@ -11324,7 +11329,7 @@
           "id": {
             "type": "string",
             "nullable": true,
-            "example": "3588"
+            "example": "186"
           },
           "data": {
             "type": "string",
@@ -11365,7 +11370,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Gaylord Herzog"
+            "example": "Nellie Gottlieb"
           },
           "www": {
             "type": "string",
@@ -11480,7 +11485,7 @@
             "type": "string",
             "description": "Id",
             "nullable": true,
-            "example": "8783"
+            "example": "7081"
           },
           "error": {
             "type": "string",
@@ -11571,7 +11576,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "bus_movies_e_business"
+            "example": "application"
           },
           "url": {
             "type": "string",
@@ -11593,7 +11598,7 @@
             "type": "integer",
             "description": "InProcess folder ID",
             "format": "int32",
-            "example": 6299
+            "example": 1438
           },
           "folderTitle": {
             "type": "string",
@@ -11605,7 +11610,7 @@
             "type": "integer",
             "description": "Draft ID",
             "format": "int32",
-            "example": 5983
+            "example": 2180
           },
           "fileTitle": {
             "type": "string",
@@ -11976,7 +11981,7 @@
             "type": "integer",
             "description": "Folder ID",
             "format": "int32",
-            "example": 9291
+            "example": 8650
           },
           "version": {
             "type": "integer",
@@ -12250,7 +12255,7 @@
             "type": "string",
             "description": "Operation ID",
             "nullable": true,
-            "example": "1232"
+            "example": "7780"
           },
           "Operation": {
             "$ref": "#/components/schemas/ASC.Web.Files.Services.WCFService.FileOperations.FileOperationType"
@@ -12853,7 +12858,7 @@
             "type": "string",
             "description": "Folder title",
             "nullable": true,
-            "example": "copying_24_7_administrator"
+            "example": "unbranded_harness_feed"
           },
           "usedSpace": {
             "type": "integer",
@@ -12904,7 +12909,7 @@
             "type": "integer",
             "description": "Room Id",
             "format": "int32",
-            "example": 9902
+            "example": 5943
           },
           "isRoomMember": {
             "type": "boolean",
@@ -13843,7 +13848,7 @@
             "type": "string",
             "description": "Provider name",
             "nullable": true,
-            "example": "Gay Cronin"
+            "example": "Mikayla Murazik"
           },
           "key": {
             "type": "string",
@@ -14033,7 +14038,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "hnoxe4oASE"
+            "example": "qwHlKK1rQu"
           },
           "rawToken": {
             "type": "string",
@@ -14207,13 +14212,13 @@
             "type": "string",
             "description": "Id",
             "nullable": true,
-            "example": "4023"
+            "example": "6223"
           },
           "name": {
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Raegan Flatley"
+            "example": "Kaela Gerhold"
           }
         },
         "additionalProperties": false
@@ -14748,7 +14753,7 @@
           "id": {
             "type": "string",
             "nullable": true,
-            "example": "2000"
+            "example": "9324"
           },
           "data": {
             "type": "string",
@@ -15970,7 +15975,7 @@
             "type": "string",
             "description": "Instance ID",
             "nullable": true,
-            "example": "3920"
+            "example": "8671"
           }
         },
         "additionalProperties": false
@@ -16110,7 +16115,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "cfa_franc_bceao"
+            "example": "grocery_hacking"
           },
           "url": {
             "type": "string",
@@ -16162,7 +16167,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "transmit"
+            "example": "plum_web"
           },
           "url": {
             "type": "string",
@@ -16181,13 +16186,13 @@
             "type": "string",
             "description": "Id",
             "nullable": true,
-            "example": "4006"
+            "example": "1518"
           },
           "name": {
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Rosina Barrows"
+            "example": "Wilson Okuneva"
           },
           "image": {
             "type": "string",
@@ -16342,14 +16347,14 @@
             "format": "email",
             "nullable": true,
             "readOnly": true,
-            "example": "Marlon69@yahoo.com"
+            "example": "Ila_Price64@yahoo.com"
           },
           "id": {
             "type": "string",
             "description": "User ID",
             "nullable": true,
             "readOnly": true,
-            "example": "3069"
+            "example": "3331"
           },
           "image": {
             "type": "string",
@@ -16369,7 +16374,7 @@
             "description": "User display name",
             "nullable": true,
             "readOnly": true,
-            "example": "Laury Beatty"
+            "example": "Bonnie Watsica"
           }
         },
         "additionalProperties": false
@@ -16525,7 +16530,7 @@
           "name": {
             "type": "string",
             "nullable": true,
-            "example": "Shanny Treutel"
+            "example": "Maverick Ratke"
           },
           "parameters": {
             "type": "array",
@@ -16548,31 +16553,52 @@
   "tags": [
     {
       "name": "Files / Files",
-      "description": "Operations for working with files."
+      "description": "Operations for working with files.",
+      "x-displayName": "Files"
     },
     {
       "name": "Files / Folders",
-      "description": "Operations for working with folders."
+      "description": "Operations for working with folders.",
+      "x-displayName": "Folders"
     },
     {
       "name": "Files / Operations",
-      "description": "Operations for performing actions on files and folders."
+      "description": "Operations for performing actions on files and folders.",
+      "x-displayName": "Operations"
     },
     {
       "name": "Files / Quota",
-      "description": "Operations for working with room quota limit."
+      "description": "Operations for working with room quota limit.",
+      "x-displayName": "Quota"
     },
     {
       "name": "Files / Rooms",
-      "description": "Operations for working with rooms."
+      "description": "Operations for working with rooms.",
+      "x-displayName": "Rooms"
     },
     {
       "name": "Files / Settings",
-      "description": "Operations for working with file settings."
+      "description": "Operations for working with file settings.",
+      "x-displayName": "Settings"
     },
     {
       "name": "Files / Third-party integration",
-      "description": "Operations for working with third-party integrations."
+      "description": "Operations for working with third-party integrations.",
+      "x-displayName": "Third-party integration"
+    }
+  ],
+  "x-tagGroups": [
+    {
+      "name": "Files",
+      "tags": [
+        "Files / Files",
+        "Files / Folders",
+        "Files / Operations",
+        "Files / Quota",
+        "Files / Rooms",
+        "Files / Settings",
+        "Files / Third-party integration"
+      ]
     }
   ]
 }

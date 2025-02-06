@@ -1294,7 +1294,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "ec7aff0a-8710-4c33-a4ec-225aa29d0fbd"
+              "example": "a20b7f36-066a-49f1-bf7b-71050d35cfee"
             }
           }
         ],
@@ -1589,7 +1589,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "f9ba3618-7089-4489-a1a8-83ce592eb850"
+              "example": "3c72ca20-29bf-47b9-b12a-76666ebcd833"
             }
           }
         ],
@@ -1668,7 +1668,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3583
+              "example": 8144
             }
           }
         ],
@@ -1772,7 +1772,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "b6bb4303-7c8d-4693-a0c2-8c0844d21439"
+              "example": "be3e99e3-c08c-4fdb-ad38-54f2a2cbad92"
             }
           },
           {
@@ -2385,7 +2385,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "41ca2a5a-1d8e-461a-8534-962f2cb3b887"
+              "example": "c61e2a67-2a69-494d-8fce-3517032669fb"
             }
           },
           {
@@ -3332,7 +3332,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 688
+              "example": 2704
             }
           }
         ],
@@ -3399,6 +3399,68 @@
           }
         ],
         "description": "Closes the admin helper notification."
+      }
+    },
+    "/api/2.0/settings/emailactivation": {
+      "put": {
+        "tags": [
+          "Settings / Common settings"
+        ],
+        "summary": "Update the email activation settings",
+        "operationId": "updateEmailActivationSettings",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated email activation settings",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.EmailActivationSettings"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "description": "Updates the email activation settings."
       }
     },
     "/api/2.0/settings/socket": {
@@ -3573,6 +3635,249 @@
           }
         ],
         "description": "Updates the cookies lifetime value in minutes."
+      }
+    },
+    "/api/2.0/settings/customnavigation/getall": {
+      "get": {
+        "tags": [
+          "Settings / Custom Navigation"
+        ],
+        "summary": "Get the custom navigation items",
+        "operationId": "getCustomNavigationItems",
+        "responses": {
+          "200": {
+            "description": "List of the custom navigation items",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "description": "Returns a list of the custom navigation items."
+      }
+    },
+    "/api/2.0/settings/customnavigation/getsample": {
+      "get": {
+        "tags": [
+          "Settings / Custom Navigation"
+        ],
+        "summary": "Get a custom navigation item sample",
+        "operationId": "getCustomNavigationItemSample",
+        "responses": {
+          "200": {
+            "description": "Custom navigation item",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "description": "Returns a custom navigation item sample."
+      }
+    },
+    "/api/2.0/settings/customnavigation/get/{id}": {
+      "get": {
+        "tags": [
+          "Settings / Custom Navigation"
+        ],
+        "summary": "Get a custom navigation item by ID",
+        "operationId": "getCustomNavigationItem",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "938bc551-dfd5-462b-8e87-024f7d7786cc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Custom navigation item",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "description": "Returns a custom navigation item by the ID specified in the request."
+      }
+    },
+    "/api/2.0/settings/customnavigation/create": {
+      "post": {
+        "tags": [
+          "Settings / Custom Navigation"
+        ],
+        "summary": "Add a custom navigation item",
+        "operationId": "createCustomNavigationItem",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Custom navigation item",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASC.Web.Studio.Core.CustomNavigationItem"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "description": "Adds a custom navigation item with the parameters specified in the request."
+      }
+    },
+    "/api/2.0/settings/customnavigation/delete/{id}": {
+      "delete": {
+        "tags": [
+          "Settings / Custom Navigation"
+        ],
+        "summary": "Delete a custom navigation item",
+        "operationId": "deleteCustomNavigationItem",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "d6bb4cc1-fbef-4a80-8a94-a6c1c1eefb28"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          }
+        ],
+        "description": "Deletes a custom navigation item with the ID specified in the request."
       }
     },
     "/api/2.0/settings/encryption/start": {
@@ -5979,7 +6284,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "e74b4689-9d3e-4bf7-a4a7-7fa1cfdf1a5e"
+              "example": "3462f50c-ab3a-49ac-990b-3ce85405f36e"
             }
           }
         ],
@@ -6243,7 +6548,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "f2a43c06-d93d-4c15-9d79-ce3cb90db201"
+              "example": "de62b148-5f77-48bf-86a6-9b4c9d77dac2"
             }
           }
         ],
@@ -6298,7 +6603,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "06802df4-49da-4969-b055-f17ab36a9eb9"
+              "example": "1c79b359-c8bb-489f-9c82-a9ea1e45cd8e"
             }
           },
           {
@@ -6308,7 +6613,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "57907d13-458c-4f99-8b02-9764d2065a6d"
+              "example": "7c6123d4-93d4-47df-b899-221e692493da"
             }
           }
         ],
@@ -6631,7 +6936,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "ad3a6cc7-fd25-46c9-b6d2-26fb6d07c17a"
+              "example": "5b9431f5-68c1-4c8b-962d-c33c6eedfcfb"
             }
           }
         ],
@@ -7259,7 +7564,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "2185"
+              "example": "7083"
             }
           }
         ],
@@ -8075,7 +8380,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3997
+              "example": 9071
             }
           }
         ],
@@ -8129,7 +8434,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4436
+              "example": 9895
             }
           }
         ],
@@ -8297,7 +8602,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 683
+              "example": 4362
             }
           }
         ],
@@ -8578,7 +8883,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "Nona Prosacco"
+              "example": "Lemuel Abernathy"
             }
           }
         ],
@@ -8634,7 +8939,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "Jarvis Abernathy"
+              "example": "Jerod Tromp"
             }
           }
         ],
@@ -8693,7 +8998,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "Derek Price"
+              "example": "Jeremie Block"
             }
           }
         ],
@@ -8794,7 +9099,7 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "beb95349-9dc3-4709-b5e5-543c909cadd3"
+            "example": "407526b0-4c43-4dbc-a0bb-54015166bed7"
           },
           "appName": {
             "type": "string",
@@ -8806,7 +9111,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "practical_steel_ball_berkshire_handcrafted_fresh_keyboard"
+            "example": "gold"
           },
           "link": {
             "type": "string",
@@ -9084,7 +9389,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 6620
+            "example": 1258
           },
           "quantity": {
             "type": "integer",
@@ -9102,7 +9407,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 6129
+            "example": 1879
           },
           "state": {
             "$ref": "#/components/schemas/ASC.Core.Billing.TariffState"
@@ -9175,13 +9480,13 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 7666
+            "example": 6015
           },
           "userId": {
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "a5d1f703-42d2-4dac-b974-b37618787b4d"
+            "example": "ead15ae9-27e6-4f99-99ad-1b0760b673fd"
           },
           "tenantId": {
             "type": "integer",
@@ -9220,13 +9525,13 @@
             "type": "integer",
             "description": "Id",
             "format": "int32",
-            "example": 324
+            "example": 1546
           },
           "name": {
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Francisca Steuber"
+            "example": "Mollie Reinger"
           },
           "alias": {
             "type": "string",
@@ -9503,7 +9808,7 @@
             "type": "string",
             "description": "Product ID",
             "nullable": true,
-            "example": "9055"
+            "example": "6318"
           },
           "visible": {
             "type": "boolean",
@@ -9855,19 +10160,19 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "54063ada-1e40-4cff-a465-dce54bbd511f"
+            "example": "242c61e8-ebf9-42dc-93e0-cbd0d8cc52cd"
           },
           "firstName": {
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Jett"
+            "example": "Tracey"
           },
           "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Jast"
+            "example": "Botsford"
           },
           "userName": {
             "type": "string",
@@ -9905,7 +10210,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "licensed_granite_computer"
+            "example": "matrix_grove"
           },
           "workFromDate": {
             "type": "string",
@@ -9919,7 +10224,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Pedro.Lemke75@hotmail.com"
+            "example": "Kaci4@gmail.com"
           },
           "contacts": {
             "type": "string",
@@ -9942,7 +10247,7 @@
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "134 Ramiro Shore, Myrtieshire, Iran"
+            "example": "05433 Al Neck, West Heavenborough, United States Minor Outlying Islands"
           },
           "notes": {
             "type": "string",
@@ -10108,7 +10413,7 @@
           "id": {
             "type": "integer",
             "format": "int32",
-            "example": 5754
+            "example": 4036
           },
           "tenantId": {
             "type": "integer",
@@ -10732,7 +11037,7 @@
             "type": "string",
             "format": "email",
             "nullable": true,
-            "example": "Raymundo72@hotmail.com"
+            "example": "Cristal75@yahoo.com"
           },
           "displayName": {
             "type": "string",
@@ -10742,12 +11047,12 @@
           "firstName": {
             "type": "string",
             "nullable": true,
-            "example": "Rico"
+            "example": "Deondre"
           },
           "lastName": {
             "type": "string",
             "nullable": true,
-            "example": "Towne"
+            "example": "VonRueden"
           },
           "userType": {
             "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
@@ -10883,7 +11188,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Verla_Kiehn2@gmail.com"
+            "example": "Jaime_Bahringer@hotmail.com"
           },
           "uiD": {
             "type": "string",
@@ -10905,7 +11210,7 @@
             "type": "string",
             "description": "Room ID",
             "nullable": true,
-            "example": "956"
+            "example": "480"
           }
         },
         "additionalProperties": false,
@@ -10971,11 +11276,13 @@
         "type": "object",
         "properties": {
           "email": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Americo.Bergstrom81@yahoo.com"
+            "example": "Gracie_Torphy@gmail.com"
           },
           "culture": {
             "type": "string",
@@ -10991,11 +11298,13 @@
         "type": "object",
         "properties": {
           "email": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Nathen.Mayert54@gmail.com"
+            "example": "Minnie_Marquardt@yahoo.com"
           },
           "culture": {
             "type": "string",
@@ -11004,6 +11313,8 @@
             "example": "some text"
           },
           "message": {
+            "maxLength": 255,
+            "minLength": 0,
             "type": "string",
             "description": "Message",
             "nullable": true,
@@ -11026,7 +11337,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "044LP3vr2j"
+            "example": "HcD0iBqguW"
           },
           "passwordHash": {
             "type": "string",
@@ -11098,13 +11409,13 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Alexander West"
+            "example": "Selena Simonis"
           },
           "title": {
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "unbranded_metal_chair_usb_soft"
+            "example": "hybrid_personal_loan_account_fundamental"
           },
           "description": {
             "type": "string",
@@ -11143,7 +11454,7 @@
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Amanda.Ernser94@hotmail.com"
+            "example": "Meaghan_Wisozk@yahoo.com"
           },
           "first": {
             "type": "boolean",
@@ -11169,7 +11480,7 @@
             "type": "string",
             "description": "Tenant name",
             "nullable": true,
-            "example": "com"
+            "example": "cross_platform_auto_loan_account_handcrafted_granite_chicken"
           }
         },
         "additionalProperties": false,
@@ -11298,7 +11609,7 @@
             "type": "string",
             "description": "Team template ID",
             "nullable": true,
-            "example": "2401"
+            "example": "1246"
           }
         },
         "additionalProperties": false,
@@ -11311,13 +11622,13 @@
             "type": "string",
             "description": "Team template ID",
             "nullable": true,
-            "example": "3401"
+            "example": "8915"
           },
           "name": {
             "type": "string",
             "description": "Team template name",
             "nullable": true,
-            "example": "Winnifred Ankunding"
+            "example": "Cheyanne Sipes"
           },
           "userCaption": {
             "type": "string",
@@ -11384,13 +11695,13 @@
             "type": "string",
             "description": "Product ID",
             "format": "uuid",
-            "example": "18e95d00-6efd-48a6-b792-ff6329d45733"
+            "example": "6dc8dfbd-bc88-461b-a9dd-aa4fc1f40e48"
           },
           "userId": {
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "9ec96e43-57c7-46db-b0aa-fd387f38929c"
+            "example": "96af4935-90dd-4149-a85c-87096f768dae"
           },
           "administrator": {
             "type": "boolean",
@@ -11490,7 +11801,7 @@
             "description": "User ID",
             "format": "uuid",
             "nullable": true,
-            "example": "79ec6dcd-4617-4b7f-9ff1-6c3becf00e33"
+            "example": "442cf730-db39-4e7f-90d3-a04ca09c69aa"
           },
           "trustedIps": {
             "type": "array",
@@ -11562,13 +11873,13 @@
             "type": "string",
             "description": "ID",
             "nullable": true,
-            "example": "3664"
+            "example": "2218"
           },
           "title": {
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "eyeballs_indexing"
+            "example": "architectures"
           },
           "enabled": {
             "type": "boolean",
@@ -11638,7 +11949,7 @@
             "type": "string",
             "description": "Time zone ID",
             "nullable": true,
-            "example": "9120"
+            "example": "342"
           },
           "displayName": {
             "type": "string",
@@ -11680,7 +11991,7 @@
             "type": "string",
             "description": "Module ID",
             "nullable": true,
-            "example": "348"
+            "example": "939"
           },
           "enabled": {
             "type": "boolean",
@@ -11769,7 +12080,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Evalyn_Wiegand25@gmail.com"
+            "example": "Johnathon_Tremblay@gmail.com"
           },
           "passwordHash": {
             "type": "string",
@@ -11811,7 +12122,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 331
+            "example": 2022
           },
           "date": {
             "$ref": "#/components/schemas/ASC.Api.Core.ApiDateTime"
@@ -11826,7 +12137,7 @@
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "a81aa36c-79a7-4e7d-8898-d8ae8b98c4af"
+            "example": "657cbd70-fa7e-44e4-b240-dfe12e4245ad"
           },
           "action": {
             "type": "string",
@@ -12140,7 +12451,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 9230
+            "example": 6801
           },
           "date": {
             "$ref": "#/components/schemas/ASC.Api.Core.ApiDateTime"
@@ -12155,7 +12466,7 @@
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "c62638c2-bd7e-4529-95b6-b6b15109a2bc"
+            "example": "db7f6599-4bad-4f9d-ac7e-c4ef12032617"
           },
           "login": {
             "type": "string",
@@ -12591,13 +12902,13 @@
             "type": "string",
             "description": "ID",
             "nullable": true,
-            "example": "9356"
+            "example": "955"
           },
           "title": {
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "legacy_michigan"
+            "example": "borders"
           },
           "properties": {
             "type": "array",
@@ -12815,14 +13126,14 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 2904
+            "example": 8327
           },
           "name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "description": "Name",
-            "example": "Osvaldo Jakubowski"
+            "example": "Verner Hermiston"
           },
           "uri": {
             "minLength": 1,
@@ -12881,7 +13192,7 @@
             "type": "integer",
             "description": "Id",
             "format": "int32",
-            "example": 3984
+            "example": 2446
           },
           "tenantId": {
             "type": "integer",
@@ -12893,7 +13204,7 @@
             "type": "string",
             "description": "User id",
             "format": "uuid",
-            "example": "006002ae-d78c-478b-956d-8d3a7b158063"
+            "example": "6993d4ae-32da-470e-87bc-7d7913fe5c38"
           },
           "mobile": {
             "type": "boolean",
@@ -13040,7 +13351,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Elwin17@yahoo.com"
+            "example": "Keshaun70@hotmail.com"
           },
           "address": {
             "type": "string",
@@ -13077,13 +13388,13 @@
             "type": "string",
             "description": "Room id",
             "nullable": true,
-            "example": "3178"
+            "example": "6810"
           },
           "title": {
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "soft_river_gorgeous_metal_computer"
+            "example": "relationships_indigo"
           }
         },
         "additionalProperties": false
@@ -13161,7 +13472,7 @@
             "type": "string",
             "description": "White label logo name",
             "nullable": true,
-            "example": "Javonte Crooks"
+            "example": "Dario VonRueden"
           },
           "default": {
             "type": "boolean",
@@ -13382,7 +13693,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Johanna Botsford"
+            "example": "Michele Hodkiewicz"
           },
           "ownerId": {
             "type": "string",
@@ -13459,7 +13770,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Shane Hudson"
+            "example": "Clair Homenick"
           },
           "version": {
             "type": "string",
@@ -13550,13 +13861,13 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 9858
+            "example": 8260
           },
           "name": {
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Darian Bogan"
+            "example": "Maxwell Padberg"
           },
           "uri": {
             "type": "string",
@@ -13605,7 +13916,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 6248
+            "example": 6836
           },
           "configName": {
             "type": "string",
@@ -13678,7 +13989,7 @@
             "type": "string",
             "description": "File name",
             "nullable": true,
-            "example": "Keith Dicki"
+            "example": "Maritza Schiller"
           },
           "size": {
             "$ref": "#/components/schemas/SixLabors.ImageSharp.Size"
@@ -14079,7 +14390,7 @@
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Claire.Upton72@hotmail.com"
+            "example": "Okey.Erdman@gmail.com"
           },
           "address": {
             "maxLength": 255,
@@ -14116,6 +14427,65 @@
         "additionalProperties": false,
         "description": "Company white label settings"
       },
+      "ASC.Web.Studio.Core.CustomNavigationItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id",
+            "format": "uuid",
+            "example": "df91bbb3-9ca5-4770-b8c7-c1ceeadcf9ac"
+          },
+          "label": {
+            "type": "string",
+            "description": "Label",
+            "nullable": true,
+            "example": "Label"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL",
+            "nullable": true,
+            "example": "Url"
+          },
+          "bigImg": {
+            "type": "string",
+            "description": "Big image",
+            "nullable": true,
+            "example": "data:image\\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAgMAAAANjH3HAAAADFBMVEUAAADJycnJycnJycmiuNtHAAAAA3RSTlMAf4C\\/aSLHAAAAyElEQVR4Xu3NsQ3CMBSE4YubFB4ilHQegdGSjWACvEpGoEyBYiL05AdnXUGHolx10lf82MmOpfLeo5UoJUhBlpKkRCnhUy7b9XCWkqQMUkYlXVHSf8kTvkHKqKQrSnopg5SRxTMklLmS1MwaSWpmCSQ1MyOzWGZCYrEMEFksA4QqlAFuJJYBcCKxjM3FMySeIfEMC2dMOONCGZZgmdr1ly3TSrJMK9EyJBaaGrHQikYstAiJZRYSyiQEdyg5S8Evckih\\/YPscsdej0H6dc0TYw4AAAAASUVORK5CYII="
+          },
+          "smallImg": {
+            "type": "string",
+            "description": "Small image",
+            "nullable": true,
+            "example": "data:image\\/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8\\/9hAAAAUUlEQVR4AWMY\\/KC5o\\/cAEP9HxxgKcSpCGELYADyu2E6mAQjNxBlAWPNxkHdwGkBIM3KYYDUAr2ZCAE+oH8eujrAXDsA0k2EAAtDXAGLx4MpsADUgvkRKUlqfAAAAAElFTkSuQmCC"
+          },
+          "showInMenu": {
+            "type": "boolean",
+            "description": "Show in menu or not",
+            "example": true
+          },
+          "showOnHomePage": {
+            "type": "boolean",
+            "description": "Show on home page or not",
+            "example": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Custom navigation parameters"
+      },
+      "ASC.Web.Studio.Core.EmailActivationSettings": {
+        "type": "object",
+        "properties": {
+          "show": {
+            "type": "boolean",
+            "description": "Shown or hidden",
+            "example": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Email activation settings"
+      },
       "ASC.Web.Studio.Core.TipsSettings": {
         "type": "object",
         "properties": {
@@ -14135,7 +14505,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Cristian Osinski"
+            "example": "Remington Jerde"
           },
           "value": {
             "type": "string",
@@ -14147,7 +14517,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "open_source_kids_handcrafted"
+            "example": "palestinian_territory_saint_martin"
           }
         },
         "additionalProperties": false
@@ -14206,32 +14576,32 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Arnoldo"
+            "example": "Antone"
           },
           "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Hickle"
+            "example": "Larkin"
           },
           "email": {
             "type": "string",
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Neoma35@yahoo.com"
+            "example": "Joaquin_Schroeder@yahoo.com"
           },
           "title": {
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "quality"
+            "example": "senior_input"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "05504 Senger Ridge, Kariborough, Andorra"
+            "example": "80962 Willard Light, North Ewald, Christmas Island"
           },
           "phone": {
             "type": "string",
@@ -14485,7 +14855,7 @@
             "type": "integer",
             "description": "ID",
             "format": "int32",
-            "example": 3062
+            "example": 5262
           },
           "route": {
             "type": "string",
@@ -14509,7 +14879,7 @@
             "description": "Name",
             "nullable": true,
             "readOnly": true,
-            "example": "Willie Von"
+            "example": "Evert Sporer"
           },
           "description": {
             "type": "string",
@@ -14680,7 +15050,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "52876 Gene Alley, Lisettebury, Morocco"
+            "example": "639 Romaine Locks, New Georgianna, Kyrgyz Republic"
           },
           "reflectionOnly": {
             "type": "boolean",
@@ -14759,7 +15129,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Luella Wyman"
+            "example": "Rick Veum"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -14991,7 +15361,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Thea McCullough"
+            "example": "Raegan Crist"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15084,7 +15454,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Hailey Zieme"
+            "example": "Fidel Kozey"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15233,7 +15603,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Waino Nicolas"
+            "example": "Arlie Miller"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15319,7 +15689,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Nelda Kirlin"
+            "example": "Juvenal Strosin"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15491,7 +15861,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Tania Huels"
+            "example": "Joy Harris"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15664,7 +16034,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Augustine Bosco"
+            "example": "Kelli Mayer"
           },
           "mdStreamVersion": {
             "type": "integer",
@@ -15734,7 +16104,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Fabian Harvey"
+            "example": "Gayle Von"
           },
           "parameterType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15831,7 +16201,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Kendra Runolfsson"
+            "example": "Meta Wisoky"
           },
           "declaringType": {
             "$ref": "#/components/schemas/System.Type"
@@ -15933,7 +16303,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Kari Konopelski"
+            "example": "Clementine Schaden"
           },
           "customAttributes": {
             "type": "array",
@@ -16427,7 +16797,7 @@
             "type": "string",
             "nullable": true,
             "readOnly": true,
-            "example": "Bernhard Stamm"
+            "example": "Violette Murray"
           },
           "customAttributes": {
             "type": "array",
@@ -16791,143 +17161,256 @@
   "tags": [
     {
       "name": "Authentication",
-      "description": "Operations for authenticating users."
+      "description": "Operations for authenticating users.",
+      "x-displayName": "Authentication"
     },
     {
       "name": "Capabilities",
-      "description": "Operations for getting information about portal capabilities."
+      "description": "Operations for getting information about portal capabilities.",
+      "x-displayName": "Capabilities"
     },
     {
       "name": "Migration",
-      "description": "Operations for performing migration."
+      "description": "Operations for performing migration.",
+      "x-displayName": "Migration"
     },
     {
       "name": "Modules",
-      "description": "Operations for getting information about portal modules."
+      "description": "Operations for getting information about portal modules.",
+      "x-displayName": "Modules"
     },
     {
       "name": "Portal / Quota",
-      "description": "Operations for getting information about portal quota."
+      "description": "Operations for getting information about portal quota.",
+      "x-displayName": "Quota"
     },
     {
       "name": "Portal / Settings",
-      "description": "Operations for getting information about portal settings."
+      "description": "Operations for getting information about portal settings.",
+      "x-displayName": "Settings"
     },
     {
       "name": "Portal / Users",
-      "description": "Operations for getting information about portal users."
+      "description": "Operations for getting information about portal users.",
+      "x-displayName": "Users"
     },
     {
       "name": "Security / Active connections",
-      "description": "Operations for working with active connections."
+      "description": "Operations for working with active connections.",
+      "x-displayName": "Active connections"
     },
     {
       "name": "Security / Audit trail data",
-      "description": "Operations for working with audit trail data."
+      "description": "Operations for working with audit trail data.",
+      "x-displayName": "Audit trail data"
     },
     {
       "name": "Security / CSP",
-      "description": "Operations for working with CSP."
+      "description": "Operations for working with CSP.",
+      "x-displayName": "CSP"
     },
     {
       "name": "Security / Firebase",
-      "description": "Operations for working with Firebase."
+      "description": "Operations for working with Firebase.",
+      "x-displayName": "Firebase"
     },
     {
       "name": "Security / Login history",
-      "description": "Operations for getting login history."
+      "description": "Operations for getting login history.",
+      "x-displayName": "Login history"
     },
     {
       "name": "Security / SMTP settings",
-      "description": "Operations for working with SMTP settings."
+      "description": "Operations for working with SMTP settings.",
+      "x-displayName": "SMTP settings"
     },
     {
       "name": "Settings / Authorization",
-      "description": "Operations for working with authorization settings."
+      "description": "Operations for working with authorization settings.",
+      "x-displayName": "Authorization"
     },
     {
       "name": "Settings / Common settings",
-      "description": "Operations for working with common settings."
+      "description": "Operations for working with common settings.",
+      "x-displayName": "Common settings"
     },
     {
       "name": "Settings / Cookies",
-      "description": "Operations for working with cookies settings."
+      "description": "Operations for working with cookies settings.",
+      "x-displayName": "Cookies"
+    },
+    {
+      "name": "Settings / Custom Navigation",
+      "description": "Operations for working with custom navigation settings.",
+      "x-displayName": "Custom Navigation"
     },
     {
       "name": "Settings / Encryption",
-      "description": "Operations for working with encryption settings."
+      "description": "Operations for working with encryption settings.",
+      "x-displayName": "Encryption"
     },
     {
       "name": "Settings / Greeting settings",
-      "description": "Operations for working with greeting settings."
+      "description": "Operations for working with greeting settings.",
+      "x-displayName": "Greeting settings"
     },
     {
       "name": "Settings / IP restrictions",
-      "description": "Operations for working with IP restriction settings."
+      "description": "Operations for working with IP restriction settings.",
+      "x-displayName": "IP restrictions"
     },
     {
       "name": "Settings / License",
-      "description": "Operations for working with license settings."
+      "description": "Operations for working with license settings.",
+      "x-displayName": "License"
     },
     {
       "name": "Settings / Login settings",
-      "description": "Operations for working with login settings."
+      "description": "Operations for working with login settings.",
+      "x-displayName": "Login settings"
     },
     {
       "name": "Settings / Messages",
-      "description": "Operations for working with message settings."
+      "description": "Operations for working with message settings.",
+      "x-displayName": "Messages"
     },
     {
       "name": "Settings / Notifications",
-      "description": "Operations for working with notification settings."
+      "description": "Operations for working with notification settings.",
+      "x-displayName": "Notifications"
     },
     {
       "name": "Settings / Owner",
-      "description": "Operations for working with owner settings."
+      "description": "Operations for working with owner settings.",
+      "x-displayName": "Owner"
     },
     {
       "name": "Settings / Quota",
-      "description": "Operations for working with quota settings."
+      "description": "Operations for working with quota settings.",
+      "x-displayName": "Quota"
     },
     {
       "name": "Settings / Rebranding",
-      "description": "Operations for working with rebranding settings."
+      "description": "Operations for working with rebranding settings.",
+      "x-displayName": "Rebranding"
     },
     {
       "name": "Settings / Security",
-      "description": "Operations for working with security settings."
+      "description": "Operations for working with security settings.",
+      "x-displayName": "Security"
     },
     {
       "name": "Settings / SSO",
-      "description": "Operations for working with SSO settings."
+      "description": "Operations for working with SSO settings.",
+      "x-displayName": "SSO"
     },
     {
       "name": "Settings / Statistics",
-      "description": "Operations for working with statistics settings."
+      "description": "Operations for working with statistics settings.",
+      "x-displayName": "Statistics"
     },
     {
       "name": "Settings / Storage",
-      "description": "Operations for working with storage settings."
+      "description": "Operations for working with storage settings.",
+      "x-displayName": "Storage"
     },
     {
       "name": "Settings / Team templates",
-      "description": "Operations for working with team template settings."
+      "description": "Operations for working with team template settings.",
+      "x-displayName": "Team templates"
     },
     {
       "name": "Settings / TFA settings",
-      "description": "Operations for working with TFA settings."
+      "description": "Operations for working with TFA settings.",
+      "x-displayName": "TFA settings"
     },
     {
       "name": "Settings / Tips",
-      "description": "Operations for working with tip settings."
+      "description": "Operations for working with tip settings.",
+      "x-displayName": "Tips"
     },
     {
       "name": "Settings / Webhooks",
-      "description": "Operations for working with webhook settings."
+      "description": "Operations for working with webhook settings.",
+      "x-displayName": "Webhooks"
     },
     {
       "name": "Settings / Webplugins",
-      "description": "Operations for working with webplugin settings."
+      "description": "Operations for working with webplugin settings.",
+      "x-displayName": "Webplugins"
+    }
+  ],
+  "x-tagGroups": [
+    {
+      "name": "Authentication",
+      "tags": [
+        "Authentication"
+      ]
+    },
+    {
+      "name": "Capabilities",
+      "tags": [
+        "Capabilities"
+      ]
+    },
+    {
+      "name": "Migration",
+      "tags": [
+        "Migration"
+      ]
+    },
+    {
+      "name": "Modules",
+      "tags": [
+        "Modules"
+      ]
+    },
+    {
+      "name": "Portal",
+      "tags": [
+        "Portal / Quota",
+        "Portal / Settings",
+        "Portal / Users"
+      ]
+    },
+    {
+      "name": "Security",
+      "tags": [
+        "Security / Active connections",
+        "Security / Audit trail data",
+        "Security / CSP",
+        "Security / Firebase",
+        "Security / Login history",
+        "Security / SMTP settings"
+      ]
+    },
+    {
+      "name": "Settings",
+      "tags": [
+        "Settings / Authorization",
+        "Settings / Common settings",
+        "Settings / Cookies",
+        "Settings / Custom Navigation",
+        "Settings / Encryption",
+        "Settings / Greeting settings",
+        "Settings / IP restrictions",
+        "Settings / License",
+        "Settings / Login settings",
+        "Settings / Messages",
+        "Settings / Notifications",
+        "Settings / Owner",
+        "Settings / Quota",
+        "Settings / Rebranding",
+        "Settings / Security",
+        "Settings / SSO",
+        "Settings / Statistics",
+        "Settings / Storage",
+        "Settings / Team templates",
+        "Settings / TFA settings",
+        "Settings / Tips",
+        "Settings / Webhooks",
+        "Settings / Webplugins"
+      ]
     }
   ]
 }

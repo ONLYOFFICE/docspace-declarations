@@ -20,7 +20,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7448
+          example: 1712
       requestBody:
         content:
           multipart/form-data:
@@ -90,7 +90,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7756
+          example: 9396
       requestBody:
         description: Parameters for starting file editing
         content:
@@ -130,7 +130,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9315
+          example: 9389
       responses:
         200:
           description: Ok
@@ -157,7 +157,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 662
+          example: 5043
       - name: tabId
         in: query
         description: Tab ID
@@ -207,7 +207,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4489
+          example: 444
       - name: version
         in: query
         description: File version
@@ -268,7 +268,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5710
+          example: 2074
       responses:
         200:
           description: File download link
@@ -340,7 +340,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1808
+          example: 3667
       responses:
         200:
           description: List of users with their access rights to the protected file
@@ -381,7 +381,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3678
+          example: 210
       - name: fromDate
         in: query
         description: Start date
@@ -430,7 +430,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9887
+          example: 4318
       requestBody:
         description: File
         content:
@@ -478,7 +478,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2020
+          example: 1274
       responses:
         200:
           description: 'Information about file versions: folder ID, version, version group, content length, pure content length, file status, URL to view a file, web URL, file type, file extension, comment, encrypted or not, thumbnail URL, thumbnail status, locked or not, user ID who locked a file, denies file downloading or not, denies file sharing or not, file accessibility'
@@ -507,7 +507,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7554
+          example: 1140
       responses:
         200:
           description: File download link
@@ -542,7 +542,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3230
+          example: 4272
       responses:
         200:
           description: 'Boolean value: true - the PDF file is form, false - the PDF file is not a form'
@@ -577,7 +577,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2811
+          example: 8267
       requestBody:
         description: File
         content:
@@ -624,8 +624,7 @@ paths:
       description: >-
         Creates a new file in the specified folder with the title specified in the request.
 
-
-        **Note**: **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+         **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
       operationId: createFile
       parameters:
       - name: folderId
@@ -635,7 +634,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7792
+          example: 2821
       requestBody:
         description: File
         content:
@@ -681,7 +680,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8298
+          example: 9466
       requestBody:
         description: File
         content:
@@ -730,7 +729,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3005
+          example: 5653
       requestBody:
         description: File
         content:
@@ -777,7 +776,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2029
+          example: 7279
       requestBody:
         description: File
         content:
@@ -823,7 +822,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5885
+          example: 1947
       - name: version
         in: query
         description: File version
@@ -858,7 +857,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8195
+          example: 6880
       requestBody:
         description: File
         content:
@@ -928,7 +927,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3334
+          example: 7455
       - name: version
         in: query
         description: File version
@@ -964,7 +963,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1102
+          example: 9939
       responses:
         200:
           description: Version history data
@@ -993,7 +992,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3029
+          example: 2654
       requestBody:
         description: Parameters for locking a file
         content:
@@ -1040,7 +1039,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4249
+          example: 4658
       - name: version
         in: query
         description: File version
@@ -1086,7 +1085,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7425
+          example: 5564
       requestBody:
         description: External link parameters
         content:
@@ -1134,7 +1133,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2714
+          example: 2565
       responses:
         200:
           description: File security information
@@ -1165,7 +1164,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5743
+          example: 7263
       requestBody:
         description: Order
         content:
@@ -1233,7 +1232,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4312
+          example: 5614
       responses:
         200:
           description: File security information
@@ -1267,7 +1266,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2017
+          example: 7205
       requestBody:
         description: External link parameters
         content:
@@ -1314,7 +1313,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2013
+          example: 3292
       requestBody:
         description: Parameters for saving file as pdf
         content:
@@ -1357,8 +1356,7 @@ paths:
       description: >-
         Creates a new file in the "My documents" section with the title specified in the request.
 
-
-        **Note**: **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+         **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
       operationId: createFileMyDocuments
       requestBody:
         content:
@@ -1508,7 +1506,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4523
+          example: 7801
       requestBody:
         description: File
         content:
@@ -1677,7 +1675,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8784
+          example: 6249
       - name: fileSize
         in: query
         description: File size in bytes
@@ -1718,7 +1716,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8160
+          example: 717
       - name: fromDate
         in: query
         description: Start date
@@ -1767,7 +1765,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 834
+          example: 5710
       requestBody:
         description: Folder
         content:
@@ -1813,7 +1811,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3925
+          example: 7269
       requestBody:
         description: Parameters for deleting a folder
         content:
@@ -1859,7 +1857,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6233
+          example: 8545
       responses:
         200:
           description: Folder parameters
@@ -1887,7 +1885,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9100
+          example: 5325
       requestBody:
         description: Folder
         content:
@@ -1936,7 +1934,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6281
+          example: 7861
       requestBody:
         description: Order
         content:
@@ -1973,7 +1971,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5946
+          example: 1957
       - name: userIdOrGroupId
         in: query
         description: User or group ID
@@ -1992,7 +1990,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9859
+          example: 929
       - name: searchInContent
         in: query
         description: Specifies whether to search within the section contents or not
@@ -2059,7 +2057,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9016
+          example: 9221
       responses:
         200:
           description: List of file entry information
@@ -2096,7 +2094,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7901
+          example: 7929
       responses:
         200:
           description: List of file entry information
@@ -2133,7 +2131,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8480
+          example: 2327
       responses:
         200:
           description: List of file entry information
@@ -2196,7 +2194,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3327
+          example: 6709
       responses:
         200:
           description: Folder security information
@@ -2463,7 +2461,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5537
+          example: 2103
       requestBody:
         description: Parameters for checking files uploading
         content:
@@ -2516,7 +2514,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9582
+          example: 4370
       requestBody:
         content:
           multipart/form-data:
@@ -2530,7 +2528,7 @@ paths:
                 InsertFile.Title:
                   type: string
                   description: File name
-                  example: ameliorated
+                  example: bedfordshire
                 InsertFile.CreateNewIfExist:
                   type: boolean
                   description: Specifies whether to create a new file if it already exists or not
@@ -2624,8 +2622,7 @@ paths:
       description: >-
         Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
 
-
-        **Note**: **Note**:  You can upload files in two different ways:
+         **Note**:  You can upload files in two different ways:
          <ol>
         <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>
 
@@ -2641,7 +2638,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2707
+          example: 8124
       requestBody:
         description: Upload data
         content:
@@ -2693,7 +2690,7 @@ paths:
                 Title:
                   type: string
                   description: File name
-                  example: convertible_marks_united_states_minor_outlying_islands_auxiliary
+                  example: corporate_manager_berkshire
                 CreateNewIfExist:
                   type: boolean
                   description: Specifies whether to create a new file if it already exists or not
@@ -2787,8 +2784,7 @@ paths:
       description: >-
         Uploads a file specified in the request to the "My documents" section by single file uploading or standart multipart/form-data method.
 
-
-        **Note**: **Note**:  You can upload files in two different ways:
+         **Note**:  You can upload files in two different ways:
          <ol>
         <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>
 
@@ -2836,7 +2832,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8584
+          example: 5272
       - name: start
         in: query
         description: Specifies if a conversion operation is started or not
@@ -2876,7 +2872,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9314
+          example: 9878
       requestBody:
         description: Check conversion
         content:
@@ -2923,7 +2919,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2952
+          example: 9582
       requestBody:
         description: Parameters for updating a comment
         content:
@@ -3305,7 +3301,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 2365
+          example: 1457
       responses:
         200:
           description: List of file operations
@@ -3328,9 +3324,7 @@ paths:
       description: >-
         Creates a session to upload large files in multiple chunks to the folder with the ID specified in the request.
 
-
-        **Note**: **Note**: Each chunk can have different length but the length should be multiple of <b>512</b> and greater or equal to <b>10 mb</b>. Last chunk can have any size.
-
+         **Note**: Each chunk can have different length but the length should be multiple of <b>512</b> and greater or equal to <b>10 mb</b>. Last chunk can have any size.
         After the initial response to the request with the <b>200 OK</b> status, you must get the <em>location</em> field value from the response. Send all your chunks to this location.
 
         Each chunk must be sent in the exact order the chunks appear in the file.
@@ -3347,7 +3341,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8966
+          example: 8694
       requestBody:
         description: Session
         content:
@@ -3600,7 +3594,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2619
+          example: 7271
       responses:
         200:
           description: Room information
@@ -3628,7 +3622,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4100
+          example: 6710
       requestBody:
         description: Update room
         content:
@@ -3674,7 +3668,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4855
+          example: 8720
       requestBody:
         description: Parameters for deleting a room
         content:
@@ -3721,7 +3715,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6675
+          example: 798
       requestBody:
         description: Parameters for archiving a room
         content:
@@ -3768,7 +3762,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3257
+          example: 2636
       requestBody:
         description: Parameters for archiving a room
         content:
@@ -3815,7 +3809,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 829
+          example: 4662
       requestBody:
         description: Room invitation
         content:
@@ -3861,7 +3855,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2064
+          example: 389
       - name: filterType
         in: query
         description: Share filter type
@@ -3901,7 +3895,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7720
+          example: 3794
       requestBody:
         description: Room link
         content:
@@ -3947,7 +3941,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 619
+          example: 4160
       - name: type
         in: query
         description: Link type
@@ -3987,7 +3981,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4977
+          example: 896
       responses:
         200:
           description: Room security information
@@ -4024,7 +4018,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 929
+          example: 4793
       requestBody:
         description: Batch tags
         content:
@@ -4072,7 +4066,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4038
+          example: 2670
       requestBody:
         description: Batch tags
         content:
@@ -4121,7 +4115,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7449
+          example: 6695
       requestBody:
         description: Logo
         content:
@@ -4169,7 +4163,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8587
+          example: 8998
       responses:
         200:
           description: Room information
@@ -4204,7 +4198,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4546
+          example: 7147
       requestBody:
         description: Parameters to change the room cover
         content:
@@ -4287,7 +4281,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4002
+          example: 4621
       responses:
         200:
           description: Room information
@@ -4322,7 +4316,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4412
+          example: 7869
       responses:
         200:
           description: Room information
@@ -4357,7 +4351,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5038
+          example: 2076
       requestBody:
         description: User invitation
         content:
@@ -4394,7 +4388,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8589
+          example: 6038
       responses:
         200:
           description: Room information
@@ -4429,7 +4423,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2003
+          example: 3835
       responses:
         200:
           description: List of file entry information
@@ -4469,7 +4463,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 6190
+          example: 2583
       requestBody:
         description: ThirdParty room
         content:
@@ -4644,7 +4638,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4438
+          example: 958
       responses:
         200:
           description: Ok
@@ -4848,8 +4842,7 @@ paths:
       description: >-
         Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.
 
-
-        **Note**: **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+         **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
       operationId: saveThirdParty
       requestBody:
         content:
@@ -5557,8 +5550,7 @@ paths:
       description: >-
         Returns a list of the available providers.
 
-
-        **Note**: **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+         **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
       operationId: capabilities
       responses:
         200:
@@ -5682,8 +5674,7 @@ paths:
       description: >-
         Saves a backup of the connected third-party account.
 
-
-        **Note**: **Note**: List of provider key: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive
+         **Note**: List of provider key: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive
       operationId: saveThirdPartyBackup
       requestBody:
         content:
@@ -5723,8 +5714,7 @@ paths:
       description: >-
         Returns a list of the all providers.
 
-
-        **Note**: **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud
+         **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud
       operationId: getAllProviders
       responses:
         200:
@@ -5753,20 +5743,6 @@ paths:
         - write
 components:
   schemas:
-    ASC.Api.Collections.ItemKeyValuePair.System.Text.Json.JsonElement.System.String:
-      type: object
-      properties:
-        key:
-          oneOf:
-          - type: integer
-            example: 1234
-          - type: string
-            example: some text
-        value:
-          type: string
-          nullable: true
-          example: some text
-      additionalProperties: false
     ASC.Api.Core.ApiDateTime:
       type: object
       properties:
@@ -5790,7 +5766,7 @@ components:
           type: string
           description: ID
           format: uuid
-          example: aed1cabf-33c6-4634-8415-d7f5097da68d
+          example: a8309093-ef13-420a-b3e3-4ec5a7efe131
         appName:
           type: string
           description: Product class name
@@ -5800,7 +5776,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: neutral_personal_loan_account_real_time
+          example: designer_tennessee
         link:
           type: string
           description: Start link
@@ -5926,17 +5902,17 @@ components:
           type: string
           description: ID
           format: uuid
-          example: d307217e-146c-4d41-bb68-c34d3b6de37b
+          example: 7395fd37-58c3-40d2-8e66-50443741c1e1
         firstName:
           type: string
           description: First name
           nullable: true
-          example: Leopold
+          example: Pauline
         lastName:
           type: string
           description: Last name
           nullable: true
-          example: Reichert
+          example: Schneider
         userName:
           type: string
           description: Username
@@ -5967,7 +5943,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: synthesizing_up_sized
+          example: fresh_total
         workFromDate:
           type: string
           description: Registration date
@@ -5979,7 +5955,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Cicero63@gmail.com
+          example: Callie.Mraz@hotmail.com
         contacts:
           type: string
           description: List of contacts in the string format
@@ -5997,7 +5973,7 @@ components:
           type: string
           description: Location
           nullable: true
-          example: 53250 Ruecker Roads, Kareemport, Luxembourg
+          example: 46611 Maeve Drives, Port Fausto, Costa Rica
         notes:
           type: string
           description: Notes
@@ -6123,7 +6099,7 @@ components:
           description: User email address
           format: email
           nullable: true
-          example: Odie_Durgan46@hotmail.com
+          example: Marc.Gleason98@gmail.com
         access:
           $ref: '#/components/schemas/ASC.Files.Core.Security.FileShare'
       additionalProperties: false
@@ -6248,7 +6224,7 @@ components:
           type: integer
           description: File ID
           format: int32
-          example: 8447
+          example: 6716
         sync:
           type: boolean
           description: Specifies if the conversion process is synchronous or not
@@ -6266,7 +6242,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: MLx4eBg6Te
+          example: q4itg8roxp
         outputType:
           type: string
           description: Output type
@@ -6359,7 +6335,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: cHg1siRSFb
+          example: O0eWZ51LY7
         toForm:
           type: boolean
           description: Convert to form
@@ -6390,7 +6366,7 @@ components:
           type: string
           description: File title
           nullable: true
-          example: compelling_maroon_black
+          example: incentivize_fantastic_rubber_shirt
         templateId:
           oneOf:
           - type: integer
@@ -6418,7 +6394,7 @@ components:
           type: string
           description: Folder title
           nullable: true
-          example: mill_checking_account
+          example: rustic_connecting_workforce
       additionalProperties: false
       description: 'Parameters for creating a folder: Title (string) - new folder title'
     ASC.Files.Core.ApiModels.RequestDto.CreateRoomRequestDto:
@@ -6430,7 +6406,7 @@ components:
           type: string
           description: Room name
           nullable: true
-          example: avon
+          example: compelling
         quota:
           type: integer
           description: Room quota
@@ -6498,7 +6474,7 @@ components:
           type: string
           description: Tag name
           nullable: true
-          example: Katharina D'Amore
+          example: Lurline Watsica
       additionalProperties: false
       description: Request parameters for creating a tag
     ASC.Files.Core.ApiModels.RequestDto.CreateTextOrHtmlFile:
@@ -6511,7 +6487,7 @@ components:
           minLength: 0
           type: string
           description: File title
-          example: intelligent_cotton
+          example: synergized_maine
         content:
           type: string
           description: File contents
@@ -6534,7 +6510,7 @@ components:
           type: string
           description: Room name
           nullable: true
-          example: reactive_pennsylvania_industrial_&_games
+          example: withdrawal_awesome
         roomType:
           $ref: '#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.RoomType'
         private:
@@ -6674,11 +6650,29 @@ components:
         fileConvertIds:
           type: array
           items:
-            $ref: '#/components/schemas/ASC.Api.Collections.ItemKeyValuePair.System.Text.Json.JsonElement.System.String'
+            $ref: '#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.DownloadRequestItemDto'
           description: List of file IDs which will be converted
           nullable: true
       additionalProperties: false
       description: Request parameters for downloading files
+    ASC.Files.Core.ApiModels.RequestDto.DownloadRequestItemDto:
+      type: object
+      properties:
+        key:
+          oneOf:
+          - type: integer
+            example: 1234
+          - type: string
+            example: some text
+        value:
+          type: string
+          nullable: true
+          example: some text
+        password:
+          type: string
+          nullable: true
+          example: zvrF1uGutN
+      additionalProperties: false
     ASC.Files.Core.ApiModels.RequestDto.DuplicateRequestDto:
       type: object
       properties:
@@ -6737,7 +6731,7 @@ components:
           type: string
           description: The unique system identifier
           nullable: true
-          example: 3575
+          example: 5882
         sourceFileId:
           type: integer
           description: Source file ID
@@ -6840,12 +6834,12 @@ components:
           description: Email address
           format: email
           nullable: true
-          example: Terrill91@yahoo.com
+          example: Lucious_Jerde25@yahoo.com
         id:
           type: string
           description: ID of the user with whom we want to share a room
           format: uuid
-          example: 032061ec-e2af-455e-b9c2-0c5f47c73762
+          example: 5a2f0aea-85e3-429c-b07e-dc8fc8b90e0f
         access:
           $ref: '#/components/schemas/ASC.Files.Core.Security.FileShare'
       additionalProperties: false
@@ -6892,7 +6886,7 @@ components:
           type: string
           description: Link name
           nullable: true
-          example: steel
+          example: solutions_full_range_reboot
         linkType:
           $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.LinkType'
         password:
@@ -6901,7 +6895,7 @@ components:
           type: string
           description: Link password
           nullable: true
-          example: 6H6UOYXieD
+          example: 4yminGpWQi
         denyDownload:
           type: boolean
           description: Specifies whether downloading a file from a link is disabled or not
@@ -6935,12 +6929,12 @@ components:
           type: integer
           description: Folder ID
           format: int32
-          example: 9922
+          example: 4106
         title:
           type: string
           description: File title
           nullable: true
-          example: alabama_focus_group_specialist
+          example: liaison_som
       additionalProperties: false
       description: Parameters for saving file as pdf
     ASC.Files.Core.ApiModels.RequestDto.SessionRequest:
@@ -7022,7 +7016,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: jctEx7O6Cp
+          example: TFtlFnDhSd
         token:
           type: string
           description: Authentication token
@@ -7057,7 +7051,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: Kv67o1jxTe
+          example: ke73PySuOO
         token:
           type: string
           description: Authentication token
@@ -7103,7 +7097,7 @@ components:
           type: string
           description: File title
           nullable: true
-          example: auto_loan_account_nepal_brand
+          example: designer_neural
         lastVersion:
           type: integer
           description: Number of the latest file version
@@ -7120,7 +7114,7 @@ components:
           type: string
           description: Room name
           nullable: true
-          example: synthesize_service_desk
+          example: reintermediate_parsing
         quota:
           type: integer
           description: Room quota
@@ -7394,7 +7388,7 @@ components:
           type: string
           description: Operation ID
           nullable: true
-          example: 381
+          example: 7817
         Operation:
           $ref: '#/components/schemas/ASC.Web.Files.Services.WCFService.FileOperations.FileOperationType'
         progress:
@@ -7432,7 +7426,7 @@ components:
         id:
           type: string
           nullable: true
-          example: 6408
+          example: 4636
         data:
           type: string
           nullable: true
@@ -7465,7 +7459,7 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Hans Doyle
+          example: Eileen Mraz
         www:
           type: string
           description: Site
@@ -7555,7 +7549,7 @@ components:
           type: string
           description: Id
           nullable: true
-          example: 2188
+          example: 7973
         error:
           type: string
           description: Error
@@ -7627,7 +7621,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: integration
+          example: analyst_bedfordshire
         url:
           type: string
           description: Url
@@ -7644,7 +7638,7 @@ components:
           type: integer
           description: InProcess folder ID
           format: int32
-          example: 4506
+          example: 7048
         folderTitle:
           type: string
           description: InProcess folder title
@@ -7654,7 +7648,7 @@ components:
           type: integer
           description: Draft ID
           format: int32
-          example: 1893
+          example: 5091
         fileTitle:
           type: string
           description: Draft title
@@ -7929,7 +7923,7 @@ components:
           type: integer
           description: Folder ID
           format: int32
-          example: 4897
+          example: 7402
         version:
           type: integer
           description: Version
@@ -8137,7 +8131,7 @@ components:
           type: string
           description: Operation ID
           nullable: true
-          example: 5168
+          example: 6501
         Operation:
           $ref: '#/components/schemas/ASC.Web.Files.Services.WCFService.FileOperations.FileOperationType'
         progress:
@@ -8594,7 +8588,7 @@ components:
           type: string
           description: Folder title
           nullable: true
-          example: deliverables_bypass_home_loan_account
+          example: central_berkshire
         usedSpace:
           type: integer
           description: Used space
@@ -8631,7 +8625,7 @@ components:
           type: integer
           description: Room Id
           format: int32
-          example: 7295
+          example: 8394
         isRoomMember:
           type: boolean
           description: Is room member
@@ -9336,7 +9330,7 @@ components:
           type: string
           description: Provider name
           nullable: true
-          example: Joany Durgan
+          example: Cristopher Stanton
         key:
           type: string
           description: Provider key
@@ -9485,7 +9479,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: G_6uu1qscF
+          example: nUCyZvwncF
         rawToken:
           type: string
           description: Raw token
@@ -9609,12 +9603,12 @@ components:
           type: string
           description: Id
           nullable: true
-          example: 1739
+          example: 724
         name:
           type: string
           description: Name
           nullable: true
-          example: Mohammad Kohler
+          example: Joseph Hammes
       additionalProperties: false
     ASC.Files.Core.EditHistoryDataDto:
       type: object
@@ -10041,7 +10035,7 @@ components:
         id:
           type: string
           nullable: true
-          example: 7707
+          example: 355
         data:
           type: string
           nullable: true
@@ -11102,7 +11096,7 @@ components:
           type: string
           description: Instance ID
           nullable: true
-          example: 6210
+          example: 386
       additionalProperties: false
     ASC.Web.Files.Services.DocumentService.GobackConfig:
       type: object
@@ -11208,7 +11202,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: orchestrator
+          example: unbranded_cedi_niches
         url:
           type: string
           description: Url
@@ -11248,7 +11242,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: sleek_rubber_tuna_teal
+          example: licensed_optimize
         url:
           type: string
           description: Url
@@ -11263,12 +11257,12 @@ components:
           type: string
           description: Id
           nullable: true
-          example: 9603
+          example: 5472
         name:
           type: string
           description: Name
           nullable: true
-          example: Roselyn Baumbach
+          example: Marcelle Cremin
         image:
           type: string
           description: Image
@@ -11385,13 +11379,13 @@ components:
           format: email
           nullable: true
           readOnly: true
-          example: Christine.Renner57@hotmail.com
+          example: Jarred.Bahringer@yahoo.com
         id:
           type: string
           description: User ID
           nullable: true
           readOnly: true
-          example: 7795
+          example: 9632
         image:
           type: string
           description: User image
@@ -11408,7 +11402,7 @@ components:
           description: User display name
           nullable: true
           readOnly: true
-          example: London Predovic
+          example: Angeline Denesik
       additionalProperties: false
     ASC.Web.Files.Services.WCFService.ThirdPartyParams:
       type: object
@@ -11527,7 +11521,7 @@ components:
         name:
           type: string
           nullable: true
-          example: Retha Mosciski
+          example: Devon Cummerata
         parameters:
           type: array
           items: {}
@@ -11542,15 +11536,32 @@ components:
 tags:
 - name: Files / Files
   description: Operations for working with files.
+  x-displayName: Files
 - name: Files / Folders
   description: Operations for working with folders.
+  x-displayName: Folders
 - name: Files / Operations
   description: Operations for performing actions on files and folders.
+  x-displayName: Operations
 - name: Files / Quota
   description: Operations for working with room quota limit.
+  x-displayName: Quota
 - name: Files / Rooms
   description: Operations for working with rooms.
+  x-displayName: Rooms
 - name: Files / Settings
   description: Operations for working with file settings.
+  x-displayName: Settings
 - name: Files / Third-party integration
   description: Operations for working with third-party integrations.
+  x-displayName: Third-party integration
+x-tagGroups:
+- name: Files
+  tags:
+  - Files / Files
+  - Files / Folders
+  - Files / Operations
+  - Files / Quota
+  - Files / Rooms
+  - Files / Settings
+  - Files / Third-party integration

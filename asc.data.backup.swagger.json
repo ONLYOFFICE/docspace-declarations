@@ -777,7 +777,7 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "example": "5ca5ca70-64dc-4c33-8dd2-108a1d0f4b1b"
+            "example": "db460fe8-1641-4757-b043-a24a870c1391"
           },
           "fileName": {
             "type": "string",
@@ -904,7 +904,16 @@
   "tags": [
     {
       "name": "Backup",
-      "description": "Operations for working with backup"
+      "description": "Operations for working with backup",
+      "x-displayName": "Backup"
+    }
+  ],
+  "x-tagGroups": [
+    {
+      "name": "Backup",
+      "tags": [
+        "Backup"
+      ]
     }
   ]
 }
