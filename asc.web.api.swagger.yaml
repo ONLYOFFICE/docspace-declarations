@@ -2,9 +2,6 @@ openapi: 3.0.1
 info:
   title: ASC.Web.Api
   version: v2
-servers:
-- url: http://localhost:8092
-  description: Local server
 paths:
   /api/2.0/authentication:
     get:
@@ -277,7 +274,7 @@ paths:
         - read
         - write
       description: Gets migration list
-  /api/2.0/migration/init/{migratorname}:
+  /api/2.0/migration/init/{migratorName}:
     post:
       tags:
       - Migration
@@ -786,7 +783,7 @@ paths:
         - read
         - write
       description: Restores the current portal.
-  /api/2.0/portal/users/{userid}:
+  /api/2.0/portal/users/{userID}:
     get:
       tags:
       - Portal / Users
@@ -800,7 +797,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 04b1c2df-3eea-4c6d-bafc-b4f1cf5d1791
+          example: c59d4ebe-352d-4262-acdf-0a0df9227a7b
       responses:
         200:
           description: User information
@@ -821,7 +818,7 @@ paths:
         - read
         - write
       description: Returns a user with the ID specified in the request from the current portal.
-  /api/2.0/portal/users/invite/{employeetype}:
+  /api/2.0/portal/users/invite/{employeeType}:
     get:
       tags:
       - Portal / Users
@@ -971,7 +968,7 @@ paths:
         - read
         - write
       description: Logs out from all the active connections of the current user and changes their password.
-  /api/2.0/security/activeconnections/logoutall/{userid}:
+  /api/2.0/security/activeconnections/logoutall/{userId}:
     put:
       tags:
       - Security / Active connections
@@ -985,7 +982,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 117544dc-49ba-4590-8c67-9b38fa69d355
+          example: b19b888e-efeb-436a-b489-be9e20cf7ff7
       responses:
         200:
           description: Ok
@@ -1021,7 +1018,7 @@ paths:
         - read
         - write
       description: Logs out from all the active connections except the current connection.
-  /api/2.0/security/activeconnections/logout/{logineventid}:
+  /api/2.0/security/activeconnections/logout/{loginEventId}:
     put:
       tags:
       - Security / Active connections
@@ -1035,7 +1032,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4377
+          example: 7943
       responses:
         200:
           description: 'Boolean value: true if the operation is successful'
@@ -1099,7 +1096,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: bcd1332f-dce2-4901-85af-f3f4312f7330
+          example: 3ac6e98e-c17f-42bc-8e51-526f41b71f0b
       - name: productType
         in: query
         description: Product
@@ -1476,7 +1473,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 8c092b2b-4dd7-4730-a648-f91f46957f72
+          example: 06213c62-99e2-4021-9b9c-d75f59772026
       - name: action
         in: query
         description: Action
@@ -2056,7 +2053,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6144
+          example: 4136
       responses:
         200:
           description: 'Portal theme settings: custom color theme settings, selected or not, limit'
@@ -2305,7 +2302,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 494b4ad0-29a6-4357-8a1e-e5ac095d8ed4
+          example: 5d7a937d-ef96-4e28-b5a5-b0fc25f2aff8
       responses:
         200:
           description: Custom navigation item
@@ -2377,7 +2374,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 0b3ac69c-240a-4f0c-b3a6-afec5729d446
+          example: adbac7b3-e5e4-4618-b676-8273eaccd119
       responses:
         200:
           description: OK
@@ -3863,7 +3860,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: b75c5cc0-f752-4ae2-9d68-6307d13ae653
+          example: 8bc7a84e-9f12-49f4-90b0-a6b5c68fbf4e
       responses:
         200:
           description: 'Boolean value: true - module is enabled, false - module is disabled'
@@ -4024,7 +4021,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: a88de46e-a0fe-4c9d-b37a-e572acbcf24c
+          example: 23d9c320-a472-4544-80a0-e22ee14b9be8
       responses:
         200:
           description: List of product administrators with the following parameters
@@ -4058,14 +4055,14 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 5ad169ee-2be3-4b4e-951a-9922b790bd4d
+          example: 6f76b97b-5676-4a74-a7b2-a7bca41d7188
       - name: userid
         in: query
         description: User ID
         schema:
           type: string
           format: uuid
-          example: 014f59d1-c56e-4622-a250-b42e3cc6396d
+          example: 9a57f4da-783d-461f-9233-f6f6888ac537
       responses:
         200:
           description: 'Object with the user security information: product ID, user ID, administrator or not'
@@ -4264,7 +4261,7 @@ paths:
         schema:
           type: string
           format: uuid
-          example: 145c30b5-5e05-42a7-8417-2a23cd9ab870
+          example: 8f0f83c4-ff44-4617-8b9c-2167f15b8304
       responses:
         200:
           description: Module space usage statistics
@@ -4648,7 +4645,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 318
+          example: 7250
       responses:
         200:
           description: Team template with the following parameters
@@ -5144,7 +5141,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 646
+          example: 5276
       responses:
         200:
           description: Tenant webhook with its config parameters
@@ -5178,7 +5175,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1280
+          example: 732
       responses:
         200:
           description: Webhook settings
@@ -5286,7 +5283,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1957
+          example: 8506
       responses:
         200:
           description: Logs of the webhook activities
@@ -5458,7 +5455,7 @@ paths:
         required: true
         schema:
           type: string
-          example: Dasia Kreiger
+          example: Flo Hintz
       responses:
         200:
           description: Web plugin
@@ -5493,7 +5490,7 @@ paths:
         required: true
         schema:
           type: string
-          example: Gisselle Ernser
+          example: Rahsaan Hintz
       requestBody:
         description: Web plugin
         content:
@@ -5530,7 +5527,7 @@ paths:
         required: true
         schema:
           type: string
-          example: Pink Lemke
+          example: Dora Lubowitz
       responses:
         200:
           description: Ok
@@ -5601,7 +5598,7 @@ components:
           type: string
           description: ID
           format: uuid
-          example: 2517ba46-47d0-4a8b-9b84-167245cb71f6
+          example: 64029bc8-653d-44c6-a27e-97fa9a23874c
         appName:
           type: string
           description: Product class name
@@ -5611,7 +5608,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: wooden_guinea
+          example: virtual
         link:
           type: string
           description: Start link
@@ -5841,7 +5838,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 4134
+          example: 9179
         quantity:
           type: integer
           description: Quantity
@@ -5855,7 +5852,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 6063
+          example: 4749
         state:
           $ref: '#/components/schemas/ASC.Core.Billing.TariffState'
         dueDate:
@@ -5910,12 +5907,12 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 2321
+          example: 8614
         userId:
           type: string
           description: User ID
           format: uuid
-          example: 5b38cf45-61f2-4e56-b694-9d35eb54f851
+          example: 8aaf05ed-e313-42c6-b1e6-5a5c215e4869
         tenantId:
           type: integer
           description: Tenant ID
@@ -5946,12 +5943,12 @@ components:
           type: integer
           description: Id
           format: int32
-          example: 439
+          example: 6488
         name:
           type: string
           description: Name
           nullable: true
-          example: Carole Schoen
+          example: Hyman Effertz
         alias:
           type: string
           description: Alias
@@ -6176,7 +6173,7 @@ components:
           type: string
           description: Product ID
           nullable: true
-          example: 6201
+          example: 1429
         visible:
           type: boolean
           description: Specifies if the tenant quota is visible or not
@@ -6442,17 +6439,17 @@ components:
           type: string
           description: ID
           format: uuid
-          example: 8d3acdf4-a884-4dd8-9108-992e0a5cfa10
+          example: d5f0c942-6085-4e2a-8486-6c45f5e19e35
         firstName:
           type: string
           description: First name
           nullable: true
-          example: Aylin
+          example: Madyson
         lastName:
           type: string
           description: Last name
           nullable: true
-          example: Ernser
+          example: Tremblay
         userName:
           type: string
           description: Username
@@ -6483,7 +6480,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: functionality_wooden_danish_krone
+          example: garden__sports_&_outdoors_borders
         workFromDate:
           type: string
           description: Registration date
@@ -6495,7 +6492,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Reggie53@gmail.com
+          example: Janis_Stanton98@yahoo.com
         contacts:
           type: string
           description: List of contacts in the string format
@@ -6513,7 +6510,7 @@ components:
           type: string
           description: Location
           nullable: true
-          example: 12620 Anne Inlet, Schultzland, Anguilla
+          example: 298 Margie Field, East Barney, Belarus
         notes:
           type: string
           description: Notes
@@ -6640,7 +6637,7 @@ components:
         id:
           type: integer
           format: int32
-          example: 4228
+          example: 7835
         tenantId:
           type: integer
           format: int32
@@ -7230,7 +7227,7 @@ components:
           type: string
           format: email
           nullable: true
-          example: Bethel.Bergstrom@hotmail.com
+          example: Kobe_Sanford49@gmail.com
         displayName:
           type: string
           nullable: true
@@ -7238,11 +7235,11 @@ components:
         firstName:
           type: string
           nullable: true
-          example: Raquel
+          example: Eleazar
         lastName:
           type: string
           nullable: true
-          example: Hartmann
+          example: O'Reilly
         userType:
           $ref: '#/components/schemas/ASC.Core.Users.EmployeeType'
         migratingFiles:
@@ -7342,7 +7339,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Elian.Larson@hotmail.com
+          example: Jaquan_Hand@hotmail.com
         uiD:
           type: string
           description: User ID
@@ -7360,7 +7357,7 @@ components:
           type: string
           description: Room ID
           nullable: true
-          example: 9101
+          example: 1458
       additionalProperties: false
       description: Confirmation email parameters
     ASC.Security.Cryptography.EmailValidationKeyProvider_ValidationResult:
@@ -7416,7 +7413,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Sydni.Morar@hotmail.com
+          example: Saul.Heller@hotmail.com
         culture:
           type: string
           description: Culture
@@ -7434,7 +7431,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Madelynn15@gmail.com
+          example: Emilie61@hotmail.com
         culture:
           type: string
           description: Culture
@@ -7461,7 +7458,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: 3W4WOeQkDM
+          example: 5G6NYKMw47
         passwordHash:
           type: string
           description: Password hash
@@ -7519,12 +7516,12 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Edgar Runolfsson
+          example: Benjamin Hilpert
         title:
           type: string
           description: Title
           nullable: true
-          example: chief_checking_account_lavender
+          example: small_ubiquitous_purple
         description:
           type: string
           description: Description
@@ -7555,7 +7552,7 @@ components:
           description: Email address
           format: email
           nullable: true
-          example: Trisha.Aufderhar44@yahoo.com
+          example: Ephraim38@yahoo.com
         first:
           type: boolean
           description: Access an account for the first time or not
@@ -7576,7 +7573,7 @@ components:
           type: string
           description: Tenant name
           nullable: true
-          example: morocco_palestinian_territory_checking_account
+          example: silver_mindshare
       additionalProperties: false
       description: Greeting settings
     ASC.Web.Api.ApiModel.RequestsDto.IpRestrictionsDto:
@@ -7671,7 +7668,7 @@ components:
           type: string
           description: Team template ID
           nullable: true
-          example: 6303
+          example: 7756
       additionalProperties: false
       description: Team template parameters
     ASC.Web.Api.ApiModel.RequestsDto.SchemaRequestsDto:
@@ -7681,12 +7678,12 @@ components:
           type: string
           description: Team template ID
           nullable: true
-          example: 1067
+          example: 8823
         name:
           type: string
           description: Team template name
           nullable: true
-          example: Michaela Fay
+          example: Dahlia Stehr
         userCaption:
           type: string
           description: User caption
@@ -7741,12 +7738,12 @@ components:
           type: string
           description: Product ID
           format: uuid
-          example: 35bab42b-c0a0-4f1d-ba67-025757056b1d
+          example: dc37e186-aaf1-40c2-8c0d-53eedf40e4e9
         userId:
           type: string
           description: User ID
           format: uuid
-          example: 804da7d1-b42b-4c03-b7bc-449895783808
+          example: 6c2e5d86-e89f-4d3e-a9db-d004cd44d801
         administrator:
           type: boolean
           description: Administrator or not
@@ -7823,7 +7820,7 @@ components:
           description: User ID
           format: uuid
           nullable: true
-          example: f38294d2-ca4a-4244-bd0a-f1858e315a0d
+          example: f13eb54b-794c-47e7-b97b-e2a9e8b07c70
         trustedIps:
           type: array
           items:
@@ -7875,12 +7872,12 @@ components:
           type: string
           description: ID
           nullable: true
-          example: 8229
+          example: 4925
         title:
           type: string
           description: Title
           nullable: true
-          example: ergonomic
+          example: bypass_visualize
         enabled:
           type: boolean
           description: Specifies if the TFA settings are enabled or not
@@ -7933,7 +7930,7 @@ components:
           type: string
           description: Time zone ID
           nullable: true
-          example: 8568
+          example: 1928
         displayName:
           type: string
           description: Time zone display name
@@ -7965,7 +7962,7 @@ components:
           type: string
           description: Module ID
           nullable: true
-          example: 8783
+          example: 1547
         enabled:
           type: boolean
           description: Specifies if the module security settings are enabled or not
@@ -8034,7 +8031,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Leatha.Bashirian43@yahoo.com
+          example: Odie_Swaniawski49@gmail.com
         passwordHash:
           type: string
           description: Password hash
@@ -8068,7 +8065,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 3885
+          example: 7512
         date:
           $ref: '#/components/schemas/ASC.Api.Core.ApiDateTime'
         user:
@@ -8080,7 +8077,7 @@ components:
           type: string
           description: User ID
           format: uuid
-          example: 3a433b68-bd15-4bc8-a79b-e013f36c41b2
+          example: fc5d7d3f-e1dc-456e-bc93-9e41cb593240
         action:
           type: string
           description: Action
@@ -8330,7 +8327,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 1010
+          example: 6874
         date:
           $ref: '#/components/schemas/ASC.Api.Core.ApiDateTime'
         user:
@@ -8342,7 +8339,7 @@ components:
           type: string
           description: User ID
           format: uuid
-          example: 35380721-3c96-4a3a-8844-14d06f57ff9f
+          example: 2baac9b0-ac95-472d-9192-2ec127469c11
         login:
           type: string
           description: Login
@@ -8692,12 +8689,12 @@ components:
           type: string
           description: ID
           nullable: true
-          example: 3434
+          example: 7815
         title:
           type: string
           description: Title
           nullable: true
-          example: executive_reboot_fresh
+          example: lime
         properties:
           type: array
           items:
@@ -8865,13 +8862,13 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 47
+          example: 1958
         name:
           maxLength: 50
           minLength: 0
           type: string
           description: Name
-          example: Jaida Schuppe
+          example: Boyd Mitchell
         uri:
           minLength: 1
           type: string
@@ -8918,7 +8915,7 @@ components:
           type: integer
           description: Id
           format: int32
-          example: 7627
+          example: 4823
         tenantId:
           type: integer
           description: Tenant id
@@ -8928,7 +8925,7 @@ components:
           type: string
           description: User id
           format: uuid
-          example: ce238684-d89c-49d3-93f6-fa401a02ebd7
+          example: f8f53ad2-a50c-4090-9392-cbdd39cd3d91
         mobile:
           type: boolean
           description: Mobile
@@ -9047,7 +9044,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Hailey.Satterfield@hotmail.com
+          example: Humberto_DuBuque96@gmail.com
         address:
           type: string
           description: Address
@@ -9076,12 +9073,12 @@ components:
           type: string
           description: Room id
           nullable: true
-          example: 6897
+          example: 7112
         title:
           type: string
           description: Title
           nullable: true
-          example: soft_gorgeous_steel_gloves_intelligent_concrete_bike
+          example: florida_designer
       additionalProperties: false
     ASC.Web.Api.ApiModels.ResponseDto.CookieSettingsDto:
       type: object
@@ -9140,7 +9137,7 @@ components:
           type: string
           description: White label logo name
           nullable: true
-          example: Kip Hahn
+          example: Sophia Von
         default:
           type: boolean
           description: Specifies if the white label logo is default or not
@@ -9313,7 +9310,7 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Boris Stanton
+          example: Kieran Skiles
         ownerId:
           type: string
           description: Owner ID
@@ -9374,7 +9371,7 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Flavie Lebsack
+          example: Elias Parisian
         version:
           type: string
           description: Version
@@ -9448,12 +9445,12 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 2068
+          example: 169
         name:
           type: string
           description: Name
           nullable: true
-          example: Sofia Bartoletti
+          example: Lavonne Carroll
         uri:
           type: string
           description: URI
@@ -9491,7 +9488,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 150
+          example: 4657
         configName:
           type: string
           description: Config name
@@ -9551,7 +9548,7 @@ components:
           type: string
           description: File name
           nullable: true
-          example: Ericka Parker
+          example: Boris Hermann
         size:
           $ref: '#/components/schemas/SixLabors.ImageSharp.Size'
         path:
@@ -9863,7 +9860,7 @@ components:
           description: Email address
           format: email
           nullable: true
-          example: Louvenia.Emmerich91@yahoo.com
+          example: Jarrett.Hegmann77@hotmail.com
         address:
           maxLength: 255
           minLength: 0
@@ -9898,7 +9895,7 @@ components:
           type: string
           description: Id
           format: uuid
-          example: f6c4c28f-d08b-4243-9c9c-257740e7deb7
+          example: bb66ce68-21af-4e2f-9ccd-e3f4eec4557b
         label:
           type: string
           description: Label
@@ -9954,7 +9951,7 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Julie Feeney
+          example: Yoshiko Luettgen
         value:
           type: string
           description: Value
@@ -9964,7 +9961,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: health__electronics_&_tools_expedite_california
+          example: facilitator
       additionalProperties: false
     ASC.Web.Studio.UserControls.Management.SingleSignOnSettings.SsoCertificate:
       type: object
@@ -10011,28 +10008,28 @@ components:
           type: string
           description: First name
           nullable: true
-          example: Deja
+          example: Rosie
         lastName:
           type: string
           description: Last name
           nullable: true
-          example: Hilpert
+          example: Dietrich
         email:
           type: string
           description: Email
           format: email
           nullable: true
-          example: Shaun.Wilkinson34@hotmail.com
+          example: Jody76@yahoo.com
         title:
           type: string
           description: Title
           nullable: true
-          example: hacking_corners
+          example: intelligent_wooden_tuna_calculate_handcrafted_concrete_salad
         location:
           type: string
           description: Location
           nullable: true
-          example: 72736 Caroline Parkway, Monserratmouth, Micronesia
+          example: 53303 Corbin Drive, Lehnerbury, Bermuda
         phone:
           type: string
           description: Phone
@@ -10235,7 +10232,7 @@ components:
           type: integer
           description: ID
           format: int32
-          example: 6505
+          example: 1243
         route:
           type: string
           description: Route
@@ -10255,7 +10252,7 @@ components:
           description: Name
           nullable: true
           readOnly: true
-          example: Gloria Maggio
+          example: Derrick Williamson
         description:
           type: string
           description: Description
@@ -10386,7 +10383,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: 1594 Heaney Route, Breanamouth, Cuba
+          example: 4595 Bosco Squares, Brendonside, Austria
         reflectionOnly:
           type: boolean
           readOnly: true
@@ -10448,7 +10445,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Harmon Jacobson
+          example: Desmond Ruecker
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -10624,7 +10621,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Lori Zemlak
+          example: Barry Leannon
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -10697,7 +10694,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Loyce Rolfson
+          example: Emily Christiansen
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -10813,7 +10810,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Afton Kuhic
+          example: Donnell Dibbert
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -10884,7 +10881,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Bell Simonis
+          example: Wilford Smitham
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -11020,7 +11017,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Brennan Miller
+          example: Quinn Parisian
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -11153,7 +11150,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Amalia Stracke
+          example: Helen Purdy
         mdStreamVersion:
           type: integer
           format: int32
@@ -11209,7 +11206,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Devan Crist
+          example: Bertram Cassin
         parameterType:
           $ref: '#/components/schemas/System.Type'
         position:
@@ -11286,7 +11283,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Eunice Bednar
+          example: Vladimir Champlin
         declaringType:
           $ref: '#/components/schemas/System.Type'
         reflectedType:
@@ -11368,7 +11365,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Yasmin West
+          example: Alfreda Paucek
         customAttributes:
           type: array
           items:
@@ -11749,7 +11746,7 @@ components:
           type: string
           nullable: true
           readOnly: true
-          example: Cortez Turner
+          example: Camylle Larkin
         customAttributes:
           type: array
           items:

@@ -2,11 +2,8 @@ openapi: 3.0.1
 info:
   title: ASC.Files
   version: v2
-servers:
-- url: http://localhost:8092
-  description: Local server
 paths:
-  /api/2.0/files/file/{fileid}/saveediting:
+  /api/2.0/files/file/{fileId}/saveediting:
     put:
       tags:
       - Files / Files
@@ -20,7 +17,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1712
+          example: 2375
       requestBody:
         content:
           multipart/form-data:
@@ -76,7 +73,7 @@ paths:
         - read
         - write
       description: Saves edits to a file with the ID specified in the request.
-  /api/2.0/files/file/{fileid}/startedit:
+  /api/2.0/files/file/{fileId}/startedit:
     post:
       tags:
       - Files / Files
@@ -90,7 +87,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9396
+          example: 1383
       requestBody:
         description: Parameters for starting file editing
         content:
@@ -116,7 +113,7 @@ paths:
         403:
           description: You don't have enough permission to view the file
       description: Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
-  /api/2.0/files/file/{fileid}/startfilling:
+  /api/2.0/files/file/{fileId}/startfilling:
     put:
       tags:
       - Files / Files
@@ -130,7 +127,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9389
+          example: 99
       responses:
         200:
           description: Ok
@@ -143,7 +140,7 @@ paths:
         - read
         - write
       description: Starts filling a file with the ID specified in the request.
-  /api/2.0/files/file/{fileid}/trackeditfile:
+  /api/2.0/files/file/{fileId}/trackeditfile:
     get:
       tags:
       - Files / Files
@@ -157,7 +154,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5043
+          example: 557
       - name: tabId
         in: query
         description: Tab ID
@@ -193,7 +190,7 @@ paths:
         403:
           description: You don't have enough permission to perform the operation
       description: Tracks file changes when editing.
-  /api/2.0/files/file/{fileid}/openedit:
+  /api/2.0/files/file/{fileId}/openedit:
     get:
       tags:
       - Files / Files
@@ -207,7 +204,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 444
+          example: 1352
       - name: version
         in: query
         description: File version
@@ -254,7 +251,7 @@ paths:
         403:
           description: You don't have enough permission to view the file
       description: Returns the initialization configuration of a file to open it in the editor.
-  /api/2.0/files/file/{fileid}/presigned:
+  /api/2.0/files/file/{fileId}/presigned:
     get:
       tags:
       - Files / Files
@@ -268,7 +265,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2074
+          example: 6752
       responses:
         200:
           description: File download link
@@ -326,7 +323,7 @@ paths:
         - read
         - write
       description: Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
-  /api/2.0/files/file/{fileid}/protectusers:
+  /api/2.0/files/file/{fileId}/protectusers:
     get:
       tags:
       - Files / Files
@@ -340,7 +337,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3667
+          example: 9043
       responses:
         200:
           description: List of users with their access rights to the protected file
@@ -367,12 +364,12 @@ paths:
         - read
         - write
       description: Returns a list of users with their access rights to the protected file with the ID specified in the request.
-  /api/2.0/files/file/{fileid}/log:
+  /api/2.0/files/file/{fileId}/log:
     get:
       tags:
       - Files / Files
       summary: Get file history
-      operationId: getHistory
+      operationId: getFileHistory
       parameters:
       - name: fileId
         in: path
@@ -381,7 +378,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 210
+          example: 6547
       - name: fromDate
         in: query
         description: Start date
@@ -416,7 +413,7 @@ paths:
         - read
         - write
       description: Get the list of actions performed on the file with the specified identifier
-  /api/2.0/files/file/{fileid}/history:
+  /api/2.0/files/file/{fileId}/history:
     put:
       tags:
       - Files / Files
@@ -430,7 +427,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4318
+          example: 5266
       requestBody:
         description: File
         content:
@@ -478,7 +475,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1274
+          example: 8843
       responses:
         200:
           description: 'Information about file versions: folder ID, version, version group, content length, pure content length, file status, URL to view a file, web URL, file type, file extension, comment, encrypted or not, thumbnail URL, thumbnail status, locked or not, user ID who locked a file, denies file downloading or not, denies file sharing or not, file accessibility'
@@ -493,7 +490,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileDto.System.Int32'
       description: Returns the detailed information about all the available file versions with the ID specified in the request.
-  /api/2.0/files/file/{fileid}/presigneduri:
+  /api/2.0/files/file/{fileId}/presigneduri:
     get:
       tags:
       - Files / Files
@@ -507,7 +504,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1140
+          example: 9649
       responses:
         200:
           description: File download link
@@ -528,7 +525,7 @@ paths:
         - read
         - write
       description: Returns a link to download a file with the ID specified in the request.
-  /api/2.0/files/file/{fileid}/isformpdf:
+  /api/2.0/files/file/{fileId}/isformpdf:
     get:
       tags:
       - Files / Files
@@ -542,7 +539,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4272
+          example: 7653
       responses:
         200:
           description: 'Boolean value: true - the PDF file is form, false - the PDF file is not a form'
@@ -563,7 +560,7 @@ paths:
         - read
         - write
       description: Checks if the PDF file is form or not.
-  /api/2.0/files/file/{fileid}/copyas:
+  /api/2.0/files/file/{fileId}/copyas:
     post:
       tags:
       - Files / Files
@@ -577,7 +574,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8267
+          example: 5883
       requestBody:
         description: File
         content:
@@ -616,7 +613,7 @@ paths:
         - read
         - write
       description: Copies (and converts if possible) an existing file to the specified folder.
-  /api/2.0/files/{folderid}/file:
+  /api/2.0/files/{folderId}/file:
     post:
       tags:
       - Files / Files
@@ -634,7 +631,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2821
+          example: 7075
       requestBody:
         description: File
         content:
@@ -666,7 +663,7 @@ paths:
       - asc_auth_key:
         - read
         - write
-  /api/2.0/files/{folderid}/html:
+  /api/2.0/files/{folderId}/html:
     post:
       tags:
       - Files / Files
@@ -680,7 +677,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9466
+          example: 7765
       requestBody:
         description: File
         content:
@@ -715,7 +712,7 @@ paths:
         - read
         - write
       description: Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
-  /api/2.0/files/{folderid}/text:
+  /api/2.0/files/{folderId}/text:
     post:
       tags:
       - Files / Files
@@ -729,7 +726,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5653
+          example: 7460
       requestBody:
         description: File
         content:
@@ -762,7 +759,7 @@ paths:
         - read
         - write
       description: Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
-  /api/2.0/files/file/{fileid}:
+  /api/2.0/files/file/{fileId}:
     delete:
       tags:
       - Files / Files
@@ -776,7 +773,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7279
+          example: 8416
       requestBody:
         description: File
         content:
@@ -822,7 +819,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1947
+          example: 5279
       - name: version
         in: query
         description: File version
@@ -857,7 +854,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6880
+          example: 5391
       requestBody:
         description: File
         content:
@@ -913,7 +910,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FillingFormResultDto.System.Int32'
       description: Gets fill result
-  /api/2.0/files/file/{fileid}/edit/diff:
+  /api/2.0/files/file/{fileId}/edit/diff:
     get:
       tags:
       - Files / Files
@@ -927,7 +924,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7455
+          example: 5237
       - name: version
         in: query
         description: File version
@@ -949,7 +946,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ASC.Files.Core.EditHistoryDataDto'
       description: Returns a URL to the changes of a file version specified in the request.
-  /api/2.0/files/file/{fileid}/edit/history:
+  /api/2.0/files/file/{fileId}/edit/history:
     get:
       tags:
       - Files / Files
@@ -963,7 +960,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9939
+          example: 3341
       responses:
         200:
           description: Version history data
@@ -978,7 +975,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.EditHistoryDto'
       description: Returns the version history of a file with the ID specified in the request.
-  /api/2.0/files/file/{fileid}/lock:
+  /api/2.0/files/file/{fileId}/lock:
     put:
       tags:
       - Files / Files
@@ -992,7 +989,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2654
+          example: 57
       requestBody:
         description: Parameters for locking a file
         content:
@@ -1025,7 +1022,7 @@ paths:
         - read
         - write
       description: Locks a file with the ID specified in the request.
-  /api/2.0/files/file/{fileid}/restoreversion:
+  /api/2.0/files/file/{fileId}/restoreversion:
     get:
       tags:
       - Files / Files
@@ -1039,7 +1036,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4658
+          example: 909
       - name: version
         in: query
         description: File version
@@ -1085,7 +1082,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5564
+          example: 4985
       requestBody:
         description: External link parameters
         content:
@@ -1133,7 +1130,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2565
+          example: 6704
       responses:
         200:
           description: File security information
@@ -1150,7 +1147,7 @@ paths:
         404:
           description: Not Found
       description: Returns the primary external link by the identifier specified in the request.
-  /api/2.0/files/{fileid}/order:
+  /api/2.0/files/{fileId}/order:
     put:
       tags:
       - Files / Files
@@ -1164,7 +1161,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7263
+          example: 5949
       requestBody:
         description: Order
         content:
@@ -1196,7 +1193,7 @@ paths:
       tags:
       - Files / Files
       summary: Sets order
-      operationId: setOrder
+      operationId: setFilesOrder
       requestBody:
         content:
           application/json:
@@ -1232,7 +1229,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5614
+          example: 9144
       responses:
         200:
           description: File security information
@@ -1266,7 +1263,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7205
+          example: 6724
       requestBody:
         description: External link parameters
         content:
@@ -1313,7 +1310,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3292
+          example: 5001
       requestBody:
         description: Parameters for saving file as pdf
         content:
@@ -1492,7 +1489,7 @@ paths:
             text/json:
               schema: {}
       description: Creates thumbnails for the files with the IDs specified in the request.
-  /api/2.0/files/masterform/{fileid}/checkfillformdraft:
+  /api/2.0/files/masterform/{fileId}/checkfillformdraft:
     post:
       tags:
       - Files / Files
@@ -1506,7 +1503,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7801
+          example: 3305
       requestBody:
         description: File
         content:
@@ -1661,7 +1658,7 @@ paths:
         - read
         - write
       description: Removes files with the IDs specified in the request from the "Recent" section.
-  /api/2.0/files/file/{fileid}/edit_session:
+  /api/2.0/files/file/{fileId}/edit_session:
     post:
       tags:
       - Files / Files
@@ -1675,7 +1672,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6249
+          example: 5478
       - name: fileSize
         in: query
         description: File size in bytes
@@ -1702,12 +1699,12 @@ paths:
         - read
         - write
       description: Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
-  /api/2.0/files/folder/{folderid}/log:
+  /api/2.0/files/folder/{folderId}/log:
     get:
       tags:
       - Files / Folders
       summary: Get folder history
-      operationId: getHistory
+      operationId: getFolderHistory
       parameters:
       - name: folderId
         in: path
@@ -1716,7 +1713,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 717
+          example: 6920
       - name: fromDate
         in: query
         description: Start date
@@ -1751,7 +1748,7 @@ paths:
         - read
         - write
       description: Get the activity history of a folder with a specified identifier
-  /api/2.0/files/folder/{folderid}:
+  /api/2.0/files/folder/{folderId}:
     post:
       tags:
       - Files / Folders
@@ -1765,7 +1762,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5710
+          example: 1666
       requestBody:
         description: Folder
         content:
@@ -1811,7 +1808,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7269
+          example: 7651
       requestBody:
         description: Parameters for deleting a folder
         content:
@@ -1857,7 +1854,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8545
+          example: 8173
       responses:
         200:
           description: Folder parameters
@@ -1885,7 +1882,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5325
+          example: 8120
       requestBody:
         description: Folder
         content:
@@ -1920,7 +1917,7 @@ paths:
         - read
         - write
       description: Renames the selected folder with a new title specified in the request.
-  /api/2.0/files/folder/{folderid}/order:
+  /api/2.0/files/folder/{folderId}/order:
     put:
       tags:
       - Files / Folders
@@ -1934,7 +1931,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7861
+          example: 4316
       requestBody:
         description: Order
         content:
@@ -1957,7 +1954,7 @@ paths:
         - read
         - write
       description: Sets file order in the folder with ID specified in the request
-  /api/2.0/files/{folderid}:
+  /api/2.0/files/{folderId}:
     get:
       tags:
       - Files / Folders
@@ -1971,7 +1968,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 1957
+          example: 5848
       - name: userIdOrGroupId
         in: query
         description: User or group ID
@@ -1990,7 +1987,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 929
+          example: 6857
       - name: searchInContent
         in: query
         description: Specifies whether to search within the section contents or not
@@ -2043,7 +2040,7 @@ paths:
         404:
           description: The required folder was not found
       description: Returns the detailed list of files and folders located in the folder with the ID specified in the request.
-  /api/2.0/files/folder/{folderid}/path:
+  /api/2.0/files/folder/{folderId}/path:
     get:
       tags:
       - Files / Folders
@@ -2057,7 +2054,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9221
+          example: 2769
       responses:
         200:
           description: List of file entry information
@@ -2080,7 +2077,7 @@ paths:
         - read
         - write
       description: Returns a path to the folder with the ID specified in the request.
-  /api/2.0/files/{folderid}/subfolders:
+  /api/2.0/files/{folderId}/subfolders:
     get:
       tags:
       - Files / Folders
@@ -2094,7 +2091,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7929
+          example: 1469
       responses:
         200:
           description: List of file entry information
@@ -2117,7 +2114,7 @@ paths:
         - read
         - write
       description: Returns a list of all the subfolders from a folder with the ID specified in the request.
-  /api/2.0/files/{folderid}/news:
+  /api/2.0/files/{folderId}/news:
     get:
       tags:
       - Files / Folders
@@ -2131,7 +2128,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2327
+          example: 9360
       responses:
         200:
           description: List of file entry information
@@ -2194,7 +2191,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6709
+          example: 4755
       responses:
         200:
           description: Folder security information
@@ -2447,7 +2444,7 @@ paths:
         - read
         - write
       description: Returns the detailed list of files and folders located in the "Trash" section.
-  /api/2.0/files/{folderid}/upload/check:
+  /api/2.0/files/{folderId}/upload/check:
     post:
       tags:
       - Files / Folders
@@ -2461,7 +2458,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2103
+          example: 765
       requestBody:
         description: Parameters for checking files uploading
         content:
@@ -2500,7 +2497,7 @@ paths:
         - read
         - write
       description: Checks upload
-  /api/2.0/files/{folderid}/insert:
+  /api/2.0/files/{folderId}/insert:
     post:
       tags:
       - Files / Folders
@@ -2514,7 +2511,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4370
+          example: 2257
       requestBody:
         content:
           multipart/form-data:
@@ -2528,7 +2525,7 @@ paths:
                 InsertFile.Title:
                   type: string
                   description: File name
-                  example: bedfordshire
+                  example: health_&_industrial
                 InsertFile.CreateNewIfExist:
                   type: boolean
                   description: Specifies whether to create a new file if it already exists or not
@@ -2614,7 +2611,7 @@ paths:
         - read
         - write
       description: Inserts a file specified in the request to the selected folder by single file uploading.
-  /api/2.0/files/{folderid}/upload:
+  /api/2.0/files/{folderId}/upload:
     post:
       tags:
       - Files / Folders
@@ -2638,7 +2635,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8124
+          example: 338
       requestBody:
         description: Upload data
         content:
@@ -2690,7 +2687,7 @@ paths:
                 Title:
                   type: string
                   description: File name
-                  example: corporate_manager_berkshire
+                  example: outdoors_licensed_metal_shoes_legacy
                 CreateNewIfExist:
                   type: boolean
                   description: Specifies whether to create a new file if it already exists or not
@@ -2818,7 +2815,7 @@ paths:
       - asc_auth_key:
         - read
         - write
-  /api/2.0/files/file/{fileid}/checkconversion:
+  /api/2.0/files/file/{fileId}/checkconversion:
     get:
       tags:
       - Files / Operations
@@ -2832,7 +2829,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 5272
+          example: 8048
       - name: start
         in: query
         description: Specifies if a conversion operation is started or not
@@ -2872,7 +2869,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9878
+          example: 3249
       requestBody:
         description: Check conversion
         content:
@@ -2905,7 +2902,7 @@ paths:
         - read
         - write
       description: Starts a conversion operation of a file with the ID specified in the request.
-  /api/2.0/files/file/{fileid}/comment:
+  /api/2.0/files/file/{fileId}/comment:
     put:
       tags:
       - Files / Operations
@@ -2919,7 +2916,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 9582
+          example: 6636
       requestBody:
         description: Parameters for updating a comment
         content:
@@ -3301,7 +3298,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 1457
+          example: 4389
       responses:
         200:
           description: List of file operations
@@ -3316,7 +3313,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.FileOperationDto'
       description: Finishes an operation with the ID specified in the request or all the active operations.
-  /api/2.0/files/{folderid}/upload/create_session:
+  /api/2.0/files/{folderId}/upload/create_session:
     post:
       tags:
       - Files / Operations
@@ -3341,7 +3338,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8694
+          example: 6605
       requestBody:
         description: Session
         content:
@@ -3594,7 +3591,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7271
+          example: 4168
       responses:
         200:
           description: Room information
@@ -3622,7 +3619,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6710
+          example: 3839
       requestBody:
         description: Update room
         content:
@@ -3668,7 +3665,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8720
+          example: 4685
       requestBody:
         description: Parameters for deleting a room
         content:
@@ -3715,7 +3712,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 798
+          example: 991
       requestBody:
         description: Parameters for archiving a room
         content:
@@ -3762,7 +3759,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2636
+          example: 2167
       requestBody:
         description: Parameters for archiving a room
         content:
@@ -3809,7 +3806,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4662
+          example: 9880
       requestBody:
         description: Room invitation
         content:
@@ -3855,7 +3852,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 389
+          example: 167
       - name: filterType
         in: query
         description: Share filter type
@@ -3895,7 +3892,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3794
+          example: 3770
       requestBody:
         description: Room link
         content:
@@ -3941,7 +3938,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4160
+          example: 8295
       - name: type
         in: query
         description: Link type
@@ -3981,7 +3978,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 896
+          example: 8447
       responses:
         200:
           description: Room security information
@@ -4018,7 +4015,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4793
+          example: 3226
       requestBody:
         description: Batch tags
         content:
@@ -4066,7 +4063,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2670
+          example: 9514
       requestBody:
         description: Batch tags
         content:
@@ -4115,7 +4112,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6695
+          example: 1186
       requestBody:
         description: Logo
         content:
@@ -4163,7 +4160,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 8998
+          example: 5012
       responses:
         200:
           description: Room information
@@ -4198,7 +4195,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7147
+          example: 9789
       requestBody:
         description: Parameters to change the room cover
         content:
@@ -4281,7 +4278,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 4621
+          example: 191
       responses:
         200:
           description: Room information
@@ -4316,7 +4313,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 7869
+          example: 305
       responses:
         200:
           description: Room information
@@ -4351,7 +4348,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 2076
+          example: 768
       requestBody:
         description: User invitation
         content:
@@ -4388,7 +4385,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 6038
+          example: 1332
       responses:
         200:
           description: Room information
@@ -4414,7 +4411,7 @@ paths:
       tags:
       - Files / Rooms
       summary: Get new room items
-      operationId: getNewItems
+      operationId: getNewRoomItems
       parameters:
       - name: id
         in: path
@@ -4423,7 +4420,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 3835
+          example: 3089
       responses:
         200:
           description: List of file entry information
@@ -4463,7 +4460,7 @@ paths:
         required: true
         schema:
           type: string
-          example: 2583
+          example: 7080
       requestBody:
         description: ThirdParty room
         content:
@@ -4638,7 +4635,7 @@ paths:
         schema:
           type: integer
           format: int32
-          example: 958
+          example: 6715
       responses:
         200:
           description: Ok
@@ -5583,7 +5580,7 @@ paths:
       - asc_auth_key:
         - read
         - write
-  /api/2.0/files/thirdparty/{providerid}:
+  /api/2.0/files/thirdparty/{providerId}:
     delete:
       tags:
       - Files / Third-party integration
@@ -5766,7 +5763,7 @@ components:
           type: string
           description: ID
           format: uuid
-          example: a8309093-ef13-420a-b3e3-4ec5a7efe131
+          example: 96a594d3-f0f9-4fe3-9986-4a5c88b20fda
         appName:
           type: string
           description: Product class name
@@ -5776,7 +5773,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: designer_tennessee
+          example: wyoming
         link:
           type: string
           description: Start link
@@ -5902,17 +5899,17 @@ components:
           type: string
           description: ID
           format: uuid
-          example: 7395fd37-58c3-40d2-8e66-50443741c1e1
+          example: ec2e248c-b5c8-45f8-85df-b80b91d18c98
         firstName:
           type: string
           description: First name
           nullable: true
-          example: Pauline
+          example: Ellis
         lastName:
           type: string
           description: Last name
           nullable: true
-          example: Schneider
+          example: Bashirian
         userName:
           type: string
           description: Username
@@ -5943,7 +5940,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: fresh_total
+          example: books__outdoors_&_clothing_back_up_persevering
         workFromDate:
           type: string
           description: Registration date
@@ -5955,7 +5952,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Callie.Mraz@hotmail.com
+          example: Cydney.Mitchell@gmail.com
         contacts:
           type: string
           description: List of contacts in the string format
@@ -5973,7 +5970,7 @@ components:
           type: string
           description: Location
           nullable: true
-          example: 46611 Maeve Drives, Port Fausto, Costa Rica
+          example: 54141 Baumbach Fields, Marysechester, Macao
         notes:
           type: string
           description: Notes
@@ -6099,7 +6096,7 @@ components:
           description: User email address
           format: email
           nullable: true
-          example: Marc.Gleason98@gmail.com
+          example: Alvena30@gmail.com
         access:
           $ref: '#/components/schemas/ASC.Files.Core.Security.FileShare'
       additionalProperties: false
@@ -6224,7 +6221,7 @@ components:
           type: integer
           description: File ID
           format: int32
-          example: 6716
+          example: 666
         sync:
           type: boolean
           description: Specifies if the conversion process is synchronous or not
@@ -6242,7 +6239,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: q4itg8roxp
+          example: 7Fx9lyUani
         outputType:
           type: string
           description: Output type
@@ -6335,7 +6332,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: O0eWZ51LY7
+          example: KwVLHiGFEi
         toForm:
           type: boolean
           description: Convert to form
@@ -6366,7 +6363,7 @@ components:
           type: string
           description: File title
           nullable: true
-          example: incentivize_fantastic_rubber_shirt
+          example: intuitive
         templateId:
           oneOf:
           - type: integer
@@ -6394,7 +6391,7 @@ components:
           type: string
           description: Folder title
           nullable: true
-          example: rustic_connecting_workforce
+          example: sas_virtual
       additionalProperties: false
       description: 'Parameters for creating a folder: Title (string) - new folder title'
     ASC.Files.Core.ApiModels.RequestDto.CreateRoomRequestDto:
@@ -6406,7 +6403,7 @@ components:
           type: string
           description: Room name
           nullable: true
-          example: compelling
+          example: copying_forges
         quota:
           type: integer
           description: Room quota
@@ -6474,7 +6471,7 @@ components:
           type: string
           description: Tag name
           nullable: true
-          example: Lurline Watsica
+          example: Mireya Ryan
       additionalProperties: false
       description: Request parameters for creating a tag
     ASC.Files.Core.ApiModels.RequestDto.CreateTextOrHtmlFile:
@@ -6487,7 +6484,7 @@ components:
           minLength: 0
           type: string
           description: File title
-          example: synergized_maine
+          example: bedfordshire
         content:
           type: string
           description: File contents
@@ -6510,7 +6507,7 @@ components:
           type: string
           description: Room name
           nullable: true
-          example: withdrawal_awesome
+          example: practical_fresh_computer_solutions_cotton
         roomType:
           $ref: '#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.RoomType'
         private:
@@ -6671,7 +6668,7 @@ components:
         password:
           type: string
           nullable: true
-          example: zvrF1uGutN
+          example: hzMdL4ANaf
       additionalProperties: false
     ASC.Files.Core.ApiModels.RequestDto.DuplicateRequestDto:
       type: object
@@ -6731,7 +6728,7 @@ components:
           type: string
           description: The unique system identifier
           nullable: true
-          example: 5882
+          example: 787
         sourceFileId:
           type: integer
           description: Source file ID
@@ -6834,12 +6831,12 @@ components:
           description: Email address
           format: email
           nullable: true
-          example: Lucious_Jerde25@yahoo.com
+          example: Paolo14@yahoo.com
         id:
           type: string
           description: ID of the user with whom we want to share a room
           format: uuid
-          example: 5a2f0aea-85e3-429c-b07e-dc8fc8b90e0f
+          example: 8bff99bd-c46e-4dc8-8ec0-dd7fe29a8a41
         access:
           $ref: '#/components/schemas/ASC.Files.Core.Security.FileShare'
       additionalProperties: false
@@ -6886,7 +6883,7 @@ components:
           type: string
           description: Link name
           nullable: true
-          example: solutions_full_range_reboot
+          example: extend_principal_south_dakota
         linkType:
           $ref: '#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.LinkType'
         password:
@@ -6895,7 +6892,7 @@ components:
           type: string
           description: Link password
           nullable: true
-          example: 4yminGpWQi
+          example: 6bUK7ZDlF1
         denyDownload:
           type: boolean
           description: Specifies whether downloading a file from a link is disabled or not
@@ -6929,12 +6926,12 @@ components:
           type: integer
           description: Folder ID
           format: int32
-          example: 4106
+          example: 2279
         title:
           type: string
           description: File title
           nullable: true
-          example: liaison_som
+          example: optical_bypassing
       additionalProperties: false
       description: Parameters for saving file as pdf
     ASC.Files.Core.ApiModels.RequestDto.SessionRequest:
@@ -7016,7 +7013,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: TFtlFnDhSd
+          example: PgYqdBzYxl
         token:
           type: string
           description: Authentication token
@@ -7051,7 +7048,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: ke73PySuOO
+          example: PunhsItL9m
         token:
           type: string
           description: Authentication token
@@ -7097,7 +7094,7 @@ components:
           type: string
           description: File title
           nullable: true
-          example: designer_neural
+          example: ib_iran_mobile
         lastVersion:
           type: integer
           description: Number of the latest file version
@@ -7114,7 +7111,7 @@ components:
           type: string
           description: Room name
           nullable: true
-          example: reintermediate_parsing
+          example: savings_account
         quota:
           type: integer
           description: Room quota
@@ -7388,7 +7385,7 @@ components:
           type: string
           description: Operation ID
           nullable: true
-          example: 7817
+          example: 6564
         Operation:
           $ref: '#/components/schemas/ASC.Web.Files.Services.WCFService.FileOperations.FileOperationType'
         progress:
@@ -7426,7 +7423,7 @@ components:
         id:
           type: string
           nullable: true
-          example: 4636
+          example: 389
         data:
           type: string
           nullable: true
@@ -7459,7 +7456,7 @@ components:
           type: string
           description: Name
           nullable: true
-          example: Eileen Mraz
+          example: Milo Heller
         www:
           type: string
           description: Site
@@ -7549,7 +7546,7 @@ components:
           type: string
           description: Id
           nullable: true
-          example: 7973
+          example: 357
         error:
           type: string
           description: Error
@@ -7621,7 +7618,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: analyst_bedfordshire
+          example: override_inverse_knolls
         url:
           type: string
           description: Url
@@ -7638,7 +7635,7 @@ components:
           type: integer
           description: InProcess folder ID
           format: int32
-          example: 7048
+          example: 2677
         folderTitle:
           type: string
           description: InProcess folder title
@@ -7648,7 +7645,7 @@ components:
           type: integer
           description: Draft ID
           format: int32
-          example: 5091
+          example: 189
         fileTitle:
           type: string
           description: Draft title
@@ -7923,7 +7920,7 @@ components:
           type: integer
           description: Folder ID
           format: int32
-          example: 7402
+          example: 8511
         version:
           type: integer
           description: Version
@@ -8131,7 +8128,7 @@ components:
           type: string
           description: Operation ID
           nullable: true
-          example: 6501
+          example: 1070
         Operation:
           $ref: '#/components/schemas/ASC.Web.Files.Services.WCFService.FileOperations.FileOperationType'
         progress:
@@ -8588,7 +8585,7 @@ components:
           type: string
           description: Folder title
           nullable: true
-          example: central_berkshire
+          example: bedfordshire_deposit
         usedSpace:
           type: integer
           description: Used space
@@ -8625,7 +8622,7 @@ components:
           type: integer
           description: Room Id
           format: int32
-          example: 8394
+          example: 3942
         isRoomMember:
           type: boolean
           description: Is room member
@@ -9330,7 +9327,7 @@ components:
           type: string
           description: Provider name
           nullable: true
-          example: Cristopher Stanton
+          example: Roxane Schmitt
         key:
           type: string
           description: Provider key
@@ -9479,7 +9476,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: nUCyZvwncF
+          example: f3MYaqou_4
         rawToken:
           type: string
           description: Raw token
@@ -9603,12 +9600,12 @@ components:
           type: string
           description: Id
           nullable: true
-          example: 724
+          example: 5859
         name:
           type: string
           description: Name
           nullable: true
-          example: Joseph Hammes
+          example: Isaias Kris
       additionalProperties: false
     ASC.Files.Core.EditHistoryDataDto:
       type: object
@@ -10035,7 +10032,7 @@ components:
         id:
           type: string
           nullable: true
-          example: 355
+          example: 9735
         data:
           type: string
           nullable: true
@@ -11096,7 +11093,7 @@ components:
           type: string
           description: Instance ID
           nullable: true
-          example: 386
+          example: 4255
       additionalProperties: false
     ASC.Web.Files.Services.DocumentService.GobackConfig:
       type: object
@@ -11202,7 +11199,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: unbranded_cedi_niches
+          example: rustic_frozen_pizza_local_robust
         url:
           type: string
           description: Url
@@ -11242,7 +11239,7 @@ components:
           type: string
           description: Title
           nullable: true
-          example: licensed_optimize
+          example: virtual
         url:
           type: string
           description: Url
@@ -11257,12 +11254,12 @@ components:
           type: string
           description: Id
           nullable: true
-          example: 5472
+          example: 3616
         name:
           type: string
           description: Name
           nullable: true
-          example: Marcelle Cremin
+          example: Maeve Beer
         image:
           type: string
           description: Image
@@ -11379,13 +11376,13 @@ components:
           format: email
           nullable: true
           readOnly: true
-          example: Jarred.Bahringer@yahoo.com
+          example: Krista.Fritsch@hotmail.com
         id:
           type: string
           description: User ID
           nullable: true
           readOnly: true
-          example: 9632
+          example: 6811
         image:
           type: string
           description: User image
@@ -11402,7 +11399,7 @@ components:
           description: User display name
           nullable: true
           readOnly: true
-          example: Angeline Denesik
+          example: Gustave Schulist
       additionalProperties: false
     ASC.Web.Files.Services.WCFService.ThirdPartyParams:
       type: object
@@ -11521,7 +11518,7 @@ components:
         name:
           type: string
           nullable: true
-          example: Devon Cummerata
+          example: Loma Harber
         parameters:
           type: array
           items: {}

@@ -4,14 +4,8 @@
     "title": "ASC.Files",
     "version": "v2"
   },
-  "servers": [
-    {
-      "url": "http://localhost:8092",
-      "description": "Local server"
-    }
-  ],
   "paths": {
-    "/api/2.0/files/file/{fileid}/saveediting": {
+    "/api/2.0/files/file/{fileId}/saveediting": {
       "put": {
         "tags": [
           "Files / Files"
@@ -27,7 +21,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9057
+              "example": 1776
             }
           }
         ],
@@ -118,7 +112,7 @@
         "description": "Saves edits to a file with the ID specified in the request."
       }
     },
-    "/api/2.0/files/file/{fileid}/startedit": {
+    "/api/2.0/files/file/{fileId}/startedit": {
       "post": {
         "tags": [
           "Files / Files"
@@ -134,7 +128,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9768
+              "example": 2247
             }
           }
         ],
@@ -180,7 +174,7 @@
         "description": "Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors)."
       }
     },
-    "/api/2.0/files/file/{fileid}/startfilling": {
+    "/api/2.0/files/file/{fileId}/startfilling": {
       "put": {
         "tags": [
           "Files / Files"
@@ -196,7 +190,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7184
+              "example": 2297
             }
           }
         ],
@@ -222,7 +216,7 @@
         "description": "Starts filling a file with the ID specified in the request."
       }
     },
-    "/api/2.0/files/file/{fileid}/trackeditfile": {
+    "/api/2.0/files/file/{fileId}/trackeditfile": {
       "get": {
         "tags": [
           "Files / Files"
@@ -238,7 +232,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1695
+              "example": 1150
             }
           },
           {
@@ -298,7 +292,7 @@
         "description": "Tracks file changes when editing."
       }
     },
-    "/api/2.0/files/file/{fileid}/openedit": {
+    "/api/2.0/files/file/{fileId}/openedit": {
       "get": {
         "tags": [
           "Files / Files"
@@ -314,7 +308,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6898
+              "example": 6846
             }
           },
           {
@@ -391,7 +385,7 @@
         "description": "Returns the initialization configuration of a file to open it in the editor."
       }
     },
-    "/api/2.0/files/file/{fileid}/presigned": {
+    "/api/2.0/files/file/{fileId}/presigned": {
       "get": {
         "tags": [
           "Files / Files"
@@ -407,7 +401,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 633
+              "example": 2085
             }
           }
         ],
@@ -509,7 +503,7 @@
         "description": "Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link."
       }
     },
-    "/api/2.0/files/file/{fileid}/protectusers": {
+    "/api/2.0/files/file/{fileId}/protectusers": {
       "get": {
         "tags": [
           "Files / Files"
@@ -525,7 +519,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6133
+              "example": 8819
             }
           }
         ],
@@ -574,13 +568,13 @@
         "description": "Returns a list of users with their access rights to the protected file with the ID specified in the request."
       }
     },
-    "/api/2.0/files/file/{fileid}/log": {
+    "/api/2.0/files/file/{fileId}/log": {
       "get": {
         "tags": [
           "Files / Files"
         ],
         "summary": "Get file history",
-        "operationId": "getHistory",
+        "operationId": "getFileHistory",
         "parameters": [
           {
             "name": "fileId",
@@ -590,7 +584,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 5106
+              "example": 603
             }
           },
           {
@@ -652,7 +646,7 @@
         "description": "Get the list of actions performed on the file with the specified identifier"
       }
     },
-    "/api/2.0/files/file/{fileid}/history": {
+    "/api/2.0/files/file/{fileId}/history": {
       "put": {
         "tags": [
           "Files / Files"
@@ -668,7 +662,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1905
+              "example": 7971
             }
           }
         ],
@@ -745,7 +739,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6953
+              "example": 6736
             }
           }
         ],
@@ -774,7 +768,7 @@
         "description": "Returns the detailed information about all the available file versions with the ID specified in the request."
       }
     },
-    "/api/2.0/files/file/{fileid}/presigneduri": {
+    "/api/2.0/files/file/{fileId}/presigneduri": {
       "get": {
         "tags": [
           "Files / Files"
@@ -790,7 +784,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9299
+              "example": 8260
             }
           }
         ],
@@ -830,7 +824,7 @@
         "description": "Returns a link to download a file with the ID specified in the request."
       }
     },
-    "/api/2.0/files/file/{fileid}/isformpdf": {
+    "/api/2.0/files/file/{fileId}/isformpdf": {
       "get": {
         "tags": [
           "Files / Files"
@@ -846,7 +840,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 5993
+              "example": 1300
             }
           }
         ],
@@ -886,7 +880,7 @@
         "description": "Checks if the PDF file is form or not."
       }
     },
-    "/api/2.0/files/file/{fileid}/copyas": {
+    "/api/2.0/files/file/{fileId}/copyas": {
       "post": {
         "tags": [
           "Files / Files"
@@ -902,7 +896,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1218
+              "example": 9462
             }
           }
         ],
@@ -971,7 +965,7 @@
         "description": "Copies (and converts if possible) an existing file to the specified folder."
       }
     },
-    "/api/2.0/files/{folderid}/file": {
+    "/api/2.0/files/{folderId}/file": {
       "post": {
         "tags": [
           "Files / Files"
@@ -988,7 +982,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4454
+              "example": 4200
             }
           }
         ],
@@ -1047,7 +1041,7 @@
         ]
       }
     },
-    "/api/2.0/files/{folderid}/html": {
+    "/api/2.0/files/{folderId}/html": {
       "post": {
         "tags": [
           "Files / Files"
@@ -1063,7 +1057,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 5413
+              "example": 537
             }
           }
         ],
@@ -1126,7 +1120,7 @@
         "description": "Creates an HTML (.html) file in the selected folder with the title and contents specified in the request."
       }
     },
-    "/api/2.0/files/{folderid}/text": {
+    "/api/2.0/files/{folderId}/text": {
       "post": {
         "tags": [
           "Files / Files"
@@ -1142,7 +1136,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 330
+              "example": 7300
             }
           }
         ],
@@ -1202,7 +1196,7 @@
         "description": "Creates a text (.txt) file in the selected folder with the title and contents specified in the request."
       }
     },
-    "/api/2.0/files/file/{fileid}": {
+    "/api/2.0/files/file/{fileId}": {
       "delete": {
         "tags": [
           "Files / Files"
@@ -1218,7 +1212,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4013
+              "example": 3744
             }
           }
         ],
@@ -1292,7 +1286,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 483
+              "example": 6348
             }
           },
           {
@@ -1345,7 +1339,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2869
+              "example": 7958
             }
           }
         ],
@@ -1440,7 +1434,7 @@
         "description": "Gets fill result"
       }
     },
-    "/api/2.0/files/file/{fileid}/edit/diff": {
+    "/api/2.0/files/file/{fileId}/edit/diff": {
       "get": {
         "tags": [
           "Files / Files"
@@ -1456,7 +1450,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4583
+              "example": 8580
             }
           },
           {
@@ -1495,7 +1489,7 @@
         "description": "Returns a URL to the changes of a file version specified in the request."
       }
     },
-    "/api/2.0/files/file/{fileid}/edit/history": {
+    "/api/2.0/files/file/{fileId}/edit/history": {
       "get": {
         "tags": [
           "Files / Files"
@@ -1511,7 +1505,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9806
+              "example": 5823
             }
           }
         ],
@@ -1540,7 +1534,7 @@
         "description": "Returns the version history of a file with the ID specified in the request."
       }
     },
-    "/api/2.0/files/file/{fileid}/lock": {
+    "/api/2.0/files/file/{fileId}/lock": {
       "put": {
         "tags": [
           "Files / Files"
@@ -1556,7 +1550,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2275
+              "example": 9408
             }
           }
         ],
@@ -1616,7 +1610,7 @@
         "description": "Locks a file with the ID specified in the request."
       }
     },
-    "/api/2.0/files/file/{fileid}/restoreversion": {
+    "/api/2.0/files/file/{fileId}/restoreversion": {
       "get": {
         "tags": [
           "Files / Files"
@@ -1632,7 +1626,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7080
+              "example": 670
             }
           },
           {
@@ -1702,7 +1696,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4804
+              "example": 4220
             }
           }
         ],
@@ -1779,7 +1773,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6547
+              "example": 9810
             }
           }
         ],
@@ -1811,7 +1805,7 @@
         "description": "Returns the primary external link by the identifier specified in the request."
       }
     },
-    "/api/2.0/files/{fileid}/order": {
+    "/api/2.0/files/{fileId}/order": {
       "put": {
         "tags": [
           "Files / Files"
@@ -1827,7 +1821,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1732
+              "example": 7677
             }
           }
         ],
@@ -1882,7 +1876,7 @@
           "Files / Files"
         ],
         "summary": "Sets order",
-        "operationId": "setOrder",
+        "operationId": "setFilesOrder",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1937,7 +1931,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2178
+              "example": 5108
             }
           }
         ],
@@ -1991,7 +1985,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 73
+              "example": 4832
             }
           }
         ],
@@ -2067,7 +2061,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7725
+              "example": 8454
             }
           }
         ],
@@ -2364,7 +2358,7 @@
         "description": "Creates thumbnails for the files with the IDs specified in the request."
       }
     },
-    "/api/2.0/files/masterform/{fileid}/checkfillformdraft": {
+    "/api/2.0/files/masterform/{fileId}/checkfillformdraft": {
       "post": {
         "tags": [
           "Files / Files"
@@ -2380,7 +2374,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9290
+              "example": 8687
             }
           }
         ],
@@ -2635,7 +2629,7 @@
         "description": "Removes files with the IDs specified in the request from the \"Recent\" section."
       }
     },
-    "/api/2.0/files/file/{fileid}/edit_session": {
+    "/api/2.0/files/file/{fileId}/edit_session": {
       "post": {
         "tags": [
           "Files / Files"
@@ -2651,7 +2645,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1358
+              "example": 5111
             }
           },
           {
@@ -2698,13 +2692,13 @@
         "description": "Creates a session to edit the existing file with multiple chunks (needed for WebDAV)."
       }
     },
-    "/api/2.0/files/folder/{folderid}/log": {
+    "/api/2.0/files/folder/{folderId}/log": {
       "get": {
         "tags": [
           "Files / Folders"
         ],
         "summary": "Get folder history",
-        "operationId": "getHistory",
+        "operationId": "getFolderHistory",
         "parameters": [
           {
             "name": "folderId",
@@ -2714,7 +2708,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9325
+              "example": 3572
             }
           },
           {
@@ -2776,7 +2770,7 @@
         "description": "Get the activity history of a folder with a specified identifier"
       }
     },
-    "/api/2.0/files/folder/{folderid}": {
+    "/api/2.0/files/folder/{folderId}": {
       "post": {
         "tags": [
           "Files / Folders"
@@ -2792,7 +2786,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6917
+              "example": 542
             }
           }
         ],
@@ -2866,7 +2860,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2180
+              "example": 4902
             }
           }
         ],
@@ -2940,7 +2934,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7765
+              "example": 9330
             }
           }
         ],
@@ -2983,7 +2977,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 282
+              "example": 4753
             }
           }
         ],
@@ -3046,7 +3040,7 @@
         "description": "Renames the selected folder with a new title specified in the request."
       }
     },
-    "/api/2.0/files/folder/{folderid}/order": {
+    "/api/2.0/files/folder/{folderId}/order": {
       "put": {
         "tags": [
           "Files / Folders"
@@ -3062,7 +3056,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1533
+              "example": 5227
             }
           }
         ],
@@ -3105,7 +3099,7 @@
         "description": "Sets file order in the folder with ID specified in the request"
       }
     },
-    "/api/2.0/files/{folderid}": {
+    "/api/2.0/files/{folderId}": {
       "get": {
         "tags": [
           "Files / Folders"
@@ -3121,7 +3115,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2644
+              "example": 6489
             }
           },
           {
@@ -3149,7 +3143,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3137
+              "example": 6439
             }
           },
           {
@@ -3236,7 +3230,7 @@
         "description": "Returns the detailed list of files and folders located in the folder with the ID specified in the request."
       }
     },
-    "/api/2.0/files/folder/{folderid}/path": {
+    "/api/2.0/files/folder/{folderId}/path": {
       "get": {
         "tags": [
           "Files / Folders"
@@ -3252,7 +3246,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2812
+              "example": 5940
             }
           }
         ],
@@ -3295,7 +3289,7 @@
         "description": "Returns a path to the folder with the ID specified in the request."
       }
     },
-    "/api/2.0/files/{folderid}/subfolders": {
+    "/api/2.0/files/{folderId}/subfolders": {
       "get": {
         "tags": [
           "Files / Folders"
@@ -3311,7 +3305,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2845
+              "example": 3262
             }
           }
         ],
@@ -3354,7 +3348,7 @@
         "description": "Returns a list of all the subfolders from a folder with the ID specified in the request."
       }
     },
-    "/api/2.0/files/{folderid}/news": {
+    "/api/2.0/files/{folderId}/news": {
       "get": {
         "tags": [
           "Files / Folders"
@@ -3370,7 +3364,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1491
+              "example": 3612
             }
           }
         ],
@@ -3472,7 +3466,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1789
+              "example": 2789
             }
           }
         ],
@@ -3877,7 +3871,7 @@
         "description": "Returns the detailed list of files and folders located in the \"Trash\" section."
       }
     },
-    "/api/2.0/files/{folderid}/upload/check": {
+    "/api/2.0/files/{folderId}/upload/check": {
       "post": {
         "tags": [
           "Files / Folders"
@@ -3893,7 +3887,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8755
+              "example": 4576
             }
           }
         ],
@@ -3962,7 +3956,7 @@
         "description": "Checks upload"
       }
     },
-    "/api/2.0/files/{folderid}/insert": {
+    "/api/2.0/files/{folderId}/insert": {
       "post": {
         "tags": [
           "Files / Folders"
@@ -3978,7 +3972,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 616
+              "example": 3098
             }
           }
         ],
@@ -3996,7 +3990,7 @@
                   "InsertFile.Title": {
                     "type": "string",
                     "description": "File name",
-                    "example": "transmitting"
+                    "example": "refined_concrete_table_technologies"
                   },
                   "InsertFile.CreateNewIfExist": {
                     "type": "boolean",
@@ -4129,7 +4123,7 @@
         "description": "Inserts a file specified in the request to the selected folder by single file uploading."
       }
     },
-    "/api/2.0/files/{folderid}/upload": {
+    "/api/2.0/files/{folderId}/upload": {
       "post": {
         "tags": [
           "Files / Folders"
@@ -4146,7 +4140,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7887
+              "example": 9952
             }
           }
         ],
@@ -4226,7 +4220,7 @@
                   "Title": {
                     "type": "string",
                     "description": "File name",
-                    "example": "refined_metal_bacon_ram_specialist"
+                    "example": "pine_hacking"
                   },
                   "CreateNewIfExist": {
                     "type": "boolean",
@@ -4412,7 +4406,7 @@
         ]
       }
     },
-    "/api/2.0/files/file/{fileid}/checkconversion": {
+    "/api/2.0/files/file/{fileId}/checkconversion": {
       "get": {
         "tags": [
           "Files / Operations"
@@ -4428,7 +4422,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 5580
+              "example": 1580
             }
           },
           {
@@ -4491,7 +4485,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2265
+              "example": 2106
             }
           }
         ],
@@ -4551,7 +4545,7 @@
         "description": "Starts a conversion operation of a file with the ID specified in the request."
       }
     },
-    "/api/2.0/files/file/{fileid}/comment": {
+    "/api/2.0/files/file/{fileId}/comment": {
       "put": {
         "tags": [
           "Files / Operations"
@@ -4567,7 +4561,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7895
+              "example": 8121
             }
           }
         ],
@@ -5197,7 +5191,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "9250"
+              "example": "2375"
             }
           }
         ],
@@ -5226,7 +5220,7 @@
         "description": "Finishes an operation with the ID specified in the request or all the active operations."
       }
     },
-    "/api/2.0/files/{folderid}/upload/create_session": {
+    "/api/2.0/files/{folderId}/upload/create_session": {
       "post": {
         "tags": [
           "Files / Operations"
@@ -5243,7 +5237,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4708
+              "example": 9474
             }
           }
         ],
@@ -5653,7 +5647,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2843
+              "example": 7070
             }
           }
         ],
@@ -5696,7 +5690,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9479
+              "example": 411
             }
           }
         ],
@@ -5770,7 +5764,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6359
+              "example": 7246
             }
           }
         ],
@@ -5846,7 +5840,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 497
+              "example": 5107
             }
           }
         ],
@@ -5922,7 +5916,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9085
+              "example": 2816
             }
           }
         ],
@@ -5998,7 +5992,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1673
+              "example": 3968
             }
           }
         ],
@@ -6072,7 +6066,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8271
+              "example": 5709
             }
           },
           {
@@ -6136,7 +6130,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 5997
+              "example": 1235
             }
           }
         ],
@@ -6210,7 +6204,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9709
+              "example": 3546
             }
           },
           {
@@ -6274,7 +6268,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 2010
+              "example": 540
             }
           }
         ],
@@ -6333,7 +6327,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3037
+              "example": 9210
             }
           }
         ],
@@ -6410,7 +6404,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 7758
+              "example": 2627
             }
           }
         ],
@@ -6489,7 +6483,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3792
+              "example": 1767
             }
           }
         ],
@@ -6566,7 +6560,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3089
+              "example": 7799
             }
           }
         ],
@@ -6622,7 +6616,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8557
+              "example": 3737
             }
           }
         ],
@@ -6756,7 +6750,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3650
+              "example": 3608
             }
           }
         ],
@@ -6812,7 +6806,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 9774
+              "example": 199
             }
           }
         ],
@@ -6868,7 +6862,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 6319
+              "example": 7648
             }
           }
         ],
@@ -6927,7 +6921,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3963
+              "example": 8750
             }
           }
         ],
@@ -6973,7 +6967,7 @@
           "Files / Rooms"
         ],
         "summary": "Get new room items",
-        "operationId": "getNewItems",
+        "operationId": "getNewRoomItems",
         "parameters": [
           {
             "name": "id",
@@ -6983,7 +6977,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1745
+              "example": 693
             }
           }
         ],
@@ -7047,7 +7041,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "6501"
+              "example": "8711"
             }
           }
         ],
@@ -7332,7 +7326,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 4754
+              "example": 2331
             }
           }
         ],
@@ -8849,7 +8843,7 @@
         ]
       }
     },
-    "/api/2.0/files/thirdparty/{providerid}": {
+    "/api/2.0/files/thirdparty/{providerId}": {
       "delete": {
         "tags": [
           "Files / Third-party integration"
@@ -9127,7 +9121,7 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "b6e49c19-e197-4196-b90f-c00eb57c203c"
+            "example": "b2610cc9-e1bd-4cf5-94a6-452ba40fd549"
           },
           "appName": {
             "type": "string",
@@ -9139,7 +9133,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "investor_guarani_slovenia"
+            "example": "fresh_pixel_senior"
           },
           "link": {
             "type": "string",
@@ -9314,19 +9308,19 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "1ade02de-1990-41d7-a2f3-d27b27016f3d"
+            "example": "bbece6b4-3804-44af-ad55-cc45cf91fba5"
           },
           "firstName": {
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Winona"
+            "example": "Kathlyn"
           },
           "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Nader"
+            "example": "Bogisich"
           },
           "userName": {
             "type": "string",
@@ -9364,7 +9358,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "tcp"
+            "example": "seamless"
           },
           "workFromDate": {
             "type": "string",
@@ -9378,7 +9372,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Lila.Reichert72@yahoo.com"
+            "example": "Marvin.Tremblay26@yahoo.com"
           },
           "contacts": {
             "type": "string",
@@ -9401,7 +9395,7 @@
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "96784 Doyle Courts, Giovannimouth, Grenada"
+            "example": "602 Dora Pines, Port Jaquelineborough, Palestinian Territory"
           },
           "notes": {
             "type": "string",
@@ -9557,7 +9551,7 @@
             "description": "User email address",
             "format": "email",
             "nullable": true,
-            "example": "Freeda_Conn@yahoo.com"
+            "example": "Lillie_Doyle@gmail.com"
           },
           "access": {
             "$ref": "#/components/schemas/ASC.Files.Core.Security.FileShare"
@@ -9743,7 +9737,7 @@
             "type": "integer",
             "description": "File ID",
             "format": "int32",
-            "example": 8843
+            "example": 6419
           },
           "sync": {
             "type": "boolean",
@@ -9765,7 +9759,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "ocOuDpFoZp"
+            "example": "GRkGLlNrRj"
           },
           "outputType": {
             "type": "string",
@@ -9887,7 +9881,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "H9D5OJc8uO"
+            "example": "Sdemc4wa6j"
           },
           "toForm": {
             "type": "boolean",
@@ -9926,7 +9920,7 @@
             "type": "string",
             "description": "File title",
             "nullable": true,
-            "example": "invoice_latvia"
+            "example": "firewall"
           },
           "templateId": {
             "oneOf": [
@@ -9965,7 +9959,7 @@
             "type": "string",
             "description": "Folder title",
             "nullable": true,
-            "example": "borders_program_hardware"
+            "example": "solid_state_optical"
           }
         },
         "additionalProperties": false,
@@ -9980,7 +9974,7 @@
             "type": "string",
             "description": "Room name",
             "nullable": true,
-            "example": "ergonomic_concrete_mouse_ergonomic_soft_cheese_investment_account"
+            "example": "deliverables_customer"
           },
           "quota": {
             "type": "integer",
@@ -10066,7 +10060,7 @@
             "type": "string",
             "description": "Tag name",
             "nullable": true,
-            "example": "Norbert Nikolaus"
+            "example": "Amir Thiel"
           }
         },
         "additionalProperties": false,
@@ -10083,7 +10077,7 @@
             "minLength": 0,
             "type": "string",
             "description": "File title",
-            "example": "bedfordshire"
+            "example": "xss_pula_consultant"
           },
           "content": {
             "type": "string",
@@ -10112,7 +10106,7 @@
             "type": "string",
             "description": "Room name",
             "nullable": true,
-            "example": "connect"
+            "example": "array"
           },
           "roomType": {
             "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.RequestDto.RoomType"
@@ -10343,7 +10337,7 @@
           "password": {
             "type": "string",
             "nullable": true,
-            "example": "sWUQQGBTzU"
+            "example": "9bvMfbbY4A"
           }
         },
         "additionalProperties": false
@@ -10430,7 +10424,7 @@
             "type": "string",
             "description": "The unique system identifier",
             "nullable": true,
-            "example": "3536"
+            "example": "4830"
           },
           "sourceFileId": {
             "type": "integer",
@@ -10561,13 +10555,13 @@
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Chet.Heller@yahoo.com"
+            "example": "Vincenzo_Bechtelar@yahoo.com"
           },
           "id": {
             "type": "string",
             "description": "ID of the user with whom we want to share a room",
             "format": "uuid",
-            "example": "c78cc7de-d8c0-4b12-b57c-acdcc1cd4e0d"
+            "example": "ca8db51d-78f0-4ab2-9b1d-05a412e6e070"
           },
           "access": {
             "$ref": "#/components/schemas/ASC.Files.Core.Security.FileShare"
@@ -10628,7 +10622,7 @@
             "type": "string",
             "description": "Link name",
             "nullable": true,
-            "example": "integrated_avon_officer"
+            "example": "structure"
           },
           "linkType": {
             "$ref": "#/components/schemas/ASC.Files.Core.ApiModels.ResponseDto.LinkType"
@@ -10639,7 +10633,7 @@
             "type": "string",
             "description": "Link password",
             "nullable": true,
-            "example": "4ucvI6uBrq"
+            "example": "RB5latkEmj"
           },
           "denyDownload": {
             "type": "boolean",
@@ -10685,13 +10679,13 @@
             "type": "integer",
             "description": "Folder ID",
             "format": "int32",
-            "example": 2795
+            "example": 6117
           },
           "title": {
             "type": "string",
             "description": "File title",
             "nullable": true,
-            "example": "css"
+            "example": "grocery_&_home_plastic_backing_up"
           }
         },
         "additionalProperties": false,
@@ -10797,7 +10791,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "iGLcv8Rajt"
+            "example": "Ywn0Ee9alW"
           },
           "token": {
             "type": "string",
@@ -10840,7 +10834,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "IgvJ5h9E01"
+            "example": "YhNuXKXYds"
           },
           "token": {
             "type": "string",
@@ -10897,7 +10891,7 @@
             "type": "string",
             "description": "File title",
             "nullable": true,
-            "example": "wooden_web_readiness"
+            "example": "personal_loan_account_realigned_money_market_account"
           },
           "lastVersion": {
             "type": "integer",
@@ -10918,7 +10912,7 @@
             "type": "string",
             "description": "Room name",
             "nullable": true,
-            "example": "web"
+            "example": "maroon_port_intuitive"
           },
           "quota": {
             "type": "integer",
@@ -11281,7 +11275,7 @@
             "type": "string",
             "description": "Operation ID",
             "nullable": true,
-            "example": "2226"
+            "example": "1737"
           },
           "Operation": {
             "$ref": "#/components/schemas/ASC.Web.Files.Services.WCFService.FileOperations.FileOperationType"
@@ -11329,7 +11323,7 @@
           "id": {
             "type": "string",
             "nullable": true,
-            "example": "186"
+            "example": "9240"
           },
           "data": {
             "type": "string",
@@ -11370,7 +11364,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Nellie Gottlieb"
+            "example": "Mina Hintz"
           },
           "www": {
             "type": "string",
@@ -11485,7 +11479,7 @@
             "type": "string",
             "description": "Id",
             "nullable": true,
-            "example": "7081"
+            "example": "7026"
           },
           "error": {
             "type": "string",
@@ -11576,7 +11570,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "application"
+            "example": "south_carolina_incredible_metal_car_ford"
           },
           "url": {
             "type": "string",
@@ -11598,7 +11592,7 @@
             "type": "integer",
             "description": "InProcess folder ID",
             "format": "int32",
-            "example": 1438
+            "example": 7172
           },
           "folderTitle": {
             "type": "string",
@@ -11610,7 +11604,7 @@
             "type": "integer",
             "description": "Draft ID",
             "format": "int32",
-            "example": 2180
+            "example": 2033
           },
           "fileTitle": {
             "type": "string",
@@ -11981,7 +11975,7 @@
             "type": "integer",
             "description": "Folder ID",
             "format": "int32",
-            "example": 8650
+            "example": 4947
           },
           "version": {
             "type": "integer",
@@ -12255,7 +12249,7 @@
             "type": "string",
             "description": "Operation ID",
             "nullable": true,
-            "example": "7780"
+            "example": "1811"
           },
           "Operation": {
             "$ref": "#/components/schemas/ASC.Web.Files.Services.WCFService.FileOperations.FileOperationType"
@@ -12858,7 +12852,7 @@
             "type": "string",
             "description": "Folder title",
             "nullable": true,
-            "example": "unbranded_harness_feed"
+            "example": "rss_revolutionize_handmade_wooden_shirt"
           },
           "usedSpace": {
             "type": "integer",
@@ -12909,7 +12903,7 @@
             "type": "integer",
             "description": "Room Id",
             "format": "int32",
-            "example": 5943
+            "example": 4772
           },
           "isRoomMember": {
             "type": "boolean",
@@ -13848,7 +13842,7 @@
             "type": "string",
             "description": "Provider name",
             "nullable": true,
-            "example": "Mikayla Murazik"
+            "example": "Darrion Donnelly"
           },
           "key": {
             "type": "string",
@@ -14038,7 +14032,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "qwHlKK1rQu"
+            "example": "lkI7kuLt9o"
           },
           "rawToken": {
             "type": "string",
@@ -14212,13 +14206,13 @@
             "type": "string",
             "description": "Id",
             "nullable": true,
-            "example": "6223"
+            "example": "5049"
           },
           "name": {
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Kaela Gerhold"
+            "example": "Krystina Murazik"
           }
         },
         "additionalProperties": false
@@ -14753,7 +14747,7 @@
           "id": {
             "type": "string",
             "nullable": true,
-            "example": "9324"
+            "example": "4744"
           },
           "data": {
             "type": "string",
@@ -15975,7 +15969,7 @@
             "type": "string",
             "description": "Instance ID",
             "nullable": true,
-            "example": "8671"
+            "example": "9339"
           }
         },
         "additionalProperties": false
@@ -16115,7 +16109,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "grocery_hacking"
+            "example": "deposit_haptic"
           },
           "url": {
             "type": "string",
@@ -16167,7 +16161,7 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "plum_web"
+            "example": "avon_refined_plastic_bike"
           },
           "url": {
             "type": "string",
@@ -16186,13 +16180,13 @@
             "type": "string",
             "description": "Id",
             "nullable": true,
-            "example": "1518"
+            "example": "7144"
           },
           "name": {
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Wilson Okuneva"
+            "example": "Rosalia Jast"
           },
           "image": {
             "type": "string",
@@ -16347,14 +16341,14 @@
             "format": "email",
             "nullable": true,
             "readOnly": true,
-            "example": "Ila_Price64@yahoo.com"
+            "example": "Colleen5@hotmail.com"
           },
           "id": {
             "type": "string",
             "description": "User ID",
             "nullable": true,
             "readOnly": true,
-            "example": "3331"
+            "example": "5181"
           },
           "image": {
             "type": "string",
@@ -16374,7 +16368,7 @@
             "description": "User display name",
             "nullable": true,
             "readOnly": true,
-            "example": "Bonnie Watsica"
+            "example": "Karolann Heathcote"
           }
         },
         "additionalProperties": false
@@ -16530,7 +16524,7 @@
           "name": {
             "type": "string",
             "nullable": true,
-            "example": "Maverick Ratke"
+            "example": "Lowell Nolan"
           },
           "parameters": {
             "type": "array",

@@ -2,9 +2,6 @@ openapi: 3.0.1
 info:
   title: ASC.ApiSystem
   version: v2
-servers:
-- url: http://localhost:8092
-  description: Local server
 paths:
   /people/find:
     post:
@@ -138,7 +135,7 @@ paths:
           maxLength: 255
           minLength: 0
           type: string
-          example: Deion
+          example: Ursula
       - name: Email
         in: query
         description: Email
@@ -147,7 +144,7 @@ paths:
           minLength: 0
           type: string
           format: email
-          example: Tomasa.Kilback2@yahoo.com
+          example: Margarette_Larkin20@hotmail.com
       - name: Industry
         in: query
         description: Industry
@@ -170,7 +167,7 @@ paths:
           maxLength: 255
           minLength: 0
           type: string
-          example: Kozey
+          example: Lebsack
       - name: Module
         in: query
         description: Module
@@ -186,7 +183,7 @@ paths:
           maxLength: 30
           minLength: 0
           type: string
-          example: ROYKWHSmz5
+          example: OGQx7Z3RsI
       - name: PasswordHash
         in: query
         description: Password hash
@@ -430,7 +427,7 @@ paths:
           maxLength: 255
           minLength: 0
           type: string
-          example: Leon
+          example: Hal
       - name: Email
         in: query
         description: Email
@@ -439,7 +436,7 @@ paths:
           minLength: 0
           type: string
           format: email
-          example: Bryce.Waelchi27@gmail.com
+          example: Tad_Waelchi@yahoo.com
       - name: Industry
         in: query
         description: Industry
@@ -462,7 +459,7 @@ paths:
           maxLength: 255
           minLength: 0
           type: string
-          example: Crist
+          example: Smith
       - name: Module
         in: query
         description: Module
@@ -478,7 +475,7 @@ paths:
           maxLength: 30
           minLength: 0
           type: string
-          example: QkduFg4rCs
+          example: LtAlPVWOtf
       - name: PasswordHash
         in: query
         description: Password hash
@@ -1071,7 +1068,7 @@ components:
           type: string
           description: First name
           nullable: true
-          example: Manley
+          example: Jesse
         email:
           maxLength: 255
           minLength: 0
@@ -1079,7 +1076,7 @@ components:
           description: Email
           format: email
           nullable: true
-          example: Narciso.Towne@gmail.com
+          example: Monica39@gmail.com
         industry:
           type: integer
           description: Industry
@@ -1098,7 +1095,7 @@ components:
           type: string
           description: Last name
           nullable: true
-          example: Zboncak
+          example: Kerluke
         module:
           maxLength: 38
           minLength: 0
@@ -1112,7 +1109,7 @@ components:
           type: string
           description: Password
           nullable: true
-          example: wqL7Zal1ja
+          example: XvI0wavKPg
         passwordHash:
           type: string
           description: Password hash

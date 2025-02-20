@@ -4,12 +4,6 @@
     "title": "ASC.ApiSystem",
     "version": "v2"
   },
-  "servers": [
-    {
-      "url": "http://localhost:8092",
-      "description": "Local server"
-    }
-  ],
   "paths": {
     "/people/find": {
       "post": {
@@ -216,7 +210,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Stewart"
+              "example": "Magdalen"
             }
           },
           {
@@ -228,7 +222,7 @@
               "minLength": 0,
               "type": "string",
               "format": "email",
-              "example": "Zoie.MacGyver0@gmail.com"
+              "example": "Elliot.Veum42@hotmail.com"
             }
           },
           {
@@ -260,7 +254,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Flatley"
+              "example": "Legros"
             }
           },
           {
@@ -282,7 +276,7 @@
               "maxLength": 30,
               "minLength": 0,
               "type": "string",
-              "example": "c4Yq_jMVc6"
+              "example": "EqiO_E61qk"
             }
           },
           {
@@ -663,7 +657,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Candelario"
+              "example": "Larissa"
             }
           },
           {
@@ -675,7 +669,7 @@
               "minLength": 0,
               "type": "string",
               "format": "email",
-              "example": "Esperanza.Roob73@hotmail.com"
+              "example": "Martin17@yahoo.com"
             }
           },
           {
@@ -707,7 +701,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Langworth"
+              "example": "Wiegand"
             }
           },
           {
@@ -729,7 +723,7 @@
               "maxLength": 30,
               "minLength": 0,
               "type": "string",
-              "example": "9e73tGcQvP"
+              "example": "JaOATMXcCp"
             }
           },
           {
@@ -1622,7 +1616,7 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Rolando"
+            "example": "Sim"
           },
           "email": {
             "maxLength": 255,
@@ -1631,7 +1625,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Rosalyn.Hessel@yahoo.com"
+            "example": "Katlyn82@gmail.com"
           },
           "industry": {
             "type": "integer",
@@ -1653,7 +1647,7 @@
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "O'Reilly"
+            "example": "Kozey"
           },
           "module": {
             "maxLength": 38,
@@ -1669,7 +1663,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "gL1tZYUPAs"
+            "example": "fOvYXEL7AN"
           },
           "passwordHash": {
             "type": "string",

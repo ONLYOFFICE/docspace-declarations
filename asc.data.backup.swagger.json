@@ -4,12 +4,6 @@
     "title": "ASC.Data.Backup",
     "version": "v2"
   },
-  "servers": [
-    {
-      "url": "http://localhost:8092",
-      "description": "Local server"
-    }
-  ],
   "paths": {
     "/api/2.0/backup/getbackupschedule": {
       "get": {
@@ -777,7 +771,7 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "example": "db460fe8-1641-4757-b043-a24a870c1391"
+            "example": "7bdad93e-625d-45f4-849b-e3449210def0"
           },
           "fileName": {
             "type": "string",

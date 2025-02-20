@@ -4,12 +4,6 @@
     "title": "ASC.People",
     "version": "v2"
   },
-  "servers": [
-    {
-      "url": "http://localhost:8092",
-      "description": "Local server"
-    }
-  ],
   "paths": {
     "/api/2.0/group": {
       "get": {
@@ -27,7 +21,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "ebc00c61-5c0a-480c-adb2-446da529aa5d"
+              "example": "9098b15b-d986-4558-8cbc-8b96f22651a1"
             }
           },
           {
@@ -152,7 +146,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "6fcb6dfb-4245-463a-856c-0abdaedc26fa"
+              "example": "c226c4b0-1461-42cc-8458-a4737b3da167"
             }
           },
           {
@@ -217,7 +211,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "54aa9123-a285-406a-b029-313baceff8a9"
+              "example": "4a378b03-7f91-4be5-9841-2acf3edd8c64"
             }
           }
         ],
@@ -294,7 +288,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "121d0068-0248-4510-8cc8-45e31e32fcab"
+              "example": "30a3ed24-742b-40f5-9ee0-616ab97ca9b1"
             }
           }
         ],
@@ -353,7 +347,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "70c9ccda-66d5-466a-884f-6cbbfcdd1ef3"
+              "example": "0794a202-ff9e-43e9-b064-659fd3a9edad"
             }
           }
         ],
@@ -393,7 +387,7 @@
         "description": "Returns a list of groups for the user with the ID specified in the request."
       }
     },
-    "/api/2.0/group/{fromid}/members/{toid}": {
+    "/api/2.0/group/{fromId}/members/{toId}": {
       "put": {
         "tags": [
           "Group"
@@ -479,7 +473,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "a6cf80d0-5000-4162-bea6-d758906e5d61"
+              "example": "3a1cdbdc-e716-4867-af1f-436f1db2a2bb"
             }
           }
         ],
@@ -553,7 +547,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "b4742ddb-01ec-4cd3-ad8b-5cc33a1a8b2c"
+              "example": "4af73e6a-895a-43ac-a6c0-456987fa8762"
             }
           }
         ],
@@ -630,7 +624,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "6f13950e-8940-4ec0-92f4-0b454788bcf4"
+              "example": "78eaa869-4b4f-4c2e-ba37-bbdcf61ee97e"
             }
           }
         ],
@@ -709,7 +703,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "3097313b-3ed4-487b-aa36-593bb8acdfb3"
+              "example": "a66686eb-6fd9-48a7-9787-0ff4ea1550e2"
             }
           }
         ],
@@ -788,7 +782,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8892
+              "example": 6195
             }
           },
           {
@@ -864,7 +858,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "2570"
+              "example": "3390"
             }
           }
         ],
@@ -943,7 +937,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "4640"
+              "example": "6723"
             }
           }
         ],
@@ -1022,7 +1016,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "4833"
+              "example": "3146"
             }
           }
         ],
@@ -1152,7 +1146,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "185126b0-251e-4365-8193-d465ba6e25c9"
+              "example": "a65012a3-a4de-4de7-8610-5d38d38ec0ed"
             }
           }
         ],
@@ -1284,7 +1278,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "9022"
+              "example": "983"
             }
           }
         ],
@@ -1365,7 +1359,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "4777"
+              "example": "514"
             }
           }
         ],
@@ -1424,7 +1418,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "1752"
+              "example": "2969"
             }
           }
         ],
@@ -1483,7 +1477,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "8524"
+              "example": "1468"
             }
           }
         ],
@@ -1562,7 +1556,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "4326"
+              "example": "5873"
             }
           }
         ],
@@ -1911,7 +1905,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "2572"
+              "example": "9004"
             }
           }
         ],
@@ -1970,7 +1964,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "9047"
+              "example": "8990"
             }
           }
         ],
@@ -2029,7 +2023,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "8251"
+              "example": "3299"
             }
           }
         ],
@@ -2205,7 +2199,7 @@
               "minLength": 0,
               "type": "string",
               "format": "email",
-              "example": "Carlo_Schneider99@gmail.com"
+              "example": "Jacey68@hotmail.com"
             }
           }
         ],
@@ -2388,7 +2382,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "7024"
+              "example": "4204"
             }
           }
         ],
@@ -2603,7 +2597,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 8355
+              "example": 7804
             }
           },
           {
@@ -3283,7 +3277,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 3183
+              "example": 2649
             }
           },
           {
@@ -3701,7 +3695,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "864deb32-e2d1-41a7-8530-42ee031e88a4"
+              "example": "592e9d91-8014-430d-99d2-eb35c100a3f4"
             }
           }
         ],
@@ -3884,7 +3878,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "af5408a0-556e-4672-a88d-97d1a48b3a8f"
+              "example": "8910772b-fdd7-46f1-a2c3-83f950184cd6"
             }
           }
         ],
@@ -4623,7 +4617,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Meggie_Abshire25@yahoo.com"
+            "example": "Keaton.Rowe@yahoo.com"
           }
         },
         "additionalProperties": false,
@@ -4706,13 +4700,13 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Daisha_Pagac@hotmail.com"
+            "example": "Lyda.Hoppe@yahoo.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "NXAiQgPH4K"
+            "example": "fDaUsPcHUD"
           },
           "passwordHash": {
             "type": "string",
@@ -4734,13 +4728,13 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Jamir.Bergnaum@hotmail.com"
+            "example": "Flavio70@hotmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "bgsEgi9U9R"
+            "example": "8oI5gCwwh3"
           },
           "passwordHash": {
             "type": "string",
@@ -4763,7 +4757,7 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Luisa"
+            "example": "Myrtle"
           },
           "lastName": {
             "maxLength": 255,
@@ -4771,7 +4765,7 @@
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Terry"
+            "example": "Quigley"
           },
           "department": {
             "type": "array",
@@ -4791,13 +4785,13 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "bypass_upward_trending_navigating"
+            "example": "clothing__health_&_tools_somoni"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "15357 Daugherty Locks, Hettiehaven, French Guiana"
+            "example": "59270 Ivy Forges, Lake Earnest, Canada"
           },
           "sex": {
             "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
@@ -4887,7 +4881,7 @@
             "type": "string",
             "description": "User ID",
             "format": "uuid",
-            "example": "7c9f3a97-2cb4-4f14-9470-064cbb4a6317"
+            "example": "9664cecd-bfb3-4074-ba2a-6442f1329d95"
           }
         },
         "additionalProperties": false,
@@ -4931,20 +4925,20 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Ayana"
+            "example": "Jamir"
           },
           "lastName": {
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Considine"
+            "example": "Nolan"
           },
           "email": {
             "type": "string",
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Aleen35@gmail.com"
+            "example": "Savion74@hotmail.com"
           },
           "passwordHash": {
             "type": "string",
@@ -4999,7 +4993,7 @@
             "type": "string",
             "description": "User ID whose data is reassigned/removed",
             "format": "uuid",
-            "example": "286329ac-8821-4c5a-b8e5-d70617a530e3"
+            "example": "784ebcf3-3a62-4fd1-8789-ec70c044669d"
           }
         },
         "additionalProperties": false,
@@ -5095,13 +5089,13 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Karelle39@hotmail.com"
+            "example": "Leilani_Kessler99@gmail.com"
           },
           "password": {
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "AeCNAMskLg"
+            "example": "uhFYjJRwoz"
           },
           "passwordHash": {
             "type": "string",
@@ -5124,7 +5118,7 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Glennie"
+            "example": "Milo"
           },
           "lastName": {
             "maxLength": 255,
@@ -5132,7 +5126,7 @@
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Torphy"
+            "example": "Crona"
           },
           "department": {
             "type": "array",
@@ -5152,13 +5146,13 @@
             "type": "string",
             "description": "Title",
             "nullable": true,
-            "example": "licensed_wooden_bacon_payment_synthesizing"
+            "example": "solomon_islands"
           },
           "location": {
             "type": "string",
             "description": "Location",
             "nullable": true,
-            "example": "020 Thiel Mount, East Kamryn, China"
+            "example": "8388 Delphia Ways, Elsechester, French Guiana"
           },
           "sex": {
             "$ref": "#/components/schemas/ASC.People.ApiModels.RequestDto.SexEnum"
@@ -5222,7 +5216,7 @@
             "type": "string",
             "description": "User ID",
             "nullable": true,
-            "example": "6177"
+            "example": "5551"
           },
           "disable": {
             "type": "boolean",
@@ -5311,7 +5305,7 @@
             "description": "Email address",
             "format": "email",
             "nullable": true,
-            "example": "Rafael.Welch@gmail.com"
+            "example": "Dedric_Hackett79@gmail.com"
           },
           "type": {
             "$ref": "#/components/schemas/ASC.Core.Users.EmployeeType"
@@ -5383,7 +5377,7 @@
             "type": "string",
             "description": "Name",
             "nullable": true,
-            "example": "Micheal Mante"
+            "example": "Perry Mraz"
           },
           "parent": {
             "type": "string",
@@ -5402,7 +5396,7 @@
             "type": "string",
             "description": "ID",
             "format": "uuid",
-            "example": "a25d99c5-ce9c-4f00-98c4-999c52bdf5c6"
+            "example": "bd613894-a927-4cef-86c0-1bdd56cc4fe1"
           },
           "isLDAP": {
             "type": "boolean",
@@ -5442,7 +5436,7 @@
             "type": "string",
             "description": "ID",
             "nullable": true,
-            "example": "90"
+            "example": "4749"
           },
           "error": {
             "type": "string",

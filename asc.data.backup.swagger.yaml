@@ -2,9 +2,6 @@ openapi: 3.0.1
 info:
   title: ASC.Data.Backup
   version: v2
-servers:
-- url: http://localhost:8092
-  description: Local server
 paths:
   /api/2.0/backup/getbackupschedule:
     get:
@@ -503,7 +500,7 @@ components:
         id:
           type: string
           format: uuid
-          example: 9cbacdd2-b53f-4055-b534-71a2948348eb
+          example: f7a6e7ba-00bf-41de-94ba-d05a08343343
         fileName:
           type: string
           nullable: true
