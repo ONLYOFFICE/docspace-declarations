@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "ASC.ApiSystem",
+    "title": "ApiSystem",
     "version": "v2"
   },
   "paths": {
@@ -18,16 +18,6 @@
               "schema": {
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.FindPeopleModel"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.FindPeopleModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.FindPeopleModel"
-              }
             }
           }
         },
@@ -35,17 +25,7 @@
           "200": {
             "description": "Ok",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -81,16 +61,6 @@
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
               }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
-              }
-            },
             "application/xml": {
               "schema": {
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
@@ -112,17 +82,7 @@
           "200": {
             "description": "Ok",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -210,7 +170,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Magdalen"
+              "example": "Winfield"
             }
           },
           {
@@ -222,7 +182,7 @@
               "minLength": 0,
               "type": "string",
               "format": "email",
-              "example": "Elliot.Veum42@hotmail.com"
+              "example": "Sydney_Roberts4@hotmail.com"
             }
           },
           {
@@ -254,7 +214,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Legros"
+              "example": "Wyman"
             }
           },
           {
@@ -276,7 +236,7 @@
               "maxLength": 30,
               "minLength": 0,
               "type": "string",
-              "example": "EqiO_E61qk"
+              "example": "vfmf2vO1Kp"
             }
           },
           {
@@ -405,17 +365,7 @@
           "200": {
             "description": "Ok",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -451,16 +401,6 @@
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
               }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
-              }
-            },
             "application/xml": {
               "schema": {
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
@@ -482,17 +422,7 @@
           "200": {
             "description": "Ok",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -528,16 +458,6 @@
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
               }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
-              }
-            },
             "application/xml": {
               "schema": {
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
@@ -559,17 +479,7 @@
           "200": {
             "description": "Ok",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -657,7 +567,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Larissa"
+              "example": "Winfield"
             }
           },
           {
@@ -669,7 +579,7 @@
               "minLength": 0,
               "type": "string",
               "format": "email",
-              "example": "Martin17@yahoo.com"
+              "example": "Sydney_Roberts4@hotmail.com"
             }
           },
           {
@@ -701,7 +611,7 @@
               "maxLength": 255,
               "minLength": 0,
               "type": "string",
-              "example": "Wiegand"
+              "example": "Wyman"
             }
           },
           {
@@ -723,7 +633,7 @@
               "maxLength": 30,
               "minLength": 0,
               "type": "string",
-              "example": "JaOATMXcCp"
+              "example": "vfmf2vO1Kp"
             }
           },
           {
@@ -859,17 +769,7 @@
           "200": {
             "description": "Ok",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -905,16 +805,6 @@
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
               }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
-              }
-            },
             "application/xml": {
               "schema": {
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
@@ -936,17 +826,7 @@
           "200": {
             "description": "Ok",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -1022,17 +902,7 @@
           "200": {
             "description": "Settings",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -1068,16 +938,6 @@
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.SettingsModel"
               }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.SettingsModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.SettingsModel"
-              }
-            },
             "application/xml": {
               "schema": {
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.SettingsModel"
@@ -1099,17 +959,7 @@
           "200": {
             "description": "Settings",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -1145,16 +995,6 @@
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.DomainModel"
               }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.DomainModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.DomainModel"
-              }
-            },
             "application/xml": {
               "schema": {
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.DomainModel"
@@ -1176,17 +1016,7 @@
           "200": {
             "description": "True if success",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -1222,16 +1052,6 @@
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.TariffModel"
               }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TariffModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TariffModel"
-              }
-            },
             "application/xml": {
               "schema": {
                 "$ref": "#/components/schemas/ASC.ApiSystem.Models.TariffModel"
@@ -1253,17 +1073,7 @@
           "200": {
             "description": "Tariff",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -1370,17 +1180,7 @@
           "200": {
             "description": "Tariff",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -1413,17 +1213,7 @@
           "200": {
             "description": "Tariff",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
                 }
@@ -1616,7 +1406,7 @@
             "type": "string",
             "description": "First name",
             "nullable": true,
-            "example": "Sim"
+            "example": "Winfield"
           },
           "email": {
             "maxLength": 255,
@@ -1625,7 +1415,7 @@
             "description": "Email",
             "format": "email",
             "nullable": true,
-            "example": "Katlyn82@gmail.com"
+            "example": "Sydney_Roberts4@hotmail.com"
           },
           "industry": {
             "type": "integer",
@@ -1647,7 +1437,7 @@
             "type": "string",
             "description": "Last name",
             "nullable": true,
-            "example": "Kozey"
+            "example": "Wyman"
           },
           "module": {
             "maxLength": 38,
@@ -1663,7 +1453,7 @@
             "type": "string",
             "description": "Password",
             "nullable": true,
-            "example": "fOvYXEL7AN"
+            "example": "vfmf2vO1Kp"
           },
           "passwordHash": {
             "type": "string",
