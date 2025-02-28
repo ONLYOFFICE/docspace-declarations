@@ -4,6 +4,12 @@
     "title": "ApiSystem",
     "version": "v2"
   },
+  "servers": [
+    {
+      "url": "http://localhost:80",
+      "description": "Local server"
+    }
+  ],
   "paths": {
     "/people/find": {
       "post": {
