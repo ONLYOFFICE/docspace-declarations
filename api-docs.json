@@ -6,23 +6,12 @@
   },
   "servers": [
     {
-      "url": "http://{host}{port}",
-      "description": "Configurable server",
+      "url": "{baseUrl}",
+      "description": "Server configuration",
       "variables": {
-        "host": {
-          "default": "localhost",
-          "description": "Server hostname or IP",
-          "enum": [
-            "localhost"
-          ]
-        },
-        "port": {
-          "default": ":80",
-          "description": "Optional port",
-          "enum": [
-            "",
-            ":80"
-          ]
+        "baseUrl": {
+          "default": "http://localhost:80",
+          "description": "Default URL"
         }
       }
     }
