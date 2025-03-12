@@ -6,8 +6,25 @@
   },
   "servers": [
     {
-      "url": "http://localhost:80",
-      "description": "Local server"
+      "url": "http://{host}{port}",
+      "description": "Configurable server",
+      "variables": {
+        "host": {
+          "default": "localhost",
+          "description": "Server hostname or IP",
+          "enum": [
+            "localhost"
+          ]
+        },
+        "port": {
+          "default": ":80",
+          "description": "Optional port",
+          "enum": [
+            "",
+            ":80"
+          ]
+        }
+      }
     }
   ],
   "tags": [
