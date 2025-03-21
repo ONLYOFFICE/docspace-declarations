@@ -10,7 +10,7 @@
       "description": "Server configuration",
       "variables": {
         "baseUrl": {
-          "default": "http://localhost:80",
+          "default": "",
           "description": "Default URL"
         }
       }
@@ -30873,97 +30873,103 @@
   },
   "x-tagGroups": [
     {
-      "name": "Files",
-      "tags": [
-        "Files / Files",
-        "Files / Folders",
-        "Files / Operations",
-        "Files / Quota",
-        "Files / Rooms",
-        "Files / Settings",
-        "Files / Third-party integration"
-      ]
-    },
-    {
-      "name": "Group",
-      "tags": [
-        "Group",
-        "Group / Rooms"
-      ]
-    },
-    {
-      "name": "People",
-      "tags": [
-        "People / Contacts",
-        "People / Guests",
-        "People / Password",
-        "People / Photos",
-        "People / Profiles",
-        "People / Quota",
-        "People / Search",
-        "People / Theme",
-        "People / Third-party accounts",
-        "People / User data",
-        "People / User status",
-        "People / User type"
-      ]
-    },
-    {
-      "name": "Authentication",
-      "tags": [
-        "Authentication"
-      ]
-    },
-    {
-      "name": "Capabilities",
-      "tags": [
-        "Capabilities"
-      ]
-    },
-    {
-      "name": "Portal",
-      "tags": [
-        "Portal / Quota",
-        "Portal / Settings",
-        "Portal / Users"
-      ]
-    },
-    {
-      "name": "Security",
-      "tags": [
-        "Security / Active connections",
-        "Security / Audit trail data",
-        "Security / CSP",
-        "Security / Firebase",
-        "Security / Login history",
-        "Security / SMTP settings"
-      ]
-    },
-    {
-      "name": "Settings",
-      "tags": [
-        "Settings / Authorization",
-        "Settings / Common settings",
-        "Settings / Cookies",
-        "Settings / Custom Navigation",
-        "Settings / Encryption",
-        "Settings / Greeting settings",
-        "Settings / IP restrictions",
-        "Settings / License",
-        "Settings / Login settings",
-        "Settings / Messages",
-        "Settings / Notifications",
-        "Settings / Owner",
-        "Settings / Quota",
-        "Settings / Rebranding",
-        "Settings / Security",
-        "Settings / SSO",
-        "Settings / Statistics",
-        "Settings / Storage",
-        "Settings / TFA settings",
-        "Settings / Webhooks",
-        "Settings / Webplugins"
-      ]
-    }
+    "name": "",
+    "tags": [
+      "Authentication"
+    ]
+  },
+  {
+    "name": "",
+    "tags": [
+      "Backup"
+    ]
+  },
+  {
+    "name": "",
+    "tags": [
+      "Capabilities"
+    ]
+  },
+  {
+    "name": "Files",
+    "tags": [
+      "Files / Files",
+      "Files / Folders",
+      "Files / Operations",
+      "Files / Quota",
+      "Files / Rooms",
+      "Files / Settings",
+      "Files / Third-party integration"
+    ]
+  },
+  {
+    "name": "Group",
+    "tags": [
+      "Group",
+      "Group / Rooms"
+    ]
+  },
+  {
+    "name": "People",
+    "tags": [
+      "People / Contacts",
+      "People / Guests",
+      "People / Password",
+      "People / Photos",
+      "People / Profiles",
+      "People / Quota",
+      "People / Search",
+      "People / Theme",
+      "People / Third-party accounts",
+      "People / User data",
+      "People / User status",
+      "People / User type"
+    ]
+  },
+  {
+    "name": "Portal",
+    "tags": [
+      "Portal / Quota",
+      "Portal / Settings",
+      "Portal / Users"
+    ]
+  },
+  {
+    "name": "Security",
+    "tags": [
+      "Security / Active connections",
+      "Security / Audit trail data",
+      "Security / CSP",
+      "Security / Firebase",
+      "Security / Login history",
+      "Security / SMTP settings"
+    ]
+  },
+  {
+    "name": "Settings",
+    "tags": [
+      "Settings / Authorization",
+      "Settings / Common settings",
+      "Settings / Cookies",
+      "Settings / Custom Navigation",
+      "Settings / Encryption",
+      "Settings / Greeting settings",
+      "Settings / IP restrictions",
+      "Settings / License",
+      "Settings / Login settings",
+      "Settings / Messages",
+      "Settings / Notifications",
+      "Settings / Owner",
+      "Settings / Quota",
+      "Settings / Rebranding",
+      "Settings / Security",
+      "Settings / SSO",
+      "Settings / Statistics",
+      "Settings / Storage",
+      "Settings / TFA settings",
+      "Settings / Webhooks",
+      "Settings / Webplugins"
+    ]
+  }
   ]
 }
