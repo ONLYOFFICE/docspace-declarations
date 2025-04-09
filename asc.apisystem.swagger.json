@@ -22,7 +22,7 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Registers a new portal with the parameters specified in the request.",
+        "summary": "Register a portal",
         "operationId": "register",
         "requestBody": {
           "content": {
@@ -69,17 +69,17 @@
               "read",
               "write"
             ],
-            "Bearer": [ ],
-            "ApiKeyBearer": [ ],
-            "Basic": [ ],
+            "Bearer": [],
+            "ApiKeyBearer": [],
+            "Basic": [],
             "OAuth2": [
               "api.read",
               "api.write"
             ],
-            "OpenId": [ ]
+            "OpenId": []
           }
         ],
-        "x-shortName": "Register a portal"
+        "description": "Registers a new portal with the parameters specified in the request."
       }
     },
     "/portal/remove": {
@@ -87,7 +87,7 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Deletes a portal with a name specified in the request.",
+        "summary": "Remove a portal",
         "operationId": "remove",
         "parameters": [
           {
@@ -360,17 +360,17 @@
               "read",
               "write"
             ],
-            "Bearer": [ ],
-            "ApiKeyBearer": [ ],
-            "Basic": [ ],
+            "Bearer": [],
+            "ApiKeyBearer": [],
+            "Basic": [],
             "OAuth2": [
               "api.read",
               "api.write"
             ],
-            "OpenId": [ ]
+            "OpenId": []
           }
         ],
-        "x-shortName": "Remove a portal"
+        "description": "Deletes a portal with a name specified in the request."
       }
     },
     "/portal/status": {
@@ -378,7 +378,7 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Changes a portal activation status with a value specified in the request.",
+        "summary": "Change a portal status",
         "operationId": "changeStatus",
         "requestBody": {
           "content": {
@@ -425,17 +425,17 @@
               "read",
               "write"
             ],
-            "Bearer": [ ],
-            "ApiKeyBearer": [ ],
-            "Basic": [ ],
+            "Bearer": [],
+            "ApiKeyBearer": [],
+            "Basic": [],
             "OAuth2": [
               "api.read",
               "api.write"
             ],
-            "OpenId": [ ]
+            "OpenId": []
           }
         ],
-        "x-shortName": "Change a portal status"
+        "description": "Changes a portal activation status with a value specified in the request."
       }
     },
     "/portal/validateportalname": {
@@ -443,7 +443,7 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Checks if the specified name is available to create a portal.",
+        "summary": "Validate the portal name",
         "operationId": "checkExistingNamePortal",
         "requestBody": {
           "content": {
@@ -490,17 +490,17 @@
               "read",
               "write"
             ],
-            "Bearer": [ ],
-            "ApiKeyBearer": [ ],
-            "Basic": [ ],
+            "Bearer": [],
+            "ApiKeyBearer": [],
+            "Basic": [],
             "OAuth2": [
               "api.read",
               "api.write"
             ],
-            "OpenId": [ ]
+            "OpenId": []
           }
         ],
-        "x-shortName": "Validate the portal name"
+        "description": "Checks if the specified name is available to create a portal."
       }
     },
     "/portal/get": {
@@ -508,7 +508,7 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Returns a list of all the portals registered for the user with the email address specified in the request.",
+        "summary": "Get portals",
         "operationId": "getPortals",
         "parameters": [
           {
@@ -788,17 +788,17 @@
               "read",
               "write"
             ],
-            "Bearer": [ ],
-            "ApiKeyBearer": [ ],
-            "Basic": [ ],
+            "Bearer": [],
+            "ApiKeyBearer": [],
+            "Basic": [],
             "OAuth2": [
               "api.read",
               "api.write"
             ],
-            "OpenId": [ ]
+            "OpenId": []
           }
         ],
-        "x-shortName": "Get portals"
+        "description": "Returns a list of all the portals registered for the user with the email address specified in the request."
       }
     },
     "/portal/signin": {
@@ -806,7 +806,7 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Signs in to the portal with the parameters specified in the request.",
+        "summary": "Sign in to the portal",
         "operationId": "signInToPortal",
         "requestBody": {
           "content": {
@@ -853,17 +853,17 @@
               "read",
               "write"
             ],
-            "Bearer": [ ],
-            "ApiKeyBearer": [ ],
-            "Basic": [ ],
+            "Bearer": [],
+            "ApiKeyBearer": [],
+            "Basic": [],
             "OAuth2": [
               "api.read",
               "api.write"
             ],
-            "OpenId": [ ]
+            "OpenId": []
           }
         ],
-        "x-shortName": "Sign in to the portal"
+        "description": "Signs in to the portal with the parameters specified in the request."
       }
     },
     "/settings/get": {
@@ -871,7 +871,7 @@
         "tags": [
           "Settings"
         ],
-        "summary": "Returns the portal settings by the parameters specified in the request.",
+        "summary": "Get settings",
         "operationId": "getSettings",
         "parameters": [
           {
@@ -937,17 +937,17 @@
               "read",
               "write"
             ],
-            "Bearer": [ ],
-            "ApiKeyBearer": [ ],
-            "Basic": [ ],
+            "Bearer": [],
+            "ApiKeyBearer": [],
+            "Basic": [],
             "OAuth2": [
               "api.read",
               "api.write"
             ],
-            "OpenId": [ ]
+            "OpenId": []
           }
         ],
-        "x-shortName": "Get settings"
+        "description": "Returns the portal settings by the parameters specified in the request."
       }
     },
     "/settings/save": {
@@ -955,7 +955,7 @@
         "tags": [
           "Settings"
         ],
-        "summary": "Saves the settings specified in the request for the current portal.",
+        "summary": "Save settings",
         "operationId": "saveSettings",
         "requestBody": {
           "content": {
@@ -1002,17 +1002,17 @@
               "read",
               "write"
             ],
-            "Bearer": [ ],
-            "ApiKeyBearer": [ ],
-            "Basic": [ ],
+            "Bearer": [],
+            "ApiKeyBearer": [],
+            "Basic": [],
             "OAuth2": [
               "api.read",
               "api.write"
             ],
-            "OpenId": [ ]
+            "OpenId": []
           }
         ],
-        "x-shortName": "Save settings"
+        "description": "Saves the settings specified in the request for the current portal."
       }
     },
     "/settings/checkdomain": {
@@ -1020,7 +1020,7 @@
         "tags": [
           "Settings"
         ],
-        "summary": "Checks the domain with the name specified in the request.",
+        "summary": "Check the domain name",
         "operationId": "checkDomain",
         "requestBody": {
           "content": {
@@ -1067,17 +1067,17 @@
               "read",
               "write"
             ],
-            "Bearer": [ ],
-            "ApiKeyBearer": [ ],
-            "Basic": [ ],
+            "Bearer": [],
+            "ApiKeyBearer": [],
+            "Basic": [],
             "OAuth2": [
               "api.read",
               "api.write"
             ],
-            "OpenId": [ ]
+            "OpenId": []
           }
         ],
-        "x-shortName": "Check the domain name"
+        "description": "Checks the domain with the name specified in the request."
       }
     }
   },
