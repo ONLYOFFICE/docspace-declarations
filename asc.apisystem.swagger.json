@@ -1,85 +1,49 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
     "title": "ApiSystem",
     "version": "v2"
   },
   "servers": [
     {
-      "url": "http://localhost:80",
-      "description": "Local server"
+      "url": "{baseUrl}",
+      "description": "Server configuration",
+      "variables": {
+        "baseUrl": {
+          "default": "",
+          "description": "Default URL"
+        }
+      }
     }
   ],
   "paths": {
-    "/people/find": {
-      "post": {
-        "tags": [
-          "People"
-        ],
-        "summary": "Find",
-        "operationId": "find",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.FindPeopleModel"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          }
-        ],
-        "description": "Find"
-      }
-    },
     "/portal/register": {
       "post": {
         "tags": [
           "Portal"
         ],
-        "summary": "Register",
+        "summary": "Registers a new portal with the parameters specified in the request.",
         "operationId": "register",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "application/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "text/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "application/*+xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             }
           }
@@ -90,7 +54,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
+                  "$ref": "#/components/schemas/IActionResultWrapper"
                 }
               }
             }
@@ -104,10 +68,18 @@
             "asc_auth_key": [
               "read",
               "write"
-            ]
+            ],
+            "Bearer": [ ],
+            "ApiKeyBearer": [ ],
+            "Basic": [ ],
+            "OAuth2": [
+              "api.read",
+              "api.write"
+            ],
+            "OpenId": [ ]
           }
         ],
-        "description": "Register"
+        "x-shortName": "Register a portal"
       }
     },
     "/portal/remove": {
@@ -115,13 +87,13 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Remove",
+        "summary": "Deletes a portal with a name specified in the request.",
         "operationId": "remove",
         "parameters": [
           {
             "name": "PortalName",
             "in": "query",
-            "description": "Portal name",
+            "description": "The portal name.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -130,7 +102,7 @@
           {
             "name": "TenantId",
             "in": "query",
-            "description": "Tenant id",
+            "description": "The tenant ID.",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -140,7 +112,7 @@
           {
             "name": "AffiliateId",
             "in": "query",
-            "description": "Affiliate id",
+            "description": "The affiliate ID.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -151,7 +123,7 @@
           {
             "name": "PartnerId",
             "in": "query",
-            "description": "Partner id",
+            "description": "The partner ID.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -162,7 +134,7 @@
           {
             "name": "Campaign",
             "in": "query",
-            "description": "Campaign",
+            "description": "The portal campaign.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -171,7 +143,7 @@
           {
             "name": "FirstName",
             "in": "query",
-            "description": "First name",
+            "description": "The first name of the portal owner.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -182,7 +154,7 @@
           {
             "name": "Email",
             "in": "query",
-            "description": "Email",
+            "description": "The email address of the portal owner.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -194,7 +166,7 @@
           {
             "name": "Industry",
             "in": "query",
-            "description": "Industry",
+            "description": "The tenant industry.",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -204,7 +176,7 @@
           {
             "name": "Language",
             "in": "query",
-            "description": "Language",
+            "description": "The portal language.",
             "schema": {
               "maxLength": 7,
               "minLength": 0,
@@ -215,7 +187,7 @@
           {
             "name": "LastName",
             "in": "query",
-            "description": "Last name",
+            "description": "The last name of the portal owner.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -226,7 +198,7 @@
           {
             "name": "Module",
             "in": "query",
-            "description": "Module",
+            "description": "The name for the storage module to be configured.",
             "schema": {
               "maxLength": 38,
               "minLength": 0,
@@ -237,7 +209,7 @@
           {
             "name": "Password",
             "in": "query",
-            "description": "Password",
+            "description": "The password of the portal owner.",
             "schema": {
               "maxLength": 30,
               "minLength": 0,
@@ -248,7 +220,7 @@
           {
             "name": "PasswordHash",
             "in": "query",
-            "description": "Password hash",
+            "description": "The password hash.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -257,7 +229,7 @@
           {
             "name": "Phone",
             "in": "query",
-            "description": "Phone",
+            "description": "The phone numberr of the portal owner.",
             "schema": {
               "maxLength": 32,
               "minLength": 0,
@@ -268,7 +240,7 @@
           {
             "name": "RecaptchaResponse",
             "in": "query",
-            "description": "Recaptcha response",
+            "description": "The user's response to the CAPTCHA challenge.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -277,15 +249,15 @@
           {
             "name": "RecaptchaType",
             "in": "query",
-            "description": "Recaptcha type",
+            "description": "The type of CAPTCHA validation used.",
             "schema": {
-              "$ref": "#/components/schemas/ASC.Web.Core.RecaptchaType"
+              "$ref": "#/components/schemas/RecaptchaType"
             }
           },
           {
             "name": "Region",
             "in": "query",
-            "description": "Region",
+            "description": "The portal region.",
             "schema": {
               "maxLength": 20,
               "minLength": 0,
@@ -296,7 +268,7 @@
           {
             "name": "AWSRegion",
             "in": "query",
-            "description": "AWS region",
+            "description": "The portal AWS region.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -305,15 +277,15 @@
           {
             "name": "Status",
             "in": "query",
-            "description": "Status",
+            "description": "The tenant status.",
             "schema": {
-              "$ref": "#/components/schemas/ASC.Core.Tenants.TenantStatus"
+              "$ref": "#/components/schemas/TenantStatus"
             }
           },
           {
             "name": "SkipWelcome",
             "in": "query",
-            "description": "Skip welcome",
+            "description": "Specifies whether to send the welcome email to the user or not.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -322,7 +294,7 @@
           {
             "name": "TimeZoneName",
             "in": "query",
-            "description": "TimeZone name",
+            "description": "The portal time zone name.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -333,7 +305,7 @@
           {
             "name": "Spam",
             "in": "query",
-            "description": "Spam",
+            "description": "Specifies if the ONLYOFFICE newsletter is allowed or not.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -342,7 +314,7 @@
           {
             "name": "Calls",
             "in": "query",
-            "description": "Calls",
+            "description": "Specifies if the calls are available for the current tenant or not.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -351,7 +323,7 @@
           {
             "name": "AppKey",
             "in": "query",
-            "description": "App key",
+            "description": "The application key.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -360,7 +332,7 @@
           {
             "name": "LimitedAccessSpace",
             "in": "query",
-            "description": "Limited access space",
+            "description": "Specifies whether the access to the space management is limited or not.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -373,7 +345,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
+                  "$ref": "#/components/schemas/IActionResultWrapper"
                 }
               }
             }
@@ -387,10 +359,18 @@
             "asc_auth_key": [
               "read",
               "write"
-            ]
+            ],
+            "Bearer": [ ],
+            "ApiKeyBearer": [ ],
+            "Basic": [ ],
+            "OAuth2": [
+              "api.read",
+              "api.write"
+            ],
+            "OpenId": [ ]
           }
         ],
-        "description": "Remove"
+        "x-shortName": "Remove a portal"
       }
     },
     "/portal/status": {
@@ -398,28 +378,28 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Status",
+        "summary": "Changes a portal activation status with a value specified in the request.",
         "operationId": "changeStatus",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "application/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "text/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "application/*+xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             }
           }
@@ -430,7 +410,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
+                  "$ref": "#/components/schemas/IActionResultWrapper"
                 }
               }
             }
@@ -444,10 +424,18 @@
             "asc_auth_key": [
               "read",
               "write"
-            ]
+            ],
+            "Bearer": [ ],
+            "ApiKeyBearer": [ ],
+            "Basic": [ ],
+            "OAuth2": [
+              "api.read",
+              "api.write"
+            ],
+            "OpenId": [ ]
           }
         ],
-        "description": "Status"
+        "x-shortName": "Change a portal status"
       }
     },
     "/portal/validateportalname": {
@@ -455,28 +443,28 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Checks if portal exists",
+        "summary": "Checks if the specified name is available to create a portal.",
         "operationId": "checkExistingNamePortal",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "application/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "text/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "application/*+xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             }
           }
@@ -487,7 +475,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
+                  "$ref": "#/components/schemas/IActionResultWrapper"
                 }
               }
             }
@@ -501,10 +489,18 @@
             "asc_auth_key": [
               "read",
               "write"
-            ]
+            ],
+            "Bearer": [ ],
+            "ApiKeyBearer": [ ],
+            "Basic": [ ],
+            "OAuth2": [
+              "api.read",
+              "api.write"
+            ],
+            "OpenId": [ ]
           }
         ],
-        "description": "Checks if portal exists"
+        "x-shortName": "Validate the portal name"
       }
     },
     "/portal/get": {
@@ -512,13 +508,13 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Gets a list of portals",
+        "summary": "Returns a list of all the portals registered for the user with the email address specified in the request.",
         "operationId": "getPortals",
         "parameters": [
           {
             "name": "PortalName",
             "in": "query",
-            "description": "Portal name",
+            "description": "The portal name.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -527,7 +523,7 @@
           {
             "name": "TenantId",
             "in": "query",
-            "description": "Tenant id",
+            "description": "The tenant ID.",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -537,7 +533,7 @@
           {
             "name": "AffiliateId",
             "in": "query",
-            "description": "Affiliate id",
+            "description": "The affiliate ID.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -548,7 +544,7 @@
           {
             "name": "PartnerId",
             "in": "query",
-            "description": "Partner id",
+            "description": "The partner ID.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -559,7 +555,7 @@
           {
             "name": "Campaign",
             "in": "query",
-            "description": "Campaign",
+            "description": "The portal campaign.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -568,7 +564,7 @@
           {
             "name": "FirstName",
             "in": "query",
-            "description": "First name",
+            "description": "The first name of the portal owner.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -579,7 +575,7 @@
           {
             "name": "Email",
             "in": "query",
-            "description": "Email",
+            "description": "The email address of the portal owner.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -591,7 +587,7 @@
           {
             "name": "Industry",
             "in": "query",
-            "description": "Industry",
+            "description": "The tenant industry.",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -601,7 +597,7 @@
           {
             "name": "Language",
             "in": "query",
-            "description": "Language",
+            "description": "The portal language.",
             "schema": {
               "maxLength": 7,
               "minLength": 0,
@@ -612,7 +608,7 @@
           {
             "name": "LastName",
             "in": "query",
-            "description": "Last name",
+            "description": "The last name of the portal owner.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -623,7 +619,7 @@
           {
             "name": "Module",
             "in": "query",
-            "description": "Module",
+            "description": "The name for the storage module to be configured.",
             "schema": {
               "maxLength": 38,
               "minLength": 0,
@@ -634,7 +630,7 @@
           {
             "name": "Password",
             "in": "query",
-            "description": "Password",
+            "description": "The password of the portal owner.",
             "schema": {
               "maxLength": 30,
               "minLength": 0,
@@ -645,7 +641,7 @@
           {
             "name": "PasswordHash",
             "in": "query",
-            "description": "Password hash",
+            "description": "The password hash.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -654,7 +650,7 @@
           {
             "name": "Phone",
             "in": "query",
-            "description": "Phone",
+            "description": "The phone numberr of the portal owner.",
             "schema": {
               "maxLength": 32,
               "minLength": 0,
@@ -665,7 +661,7 @@
           {
             "name": "RecaptchaResponse",
             "in": "query",
-            "description": "Recaptcha response",
+            "description": "The user's response to the CAPTCHA challenge.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -674,15 +670,15 @@
           {
             "name": "RecaptchaType",
             "in": "query",
-            "description": "Recaptcha type",
+            "description": "The type of CAPTCHA validation used.",
             "schema": {
-              "$ref": "#/components/schemas/ASC.Web.Core.RecaptchaType"
+              "$ref": "#/components/schemas/RecaptchaType"
             }
           },
           {
             "name": "Region",
             "in": "query",
-            "description": "Region",
+            "description": "The portal region.",
             "schema": {
               "maxLength": 20,
               "minLength": 0,
@@ -693,7 +689,7 @@
           {
             "name": "AWSRegion",
             "in": "query",
-            "description": "AWS region",
+            "description": "The portal AWS region.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -702,15 +698,15 @@
           {
             "name": "Status",
             "in": "query",
-            "description": "Status",
+            "description": "The tenant status.",
             "schema": {
-              "$ref": "#/components/schemas/ASC.Core.Tenants.TenantStatus"
+              "$ref": "#/components/schemas/TenantStatus"
             }
           },
           {
             "name": "SkipWelcome",
             "in": "query",
-            "description": "Skip welcome",
+            "description": "Specifies whether to send the welcome email to the user or not.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -719,7 +715,7 @@
           {
             "name": "TimeZoneName",
             "in": "query",
-            "description": "TimeZone name",
+            "description": "The portal time zone name.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -730,7 +726,7 @@
           {
             "name": "Spam",
             "in": "query",
-            "description": "Spam",
+            "description": "Specifies if the ONLYOFFICE newsletter is allowed or not.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -739,7 +735,7 @@
           {
             "name": "Calls",
             "in": "query",
-            "description": "Calls",
+            "description": "Specifies if the calls are available for the current tenant or not.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -748,7 +744,7 @@
           {
             "name": "AppKey",
             "in": "query",
-            "description": "App key",
+            "description": "The application key.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -757,7 +753,7 @@
           {
             "name": "LimitedAccessSpace",
             "in": "query",
-            "description": "Limited access space",
+            "description": "Specifies whether the access to the space management is limited or not.",
             "schema": {
               "type": "boolean",
               "example": true
@@ -777,7 +773,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
+                  "$ref": "#/components/schemas/IActionResultWrapper"
                 }
               }
             }
@@ -791,10 +787,18 @@
             "asc_auth_key": [
               "read",
               "write"
-            ]
+            ],
+            "Bearer": [ ],
+            "ApiKeyBearer": [ ],
+            "Basic": [ ],
+            "OAuth2": [
+              "api.read",
+              "api.write"
+            ],
+            "OpenId": [ ]
           }
         ],
-        "description": "Gets a list of portals"
+        "x-shortName": "Get portals"
       }
     },
     "/portal/signin": {
@@ -802,28 +806,28 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Signs in to portal",
+        "summary": "Signs in to the portal with the parameters specified in the request.",
         "operationId": "signInToPortal",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "application/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "text/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             },
             "application/*+xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TenantModel"
+                "$ref": "#/components/schemas/TenantModel"
               }
             }
           }
@@ -834,7 +838,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
+                  "$ref": "#/components/schemas/IActionResultWrapper"
                 }
               }
             }
@@ -848,10 +852,18 @@
             "asc_auth_key": [
               "read",
               "write"
-            ]
+            ],
+            "Bearer": [ ],
+            "ApiKeyBearer": [ ],
+            "Basic": [ ],
+            "OAuth2": [
+              "api.read",
+              "api.write"
+            ],
+            "OpenId": [ ]
           }
         ],
-        "description": "Signs in to portal"
+        "x-shortName": "Sign in to the portal"
       }
     },
     "/settings/get": {
@@ -859,13 +871,13 @@
         "tags": [
           "Settings"
         ],
-        "summary": "Gets settings",
+        "summary": "Returns the portal settings by the parameters specified in the request.",
         "operationId": "getSettings",
         "parameters": [
           {
             "name": "PortalName",
             "in": "query",
-            "description": "Portal name",
+            "description": "The portal name.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -876,7 +888,7 @@
           {
             "name": "TenantId",
             "in": "query",
-            "description": "Tenant id",
+            "description": "The tenant ID.",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -886,7 +898,7 @@
           {
             "name": "Key",
             "in": "query",
-            "description": "Key",
+            "description": "The settings parameter key.",
             "schema": {
               "maxLength": 255,
               "minLength": 0,
@@ -897,7 +909,7 @@
           {
             "name": "Value",
             "in": "query",
-            "description": "Value",
+            "description": "The settings parameter value.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -910,7 +922,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
+                  "$ref": "#/components/schemas/IActionResultWrapper"
                 }
               }
             }
@@ -924,10 +936,18 @@
             "asc_auth_key": [
               "read",
               "write"
-            ]
+            ],
+            "Bearer": [ ],
+            "ApiKeyBearer": [ ],
+            "Basic": [ ],
+            "OAuth2": [
+              "api.read",
+              "api.write"
+            ],
+            "OpenId": [ ]
           }
         ],
-        "description": "Gets settings"
+        "x-shortName": "Get settings"
       }
     },
     "/settings/save": {
@@ -935,28 +955,28 @@
         "tags": [
           "Settings"
         ],
-        "summary": "Saves settings",
+        "summary": "Saves the settings specified in the request for the current portal.",
         "operationId": "saveSettings",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.SettingsModel"
+                "$ref": "#/components/schemas/SettingsModel"
               }
             },
             "application/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.SettingsModel"
+                "$ref": "#/components/schemas/SettingsModel"
               }
             },
             "text/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.SettingsModel"
+                "$ref": "#/components/schemas/SettingsModel"
               }
             },
             "application/*+xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.SettingsModel"
+                "$ref": "#/components/schemas/SettingsModel"
               }
             }
           }
@@ -967,7 +987,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
+                  "$ref": "#/components/schemas/IActionResultWrapper"
                 }
               }
             }
@@ -981,10 +1001,18 @@
             "asc_auth_key": [
               "read",
               "write"
-            ]
+            ],
+            "Bearer": [ ],
+            "ApiKeyBearer": [ ],
+            "Basic": [ ],
+            "OAuth2": [
+              "api.read",
+              "api.write"
+            ],
+            "OpenId": [ ]
           }
         ],
-        "description": "Saves settings"
+        "x-shortName": "Save settings"
       }
     },
     "/settings/checkdomain": {
@@ -992,28 +1020,28 @@
         "tags": [
           "Settings"
         ],
-        "summary": "Checks domain",
+        "summary": "Checks the domain with the name specified in the request.",
         "operationId": "checkDomain",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.DomainModel"
+                "$ref": "#/components/schemas/DomainModel"
               }
             },
             "application/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.DomainModel"
+                "$ref": "#/components/schemas/DomainModel"
               }
             },
             "text/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.DomainModel"
+                "$ref": "#/components/schemas/DomainModel"
               }
             },
             "application/*+xml": {
               "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.DomainModel"
+                "$ref": "#/components/schemas/DomainModel"
               }
             }
           }
@@ -1024,7 +1052,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
+                  "$ref": "#/components/schemas/IActionResultWrapper"
                 }
               }
             }
@@ -1038,260 +1066,117 @@
             "asc_auth_key": [
               "read",
               "write"
-            ]
+            ],
+            "Bearer": [ ],
+            "ApiKeyBearer": [ ],
+            "Basic": [ ],
+            "OAuth2": [
+              "api.read",
+              "api.write"
+            ],
+            "OpenId": [ ]
           }
         ],
-        "description": "Checks domain"
-      }
-    },
-    "/tariff/set": {
-      "put": {
-        "tags": [
-          "Tariff"
-        ],
-        "summary": "Sets tariff",
-        "operationId": "setTariff",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TariffModel"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TariffModel"
-              }
-            },
-            "text/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TariffModel"
-              }
-            },
-            "application/*+xml": {
-              "schema": {
-                "$ref": "#/components/schemas/ASC.ApiSystem.Models.TariffModel"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Tariff",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          }
-        ],
-        "description": "Sets tariff"
-      }
-    },
-    "/tariff/get": {
-      "get": {
-        "tags": [
-          "Tariff"
-        ],
-        "summary": "Gets tariff",
-        "operationId": "getTariff",
-        "parameters": [
-          {
-            "name": "PortalName",
-            "in": "query",
-            "description": "Portal name",
-            "schema": {
-              "maxLength": 255,
-              "minLength": 0,
-              "type": "string",
-              "example": "some text"
-            }
-          },
-          {
-            "name": "TenantId",
-            "in": "query",
-            "description": "Tenant id",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "example": 1234
-            }
-          },
-          {
-            "name": "ActiveUsers",
-            "in": "query",
-            "description": "Active users",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "example": 1234
-            }
-          },
-          {
-            "name": "DueDate",
-            "in": "query",
-            "description": "Due date",
-            "schema": {
-              "type": "string",
-              "format": "date-time",
-              "example": "2008-04-10T06:30:00.0000000+04:00"
-            }
-          },
-          {
-            "name": "Features",
-            "in": "query",
-            "description": "Features",
-            "schema": {
-              "maxLength": 255,
-              "minLength": 0,
-              "type": "string",
-              "example": "some text"
-            }
-          },
-          {
-            "name": "MaxFileSize",
-            "in": "query",
-            "description": "Max file size",
-            "schema": {
-              "type": "integer",
-              "format": "int64",
-              "example": 1234
-            }
-          },
-          {
-            "name": "MaxTotalSize",
-            "in": "query",
-            "description": "Max total size",
-            "schema": {
-              "type": "integer",
-              "format": "int64",
-              "example": 1234
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Tariff",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          }
-        ],
-        "description": "Gets tariff"
-      }
-    },
-    "/tariff/all": {
-      "get": {
-        "tags": [
-          "Tariff"
-        ],
-        "summary": "Gets all tariffs",
-        "operationId": "getTariffs",
-        "responses": {
-          "200": {
-            "description": "Tariff",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.IActionResult"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          }
-        ],
-        "description": "Gets all tariffs"
+        "x-shortName": "Check the domain name"
       }
     }
   },
   "components": {
     "schemas": {
-      "ASC.ApiSystem.Models.DomainModel": {
+      "DomainModel": {
         "type": "object",
         "properties": {
           "hostName": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "Host name",
+            "description": "The host name.",
             "nullable": true,
             "example": "some text"
           }
         },
         "additionalProperties": false,
-        "description": "Requst parameters for domain"
+        "description": "The request parameters for checking domain names."
       },
-      "ASC.ApiSystem.Models.FindPeopleModel": {
+      "IActionResult": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "IActionResultWrapper": {
         "type": "object",
         "properties": {
-          "userIds": {
+          "response": {
+            "$ref": "#/components/schemas/IActionResult"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "links": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "description": "User ids",
-            "nullable": true,
-            "example": [
-              "75a5f745-f697-4418-b38d-0fe0d277e258"
-            ]
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "action": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
           }
-        },
-        "additionalProperties": false,
-        "description": "Request parameters for people"
+        }
       },
-      "ASC.ApiSystem.Models.SettingsModel": {
+      "RecaptchaType": {
+        "oneOf": [
+          {
+            "enum": [
+              "Default",
+              "AndroidV2",
+              "iOSV2",
+              "hCaptcha"
+            ],
+            "type": "string",
+            "description": "[Default - Default, AndroidV2 - AndroidV2, iOSV2 - iOSV2, hCaptcha - hCaptcha]",
+            "example": "Default"
+          },
+          {
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "type": "integer",
+            "description": "[0 - Default, 1 - AndroidV2, 2 - iOSV2, 3 - hCaptcha]",
+            "example": 0
+          }
+        ],
+        "description": "The type of CAPTCHA validation used."
+      },
+      "SettingsModel": {
         "type": "object",
         "properties": {
           "portalName": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "Portal name",
+            "description": "The portal name.",
             "nullable": true,
             "example": "some text"
           },
           "tenantId": {
             "type": "integer",
-            "description": "Tenant id",
+            "description": "The tenant ID.",
             "format": "int32",
             "nullable": true,
             "example": 1234
@@ -1300,86 +1185,32 @@
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "Key",
+            "description": "The settings parameter key.",
             "nullable": true,
             "example": "some text"
           },
           "value": {
             "type": "string",
-            "description": "Value",
+            "description": "The settings parameter value.",
             "nullable": true,
             "example": "some text"
           }
         },
         "additionalProperties": false,
-        "description": "Request parameters for settings"
+        "description": "The request parameters for managing portal settings."
       },
-      "ASC.ApiSystem.Models.TariffModel": {
+      "TenantModel": {
         "type": "object",
         "properties": {
           "portalName": {
-            "maxLength": 255,
-            "minLength": 0,
             "type": "string",
-            "description": "Portal name",
+            "description": "The portal name.",
             "nullable": true,
             "example": "some text"
           },
           "tenantId": {
             "type": "integer",
-            "description": "Tenant id",
-            "format": "int32",
-            "nullable": true,
-            "example": 1234
-          },
-          "activeUsers": {
-            "type": "integer",
-            "description": "Active users",
-            "format": "int32",
-            "example": 1234
-          },
-          "dueDate": {
-            "type": "string",
-            "description": "Due date",
-            "format": "date-time",
-            "example": "2008-04-10T06:30:00.0000000+04:00"
-          },
-          "features": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "description": "Features",
-            "nullable": true,
-            "example": "some text"
-          },
-          "maxFileSize": {
-            "type": "integer",
-            "description": "Max file size",
-            "format": "int64",
-            "example": 1234
-          },
-          "maxTotalSize": {
-            "type": "integer",
-            "description": "Max total size",
-            "format": "int64",
-            "example": 1234
-          }
-        },
-        "additionalProperties": false,
-        "description": "Request parameters for tariff"
-      },
-      "ASC.ApiSystem.Models.TenantModel": {
-        "type": "object",
-        "properties": {
-          "portalName": {
-            "type": "string",
-            "description": "Portal name",
-            "nullable": true,
-            "example": "some text"
-          },
-          "tenantId": {
-            "type": "integer",
-            "description": "Tenant id",
+            "description": "The tenant ID.",
             "format": "int32",
             "nullable": true,
             "example": 1234
@@ -1388,7 +1219,7 @@
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "Affiliate id",
+            "description": "The affiliate ID.",
             "nullable": true,
             "example": "some text"
           },
@@ -1396,13 +1227,13 @@
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "Partner id",
+            "description": "The partner ID.",
             "nullable": true,
             "example": "some text"
           },
           "campaign": {
             "type": "string",
-            "description": "Campaign",
+            "description": "The portal campaign.",
             "nullable": true,
             "example": "some text"
           },
@@ -1410,7 +1241,7 @@
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "First name",
+            "description": "The first name of the portal owner.",
             "nullable": true,
             "example": "Winfield"
           },
@@ -1418,14 +1249,14 @@
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "Email",
+            "description": "The email address of the portal owner.",
             "format": "email",
             "nullable": true,
             "example": "Sydney_Roberts4@hotmail.com"
           },
           "industry": {
             "type": "integer",
-            "description": "Industry",
+            "description": "The tenant industry.",
             "format": "int32",
             "example": 1234
           },
@@ -1433,7 +1264,7 @@
             "maxLength": 7,
             "minLength": 0,
             "type": "string",
-            "description": "Language",
+            "description": "The portal language.",
             "nullable": true,
             "example": "some text"
           },
@@ -1441,7 +1272,7 @@
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "Last name",
+            "description": "The last name of the portal owner.",
             "nullable": true,
             "example": "Wyman"
           },
@@ -1449,7 +1280,7 @@
             "maxLength": 38,
             "minLength": 0,
             "type": "string",
-            "description": "Module",
+            "description": "The name for the storage module to be configured.",
             "nullable": true,
             "example": "some text"
           },
@@ -1457,13 +1288,13 @@
             "maxLength": 30,
             "minLength": 0,
             "type": "string",
-            "description": "Password",
+            "description": "The password of the portal owner.",
             "nullable": true,
             "example": "vfmf2vO1Kp"
           },
           "passwordHash": {
             "type": "string",
-            "description": "Password hash",
+            "description": "The password hash.",
             "nullable": true,
             "example": "some text"
           },
@@ -1471,75 +1302,75 @@
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
-            "description": "Phone",
+            "description": "The phone numberr of the portal owner.",
             "nullable": true,
             "example": "some text"
           },
           "recaptchaResponse": {
             "type": "string",
-            "description": "Recaptcha response",
+            "description": "The user's response to the CAPTCHA challenge.",
             "nullable": true,
             "example": "some text"
           },
           "recaptchaType": {
-            "$ref": "#/components/schemas/ASC.Web.Core.RecaptchaType"
+            "$ref": "#/components/schemas/RecaptchaType"
           },
           "region": {
             "maxLength": 20,
             "minLength": 0,
             "type": "string",
-            "description": "Region",
+            "description": "The portal region.",
             "nullable": true,
             "example": "some text"
           },
           "awsRegion": {
             "type": "string",
-            "description": "AWS region",
+            "description": "The portal AWS region.",
             "nullable": true,
             "example": "some text"
           },
           "status": {
-            "$ref": "#/components/schemas/ASC.Core.Tenants.TenantStatus"
+            "$ref": "#/components/schemas/TenantStatus"
           },
           "skipWelcome": {
             "type": "boolean",
-            "description": "Skip welcome",
+            "description": "Specifies whether to send the welcome email to the user or not.",
             "example": true
           },
           "timeZoneName": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "TimeZone name",
+            "description": "The portal time zone name.",
             "nullable": true,
             "example": "some text"
           },
           "spam": {
             "type": "boolean",
-            "description": "Spam",
+            "description": "Specifies if the ONLYOFFICE newsletter is allowed or not.",
             "example": true
           },
           "calls": {
             "type": "boolean",
-            "description": "Calls",
+            "description": "Specifies if the calls are available for the current tenant or not.",
             "example": true
           },
           "appKey": {
             "type": "string",
-            "description": "App key",
+            "description": "The application key.",
             "nullable": true,
             "example": "some text"
           },
           "limitedAccessSpace": {
             "type": "boolean",
-            "description": "Limited access space",
+            "description": "Specifies whether the access to the space management is limited or not.",
             "example": true
           }
         },
         "additionalProperties": false,
-        "description": "Request parameters for portal"
+        "description": "The request parameters for managing a portal."
       },
-      "ASC.Core.Tenants.TenantStatus": {
+      "TenantStatus": {
         "oneOf": [
           {
             "enum": [
@@ -1569,53 +1400,56 @@
             "description": "[0 - Active, 1 - Suspended, 2 - Remove pending, 3 - Transfering, 4 - Restoring, 5 - Migrating, 6 - Encryption]",
             "example": 0
           }
-        ]
-      },
-      "ASC.Web.Core.RecaptchaType": {
-        "oneOf": [
-          {
-            "enum": [
-              "Default",
-              "AndroidV2",
-              "iOSV2",
-              "hCaptcha"
-            ],
-            "type": "string",
-            "description": "[Default - Default, AndroidV2 - AndroidV2, iOSV2 - iOSV2, hCaptcha - hCaptcha]",
-            "example": "Default"
-          },
-          {
-            "enum": [
-              0,
-              1,
-              2,
-              3
-            ],
-            "type": "integer",
-            "description": "[0 - Default, 1 - AndroidV2, 2 - iOSV2, 3 - hCaptcha]",
-            "example": 0
-          }
-        ]
-      },
-      "Microsoft.AspNetCore.Mvc.IActionResult": {
-        "type": "object",
-        "additionalProperties": false
+        ],
+        "description": "The tenant status."
       }
     },
     "securitySchemes": {
       "asc_auth_key": {
         "type": "apiKey",
+        "description": "Use Cookie authentication",
         "name": "asc_auth_key",
         "in": "cookie"
+      },
+      "Basic": {
+        "type": "http",
+        "description": "Enter your username and password",
+        "scheme": "basic"
+      },
+      "Bearer": {
+        "type": "http",
+        "description": "Enter 'Bearer {JWT Token}'",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ApiKeyBearer": {
+        "type": "http",
+        "description": "Authentication is determined by the 'Authorization' header",
+        "scheme": "bearer",
+        "bearerFormat": "API Key"
+      },
+      "OAuth2": {
+        "type": "oauth2",
+        "description": "OAuth2 flow with Authorization Code",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "",
+            "tokenUrl": "",
+            "scopes": {
+              "read": "Read access to protected resources",
+              "write": "Write access to protected resources"
+            }
+          }
+        }
+      },
+      "OpenId": {
+        "type": "openIdConnect",
+        "description": "OpenID Connect authentication",
+        "openIdConnectUrl": ""
       }
     }
   },
   "tags": [
-    {
-      "name": "People",
-      "description": "Operations for working with people",
-      "x-displayName": "People"
-    },
     {
       "name": "Portal",
       "description": "Operations for working with portal",
@@ -1625,20 +1459,9 @@
       "name": "Settings",
       "description": "Operations for working with settings",
       "x-displayName": "Settings"
-    },
-    {
-      "name": "Tariff",
-      "description": "Operations for working with tariff",
-      "x-displayName": "Tariff"
     }
   ],
   "x-tagGroups": [
-    {
-      "name": "People",
-      "tags": [
-        "People"
-      ]
-    },
     {
       "name": "Portal",
       "tags": [
@@ -1649,12 +1472,6 @@
       "name": "Settings",
       "tags": [
         "Settings"
-      ]
-    },
-    {
-      "name": "Tariff",
-      "tags": [
-        "Tariff"
       ]
     }
   ]
