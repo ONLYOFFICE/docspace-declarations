@@ -303,6 +303,25 @@
       "name": "Backup",
       "description": "Operations for working with backup",
       "x-displayName": "Backup"
+    },
+    {
+      "name": "Authorization",
+      "x-displayName": "Authorization"
+    },
+    {
+      "name": "Client Management",
+      "description": "APIs for managing OAuth2 clients including creation, updates, deletion and activation",
+      "x-displayName": "Client Management"
+    },
+    {
+      "name": "Scope Management",
+      "description": "APIs for retrieving OAuth2 scopes and their permissions",
+      "x-displayName": "Scope Management"
+    },
+    {
+      "name": "Client Querying",
+      "description": "APIs for retrieving OAuth2 client information and user consents",
+      "x-displayName": "Client Querying"
     }
   ],
   "paths": {
@@ -11141,7 +11160,21 @@
                     ],
                     "type": "integer",
                     "description": "[0 - All, 1 - Room admin, 2 - Guest, 3 - DocSpace admin, 4 - User]",
-                    "example": 0
+                    "example": 0,
+                    "x-enum-varnames": [
+                      "All",
+                      "RoomAdmin",
+                      "Guest",
+                      "DocSpaceAdmin",
+                      "User"
+                    ],
+                    "x-enum-descriptions": [
+                      "All",
+                      "Room admin",
+                      "Guest",
+                      "DocSpace admin",
+                      "User"
+                    ]
                   }
                 ]
               }
@@ -11444,7 +11477,21 @@
                     ],
                     "type": "integer",
                     "description": "[0 - All, 1 - Room admin, 2 - Guest, 3 - DocSpace admin, 4 - User]",
-                    "example": 0
+                    "example": 0,
+                    "x-enum-varnames": [
+                      "All",
+                      "RoomAdmin",
+                      "Guest",
+                      "DocSpaceAdmin",
+                      "User"
+                    ],
+                    "x-enum-descriptions": [
+                      "All",
+                      "Room admin",
+                      "Guest",
+                      "DocSpace admin",
+                      "User"
+                    ]
                   }
                 ]
               }
@@ -21184,7 +21231,35 @@
                       ],
                       "type": "integer",
                       "description": "[0 - None, 1 - Read and write, 2 - Read, 3 - Restrict, 4 - Varies, 5 - Review, 6 - Comment, 7 - Fill forms, 8 - Custom filter, 9 - Room manager, 10 - Editing, 11 - Content creator]",
-                      "example": 0
+                      "example": 0,
+                      "x-enum-varnames": [
+                        "None",
+                        "ReadWrite",
+                        "Read",
+                        "Restrict",
+                        "Varies",
+                        "Review",
+                        "Comment",
+                        "FillForms",
+                        "CustomFilter",
+                        "RoomManager",
+                        "Editing",
+                        "ContentCreator"
+                      ],
+                      "x-enum-descriptions": [
+                        "None",
+                        "Read and write",
+                        "Read",
+                        "Restrict",
+                        "Varies",
+                        "Review",
+                        "Comment",
+                        "Fill forms",
+                        "Custom filter",
+                        "Room manager",
+                        "Editing",
+                        "Content creator"
+                      ]
                     }
                   ]
                 },
@@ -22093,6 +22168,1421 @@
         },
         "description": "Returns the progress of the started restoring process."
       }
+    },
+    "/oauth2/authorize": {
+      "get": {
+        "tags": [
+          "Authorization"
+        ],
+        "summary": "OAuth2 Authorization Endpoint",
+        "description": "Initiates the OAuth2 authorization flow",
+        "parameters": [
+          {
+            "name": "response_type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "code"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+            }
+          },
+          {
+            "name": "redirect_uri",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "https://example.com"
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "files:read"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorization page"
+          },
+          "400": {
+            "description": "Invalid request parameters"
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Authorization"
+        ],
+        "summary": "OAuth2 Consent Endpoint",
+        "description": "Sends consent approval",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "client_id": {
+                    "type": "string",
+                    "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+                  },
+                  "state": {
+                    "type": "string",
+                    "example": "abcde"
+                  },
+                  "scope": {
+                    "type": "string",
+                    "example": "files:read"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "302": {
+            "description": "Redirect to the client's redirect URI with authorization code"
+          },
+          "400": {
+            "description": "Invalid request parameters"
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      }
+    },
+    "/oauth2/token": {
+      "post": {
+        "tags": [
+          "Authorization"
+        ],
+        "summary": "OAuth2 Token Endpoint",
+        "description": "Exchange authorization code for access token",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string",
+                    "example": "authorization_code"
+                  },
+                  "code": {
+                    "type": "string",
+                    "example": "abcde"
+                  },
+                  "redirect_uri": {
+                    "type": "string",
+                    "example": "https://example.com"
+                  },
+                  "client_id": {
+                    "type": "string",
+                    "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+                  },
+                  "client_secret": {
+                    "type": "string",
+                    "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully exchanged authorization code for access token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    },
+                    "token_type": {
+                      "type": "string",
+                      "example": "Bearer"
+                    },
+                    "expires_in": {
+                      "type": "integer",
+                      "example": 3600
+                    },
+                    "refresh_token": {
+                      "type": "string",
+                      "example": "def502..."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters"
+          }
+        }
+      }
+    },
+    "/api/2.0/clients/{clientId}": {
+      "get": {
+        "tags": [
+          "Client Querying"
+        ],
+        "summary": "Get client details",
+        "description": "Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.",
+        "operationId": "getClient",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "description": "ID of the client to retrieve",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Client details successfully retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientResponse"
+                },
+                "example": {
+                  "name": "Example Name",
+                  "description": "Example Description",
+                  "tenant": 1,
+                  "scopes": [
+                    "files:read",
+                    "files:write"
+                  ],
+                  "enabled": true,
+                  "client_id": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "client_secret": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "website_url": "http://example.com",
+                  "terms_url": "http://example.com",
+                  "policy_url": "http://example.com",
+                  "logo": "data:image/png;base64,ivBOR",
+                  "authentication_methods": [
+                    "client_secret_post"
+                  ],
+                  "redirect_uris": [
+                    "https://example.com"
+                  ],
+                  "allowed_origins": [
+                    "https://example.com"
+                  ],
+                  "logout_redirect_uris": [
+                    "https://example.com"
+                  ],
+                  "created_on": "2024-04-04T12:00:00Z",
+                  "created_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "modified_on": "2024-04-04T12:00:00Z",
+                  "modified_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "is_public": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid client ID format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Insufficient permissions to view client",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error occurred",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Client Management"
+        ],
+        "summary": "Update an existing OAuth2 client",
+        "description": "Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.",
+        "operationId": "updateClient",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "description": "ID of the client to update",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateClientRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Client successfully updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request - missing required fields or validation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Insufficient permissions to update client",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error occurred",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Client Management"
+        ],
+        "summary": "Delete an OAuth2 client",
+        "description": "Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.",
+        "operationId": "deleteClient",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "description": "ID of the client to delete",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Client successfully deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid client ID format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Insufficient permissions to delete client",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error occurred",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      }
+    },
+    "/api/2.0/clients": {
+      "get": {
+        "tags": [
+          "Client Querying"
+        ],
+        "summary": "List clients",
+        "description": "Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.",
+        "operationId": "getClients",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Pagination limit",
+            "required": true,
+            "schema": {
+              "maximum": 50,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 1
+          },
+          {
+            "name": "last_client_id",
+            "in": "query",
+            "description": "ID of the last retrieved client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+          },
+          {
+            "name": "last_created_on",
+            "in": "query",
+            "description": "Date of the last retrieved client",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2024-04-04T12:00:00Z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Client list successfully retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageableResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "name": "Example Name",
+                      "description": "Example Description",
+                      "tenant": 1,
+                      "scopes": [
+                        "files:read",
+                        "files:write"
+                      ],
+                      "enabled": true,
+                      "client_id": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                      "client_secret": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                      "website_url": "http://example.com",
+                      "terms_url": "http://example.com",
+                      "policy_url": "http://example.com",
+                      "logo": "data:image/png;base64,ivBOR",
+                      "authentication_methods": [
+                        "client_secret_post"
+                      ],
+                      "redirect_uris": [
+                        "https://example.com"
+                      ],
+                      "allowed_origins": [
+                        "https://example.com"
+                      ],
+                      "logout_redirect_uris": [
+                        "https://example.com"
+                      ],
+                      "created_on": "2024-04-04T12:00:00Z",
+                      "created_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                      "modified_on": "2024-04-04T12:00:00Z",
+                      "modified_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                      "is_public": true
+                    }
+                  ],
+                  "limit": 50,
+                  "last_client_id": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "last_created_on": "2024-04-04T12:00:00Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid pagination parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Insufficient permissions to list clients",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error occurred",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Client Management"
+        ],
+        "summary": "Create a new OAuth2 client",
+        "description": "Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.",
+        "operationId": "createClient",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateClientRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Client successfully created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientResponse"
+                },
+                "example": {
+                  "name": "Example Name",
+                  "description": "Example Description",
+                  "tenant": 1,
+                  "scopes": [
+                    "files:read",
+                    "files:write"
+                  ],
+                  "enabled": true,
+                  "client_id": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "client_secret": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "website_url": "http://example.com",
+                  "terms_url": "http://example.com",
+                  "policy_url": "http://example.com",
+                  "logo": "data:image/png;base64,ivBOR",
+                  "authentication_methods": [
+                    "client_secret_post"
+                  ],
+                  "redirect_uris": [
+                    "https://example.com"
+                  ],
+                  "allowed_origins": [
+                    "https://example.com"
+                  ],
+                  "logout_redirect_uris": [
+                    "https://example.com"
+                  ],
+                  "created_on": "2024-04-04T12:00:00Z",
+                  "created_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "modified_on": "2024-04-04T12:00:00Z",
+                  "modified_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "is_public": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request - missing required fields or validation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Insufficient permissions to create client",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error occurred",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      }
+    },
+    "/api/2.0/clients/{clientId}/regenerate": {
+      "patch": {
+        "tags": [
+          "Client Management"
+        ],
+        "summary": "Regenerate client secret",
+        "description": "Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.",
+        "operationId": "regenerateSecret",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "description": "ID of the client to regenerate secret for",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Client secret successfully regenerated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientSecretResponse"
+                },
+                "example": {
+                  "client_secret": "2c53294c-57fa-4d5b-b9db-e49ebb97f25f"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid client ID format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Insufficient permissions to regenerate client secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error occurred",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      }
+    },
+    "/api/2.0/clients/{clientId}/activation": {
+      "patch": {
+        "tags": [
+          "Client Management"
+        ],
+        "summary": "Change client activation status",
+        "description": "Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.",
+        "operationId": "changeActivation",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "description": "ID of the client to change activation for",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeClientActivationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Client activation status successfully changed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid client ID format or activation status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Insufficient permissions to change client activation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error occurred",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      }
+    },
+    "/api/2.0/scopes": {
+      "get": {
+        "tags": [
+          "Scope Management"
+        ],
+        "summary": "List available OAuth2 scopes",
+        "description": "Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.",
+        "operationId": "getScopes",
+        "responses": {
+          "200": {
+            "description": "Scopes successfully retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScopeResponse"
+                },
+                "example": [
+                  {
+                    "name": "scope_name",
+                    "type": "scope_type",
+                    "group": "scope_group"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Insufficient permissions to list scopes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error occurred",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      }
+    },
+    "/api/2.0/clients/{clientId}/public/info": {
+      "get": {
+        "tags": [
+          "Client Querying"
+        ],
+        "summary": "Handles the GET request for public client information",
+        "operationId": "getPublicClientInfo",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "description": "ID of the client to retrieve",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved client public info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInfoResponse"
+                },
+                "example": {
+                  "name": "Example Name",
+                  "client_id": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "description": "Example Description",
+                  "website_url": "http://example.com",
+                  "terms_url": "http://example.com",
+                  "policy_url": "http://example.com",
+                  "logo": "data:image/png;base64,ivBOR",
+                  "authentication_methods": [
+                    "client_secret_post"
+                  ],
+                  "scopes": [
+                    "files:read",
+                    "files:write"
+                  ],
+                  "is_public": true,
+                  "created_on": "2024-04-04T12:00:00Z",
+                  "created_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "modified_on": "2024-04-04T12:00:00Z",
+                  "modified_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/2.0/clients/{clientId}/info": {
+      "get": {
+        "tags": [
+          "Client Querying"
+        ],
+        "summary": "Retrieves detailed information for a specific client",
+        "operationId": "getClientInfo",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "description": "ID of the client to retrieve",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved client info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInfoResponse"
+                },
+                "example": {
+                  "name": "Example Name",
+                  "client_id": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "description": "Example Description",
+                  "website_url": "http://example.com",
+                  "terms_url": "http://example.com",
+                  "policy_url": "http://example.com",
+                  "logo": "data:image/png;base64,ivBOR",
+                  "authentication_methods": [
+                    "client_secret_post"
+                  ],
+                  "scopes": [
+                    "files:read",
+                    "files:write"
+                  ],
+                  "is_public": true,
+                  "created_on": "2024-04-04T12:00:00Z",
+                  "created_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                  "modified_on": "2024-04-04T12:00:00Z",
+                  "modified_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      }
+    },
+    "/api/2.0/clients/info": {
+      "get": {
+        "tags": [
+          "Client Querying"
+        ],
+        "summary": "Retrieves a pageable list of client information",
+        "operationId": "getClientsInfo",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Pagination limit",
+            "required": true,
+            "schema": {
+              "maximum": 50,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 1
+          },
+          {
+            "name": "last_client_id",
+            "in": "query",
+            "description": "ID of the last retrieved client",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+          },
+          {
+            "name": "last_created_on",
+            "in": "query",
+            "description": "Date of the last retrieved client",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2024-04-04T12:00:00Z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved clients info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageableResponseClientInfoResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      }
+    },
+    "/api/2.0/clients/consents": {
+      "get": {
+        "tags": [
+          "Client Querying"
+        ],
+        "summary": "Retrieves a pageable list of consents",
+        "operationId": "getConsents",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Pagination limit",
+            "required": true,
+            "schema": {
+              "maximum": 50,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 1
+          },
+          {
+            "name": "last_modified_on",
+            "in": "query",
+            "description": "Date of the last retrieved consent",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2024-04-04T12:00:00Z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user consents",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageableModificationResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "registered_client_id": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                      "scopes": [
+                        "files:read",
+                        "files:write"
+                      ],
+                      "modified_at": "2024-04-04T12:00:00Z",
+                      "client": {
+                        "name": "Example Name",
+                        "client_id": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                        "description": "Example Description",
+                        "website_url": "http://example.com",
+                        "terms_url": "http://example.com",
+                        "policy_url": "http://example.com",
+                        "logo": "data:image/png;base64,ivBOR",
+                        "authentication_methods": [
+                          "client_secret_post"
+                        ],
+                        "scopes": [
+                          "files:read",
+                          "files:write"
+                        ],
+                        "is_public": true,
+                        "created_on": "2024-04-04T12:00:00Z",
+                        "created_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168",
+                        "modified_on": "2024-04-04T12:00:00Z",
+                        "modified_by": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+                      }
+                    }
+                  ],
+                  "limit": 50,
+                  "last_modified_on": "2024-04-04T12:00:00Z"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      }
+    },
+    "/api/2.0/clients/{clientId}/revoke": {
+      "delete": {
+        "tags": [
+          "Client Management"
+        ],
+        "summary": "Revoke client consent",
+        "description": "Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.",
+        "operationId": "revokeUserClient",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "description": "ID of the client to revoke consent for",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "example": "6c7cf17b-1bd3-47d5-94c6-be2d3570e168"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Client consent successfully revoked",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid client ID format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Insufficient permissions to revoke consent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error occurred",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authorization service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "x-signature": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -22151,7 +23641,51 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Create, 2 - Update, 3 - Delete, 4 - Link, 5 - Unlink, 6 - Attach, 7 - Detach, 8 - Send, 9 - Import, 10 - Export, 11 - Update access, 12 - Download, 13 - Upload, 14 - Copy, 15 - Move, 16 - Reassigns, 17 - Follow, 18 - Unfollow, 19 - Logout]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "Create",
+              "Update",
+              "Delete",
+              "Link",
+              "Unlink",
+              "Attach",
+              "Detach",
+              "Send",
+              "Import",
+              "Export",
+              "UpdateAccess",
+              "Download",
+              "Upload",
+              "Copy",
+              "Move",
+              "Reassigns",
+              "Follow",
+              "Unfollow",
+              "Logout"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Create",
+              "Update",
+              "Delete",
+              "Link",
+              "Unlink",
+              "Attach",
+              "Detach",
+              "Send",
+              "Import",
+              "Export",
+              "Update access",
+              "Download",
+              "Upload",
+              "Copy",
+              "Move",
+              "Reassigns",
+              "Follow",
+              "Unfollow",
+              "Logout"
+            ]
           }
         ]
       },
@@ -22335,6 +23869,7 @@
           },
           "feedbackAndSupportEnabled": {
             "type": "boolean",
+            "description": "Specifies if the \"Feedback & Support\" link is available or not.",
             "example": true
           },
           "userForumEnabled": {
@@ -23302,7 +24837,49 @@
             ],
             "type": "integer",
             "description": "[0 - Emp invite, 1 - Link invite, 2 - Portal suspend, 3 - Portal continue, 4 - Portal remove, 5 - Dns change, 6 - Portal owner change, 7 - Activation, 8 - Email change, 9 - Email activation, 10 - Password change, 11 - Profile remove, 12 - Phone activation, 13 - Phone auth, 14 - Auth, 15 - Tfa activation, 16 - Tfa auth, 17 - Wizard, 18 - Guest share link]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "EmpInvite",
+              "LinkInvite",
+              "PortalSuspend",
+              "PortalContinue",
+              "PortalRemove",
+              "DnsChange",
+              "PortalOwnerChange",
+              "Activation",
+              "EmailChange",
+              "EmailActivation",
+              "PasswordChange",
+              "ProfileRemove",
+              "PhoneActivation",
+              "PhoneAuth",
+              "Auth",
+              "TfaActivation",
+              "TfaAuth",
+              "Wizard",
+              "GuestShareLink"
+            ],
+            "x-enum-descriptions": [
+              "Emp invite",
+              "Link invite",
+              "Portal suspend",
+              "Portal continue",
+              "Portal remove",
+              "Dns change",
+              "Portal owner change",
+              "Activation",
+              "Email change",
+              "Email activation",
+              "Password change",
+              "Profile remove",
+              "Phone activation",
+              "Phone auth",
+              "Auth",
+              "Tfa activation",
+              "Tfa auth",
+              "Wizard",
+              "Guest share link"
+            ]
           }
         ],
         "description": "The confirmation email type."
@@ -24186,7 +25763,19 @@
             ],
             "type": "integer",
             "description": "[0 - Not activated, 1 - Activated, 2 - Pending, 4 - Auto generated]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "NotActivated",
+              "Activated",
+              "Pending",
+              "AutoGenerated"
+            ],
+            "x-enum-descriptions": [
+              "Not activated",
+              "Activated",
+              "Pending",
+              "Auto generated"
+            ]
           }
         ],
         "description": "The user activation status."
@@ -24323,7 +25912,21 @@
             ],
             "type": "integer",
             "description": "[1 - Active, 2 - Terminated, 4 - Pending, 5 - Default, 7 - All]",
-            "example": 1
+            "example": 1,
+            "x-enum-varnames": [
+              "Active",
+              "Terminated",
+              "Pending",
+              "Default",
+              "All"
+            ],
+            "x-enum-descriptions": [
+              "Active",
+              "Terminated",
+              "Pending",
+              "Default",
+              "All"
+            ]
           }
         ],
         "description": "The user status."
@@ -24352,7 +25955,21 @@
             ],
             "type": "integer",
             "description": "[0 - All, 1 - Room admin, 2 - Guest, 3 - DocSpace admin, 4 - User]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "All",
+              "RoomAdmin",
+              "Guest",
+              "DocSpaceAdmin",
+              "User"
+            ],
+            "x-enum-descriptions": [
+              "All",
+              "Room admin",
+              "Guest",
+              "DocSpace admin",
+              "User"
+            ]
           }
         ],
         "description": "The user type."
@@ -24385,7 +26002,25 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - File, 2 - Folder, 23 - User, 24 - Group, 25 - Room, 26 - Tag]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "File",
+              "Folder",
+              "User",
+              "Group",
+              "Room",
+              "Tag"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "File",
+              "Folder",
+              "User",
+              "Group",
+              "Room",
+              "Tag"
+            ]
           }
         ]
       },
@@ -25329,6 +26964,7 @@
               "LoginSuccessViaApiTfa",
               "LoginFailViaApiTfa",
               "LoginFailRecaptcha",
+              "AuthLinkActivated",
               "UserCreated",
               "GuestCreated",
               "UserCreatedViaInvite",
@@ -25492,6 +27128,9 @@
               "FormPartiallyFilled",
               "FormCompletelyFilled",
               "FormStopped",
+              "LdapEnabled",
+              "LdapDisabled",
+              "LdapSync",
               "LanguageSettingsUpdated",
               "TimeZoneSettingsUpdated",
               "DnsSettingsUpdated",
@@ -25570,7 +27209,7 @@
               "None"
             ],
             "type": "string",
-            "description": "[LoginSuccess - Login success, LoginSuccessViaSocialAccount - Login success via social account, LoginFailInvalidCombination - Login fail invalid combination, LoginFailSocialAccountNotFound - Login fail social account not found, LoginFailDisabledProfile - Login fail disabled profile, LoginFail - Login fail, Logout - Logout, LoginSuccessViaSms - Login success via sms, LoginFailViaSms - Login fail via sms, LoginFailIpSecurity - Login fail ip security, LoginSuccessViaApi - Login success via api, LoginSuccessViaSocialApp - Login success via social app, LoginSuccessViaApiSms - Login success via api sms, LoginFailViaApi - Login fail via api, LoginFailViaApiSms - Login fail via api sms, LoginSuccessViaSSO - Login success via SSO, SessionStarted - Session started, SessionCompleted - Session completed, LoginFailViaSSO - Login fail via SSO, LoginSuccessViaApiSocialAccount - Login success via api social account, LoginFailViaApiSocialAccount - Login fail via api social account, LoginSuccesViaTfaApp - Login succes via tfa app, LoginFailViaTfaApp - Login fail via Tfa app, LoginFailBruteForce - Login fail brute force, LoginSuccessViaApiTfa - Login success via api tfa, LoginFailViaApiTfa - Login fail via api tfa, LoginFailRecaptcha - Login fail recaptcha, UserCreated - User created, GuestCreated - Guest created, UserCreatedViaInvite - User created via invite, GuestCreatedViaInvite - Guest created via invite, UserActivated - User activated, GuestActivated - Guest activated, UserUpdated - User updated, UserUpdatedLanguage - User updated language, UserAddedAvatar - User added avatar, UserDeletedAvatar - User deleted avatar, UserUpdatedAvatarThumbnails - User updated avatar thumbnails, UserLinkedSocialAccount - User linked social account, UserUnlinkedSocialAccount - User unlinked social account, UserSentActivationInstructions - User sent activation instructions, UserSentEmailChangeInstructions - User sent email change instructions, UserSentPasswordChangeInstructions - User sent password change instructions, UserSentDeleteInstructions - User sent delete instructions, UserUpdatedPassword - User updated password, UserDeleted - User deleted, UsersUpdatedType - Users updated type, UsersUpdatedStatus - Users updated status, UsersSentActivationInstructions - Users sent activation instructions, UsersDeleted - Users deleted, SentInviteInstructions - Sent invite instructions, UserImported - User imported, GuestImported - Guest imported, GroupCreated - Group created, GroupUpdated - Group updated, GroupDeleted - Group deleted, UserUpdatedMobileNumber - User updated mobile number, UserDataReassigns - User data reassigns, UserDataRemoving - User data removing, UserConnectedTfaApp - User connected tfa app, UserDisconnectedTfaApp - User disconnected tfa app, UserLogoutActiveConnections - User logout active connections, UserLogoutActiveConnection - User logout active connection, UserLogoutActiveConnectionsForUser - User logout active connections for user, SendJoinInvite - Send join invite, FileCreated - File created, FileRenamed - File renamed, FileUpdated - File updated, FileCreatedVersion - File created version, FileDeletedVersion - File deleted version, FileUpdatedRevisionComment - File updated revision comment, FileLocked - File locked, FileUnlocked - File unlocked, FileUpdatedAccess - File updated access, FileDownloaded - File downloaded, FileDownloadedAs - File downloaded as, FileUploaded - File uploaded, FileImported - File imported, FileCopied - File copied, FileCopiedWithOverwriting - File copied with overwriting, FileMoved - File moved, FileMovedWithOverwriting - File moved with overwriting, FileMovedToTrash - File moved to trash, FileDeleted - File deleted, FolderCreated - Folder created, FolderRenamed - Folder renamed, FolderUpdatedAccess - Folder updated access, FolderCopied - Folder copied, FolderCopiedWithOverwriting - Folder copied with overwriting, FolderMoved - Folder moved, FolderMovedWithOverwriting - Folder moved with overwriting, FolderMovedToTrash - Folder moved to trash, FolderDeleted - Folder deleted, ThirdPartyCreated - ThirdParty created, ThirdPartyUpdated - ThirdParty updated, ThirdPartyDeleted - ThirdParty deleted, DocumentsThirdPartySettingsUpdated - Documents ThirdParty settings updated, DocumentsOverwritingSettingsUpdated - Documents overwriting settings updated, DocumentsUploadingFormatsSettingsUpdated - Documents uploading formats settings updated, UserFileUpdated - User file updated, FileConverted - File converted, FileSendAccessLink - File send access link, DocumentServiceLocationSetting - Document service location setting, AuthorizationKeysSetting - Authorization keys setting, FullTextSearchSetting - Full text search setting, StartTransferSetting - Start transfer setting, StartBackupSetting - Start backup setting, LicenseKeyUploaded - License key uploaded, FileChangeOwner - File change owner, FileRestoreVersion - File restore version, DocumentSendToSign - Document send to sign, DocumentSignComplete - Document sign complete, UserUpdatedEmail - User updated email, DocumentsStoreForcesave - Documents store forcesave, DocumentsForcesave - Documents forcesave, StartStorageEncryption - Start storage encryption, PrivacyRoomEnable - Privacy room enable, PrivacyRoomDisable - Privacy room disable, StartStorageDecryption - Start storage decryption, FileOpenedForChange - File opened for change, FileMarkedAsFavorite - File marked as favorite, FileRemovedFromFavorite - File removed from favorite, FolderDownloaded - Folder downloaded, FileRemovedFromList - File removed from list, FolderRemovedFromList - Folder removed from list, FileExternalLinkAccessUpdated - File external link access updated, TrashEmptied - Trash emptied, FileRevisionDownloaded - File revision downloaded, FileMarkedAsRead - File marked as read, FileReaded - File readed, FolderMarkedAsRead - Folder marked as read, FolderUpdatedAccessFor - Folder updated access for, FileUpdatedAccessFor - File updated access for, DocumentsExternalShareSettingsUpdated - Documents external share settings updated, RoomCreated - Room created, RoomRenamed - Room renamed, RoomArchived - Room archived, RoomUnarchived - Room unarchived, RoomDeleted - Room deleted, RoomUpdateAccessForUser - Room update access for user, TagCreated - Tag created, TagsDeleted - Tags deleted, AddedRoomTags - Added room tags, DeletedRoomTags - Deleted room tags, RoomLogoCreated - Room logo created, RoomLogoDeleted - Room logo deleted, RoomInvitationLinkUpdated - Room invitation link updated, DocumentsKeepNewFileNameSettingsUpdated - Documents keep new file name settings updated, RoomRemoveUser - Room remove user, RoomCreateUser - Room create user, RoomInvitationLinkCreated - Room invitation link created, RoomInvitationLinkDeleted - Room invitation link deleted, RoomExternalLinkCreated - Room external link created, RoomExternalLinkUpdated - Room external link updated, RoomExternalLinkDeleted - Room external link deleted, FileExternalLinkCreated - File external link created, FileExternalLinkUpdated - File external link updated, FileExternalLinkDeleted - File external link deleted, RoomGroupAdded - Room group added, RoomUpdateAccessForGroup - Room update access for group, RoomGroupRemove - Room group remove, RoomExternalLinkRevoked - Room external link revoked, RoomExternalLinkRenamed - Room external link renamed, FileUploadedWithOverwriting - File uploaded with overwriting, RoomCopied - Room copied, DocumentsDisplayFileExtensionUpdated - Documents display file extension updated, RoomColorChanged - Room color changed, RoomCoverChanged - Room cover changed, RoomIndexingChanged - Room indexing changed, RoomDenyDownloadChanged - Room deny download changed, RoomIndexExportSaved - Room index export saved, FolderIndexChanged - Folder index changed, FolderIndexReordered - Folder index reordered, RoomDenyDownloadEnabled - Room deny download enabled, RoomDenyDownloadDisabled - Room deny download disabled, FileIndexChanged - File index changed, RoomWatermarkSet - Room watermark set, RoomWatermarkDisabled - Room watermark disabled, RoomIndexingEnabled - Room index export saved, RoomIndexingDisabled - Room indexing disabled, RoomLifeTimeSet - Room life time set, RoomLifeTimeDisabled - Room life time disabled, RoomInviteResend - Room invite resend, FileVersionRemoved - File version deleted, FileCustomFilterEnabled - File custom filter enabled, FileCustomFilterDisabled - File custom filter disabled, FormStartedToFill - Form started to fill, FormPartiallyFilled - Form partially filled, FormCompletelyFilled - Form completely filled, FormStopped - Form stopped, LanguageSettingsUpdated - Language settings updated, TimeZoneSettingsUpdated - Time zone settings updated, DnsSettingsUpdated - Dns settings updated, TrustedMailDomainSettingsUpdated - Trusted mail domain settings updated, PasswordStrengthSettingsUpdated - Password strength settings updated, TwoFactorAuthenticationSettingsUpdated - Two factor authentication settings updated, AdministratorMessageSettingsUpdated - Administrator message settings updated, DefaultStartPageSettingsUpdated - Default start page settings updated, ProductsListUpdated - Products list updated, AdministratorAdded - Administrator added, AdministratorOpenedFullAccess - Administrator opened full access, AdministratorDeleted - Administrator deleted, UsersOpenedProductAccess - Users opened product access, GroupsOpenedProductAccess - Groups opened product access, ProductAccessOpened - Product access opened, ProductAccessRestricted - Product access restricted, ProductAddedAdministrator - Product added administrator, ProductDeletedAdministrator - Product deleted administrator, GreetingSettingsUpdated - Greeting settings updated, TeamTemplateChanged - Team template changed, ColorThemeChanged - Color theme changed, OwnerSentChangeOwnerInstructions - Owner sent change owner instructions, OwnerUpdated - Owner updated, OwnerSentPortalDeactivationInstructions - Owner sent portal deactivation instructions, OwnerSentPortalDeleteInstructions - Owner sent portal delete instructions, PortalDeactivated - Portal deactivated, PortalDeleted - Portal deleted, LoginHistoryReportDownloaded - Login history report downloaded, AuditTrailReportDownloaded - Audit trail report downloaded, SSOEnabled - SSO enabled, SSODisabled - SSO disabled, PortalAccessSettingsUpdated - Portal access settings updated, CookieSettingsUpdated - Cookie settings updated, MailServiceSettingsUpdated - Mail service settings updated, CustomNavigationSettingsUpdated - Custom navigation settings updated, AuditSettingsUpdated - Audit settings updated, TwoFactorAuthenticationDisabled - Two factor authentication disabled, TwoFactorAuthenticationEnabledBySms - Two factor authentication enabled by sms, TwoFactorAuthenticationEnabledByTfaApp - Two factor authentication enabled by tfa app, PortalRenamed - Portal renamed, QuotaPerRoomChanged - Quota per room changed, QuotaPerRoomDisabled - Quota per room disabled, QuotaPerUserChanged - Quota per user changed, QuotaPerUserDisabled - Quota per user disabled, QuotaPerPortalChanged - Quota per portal changed, QuotaPerPortalDisabled - Quota per portal disabled, FormSubmit - Form submit, FormOpenedForFilling - Form opened for filling, CustomQuotaPerRoomDefault - Custom quota per room default, CustomQuotaPerRoomChanged - Custom quota per room changed, CustomQuotaPerRoomDisabled - Custom quota per room disabled, CustomQuotaPerUserDefault - Custom quota per user default, CustomQuotaPerUserChanged - Custom quota per user changed, CustomQuotaPerUserDisabled - Custom quota per user disabled, DevToolsAccessSettingsChanged - DevTools access settings changed, WebhookCreated - Webhook created, WebhookUpdated - Webhook updated, WebhookDeleted - Webhook deleted, ApiKeyCreated - Created api key, ApiKeyUpdated - Update api key, ApiKeyDeleted - Deleted User api key, ContactAdminMailSent - Contact admin mail sent, RoomInviteLinkUsed - Room invite link used, UserCreatedAndAddedToRoom - User created and added to room, GuestCreatedAndAddedToRoom - Guest created and added to room, ContactSalesMailSent - Contact sales mail sent, CreateClient - Create client, UpdateClient - Update client, RegenerateSecret - Regenerate secret, DeleteClient - Delete client, ChangeClientActivation - Change client activation, ChangeClientVisibility - Change client visibility, RevokeUserClient - Revoke user client, GenerateAuthorizationCodeToken - Generate authorization code token, GeneratePersonalAccessToken - Generate personal access token, None - None]",
+            "description": "[LoginSuccess - Login success, LoginSuccessViaSocialAccount - Login success via social account, LoginFailInvalidCombination - Login fail invalid combination, LoginFailSocialAccountNotFound - Login fail social account not found, LoginFailDisabledProfile - Login fail disabled profile, LoginFail - Login fail, Logout - Logout, LoginSuccessViaSms - Login success via sms, LoginFailViaSms - Login fail via sms, LoginFailIpSecurity - Login fail ip security, LoginSuccessViaApi - Login success via api, LoginSuccessViaSocialApp - Login success via social app, LoginSuccessViaApiSms - Login success via api sms, LoginFailViaApi - Login fail via api, LoginFailViaApiSms - Login fail via api sms, LoginSuccessViaSSO - Login success via SSO, SessionStarted - Session started, SessionCompleted - Session completed, LoginFailViaSSO - Login fail via SSO, LoginSuccessViaApiSocialAccount - Login success via api social account, LoginFailViaApiSocialAccount - Login fail via api social account, LoginSuccesViaTfaApp - Login succes via tfa app, LoginFailViaTfaApp - Login fail via Tfa app, LoginFailBruteForce - Login fail brute force, LoginSuccessViaApiTfa - Login success via api tfa, LoginFailViaApiTfa - Login fail via api tfa, LoginFailRecaptcha - Login fail recaptcha, AuthLinkActivated - Authorization link activated, UserCreated - User created, GuestCreated - Guest created, UserCreatedViaInvite - User created via invite, GuestCreatedViaInvite - Guest created via invite, UserActivated - User activated, GuestActivated - Guest activated, UserUpdated - User updated, UserUpdatedLanguage - User updated language, UserAddedAvatar - User added avatar, UserDeletedAvatar - User deleted avatar, UserUpdatedAvatarThumbnails - User updated avatar thumbnails, UserLinkedSocialAccount - User linked social account, UserUnlinkedSocialAccount - User unlinked social account, UserSentActivationInstructions - User sent activation instructions, UserSentEmailChangeInstructions - User sent email change instructions, UserSentPasswordChangeInstructions - User sent password change instructions, UserSentDeleteInstructions - User sent delete instructions, UserUpdatedPassword - User updated password, UserDeleted - User deleted, UsersUpdatedType - Users updated type, UsersUpdatedStatus - Users updated status, UsersSentActivationInstructions - Users sent activation instructions, UsersDeleted - Users deleted, SentInviteInstructions - Sent invite instructions, UserImported - User imported, GuestImported - Guest imported, GroupCreated - Group created, GroupUpdated - Group updated, GroupDeleted - Group deleted, UserUpdatedMobileNumber - User updated mobile number, UserDataReassigns - User data reassigns, UserDataRemoving - User data removing, UserConnectedTfaApp - User connected tfa app, UserDisconnectedTfaApp - User disconnected tfa app, UserLogoutActiveConnections - User logout active connections, UserLogoutActiveConnection - User logout active connection, UserLogoutActiveConnectionsForUser - User logout active connections for user, SendJoinInvite - Send join invite, FileCreated - File created, FileRenamed - File renamed, FileUpdated - File updated, FileCreatedVersion - File created version, FileDeletedVersion - File deleted version, FileUpdatedRevisionComment - File updated revision comment, FileLocked - File locked, FileUnlocked - File unlocked, FileUpdatedAccess - File updated access, FileDownloaded - File downloaded, FileDownloadedAs - File downloaded as, FileUploaded - File uploaded, FileImported - File imported, FileCopied - File copied, FileCopiedWithOverwriting - File copied with overwriting, FileMoved - File moved, FileMovedWithOverwriting - File moved with overwriting, FileMovedToTrash - File moved to trash, FileDeleted - File deleted, FolderCreated - Folder created, FolderRenamed - Folder renamed, FolderUpdatedAccess - Folder updated access, FolderCopied - Folder copied, FolderCopiedWithOverwriting - Folder copied with overwriting, FolderMoved - Folder moved, FolderMovedWithOverwriting - Folder moved with overwriting, FolderMovedToTrash - Folder moved to trash, FolderDeleted - Folder deleted, ThirdPartyCreated - ThirdParty created, ThirdPartyUpdated - ThirdParty updated, ThirdPartyDeleted - ThirdParty deleted, DocumentsThirdPartySettingsUpdated - Documents ThirdParty settings updated, DocumentsOverwritingSettingsUpdated - Documents overwriting settings updated, DocumentsUploadingFormatsSettingsUpdated - Documents uploading formats settings updated, UserFileUpdated - User file updated, FileConverted - File converted, FileSendAccessLink - File send access link, DocumentServiceLocationSetting - Document service location setting, AuthorizationKeysSetting - Authorization keys setting, FullTextSearchSetting - Full text search setting, StartTransferSetting - Start transfer setting, StartBackupSetting - Start backup setting, LicenseKeyUploaded - License key uploaded, FileChangeOwner - File change owner, FileRestoreVersion - File restore version, DocumentSendToSign - Document send to sign, DocumentSignComplete - Document sign complete, UserUpdatedEmail - User updated email, DocumentsStoreForcesave - Documents store forcesave, DocumentsForcesave - Documents forcesave, StartStorageEncryption - Start storage encryption, PrivacyRoomEnable - Privacy room enable, PrivacyRoomDisable - Privacy room disable, StartStorageDecryption - Start storage decryption, FileOpenedForChange - File opened for change, FileMarkedAsFavorite - File marked as favorite, FileRemovedFromFavorite - File removed from favorite, FolderDownloaded - Folder downloaded, FileRemovedFromList - File removed from list, FolderRemovedFromList - Folder removed from list, FileExternalLinkAccessUpdated - File external link access updated, TrashEmptied - Trash emptied, FileRevisionDownloaded - File revision downloaded, FileMarkedAsRead - File marked as read, FileReaded - File readed, FolderMarkedAsRead - Folder marked as read, FolderUpdatedAccessFor - Folder updated access for, FileUpdatedAccessFor - File updated access for, DocumentsExternalShareSettingsUpdated - Documents external share settings updated, RoomCreated - Room created, RoomRenamed - Room renamed, RoomArchived - Room archived, RoomUnarchived - Room unarchived, RoomDeleted - Room deleted, RoomUpdateAccessForUser - Room update access for user, TagCreated - Tag created, TagsDeleted - Tags deleted, AddedRoomTags - Added room tags, DeletedRoomTags - Deleted room tags, RoomLogoCreated - Room logo created, RoomLogoDeleted - Room logo deleted, RoomInvitationLinkUpdated - Room invitation link updated, DocumentsKeepNewFileNameSettingsUpdated - Documents keep new file name settings updated, RoomRemoveUser - Room remove user, RoomCreateUser - Room create user, RoomInvitationLinkCreated - Room invitation link created, RoomInvitationLinkDeleted - Room invitation link deleted, RoomExternalLinkCreated - Room external link created, RoomExternalLinkUpdated - Room external link updated, RoomExternalLinkDeleted - Room external link deleted, FileExternalLinkCreated - File external link created, FileExternalLinkUpdated - File external link updated, FileExternalLinkDeleted - File external link deleted, RoomGroupAdded - Room group added, RoomUpdateAccessForGroup - Room update access for group, RoomGroupRemove - Room group remove, RoomExternalLinkRevoked - Room external link revoked, RoomExternalLinkRenamed - Room external link renamed, FileUploadedWithOverwriting - File uploaded with overwriting, RoomCopied - Room copied, DocumentsDisplayFileExtensionUpdated - Documents display file extension updated, RoomColorChanged - Room color changed, RoomCoverChanged - Room cover changed, RoomIndexingChanged - Room indexing changed, RoomDenyDownloadChanged - Room deny download changed, RoomIndexExportSaved - Room index export saved, FolderIndexChanged - Folder index changed, FolderIndexReordered - Folder index reordered, RoomDenyDownloadEnabled - Room deny download enabled, RoomDenyDownloadDisabled - Room deny download disabled, FileIndexChanged - File index changed, RoomWatermarkSet - Room watermark set, RoomWatermarkDisabled - Room watermark disabled, RoomIndexingEnabled - Room index export saved, RoomIndexingDisabled - Room indexing disabled, RoomLifeTimeSet - Room life time set, RoomLifeTimeDisabled - Room life time disabled, RoomInviteResend - Room invite resend, FileVersionRemoved - File version deleted, FileCustomFilterEnabled - File custom filter enabled, FileCustomFilterDisabled - File custom filter disabled, FormStartedToFill - Form started to fill, FormPartiallyFilled - Form partially filled, FormCompletelyFilled - Form completely filled, FormStopped - Form stopped, LdapEnabled - Ldap enabled, LdapDisabled - Ldap disabled, LdapSync - LDAP synchronization completed, LanguageSettingsUpdated - Language settings updated, TimeZoneSettingsUpdated - Time zone settings updated, DnsSettingsUpdated - Dns settings updated, TrustedMailDomainSettingsUpdated - Trusted mail domain settings updated, PasswordStrengthSettingsUpdated - Password strength settings updated, TwoFactorAuthenticationSettingsUpdated - Two factor authentication settings updated, AdministratorMessageSettingsUpdated - Administrator message settings updated, DefaultStartPageSettingsUpdated - Default start page settings updated, ProductsListUpdated - Products list updated, AdministratorAdded - Administrator added, AdministratorOpenedFullAccess - Administrator opened full access, AdministratorDeleted - Administrator deleted, UsersOpenedProductAccess - Users opened product access, GroupsOpenedProductAccess - Groups opened product access, ProductAccessOpened - Product access opened, ProductAccessRestricted - Product access restricted, ProductAddedAdministrator - Product added administrator, ProductDeletedAdministrator - Product deleted administrator, GreetingSettingsUpdated - Greeting settings updated, TeamTemplateChanged - Team template changed, ColorThemeChanged - Color theme changed, OwnerSentChangeOwnerInstructions - Owner sent change owner instructions, OwnerUpdated - Owner updated, OwnerSentPortalDeactivationInstructions - Owner sent portal deactivation instructions, OwnerSentPortalDeleteInstructions - Owner sent portal delete instructions, PortalDeactivated - Portal deactivated, PortalDeleted - Portal deleted, LoginHistoryReportDownloaded - Login history report downloaded, AuditTrailReportDownloaded - Audit trail report downloaded, SSOEnabled - SSO enabled, SSODisabled - SSO disabled, PortalAccessSettingsUpdated - Portal access settings updated, CookieSettingsUpdated - Cookie settings updated, MailServiceSettingsUpdated - Mail service settings updated, CustomNavigationSettingsUpdated - Custom navigation settings updated, AuditSettingsUpdated - Audit settings updated, TwoFactorAuthenticationDisabled - Two factor authentication disabled, TwoFactorAuthenticationEnabledBySms - Two factor authentication enabled by sms, TwoFactorAuthenticationEnabledByTfaApp - Two factor authentication enabled by tfa app, PortalRenamed - Portal renamed, QuotaPerRoomChanged - Quota per room changed, QuotaPerRoomDisabled - Quota per room disabled, QuotaPerUserChanged - Quota per user changed, QuotaPerUserDisabled - Quota per user disabled, QuotaPerPortalChanged - Quota per portal changed, QuotaPerPortalDisabled - Quota per portal disabled, FormSubmit - Form submit, FormOpenedForFilling - Form opened for filling, CustomQuotaPerRoomDefault - Custom quota per room default, CustomQuotaPerRoomChanged - Custom quota per room changed, CustomQuotaPerRoomDisabled - Custom quota per room disabled, CustomQuotaPerUserDefault - Custom quota per user default, CustomQuotaPerUserChanged - Custom quota per user changed, CustomQuotaPerUserDisabled - Custom quota per user disabled, DevToolsAccessSettingsChanged - DevTools access settings changed, WebhookCreated - Webhook created, WebhookUpdated - Webhook updated, WebhookDeleted - Webhook deleted, ApiKeyCreated - Created api key, ApiKeyUpdated - Update api key, ApiKeyDeleted - Deleted User api key, ContactAdminMailSent - Contact admin mail sent, RoomInviteLinkUsed - Room invite link used, UserCreatedAndAddedToRoom - User created and added to room, GuestCreatedAndAddedToRoom - Guest created and added to room, ContactSalesMailSent - Contact sales mail sent, CreateClient - Create client, UpdateClient - Update client, RegenerateSecret - Regenerate secret, DeleteClient - Delete client, ChangeClientActivation - Change client activation, ChangeClientVisibility - Change client visibility, RevokeUserClient - Revoke user client, GenerateAuthorizationCodeToken - Generate authorization code token, GeneratePersonalAccessToken - Generate personal access token, None - None]",
             "example": "LoginSuccess"
           },
           {
@@ -25602,6 +27241,7 @@
               1024,
               1025,
               1026,
+              1027,
               4000,
               4001,
               4002,
@@ -25765,6 +27405,9 @@
               5151,
               5152,
               5153,
+              5501,
+              5502,
+              5503,
               6000,
               6001,
               6002,
@@ -25843,8 +27486,552 @@
               -1
             ],
             "type": "integer",
-            "description": "[1000 - Login success, 1001 - Login success via social account, 1002 - Login fail invalid combination, 1003 - Login fail social account not found, 1004 - Login fail disabled profile, 1005 - Login fail, 1006 - Logout, 1007 - Login success via sms, 1008 - Login fail via sms, 1009 - Login fail ip security, 1010 - Login success via api, 1011 - Login success via social app, 1012 - Login success via api sms, 1013 - Login fail via api, 1014 - Login fail via api sms, 1015 - Login success via SSO, 1016 - Session started, 1017 - Session completed, 1018 - Login fail via SSO, 1019 - Login success via api social account, 1020 - Login fail via api social account, 1021 - Login succes via tfa app, 1022 - Login fail via Tfa app, 1023 - Login fail brute force, 1024 - Login success via api tfa, 1025 - Login fail via api tfa, 1026 - Login fail recaptcha, 4000 - User created, 4001 - Guest created, 4002 - User created via invite, 4003 - Guest created via invite, 4004 - User activated, 4005 - Guest activated, 4006 - User updated, 4007 - User updated language, 4008 - User added avatar, 4009 - User deleted avatar, 4010 - User updated avatar thumbnails, 4011 - User linked social account, 4012 - User unlinked social account, 4013 - User sent activation instructions, 4014 - User sent email change instructions, 4015 - User sent password change instructions, 4016 - User sent delete instructions, 4017 - User updated password, 4018 - User deleted, 4019 - Users updated type, 4020 - Users updated status, 4021 - Users sent activation instructions, 4022 - Users deleted, 4023 - Sent invite instructions, 4024 - User imported, 4025 - Guest imported, 4026 - Group created, 4027 - Group updated, 4028 - Group deleted, 4029 - User updated mobile number, 4030 - User data reassigns, 4031 - User data removing, 4032 - User connected tfa app, 4033 - User disconnected tfa app, 4034 - User logout active connections, 4035 - User logout active connection, 4036 - User logout active connections for user, 4037 - Send join invite, 5000 - File created, 5001 - File renamed, 5002 - File updated, 5003 - File created version, 5004 - File deleted version, 5005 - File updated revision comment, 5006 - File locked, 5007 - File unlocked, 5008 - File updated access, 5009 - File downloaded, 5010 - File downloaded as, 5011 - File uploaded, 5012 - File imported, 5013 - File copied, 5014 - File copied with overwriting, 5015 - File moved, 5016 - File moved with overwriting, 5017 - File moved to trash, 5018 - File deleted, 5019 - Folder created, 5020 - Folder renamed, 5021 - Folder updated access, 5022 - Folder copied, 5023 - Folder copied with overwriting, 5024 - Folder moved, 5025 - Folder moved with overwriting, 5026 - Folder moved to trash, 5027 - Folder deleted, 5028 - ThirdParty created, 5029 - ThirdParty updated, 5030 - ThirdParty deleted, 5031 - Documents ThirdParty settings updated, 5032 - Documents overwriting settings updated, 5033 - Documents uploading formats settings updated, 5034 - User file updated, 5035 - File converted, 5036 - File send access link, 5037 - Document service location setting, 5038 - Authorization keys setting, 5039 - Full text search setting, 5040 - Start transfer setting, 5041 - Start backup setting, 5042 - License key uploaded, 5043 - File change owner, 5044 - File restore version, 5045 - Document send to sign, 5046 - Document sign complete, 5047 - User updated email, 5048 - Documents store forcesave, 5049 - Documents forcesave, 5050 - Start storage encryption, 5051 - Privacy room enable, 5052 - Privacy room disable, 5053 - Start storage decryption, 5054 - File opened for change, 5055 - File marked as favorite, 5056 - File removed from favorite, 5057 - Folder downloaded, 5058 - File removed from list, 5059 - Folder removed from list, 5060 - File external link access updated, 5061 - Trash emptied, 5062 - File revision downloaded, 5063 - File marked as read, 5064 - File readed, 5065 - Folder marked as read, 5066 - Folder updated access for, 5068 - File updated access for, 5069 - Documents external share settings updated, 5070 - Room created, 5071 - Room renamed, 5072 - Room archived, 5073 - Room unarchived, 5074 - Room deleted, 5075 - Room update access for user, 5076 - Tag created, 5077 - Tags deleted, 5078 - Added room tags, 5079 - Deleted room tags, 5080 - Room logo created, 5081 - Room logo deleted, 5082 - Room invitation link updated, 5083 - Documents keep new file name settings updated, 5084 - Room remove user, 5085 - Room create user, 5086 - Room invitation link created, 5087 - Room invitation link deleted, 5088 - Room external link created, 5089 - Room external link updated, 5090 - Room external link deleted, 5091 - File external link created, 5092 - File external link updated, 5093 - File external link deleted, 5094 - Room group added, 5095 - Room update access for group, 5096 - Room group remove, 5097 - Room external link revoked, 5098 - Room external link renamed, 5099 - File uploaded with overwriting, 5100 - Room copied, 5101 - Documents display file extension updated, 5102 - Room color changed, 5103 - Room cover changed, 5104 - Room indexing changed, 5105 - Room deny download changed, 5106 - Room index export saved, 5107 - Folder index changed, 5108 - Folder index reordered, 5109 - Room deny download enabled, 5110 - Room deny download disabled, 5111 - File index changed, 5112 - Room watermark set, 5113 - Room watermark disabled, 5114 - Room index export saved, 5115 - Room indexing disabled, 5116 - Room life time set, 5117 - Room life time disabled, 5118 - Room invite resend, 5119 - File version deleted, 5120 - File custom filter enabled, 5121 - File custom filter disabled, 5150 - Form started to fill, 5151 - Form partially filled, 5152 - Form completely filled, 5153 - Form stopped, 6000 - Language settings updated, 6001 - Time zone settings updated, 6002 - Dns settings updated, 6003 - Trusted mail domain settings updated, 6004 - Password strength settings updated, 6005 - Two factor authentication settings updated, 6006 - Administrator message settings updated, 6007 - Default start page settings updated, 6008 - Products list updated, 6009 - Administrator added, 6010 - Administrator opened full access, 6011 - Administrator deleted, 6012 - Users opened product access, 6013 - Groups opened product access, 6014 - Product access opened, 6015 - Product access restricted, 6016 - Product added administrator, 6017 - Product deleted administrator, 6018 - Greeting settings updated, 6019 - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded, 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034 - Custom navigation settings updated, 6035 - Audit settings updated, 6036 - Two factor authentication disabled, 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049 - Custom quota per room changed, 6050 - Custom quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom quota per user changed, 6053 - Custom quota per user disabled, 6054 - DevTools access settings changed, 6055 - Webhook created, 6056 - Webhook updated, 6057 - Webhook deleted, 6058 - Created api key, 6059 - Update api key, 6060 - Deleted User api key, 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002 - User created and added to room, 7003 - Guest created and added to room, 7004 - Contact sales mail sent, 9901 - Create client, 9902 - Update client, 9903 - Regenerate secret, 9904 - Delete client, 9905 - Change client activation, 9906 - Change client visibility, 9907 - Revoke user client, 9908 - Generate authorization code token, 9909 - Generate personal access token, -1 - None]",
-            "example": 1000
+            "description": "[1000 - Login success, 1001 - Login success via social account, 1002 - Login fail invalid combination, 1003 - Login fail social account not found, 1004 - Login fail disabled profile, 1005 - Login fail, 1006 - Logout, 1007 - Login success via sms, 1008 - Login fail via sms, 1009 - Login fail ip security, 1010 - Login success via api, 1011 - Login success via social app, 1012 - Login success via api sms, 1013 - Login fail via api, 1014 - Login fail via api sms, 1015 - Login success via SSO, 1016 - Session started, 1017 - Session completed, 1018 - Login fail via SSO, 1019 - Login success via api social account, 1020 - Login fail via api social account, 1021 - Login succes via tfa app, 1022 - Login fail via Tfa app, 1023 - Login fail brute force, 1024 - Login success via api tfa, 1025 - Login fail via api tfa, 1026 - Login fail recaptcha, 1027 - Authorization link activated, 4000 - User created, 4001 - Guest created, 4002 - User created via invite, 4003 - Guest created via invite, 4004 - User activated, 4005 - Guest activated, 4006 - User updated, 4007 - User updated language, 4008 - User added avatar, 4009 - User deleted avatar, 4010 - User updated avatar thumbnails, 4011 - User linked social account, 4012 - User unlinked social account, 4013 - User sent activation instructions, 4014 - User sent email change instructions, 4015 - User sent password change instructions, 4016 - User sent delete instructions, 4017 - User updated password, 4018 - User deleted, 4019 - Users updated type, 4020 - Users updated status, 4021 - Users sent activation instructions, 4022 - Users deleted, 4023 - Sent invite instructions, 4024 - User imported, 4025 - Guest imported, 4026 - Group created, 4027 - Group updated, 4028 - Group deleted, 4029 - User updated mobile number, 4030 - User data reassigns, 4031 - User data removing, 4032 - User connected tfa app, 4033 - User disconnected tfa app, 4034 - User logout active connections, 4035 - User logout active connection, 4036 - User logout active connections for user, 4037 - Send join invite, 5000 - File created, 5001 - File renamed, 5002 - File updated, 5003 - File created version, 5004 - File deleted version, 5005 - File updated revision comment, 5006 - File locked, 5007 - File unlocked, 5008 - File updated access, 5009 - File downloaded, 5010 - File downloaded as, 5011 - File uploaded, 5012 - File imported, 5013 - File copied, 5014 - File copied with overwriting, 5015 - File moved, 5016 - File moved with overwriting, 5017 - File moved to trash, 5018 - File deleted, 5019 - Folder created, 5020 - Folder renamed, 5021 - Folder updated access, 5022 - Folder copied, 5023 - Folder copied with overwriting, 5024 - Folder moved, 5025 - Folder moved with overwriting, 5026 - Folder moved to trash, 5027 - Folder deleted, 5028 - ThirdParty created, 5029 - ThirdParty updated, 5030 - ThirdParty deleted, 5031 - Documents ThirdParty settings updated, 5032 - Documents overwriting settings updated, 5033 - Documents uploading formats settings updated, 5034 - User file updated, 5035 - File converted, 5036 - File send access link, 5037 - Document service location setting, 5038 - Authorization keys setting, 5039 - Full text search setting, 5040 - Start transfer setting, 5041 - Start backup setting, 5042 - License key uploaded, 5043 - File change owner, 5044 - File restore version, 5045 - Document send to sign, 5046 - Document sign complete, 5047 - User updated email, 5048 - Documents store forcesave, 5049 - Documents forcesave, 5050 - Start storage encryption, 5051 - Privacy room enable, 5052 - Privacy room disable, 5053 - Start storage decryption, 5054 - File opened for change, 5055 - File marked as favorite, 5056 - File removed from favorite, 5057 - Folder downloaded, 5058 - File removed from list, 5059 - Folder removed from list, 5060 - File external link access updated, 5061 - Trash emptied, 5062 - File revision downloaded, 5063 - File marked as read, 5064 - File readed, 5065 - Folder marked as read, 5066 - Folder updated access for, 5068 - File updated access for, 5069 - Documents external share settings updated, 5070 - Room created, 5071 - Room renamed, 5072 - Room archived, 5073 - Room unarchived, 5074 - Room deleted, 5075 - Room update access for user, 5076 - Tag created, 5077 - Tags deleted, 5078 - Added room tags, 5079 - Deleted room tags, 5080 - Room logo created, 5081 - Room logo deleted, 5082 - Room invitation link updated, 5083 - Documents keep new file name settings updated, 5084 - Room remove user, 5085 - Room create user, 5086 - Room invitation link created, 5087 - Room invitation link deleted, 5088 - Room external link created, 5089 - Room external link updated, 5090 - Room external link deleted, 5091 - File external link created, 5092 - File external link updated, 5093 - File external link deleted, 5094 - Room group added, 5095 - Room update access for group, 5096 - Room group remove, 5097 - Room external link revoked, 5098 - Room external link renamed, 5099 - File uploaded with overwriting, 5100 - Room copied, 5101 - Documents display file extension updated, 5102 - Room color changed, 5103 - Room cover changed, 5104 - Room indexing changed, 5105 - Room deny download changed, 5106 - Room index export saved, 5107 - Folder index changed, 5108 - Folder index reordered, 5109 - Room deny download enabled, 5110 - Room deny download disabled, 5111 - File index changed, 5112 - Room watermark set, 5113 - Room watermark disabled, 5114 - Room index export saved, 5115 - Room indexing disabled, 5116 - Room life time set, 5117 - Room life time disabled, 5118 - Room invite resend, 5119 - File version deleted, 5120 - File custom filter enabled, 5121 - File custom filter disabled, 5150 - Form started to fill, 5151 - Form partially filled, 5152 - Form completely filled, 5153 - Form stopped, 5501 - Ldap enabled, 5502 - Ldap disabled, 5503 - LDAP synchronization completed, 6000 - Language settings updated, 6001 - Time zone settings updated, 6002 - Dns settings updated, 6003 - Trusted mail domain settings updated, 6004 - Password strength settings updated, 6005 - Two factor authentication settings updated, 6006 - Administrator message settings updated, 6007 - Default start page settings updated, 6008 - Products list updated, 6009 - Administrator added, 6010 - Administrator opened full access, 6011 - Administrator deleted, 6012 - Users opened product access, 6013 - Groups opened product access, 6014 - Product access opened, 6015 - Product access restricted, 6016 - Product added administrator, 6017 - Product deleted administrator, 6018 - Greeting settings updated, 6019 - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded, 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034 - Custom navigation settings updated, 6035 - Audit settings updated, 6036 - Two factor authentication disabled, 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049 - Custom quota per room changed, 6050 - Custom quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom quota per user changed, 6053 - Custom quota per user disabled, 6054 - DevTools access settings changed, 6055 - Webhook created, 6056 - Webhook updated, 6057 - Webhook deleted, 6058 - Created api key, 6059 - Update api key, 6060 - Deleted User api key, 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002 - User created and added to room, 7003 - Guest created and added to room, 7004 - Contact sales mail sent, 9901 - Create client, 9902 - Update client, 9903 - Regenerate secret, 9904 - Delete client, 9905 - Change client activation, 9906 - Change client visibility, 9907 - Revoke user client, 9908 - Generate authorization code token, 9909 - Generate personal access token, -1 - None]",
+            "example": 1000,
+            "x-enum-varnames": [
+              "LoginSuccess",
+              "LoginSuccessViaSocialAccount",
+              "LoginFailInvalidCombination",
+              "LoginFailSocialAccountNotFound",
+              "LoginFailDisabledProfile",
+              "LoginFail",
+              "Logout",
+              "LoginSuccessViaSms",
+              "LoginFailViaSms",
+              "LoginFailIpSecurity",
+              "LoginSuccessViaApi",
+              "LoginSuccessViaSocialApp",
+              "LoginSuccessViaApiSms",
+              "LoginFailViaApi",
+              "LoginFailViaApiSms",
+              "LoginSuccessViaSSO",
+              "SessionStarted",
+              "SessionCompleted",
+              "LoginFailViaSSO",
+              "LoginSuccessViaApiSocialAccount",
+              "LoginFailViaApiSocialAccount",
+              "LoginSuccesViaTfaApp",
+              "LoginFailViaTfaApp",
+              "LoginFailBruteForce",
+              "LoginSuccessViaApiTfa",
+              "LoginFailViaApiTfa",
+              "LoginFailRecaptcha",
+              "AuthLinkActivated",
+              "UserCreated",
+              "GuestCreated",
+              "UserCreatedViaInvite",
+              "GuestCreatedViaInvite",
+              "UserActivated",
+              "GuestActivated",
+              "UserUpdated",
+              "UserUpdatedLanguage",
+              "UserAddedAvatar",
+              "UserDeletedAvatar",
+              "UserUpdatedAvatarThumbnails",
+              "UserLinkedSocialAccount",
+              "UserUnlinkedSocialAccount",
+              "UserSentActivationInstructions",
+              "UserSentEmailChangeInstructions",
+              "UserSentPasswordChangeInstructions",
+              "UserSentDeleteInstructions",
+              "UserUpdatedPassword",
+              "UserDeleted",
+              "UsersUpdatedType",
+              "UsersUpdatedStatus",
+              "UsersSentActivationInstructions",
+              "UsersDeleted",
+              "SentInviteInstructions",
+              "UserImported",
+              "GuestImported",
+              "GroupCreated",
+              "GroupUpdated",
+              "GroupDeleted",
+              "UserUpdatedMobileNumber",
+              "UserDataReassigns",
+              "UserDataRemoving",
+              "UserConnectedTfaApp",
+              "UserDisconnectedTfaApp",
+              "UserLogoutActiveConnections",
+              "UserLogoutActiveConnection",
+              "UserLogoutActiveConnectionsForUser",
+              "SendJoinInvite",
+              "FileCreated",
+              "FileRenamed",
+              "FileUpdated",
+              "FileCreatedVersion",
+              "FileDeletedVersion",
+              "FileUpdatedRevisionComment",
+              "FileLocked",
+              "FileUnlocked",
+              "FileUpdatedAccess",
+              "FileDownloaded",
+              "FileDownloadedAs",
+              "FileUploaded",
+              "FileImported",
+              "FileCopied",
+              "FileCopiedWithOverwriting",
+              "FileMoved",
+              "FileMovedWithOverwriting",
+              "FileMovedToTrash",
+              "FileDeleted",
+              "FolderCreated",
+              "FolderRenamed",
+              "FolderUpdatedAccess",
+              "FolderCopied",
+              "FolderCopiedWithOverwriting",
+              "FolderMoved",
+              "FolderMovedWithOverwriting",
+              "FolderMovedToTrash",
+              "FolderDeleted",
+              "ThirdPartyCreated",
+              "ThirdPartyUpdated",
+              "ThirdPartyDeleted",
+              "DocumentsThirdPartySettingsUpdated",
+              "DocumentsOverwritingSettingsUpdated",
+              "DocumentsUploadingFormatsSettingsUpdated",
+              "UserFileUpdated",
+              "FileConverted",
+              "FileSendAccessLink",
+              "DocumentServiceLocationSetting",
+              "AuthorizationKeysSetting",
+              "FullTextSearchSetting",
+              "StartTransferSetting",
+              "StartBackupSetting",
+              "LicenseKeyUploaded",
+              "FileChangeOwner",
+              "FileRestoreVersion",
+              "DocumentSendToSign",
+              "DocumentSignComplete",
+              "UserUpdatedEmail",
+              "DocumentsStoreForcesave",
+              "DocumentsForcesave",
+              "StartStorageEncryption",
+              "PrivacyRoomEnable",
+              "PrivacyRoomDisable",
+              "StartStorageDecryption",
+              "FileOpenedForChange",
+              "FileMarkedAsFavorite",
+              "FileRemovedFromFavorite",
+              "FolderDownloaded",
+              "FileRemovedFromList",
+              "FolderRemovedFromList",
+              "FileExternalLinkAccessUpdated",
+              "TrashEmptied",
+              "FileRevisionDownloaded",
+              "FileMarkedAsRead",
+              "FileReaded",
+              "FolderMarkedAsRead",
+              "FolderUpdatedAccessFor",
+              "FileUpdatedAccessFor",
+              "DocumentsExternalShareSettingsUpdated",
+              "RoomCreated",
+              "RoomRenamed",
+              "RoomArchived",
+              "RoomUnarchived",
+              "RoomDeleted",
+              "RoomUpdateAccessForUser",
+              "TagCreated",
+              "TagsDeleted",
+              "AddedRoomTags",
+              "DeletedRoomTags",
+              "RoomLogoCreated",
+              "RoomLogoDeleted",
+              "RoomInvitationLinkUpdated",
+              "DocumentsKeepNewFileNameSettingsUpdated",
+              "RoomRemoveUser",
+              "RoomCreateUser",
+              "RoomInvitationLinkCreated",
+              "RoomInvitationLinkDeleted",
+              "RoomExternalLinkCreated",
+              "RoomExternalLinkUpdated",
+              "RoomExternalLinkDeleted",
+              "FileExternalLinkCreated",
+              "FileExternalLinkUpdated",
+              "FileExternalLinkDeleted",
+              "RoomGroupAdded",
+              "RoomUpdateAccessForGroup",
+              "RoomGroupRemove",
+              "RoomExternalLinkRevoked",
+              "RoomExternalLinkRenamed",
+              "FileUploadedWithOverwriting",
+              "RoomCopied",
+              "DocumentsDisplayFileExtensionUpdated",
+              "RoomColorChanged",
+              "RoomCoverChanged",
+              "RoomIndexingChanged",
+              "RoomDenyDownloadChanged",
+              "RoomIndexExportSaved",
+              "FolderIndexChanged",
+              "FolderIndexReordered",
+              "RoomDenyDownloadEnabled",
+              "RoomDenyDownloadDisabled",
+              "FileIndexChanged",
+              "RoomWatermarkSet",
+              "RoomWatermarkDisabled",
+              "RoomIndexingEnabled",
+              "RoomIndexingDisabled",
+              "RoomLifeTimeSet",
+              "RoomLifeTimeDisabled",
+              "RoomInviteResend",
+              "FileVersionRemoved",
+              "FileCustomFilterEnabled",
+              "FileCustomFilterDisabled",
+              "FormStartedToFill",
+              "FormPartiallyFilled",
+              "FormCompletelyFilled",
+              "FormStopped",
+              "LdapEnabled",
+              "LdapDisabled",
+              "LdapSync",
+              "LanguageSettingsUpdated",
+              "TimeZoneSettingsUpdated",
+              "DnsSettingsUpdated",
+              "TrustedMailDomainSettingsUpdated",
+              "PasswordStrengthSettingsUpdated",
+              "TwoFactorAuthenticationSettingsUpdated",
+              "AdministratorMessageSettingsUpdated",
+              "DefaultStartPageSettingsUpdated",
+              "ProductsListUpdated",
+              "AdministratorAdded",
+              "AdministratorOpenedFullAccess",
+              "AdministratorDeleted",
+              "UsersOpenedProductAccess",
+              "GroupsOpenedProductAccess",
+              "ProductAccessOpened",
+              "ProductAccessRestricted",
+              "ProductAddedAdministrator",
+              "ProductDeletedAdministrator",
+              "GreetingSettingsUpdated",
+              "TeamTemplateChanged",
+              "ColorThemeChanged",
+              "OwnerSentChangeOwnerInstructions",
+              "OwnerUpdated",
+              "OwnerSentPortalDeactivationInstructions",
+              "OwnerSentPortalDeleteInstructions",
+              "PortalDeactivated",
+              "PortalDeleted",
+              "LoginHistoryReportDownloaded",
+              "AuditTrailReportDownloaded",
+              "SSOEnabled",
+              "SSODisabled",
+              "PortalAccessSettingsUpdated",
+              "CookieSettingsUpdated",
+              "MailServiceSettingsUpdated",
+              "CustomNavigationSettingsUpdated",
+              "AuditSettingsUpdated",
+              "TwoFactorAuthenticationDisabled",
+              "TwoFactorAuthenticationEnabledBySms",
+              "TwoFactorAuthenticationEnabledByTfaApp",
+              "PortalRenamed",
+              "QuotaPerRoomChanged",
+              "QuotaPerRoomDisabled",
+              "QuotaPerUserChanged",
+              "QuotaPerUserDisabled",
+              "QuotaPerPortalChanged",
+              "QuotaPerPortalDisabled",
+              "FormSubmit",
+              "FormOpenedForFilling",
+              "CustomQuotaPerRoomDefault",
+              "CustomQuotaPerRoomChanged",
+              "CustomQuotaPerRoomDisabled",
+              "CustomQuotaPerUserDefault",
+              "CustomQuotaPerUserChanged",
+              "CustomQuotaPerUserDisabled",
+              "DevToolsAccessSettingsChanged",
+              "WebhookCreated",
+              "WebhookUpdated",
+              "WebhookDeleted",
+              "ApiKeyCreated",
+              "ApiKeyUpdated",
+              "ApiKeyDeleted",
+              "ContactAdminMailSent",
+              "RoomInviteLinkUsed",
+              "UserCreatedAndAddedToRoom",
+              "GuestCreatedAndAddedToRoom",
+              "ContactSalesMailSent",
+              "CreateClient",
+              "UpdateClient",
+              "RegenerateSecret",
+              "DeleteClient",
+              "ChangeClientActivation",
+              "ChangeClientVisibility",
+              "RevokeUserClient",
+              "GenerateAuthorizationCodeToken",
+              "GeneratePersonalAccessToken",
+              "None"
+            ],
+            "x-enum-descriptions": [
+              "Login success",
+              "Login success via social account",
+              "Login fail invalid combination",
+              "Login fail social account not found",
+              "Login fail disabled profile",
+              "Login fail",
+              "Logout",
+              "Login success via sms",
+              "Login fail via sms",
+              "Login fail ip security",
+              "Login success via api",
+              "Login success via social app",
+              "Login success via api sms",
+              "Login fail via api",
+              "Login fail via api sms",
+              "Login success via SSO",
+              "Session started",
+              "Session completed",
+              "Login fail via SSO",
+              "Login success via api social account",
+              "Login fail via api social account",
+              "Login succes via tfa app",
+              "Login fail via Tfa app",
+              "Login fail brute force",
+              "Login success via api tfa",
+              "Login fail via api tfa",
+              "Login fail recaptcha",
+              "Authorization link activated",
+              "User created",
+              "Guest created",
+              "User created via invite",
+              "Guest created via invite",
+              "User activated",
+              "Guest activated",
+              "User updated",
+              "User updated language",
+              "User added avatar",
+              "User deleted avatar",
+              "User updated avatar thumbnails",
+              "User linked social account",
+              "User unlinked social account",
+              "User sent activation instructions",
+              "User sent email change instructions",
+              "User sent password change instructions",
+              "User sent delete instructions",
+              "User updated password",
+              "User deleted",
+              "Users updated type",
+              "Users updated status",
+              "Users sent activation instructions",
+              "Users deleted",
+              "Sent invite instructions",
+              "User imported",
+              "Guest imported",
+              "Group created",
+              "Group updated",
+              "Group deleted",
+              "User updated mobile number",
+              "User data reassigns",
+              "User data removing",
+              "User connected tfa app",
+              "User disconnected tfa app",
+              "User logout active connections",
+              "User logout active connection",
+              "User logout active connections for user",
+              "Send join invite",
+              "File created",
+              "File renamed",
+              "File updated",
+              "File created version",
+              "File deleted version",
+              "File updated revision comment",
+              "File locked",
+              "File unlocked",
+              "File updated access",
+              "File downloaded",
+              "File downloaded as",
+              "File uploaded",
+              "File imported",
+              "File copied",
+              "File copied with overwriting",
+              "File moved",
+              "File moved with overwriting",
+              "File moved to trash",
+              "File deleted",
+              "Folder created",
+              "Folder renamed",
+              "Folder updated access",
+              "Folder copied",
+              "Folder copied with overwriting",
+              "Folder moved",
+              "Folder moved with overwriting",
+              "Folder moved to trash",
+              "Folder deleted",
+              "ThirdParty created",
+              "ThirdParty updated",
+              "ThirdParty deleted",
+              "Documents ThirdParty settings updated",
+              "Documents overwriting settings updated",
+              "Documents uploading formats settings updated",
+              "User file updated",
+              "File converted",
+              "File send access link",
+              "Document service location setting",
+              "Authorization keys setting",
+              "Full text search setting",
+              "Start transfer setting",
+              "Start backup setting",
+              "License key uploaded",
+              "File change owner",
+              "File restore version",
+              "Document send to sign",
+              "Document sign complete",
+              "User updated email",
+              "Documents store forcesave",
+              "Documents forcesave",
+              "Start storage encryption",
+              "Privacy room enable",
+              "Privacy room disable",
+              "Start storage decryption",
+              "File opened for change",
+              "File marked as favorite",
+              "File removed from favorite",
+              "Folder downloaded",
+              "File removed from list",
+              "Folder removed from list",
+              "File external link access updated",
+              "Trash emptied",
+              "File revision downloaded",
+              "File marked as read",
+              "File readed",
+              "Folder marked as read",
+              "Folder updated access for",
+              "File updated access for",
+              "Documents external share settings updated",
+              "Room created",
+              "Room renamed",
+              "Room archived",
+              "Room unarchived",
+              "Room deleted",
+              "Room update access for user",
+              "Tag created",
+              "Tags deleted",
+              "Added room tags",
+              "Deleted room tags",
+              "Room logo created",
+              "Room logo deleted",
+              "Room invitation link updated",
+              "Documents keep new file name settings updated",
+              "Room remove user",
+              "Room create user",
+              "Room invitation link created",
+              "Room invitation link deleted",
+              "Room external link created",
+              "Room external link updated",
+              "Room external link deleted",
+              "File external link created",
+              "File external link updated",
+              "File external link deleted",
+              "Room group added",
+              "Room update access for group",
+              "Room group remove",
+              "Room external link revoked",
+              "Room external link renamed",
+              "File uploaded with overwriting",
+              "Room copied",
+              "Documents display file extension updated",
+              "Room color changed",
+              "Room cover changed",
+              "Room indexing changed",
+              "Room deny download changed",
+              "Room index export saved",
+              "Folder index changed",
+              "Folder index reordered",
+              "Room deny download enabled",
+              "Room deny download disabled",
+              "File index changed",
+              "Room watermark set",
+              "Room watermark disabled",
+              "Room index export saved",
+              "Room indexing disabled",
+              "Room life time set",
+              "Room life time disabled",
+              "Room invite resend",
+              "File version deleted",
+              "File custom filter enabled",
+              "File custom filter disabled",
+              "Form started to fill",
+              "Form partially filled",
+              "Form completely filled",
+              "Form stopped",
+              "Ldap enabled",
+              "Ldap disabled",
+              "LDAP synchronization completed",
+              "Language settings updated",
+              "Time zone settings updated",
+              "Dns settings updated",
+              "Trusted mail domain settings updated",
+              "Password strength settings updated",
+              "Two factor authentication settings updated",
+              "Administrator message settings updated",
+              "Default start page settings updated",
+              "Products list updated",
+              "Administrator added",
+              "Administrator opened full access",
+              "Administrator deleted",
+              "Users opened product access",
+              "Groups opened product access",
+              "Product access opened",
+              "Product access restricted",
+              "Product added administrator",
+              "Product deleted administrator",
+              "Greeting settings updated",
+              "Team template changed",
+              "Color theme changed",
+              "Owner sent change owner instructions",
+              "Owner updated",
+              "Owner sent portal deactivation instructions",
+              "Owner sent portal delete instructions",
+              "Portal deactivated",
+              "Portal deleted",
+              "Login history report downloaded",
+              "Audit trail report downloaded",
+              "SSO enabled",
+              "SSO disabled",
+              "Portal access settings updated",
+              "Cookie settings updated",
+              "Mail service settings updated",
+              "Custom navigation settings updated",
+              "Audit settings updated",
+              "Two factor authentication disabled",
+              "Two factor authentication enabled by sms",
+              "Two factor authentication enabled by tfa app",
+              "Portal renamed",
+              "Quota per room changed",
+              "Quota per room disabled",
+              "Quota per user changed",
+              "Quota per user disabled",
+              "Quota per portal changed",
+              "Quota per portal disabled",
+              "Form submit",
+              "Form opened for filling",
+              "Custom quota per room default",
+              "Custom quota per room changed",
+              "Custom quota per room disabled",
+              "Custom quota per user default",
+              "Custom quota per user changed",
+              "Custom quota per user disabled",
+              "DevTools access settings changed",
+              "Webhook created",
+              "Webhook updated",
+              "Webhook deleted",
+              "Created api key",
+              "Update api key",
+              "Deleted User api key",
+              "Contact admin mail sent",
+              "Room invite link used",
+              "User created and added to room",
+              "Guest created and added to room",
+              "Contact sales mail sent",
+              "Create client",
+              "Update client",
+              "Regenerate secret",
+              "Delete client",
+              "Change client activation",
+              "Change client visibility",
+              "Revoke user client",
+              "Generate authorization code token",
+              "Generate personal access token",
+              "None"
+            ]
           }
         ],
         "description": "The event action ID."
@@ -25867,7 +28054,15 @@
             ],
             "type": "integer",
             "description": "[0 - Not activated, 1 - Activated]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "NotActivated",
+              "Activated"
+            ],
+            "x-enum-descriptions": [
+              "Not activated",
+              "Activated"
+            ]
           }
         ],
         "description": "The user mobile phone activation status."
@@ -25957,7 +28152,69 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Files, 2 - Folders, 3 - Documents settings, 4 - Companies, 5 - Persons, 6 - Contacts, 7 - Crm tasks, 8 - Opportunities, 9 - Invoices, 10 - Cases, 11 - Common crm settings, 12 - Contacts settings, 13 - Contact types, 14 - Invoice settings, 15 - Other crm settings, 16 - Users, 17 - Groups, 18 - Projects, 19 - Milestones, 20 - Tasks, 21 - Discussions, 22 - Time tracking, 23 - Reports, 24 - Projects settings, 25 - General, 26 - Products, 27 - Rooms, 28 - OAuth]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "Files",
+              "Folders",
+              "DocumentsSettings",
+              "Companies",
+              "Persons",
+              "Contacts",
+              "CrmTasks",
+              "Opportunities",
+              "Invoices",
+              "Cases",
+              "CommonCrmSettings",
+              "ContactsSettings",
+              "ContactTypes",
+              "InvoiceSettings",
+              "OtherCrmSettings",
+              "Users",
+              "Groups",
+              "Projects",
+              "Milestones",
+              "Tasks",
+              "Discussions",
+              "TimeTracking",
+              "Reports",
+              "ProjectsSettings",
+              "General",
+              "Products",
+              "Rooms",
+              "OAuth"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Files",
+              "Folders",
+              "Documents settings",
+              "Companies",
+              "Persons",
+              "Contacts",
+              "Crm tasks",
+              "Opportunities",
+              "Invoices",
+              "Cases",
+              "Common crm settings",
+              "Contacts settings",
+              "Contact types",
+              "Invoice settings",
+              "Other crm settings",
+              "Users",
+              "Groups",
+              "Projects",
+              "Milestones",
+              "Tasks",
+              "Discussions",
+              "Time tracking",
+              "Reports",
+              "Projects settings",
+              "General",
+              "Products",
+              "Rooms",
+              "OAuth"
+            ]
           }
         ]
       },
@@ -26050,7 +28307,19 @@
             ],
             "type": "integer",
             "description": "[0 - Badges, 1 - Rooms activity, 2 - Daily feed, 3 - Usefull tips]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Badges",
+              "RoomsActivity",
+              "DailyFeed",
+              "UsefullTips"
+            ],
+            "x-enum-descriptions": [
+              "Badges",
+              "Rooms activity",
+              "Daily feed",
+              "Usefull tips"
+            ]
           }
         ],
         "description": "The notification type."
@@ -26512,7 +28781,23 @@
             ],
             "type": "integer",
             "description": "[0 - None, 2 - Documents, 3 - Login, 4 - Others, 5 - People, 7 - Settings]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "Documents",
+              "Login",
+              "Others",
+              "People",
+              "Settings"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Documents",
+              "Login",
+              "Others",
+              "People",
+              "Settings"
+            ]
           }
         ]
       },
@@ -26585,7 +28870,19 @@
             ],
             "type": "integer",
             "description": "[0 - Default, 1 - AndroidV2, 2 - iOSV2, 3 - hCaptcha]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Default",
+              "AndroidV2",
+              "iOSV2",
+              "hCaptcha"
+            ],
+            "x-enum-descriptions": [
+              "Default",
+              "AndroidV2",
+              "iOSV2",
+              "hCaptcha"
+            ]
           }
         ],
         "description": "The type of CAPTCHA validation used."
@@ -27912,7 +30209,19 @@
             ],
             "type": "integer",
             "description": "[0 - Trial, 1 - Paid, 2 - Delay, 3 - Not paid]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Trial",
+              "Paid",
+              "Delay",
+              "NotPaid"
+            ],
+            "x-enum-descriptions": [
+              "Trial",
+              "Paid",
+              "Delay",
+              "Not paid"
+            ]
           }
         ],
         "description": "The tariff state."
@@ -28321,7 +30630,45 @@
             ],
             "type": "integer",
             "description": "[0 - Other, 1 - Accounting, 2 - Advertising marketing PR, 3 - Banking, 4 - Consulting, 5 - Design, 6 - Education, 7 - Environment, 8 - Financial services, 9 - Health care, 10 - IT, 11 - Legal, 12 - Manufacturing, 13 - Public sector, 14 - Publishing, 15 - Retail sales, 16 - Telecommunications]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Other",
+              "Accounting",
+              "AdvertisingMarketingPR",
+              "Banking",
+              "Consulting",
+              "Design",
+              "Education",
+              "Environment",
+              "FinancialServices",
+              "HealthCare",
+              "IT",
+              "Legal",
+              "Manufacturing",
+              "PublicSector",
+              "Publishing",
+              "RetailSales",
+              "Telecommunications"
+            ],
+            "x-enum-descriptions": [
+              "Other",
+              "Accounting",
+              "Advertising marketing PR",
+              "Banking",
+              "Consulting",
+              "Design",
+              "Education",
+              "Environment",
+              "Financial services",
+              "Health care",
+              "IT",
+              "Legal",
+              "Manufacturing",
+              "Public sector",
+              "Publishing",
+              "Retail sales",
+              "Telecommunications"
+            ]
           }
         ],
         "description": "The tenant industry."
@@ -28712,7 +31059,25 @@
             ],
             "type": "integer",
             "description": "[0 - Active, 1 - Suspended, 2 - Remove pending, 3 - Transfering, 4 - Restoring, 5 - Migrating, 6 - Encryption]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Active",
+              "Suspended",
+              "RemovePending",
+              "Transfering",
+              "Restoring",
+              "Migrating",
+              "Encryption"
+            ],
+            "x-enum-descriptions": [
+              "Active",
+              "Suspended",
+              "Remove pending",
+              "Transfering",
+              "Restoring",
+              "Migrating",
+              "Encryption"
+            ]
           }
         ],
         "description": "The tenant status."
@@ -28737,7 +31102,17 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Custom, 2 - All]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "Custom",
+              "All"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Custom",
+              "All"
+            ]
           }
         ],
         "description": "The type of the tenant trusted domains."
@@ -28911,7 +31286,17 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Sms, 2 - App]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "Sms",
+              "App"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Sms",
+              "App"
+            ]
           }
         ],
         "description": "The two-factor authentication type."
@@ -29462,7 +31847,25 @@
             ],
             "type": "integer",
             "description": "[0 - Ok, 1 - Invalid, 2 - Expired, 3 - Tariff limit, 4 - User existed, 5 - User excluded, 6 - Quota failed]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Ok",
+              "Invalid",
+              "Expired",
+              "TariffLimit",
+              "UserExisted",
+              "UserExcluded",
+              "QuotaFailed"
+            ],
+            "x-enum-descriptions": [
+              "Ok",
+              "Invalid",
+              "Expired",
+              "Tariff limit",
+              "User existed",
+              "User excluded",
+              "Quota failed"
+            ]
           }
         ]
       },
@@ -29723,7 +32126,23 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Not sent, 2 - Status2xx, 4 - Status3xx, 8 - Status4xx, 16 - Status5xx]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "NotSent",
+              "Status2xx",
+              "Status3xx",
+              "Status4xx",
+              "Status5xx"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Not sent",
+              "Status2xx",
+              "Status3xx",
+              "Status4xx",
+              "Status5xx"
+            ]
           }
         ],
         "description": "The status of the webhook delivery group."
@@ -29819,7 +32238,69 @@
             ],
             "type": "integer",
             "description": "[0 - *, 1 - user.created, 2 - user.invited, 4 - user.updated, 8 - user.deleted, 16 - group.created, 32 - group.updated, 64 - group.deleted, 128 - file.created, 256 - file.uploaded, 512 - file.updated, 1024 - file.trashed, 2048 - file.deleted, 4096 - file.restored, 8192 - file.copied, 16384 - file.moved, 32768 - folder.created, 65536 - folder.updated, 131072 - folder.trashed, 262144 - folder.deleted, 524288 - folder.restored, 1048576 - folder.copied, 2097152 - folder.moved, 4194304 - room.created, 8388608 - room.updated, 16777216 - room.archived, 33554432 - room.deleted, 67108864 - room.restored, 134217728 - room.copied]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "All",
+              "UserCreated",
+              "UserInvited",
+              "UserUpdated",
+              "UserDeleted",
+              "GroupCreated",
+              "GroupUpdated",
+              "GroupDeleted",
+              "FileCreated",
+              "FileUploaded",
+              "FileUpdated",
+              "FileTrashed",
+              "FileDeleted",
+              "FileRestored",
+              "FileCopied",
+              "FileMoved",
+              "FolderCreated",
+              "FolderUpdated",
+              "FolderTrashed",
+              "FolderDeleted",
+              "FolderRestored",
+              "FolderCopied",
+              "FolderMoved",
+              "RoomCreated",
+              "RoomUpdated",
+              "RoomArchived",
+              "RoomDeleted",
+              "RoomRestored",
+              "RoomCopied"
+            ],
+            "x-enum-descriptions": [
+              "*",
+              "user.created",
+              "user.invited",
+              "user.updated",
+              "user.deleted",
+              "group.created",
+              "group.updated",
+              "group.deleted",
+              "file.created",
+              "file.uploaded",
+              "file.updated",
+              "file.trashed",
+              "file.deleted",
+              "file.restored",
+              "file.copied",
+              "file.moved",
+              "folder.created",
+              "folder.updated",
+              "folder.trashed",
+              "folder.deleted",
+              "folder.restored",
+              "folder.copied",
+              "folder.moved",
+              "room.created",
+              "room.updated",
+              "room.archived",
+              "room.deleted",
+              "room.restored",
+              "room.copied"
+            ]
           }
         ],
         "description": "The webhook trigger type."
@@ -30478,7 +32959,17 @@
             ],
             "type": "integer",
             "description": "[0 - SSO, 1 - LDAP, 2 - Standart]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "SSO",
+              "LDAP",
+              "Standart"
+            ],
+            "x-enum-descriptions": [
+              "SSO",
+              "LDAP",
+              "Standart"
+            ]
           }
         ],
         "description": "The account login type."
@@ -30633,7 +33124,17 @@
             ],
             "type": "integer",
             "description": "[0 - All, 1 - People, 2 - Guests]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "All",
+              "People",
+              "Guests"
+            ],
+            "x-enum-descriptions": [
+              "All",
+              "People",
+              "Guests"
+            ]
           }
         ],
         "description": "The area of the account entries."
@@ -30768,7 +33269,17 @@
             ],
             "type": "integer",
             "description": "[0 - Base, 1 - Dark, 2 - System]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Base",
+              "Dark",
+              "System"
+            ],
+            "x-enum-descriptions": [
+              "Base",
+              "Dark",
+              "System"
+            ]
           }
         ],
         "description": "The theme type."
@@ -30831,7 +33342,21 @@
             ],
             "type": "integer",
             "description": "[0 - Created, 1 - Running, 2 - Completed, 3 - Canceled, 4 - Failted]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Created",
+              "Running",
+              "Completed",
+              "Canceled",
+              "Failted"
+            ],
+            "x-enum-descriptions": [
+              "Created",
+              "Running",
+              "Completed",
+              "Canceled",
+              "Failted"
+            ]
           }
         ]
       },
@@ -31749,7 +34274,15 @@
             ],
             "type": "integer",
             "description": "[0 - Paid, 1 - Free]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Paid",
+              "Free"
+            ],
+            "x-enum-descriptions": [
+              "Paid",
+              "Free"
+            ]
           }
         ],
         "description": "The user payment status."
@@ -31774,7 +34307,17 @@
             ],
             "type": "integer",
             "description": "[0 - All, 1 - Default, 2 - Custom]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "All",
+              "Default",
+              "Custom"
+            ],
+            "x-enum-descriptions": [
+              "All",
+              "Default",
+              "Custom"
+            ]
           }
         ],
         "description": "The quota filter (All - 0, Default - 1, Custom - 2)."
@@ -31813,7 +34356,15 @@
             ],
             "type": "integer",
             "description": "[0 - Female, 1 - Male]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Female",
+              "Male"
+            ],
+            "x-enum-descriptions": [
+              "Female",
+              "Male"
+            ]
           }
         ],
         "description": "The user sex."
@@ -32447,7 +34998,17 @@
             ],
             "type": "integer",
             "description": "[0 - All, 1 - Files, 2 - Folders]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "All",
+              "Files",
+              "Folders"
+            ],
+            "x-enum-descriptions": [
+              "All",
+              "Files",
+              "Folders"
+            ]
           }
         ]
       },
@@ -32844,7 +35405,17 @@
             ],
             "type": "integer",
             "description": "[0 - All allowed, 1 - Part allowed, 2 - None allowed]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "AllAllowed",
+              "PartAllowed",
+              "NoneAllowed"
+            ],
+            "x-enum-descriptions": [
+              "All allowed",
+              "Part allowed",
+              "None allowed"
+            ]
           }
         ],
         "description": "The destination folder checking result."
@@ -33013,7 +35584,15 @@
             ],
             "type": "integer",
             "description": "[0 - Fast, 1 - Strict]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Fast",
+              "Strict"
+            ],
+            "x-enum-descriptions": [
+              "Fast",
+              "Strict"
+            ]
           }
         ],
         "description": "The co-editing mode (fast or strict)."
@@ -33867,7 +36446,23 @@
             ],
             "type": "integer",
             "description": "[1 - One week, 2 - Two weeks, 3 - One month, 4 - Thirty days, 5 - Two months, 6 - Three months]",
-            "example": 1
+            "example": 1,
+            "x-enum-varnames": [
+              "OneWeek",
+              "TwoWeeks",
+              "OneMonth",
+              "ThirtyDays",
+              "TwoMonths",
+              "ThreeMonths"
+            ],
+            "x-enum-descriptions": [
+              "One week",
+              "Two weeks",
+              "One month",
+              "Thirty days",
+              "Two months",
+              "Three months"
+            ]
           }
         ],
         "description": "The period when the trash bin will be cleared."
@@ -34752,7 +37347,17 @@
             ],
             "type": "integer",
             "description": "[0 - Desktop, 1 - Mobile, 2 - Embedded]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Desktop",
+              "Mobile",
+              "Embedded"
+            ],
+            "x-enum-descriptions": [
+              "Desktop",
+              "Mobile",
+              "Embedded"
+            ]
           }
         ],
         "description": "The editor type."
@@ -34863,7 +37468,17 @@
             ],
             "type": "integer",
             "description": "[0 - Skip, 1 - Overwrite, 2 - Duplicate]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Skip",
+              "Overwrite",
+              "Duplicate"
+            ],
+            "x-enum-descriptions": [
+              "Skip",
+              "Overwrite",
+              "Duplicate"
+            ]
           }
         ],
         "description": "The overwriting behavior of the file copying or moving."
@@ -35455,7 +38070,15 @@
             ],
             "type": "integer",
             "description": "[1 - Folder, 2 - File]",
-            "example": 1
+            "example": 1,
+            "x-enum-varnames": [
+              "Folder",
+              "File"
+            ],
+            "x-enum-descriptions": [
+              "Folder",
+              "File"
+            ]
           }
         ],
         "description": "The file entry type."
@@ -35783,7 +38406,27 @@
             ],
             "type": "integer",
             "description": "[0 - Move, 1 - Copy, 2 - Delete, 3 - Download, 4 - MarkAsRead, 5 - Import, 6 - Convert, 7 - Duplicate]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Move",
+              "Copy",
+              "Delete",
+              "Download",
+              "MarkAsRead",
+              "Import",
+              "Convert",
+              "Duplicate"
+            ],
+            "x-enum-descriptions": [
+              "Move",
+              "Copy",
+              "Delete",
+              "Download",
+              "MarkAsRead",
+              "Import",
+              "Convert",
+              "Duplicate"
+            ]
           }
         ],
         "description": "The file operation type."
@@ -35972,7 +38615,35 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Read and write, 2 - Read, 3 - Restrict, 4 - Varies, 5 - Review, 6 - Comment, 7 - Fill forms, 8 - Custom filter, 9 - Room manager, 10 - Editing, 11 - Content creator]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "ReadWrite",
+              "Read",
+              "Restrict",
+              "Varies",
+              "Review",
+              "Comment",
+              "FillForms",
+              "CustomFilter",
+              "RoomManager",
+              "Editing",
+              "ContentCreator"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Read and write",
+              "Read",
+              "Restrict",
+              "Varies",
+              "Review",
+              "Comment",
+              "Fill forms",
+              "Custom filter",
+              "Room manager",
+              "Editing",
+              "Content creator"
+            ]
           }
         ],
         "description": "The access rights type."
@@ -36140,7 +38811,29 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Is editing, 2 - Is new, 4 - Is converting, 8 - Is original, 16 - Is editing alone, 32 - Is favorite, 64 - Is template, 128 - Is fill form draft]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "IsEditing",
+              "IsNew",
+              "IsConverting",
+              "IsOriginal",
+              "IsEditingAlone",
+              "IsFavorite",
+              "IsTemplate",
+              "IsFillFormDraft"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Is editing",
+              "Is new",
+              "Is converting",
+              "Is original",
+              "Is editing alone",
+              "Is favorite",
+              "Is template",
+              "Is fill form draft"
+            ]
           }
         ],
         "description": "The file status."
@@ -36177,7 +38870,29 @@
             ],
             "type": "integer",
             "description": "[0 - Unknown, 1 - Archive, 2 - Video, 3 - Audio, 4 - Image, 5 - Spreadsheet, 6 - Presentation, 7 - Document, 10 - Pdf]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Unknown",
+              "Archive",
+              "Video",
+              "Audio",
+              "Image",
+              "Spreadsheet",
+              "Presentation",
+              "Document",
+              "Pdf"
+            ],
+            "x-enum-descriptions": [
+              "Unknown",
+              "Archive",
+              "Video",
+              "Audio",
+              "Image",
+              "Spreadsheet",
+              "Presentation",
+              "Document",
+              "Pdf"
+            ]
           }
         ],
         "description": "The file type."
@@ -36671,7 +39386,35 @@
                   ],
                   "type": "integer",
                   "description": "[0 - None, 1 - Read and write, 2 - Read, 3 - Restrict, 4 - Varies, 5 - Review, 6 - Comment, 7 - Fill forms, 8 - Custom filter, 9 - Room manager, 10 - Editing, 11 - Content creator]",
-                  "example": 0
+                  "example": 0,
+                  "x-enum-varnames": [
+                    "None",
+                    "ReadWrite",
+                    "Read",
+                    "Restrict",
+                    "Varies",
+                    "Review",
+                    "Comment",
+                    "FillForms",
+                    "CustomFilter",
+                    "RoomManager",
+                    "Editing",
+                    "ContentCreator"
+                  ],
+                  "x-enum-descriptions": [
+                    "None",
+                    "Read and write",
+                    "Read",
+                    "Restrict",
+                    "Varies",
+                    "Review",
+                    "Comment",
+                    "Fill forms",
+                    "Custom filter",
+                    "Room manager",
+                    "Editing",
+                    "Content creator"
+                  ]
                 }
               ]
             },
@@ -36922,7 +39665,47 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Files  only, 2 - Folders only, 3 - Documents only, 4 - Presentations only, 5 - Spreadsheets only, 7 - Images only, 8 - By user, 9 - By department, 10 - Archive only, 11 - By extension, 12 - Media only, 13 - Filling forms rooms, 14 - Editing rooms, 17 - Custom rooms, 20 - Public rooms, 22 - Pdf, 23 - Pdf form]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "FilesOnly",
+              "FoldersOnly",
+              "DocumentsOnly",
+              "PresentationsOnly",
+              "SpreadsheetsOnly",
+              "ImagesOnly",
+              "ByUser",
+              "ByDepartment",
+              "ArchiveOnly",
+              "ByExtension",
+              "MediaOnly",
+              "FillingFormsRooms",
+              "EditingRooms",
+              "CustomRooms",
+              "PublicRooms",
+              "Pdf",
+              "PdfForm"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Files  only",
+              "Folders only",
+              "Documents only",
+              "Presentations only",
+              "Spreadsheets only",
+              "Images only",
+              "By user",
+              "By department",
+              "Archive only",
+              "By extension",
+              "Media only",
+              "Filling forms rooms",
+              "Editing rooms",
+              "Custom rooms",
+              "Public rooms",
+              "Pdf",
+              "Pdf form"
+            ]
           }
         ],
         "description": "The file filter type."
@@ -38007,7 +40790,59 @@
             ],
             "type": "integer",
             "description": "[0 - Default, 1 - Coomon, 2 - Bunch, 3 - Trash, 5 - User, 6 - Share, 8 - Projects, 10 - Favourites, 11 - Recent, 12 - Templates, 13 - Privacy, 14 - Virtual rooms, 15 - Filling forms room, 16 - Editing room, 19 - Custom room, 20 - Archive, 21 - Thirdparty backup, 22 - Public room, 25 - Ready form folder, 26 - In process form folder, 27 - Form filling folder done, 28 - Form filling folder in progress, 29 - Virtual Data Room, 30 - Room templates folder]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "DEFAULT",
+              "COMMON",
+              "BUNCH",
+              "TRASH",
+              "USER",
+              "SHARE",
+              "Projects",
+              "Favorites",
+              "Recent",
+              "Templates",
+              "Privacy",
+              "VirtualRooms",
+              "FillingFormsRoom",
+              "EditingRoom",
+              "CustomRoom",
+              "Archive",
+              "ThirdpartyBackup",
+              "PublicRoom",
+              "ReadyFormFolder",
+              "InProcessFormFolder",
+              "FormFillingFolderDone",
+              "FormFillingFolderInProgress",
+              "VirtualDataRoom",
+              "RoomTemplates"
+            ],
+            "x-enum-descriptions": [
+              "Default",
+              "Coomon",
+              "Bunch",
+              "Trash",
+              "User",
+              "Share",
+              "Projects",
+              "Favourites",
+              "Recent",
+              "Templates",
+              "Privacy",
+              "Virtual rooms",
+              "Filling forms room",
+              "Editing room",
+              "Custom room",
+              "Archive",
+              "Thirdparty backup",
+              "Public room",
+              "Ready form folder",
+              "In process form folder",
+              "Form filling folder done",
+              "Form filling folder in progress",
+              "Virtual Data Room",
+              "Room templates folder"
+            ]
           }
         ],
         "description": "The folder type."
@@ -38030,7 +40865,15 @@
             ],
             "type": "integer",
             "description": "[0 - Stop, 1 - Resume]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Stop",
+              "Resume"
+            ],
+            "x-enum-descriptions": [
+              "Stop",
+              "Resume"
+            ]
           }
         ],
         "description": "The action to perform on the form."
@@ -38061,7 +40904,23 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Draft, 2 - You turn, 3 - In progress, 4 - Complete, 5 - Stoped]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "Draft",
+              "YouTurn",
+              "InProgress",
+              "Complete",
+              "Stoped"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Draft",
+              "You turn",
+              "In progress",
+              "Complete",
+              "Stoped"
+            ]
           }
         ],
         "description": "The form filling status."
@@ -38551,7 +41410,15 @@
             ],
             "type": "integer",
             "description": "[0 - Invitation, 1 - External]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Invitation",
+              "External"
+            ],
+            "x-enum-descriptions": [
+              "Invitation",
+              "External"
+            ]
           }
         ],
         "description": "Defines the types of the sharing links."
@@ -39350,7 +42217,31 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Box, 2 - DropBox, 3 - GoogleDrive, 4 - kDrive, 5 - OneDrive, 6 - SharePoint, 7 - WebDav, 8 - Yandex, 9 - Storage]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "Box",
+              "DropBox",
+              "GoogleDrive",
+              "kDrive",
+              "OneDrive",
+              "SharePoint",
+              "WebDav",
+              "Yandex",
+              "Storage"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Box",
+              "DropBox",
+              "GoogleDrive",
+              "kDrive",
+              "OneDrive",
+              "SharePoint",
+              "WebDav",
+              "Yandex",
+              "Storage"
+            ]
           }
         ]
       },
@@ -39430,7 +42321,17 @@
             ],
             "type": "integer",
             "description": "[0 - Day, 1 - Month, 2 - Year]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Day",
+              "Month",
+              "Year"
+            ],
+            "x-enum-descriptions": [
+              "Day",
+              "Month",
+              "Year"
+            ]
           }
         ],
         "description": "The room data lifetime period."
@@ -39867,7 +42768,21 @@
             ],
             "type": "integer",
             "description": "[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room]",
-            "example": 1
+            "example": 1,
+            "x-enum-varnames": [
+              "FillingFormsRoom",
+              "EditingRoom",
+              "CustomRoom",
+              "PublicRoom",
+              "VirtualDataRoom"
+            ],
+            "x-enum-descriptions": [
+              "Form filling room",
+              "Collaboration room",
+              "Custom room",
+              "Public room",
+              "Virtual data room"
+            ]
           }
         ],
         "description": "The room type."
@@ -39971,7 +42886,21 @@
             ],
             "type": "integer",
             "description": "[0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Active",
+              "Archive",
+              "Any",
+              "RecentByLinks",
+              "Templates"
+            ],
+            "x-enum-descriptions": [
+              "Active",
+              "Archive",
+              "Any",
+              "Recent by links",
+              "Template"
+            ]
           }
         ],
         "description": "The search area."
@@ -40078,7 +43007,25 @@
             ],
             "type": "integer",
             "description": "[0 - User or group, 1 - Invitation link, 2 - External link, 4 - Additional external link, 8 - Primary external link, 16 - User, 32 - Group]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "UserOrGroup",
+              "InvitationLink",
+              "ExternalLink",
+              "AdditionalExternalLink",
+              "PrimaryExternalLink",
+              "User",
+              "Group"
+            ],
+            "x-enum-descriptions": [
+              "User or group",
+              "Invitation link",
+              "External link",
+              "Additional external link",
+              "Primary external link",
+              "User",
+              "Group"
+            ]
           }
         ],
         "description": "The filter type of the access rights."
@@ -40123,7 +43070,37 @@
             ],
             "type": "integer",
             "description": "[0 - Date and time, 1 - AZ, 2 - Size, 3 - Author, 4 - Type, 5 - New, 6 - Date and time creation, 7 - Room type, 8 - Tags, 9 - Room, 10 - Custom order, 11 - Last opened, 12 - Used space]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "DateAndTime",
+              "AZ",
+              "Size",
+              "Author",
+              "Type",
+              "New",
+              "DateAndTimeCreation",
+              "RoomType",
+              "Tags",
+              "Room",
+              "CustomOrder",
+              "LastOpened",
+              "UsedSpace"
+            ],
+            "x-enum-descriptions": [
+              "Date and time",
+              "AZ",
+              "Size",
+              "Author",
+              "Type",
+              "New",
+              "Date and time creation",
+              "Room type",
+              "Tags",
+              "Room",
+              "Custom order",
+              "Last opened",
+              "Used space"
+            ]
           }
         ],
         "description": "The parameters by which the files will be sorted."
@@ -40173,7 +43150,17 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Share to fill out, 2 - Start filling]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "ShareToFillOut",
+              "StartFilling"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Share to fill out",
+              "Start filling"
+            ]
           }
         ],
         "description": "The start filling mode."
@@ -40198,7 +43185,17 @@
             ],
             "type": "integer",
             "description": "[0 - None, 1 - Internal, 2 - ThirdParty]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "None",
+              "Internal",
+              "ThirdParty"
+            ],
+            "x-enum-descriptions": [
+              "None",
+              "Internal",
+              "ThirdParty"
+            ]
           }
         ]
       },
@@ -40220,7 +43217,15 @@
             ],
             "type": "integer",
             "description": "[0 - Owner, 1 - Member]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Owner",
+              "Member"
+            ],
+            "x-enum-descriptions": [
+              "Owner",
+              "Member"
+            ]
           }
         ]
       },
@@ -40248,7 +43253,21 @@
             ],
             "type": "integer",
             "description": "[0 - User, 1 - External link, 2 - Group, 3 - Invitation link, 4 - Primary external link]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "User",
+              "ExternalLink",
+              "Group",
+              "InvitationLink",
+              "PrimaryExternalLink"
+            ],
+            "x-enum-descriptions": [
+              "User",
+              "External link",
+              "Group",
+              "Invitation link",
+              "Primary external link"
+            ]
           }
         ],
         "description": "The subject type of the access right."
@@ -40509,7 +43528,21 @@
             ],
             "type": "integer",
             "description": "[0 - Waiting, 1 - Created, 2 - Error, 3 - Not required, 4 - Creating]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Waiting",
+              "Created",
+              "Error",
+              "NotRequired",
+              "Creating"
+            ],
+            "x-enum-descriptions": [
+              "Waiting",
+              "Created",
+              "Error",
+              "Not required",
+              "Creating"
+            ]
           }
         ],
         "description": "The file thumbnail status."
@@ -40874,7 +43907,21 @@
             ],
             "type": "integer",
             "description": "[1 - User name, 2 - User email, 4 - User ip adress, 8 - Current date, 16 - Room name]",
-            "example": 1
+            "example": 1,
+            "x-enum-varnames": [
+              "UserName",
+              "UserEmail",
+              "UserIpAdress",
+              "CurrentDate",
+              "RoomName"
+            ],
+            "x-enum-descriptions": [
+              "User name",
+              "User email",
+              "User ip adress",
+              "Current date",
+              "Room name"
+            ]
           }
         ],
         "description": "The watermark additions."
@@ -41145,7 +44192,17 @@
             ],
             "type": "integer",
             "description": "[0 - Every day, 1 - Every week, 2 - Every month]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "EveryDay",
+              "EveryWeek",
+              "EveryMonth"
+            ],
+            "x-enum-descriptions": [
+              "Every day",
+              "Every week",
+              "Every month"
+            ]
           }
         ]
       },
@@ -41207,7 +44264,17 @@
             ],
             "type": "integer",
             "description": "[0 - Backup, 1 - Restore, 2 - Transfer]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Backup",
+              "Restore",
+              "Transfer"
+            ],
+            "x-enum-descriptions": [
+              "Backup",
+              "Restore",
+              "Transfer"
+            ]
           }
         ]
       },
@@ -41338,7 +44405,23 @@
             ],
             "type": "integer",
             "description": "[0 - Documents, 1 - Thridparty documents, 2 - Custom cloud, 3 - Local, 4 - Data store, 5 - Thirdparty consumer]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Documents",
+              "ThridpartyDocuments",
+              "CustomCloud",
+              "Local",
+              "DataStore",
+              "ThirdPartyConsumer"
+            ],
+            "x-enum-descriptions": [
+              "Documents",
+              "Thridparty documents",
+              "Custom cloud",
+              "Local",
+              "Data store",
+              "Thirdparty consumer"
+            ]
           }
         ]
       },
@@ -41480,6 +44563,409 @@
             "format": "int32"
           }
         }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "description": "Error response containing a human-readable explanation of the error"
+      },
+      "UpdateClientRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the client",
+            "example": "Updated Client"
+          },
+          "description": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The description of the client",
+            "example": "Updated description of the client"
+          },
+          "logo": {
+            "minLength": 1,
+            "pattern": "^data:image\\/(?:png|jpeg|jpg|svg\\+xml);base64,.*.{1,}",
+            "type": "string",
+            "description": "The logo of the client in base64 format",
+            "example": "data:image/png;base64,..."
+          },
+          "allow_pkce": {
+            "type": "boolean",
+            "description": "Indicates whether PKCE is allowed for the client",
+            "example": true
+          },
+          "is_public": {
+            "type": "boolean",
+            "description": "Indicates whether client is accessible by third-party tenants",
+            "example": false
+          },
+          "allowed_origins": {
+            "uniqueItems": true,
+            "type": "array",
+            "description": "The allowed origins for the client",
+            "example": [
+              "http://allowed.origin"
+            ],
+            "items": {
+              "type": "string",
+              "description": "The allowed origins for the client",
+              "example": "[\"http://allowed.origin\"]"
+            }
+          }
+        },
+        "description": "Client update request containing modified client details"
+      },
+      "ClientResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "tenant": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "scopes": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "client_id": {
+            "type": "string"
+          },
+          "client_secret": {
+            "type": "string"
+          },
+          "website_url": {
+            "type": "string"
+          },
+          "terms_url": {
+            "type": "string"
+          },
+          "policy_url": {
+            "type": "string"
+          },
+          "logo": {
+            "type": "string"
+          },
+          "authentication_methods": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "redirect_uris": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "allowed_origins": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "logout_redirect_uris": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created_on": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "modified_on": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string"
+          },
+          "is_public": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CreateClientRequest": {
+        "required": [
+          "allowed_origins",
+          "redirect_uris"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 256,
+            "minLength": 3,
+            "type": "string",
+            "description": "The name of the client",
+            "example": "Example Client"
+          },
+          "description": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The description of the client",
+            "example": "Description of the client"
+          },
+          "logo": {
+            "minLength": 1,
+            "pattern": "^data:image\\/(?:png|jpeg|jpg|svg\\+xml);base64,.*.{1,}",
+            "type": "string",
+            "description": "The logo of the client in base64 format",
+            "example": "data:image/png;base64,..."
+          },
+          "scopes": {
+            "minItems": 1,
+            "uniqueItems": true,
+            "type": "array",
+            "description": "The scopes for the client",
+            "example": [
+              "read",
+              "write"
+            ],
+            "items": {
+              "type": "string",
+              "description": "The scopes for the client",
+              "example": "[\"read\",\"write\"]"
+            }
+          },
+          "allow_pkce": {
+            "type": "boolean",
+            "description": "Indicates whether PKCE is allowed for the client",
+            "example": true
+          },
+          "is_public": {
+            "type": "boolean",
+            "description": "Indicates if the client is public",
+            "example": false
+          },
+          "website_url": {
+            "minLength": 1,
+            "pattern": "^(https?://)?(([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\.){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$",
+            "type": "string",
+            "description": "The website URL of the client",
+            "example": "http://example.com"
+          },
+          "terms_url": {
+            "minLength": 1,
+            "pattern": "^(https?://)?(([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\.){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$",
+            "type": "string",
+            "description": "The terms URL of the client",
+            "example": "http://example.com/terms"
+          },
+          "policy_url": {
+            "minLength": 1,
+            "pattern": "^(https?://)?(([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\.){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$",
+            "type": "string",
+            "description": "The policy URL of the client",
+            "example": "http://example.com/policy"
+          },
+          "redirect_uris": {
+            "uniqueItems": true,
+            "type": "array",
+            "description": "The redirect URIs for the client",
+            "example": [
+              "http://example.com/redirect"
+            ],
+            "items": {
+              "type": "string",
+              "description": "The redirect URIs for the client",
+              "example": "[\"http://example.com/redirect\"]"
+            }
+          },
+          "allowed_origins": {
+            "uniqueItems": true,
+            "type": "array",
+            "description": "The allowed origins for the client",
+            "example": [
+              "http://example.com"
+            ],
+            "items": {
+              "type": "string",
+              "description": "The allowed origins for the client",
+              "example": "[\"http://example.com\"]"
+            }
+          },
+          "logout_redirect_uri": {
+            "minLength": 1,
+            "pattern": "^(https?://)?(([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\.){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$",
+            "type": "string",
+            "description": "The logout redirect URI for the client",
+            "example": "http://example.com/logout"
+          }
+        },
+        "description": "Client creation request containing client details"
+      },
+      "ClientSecretResponse": {
+        "type": "object",
+        "properties": {
+          "client_secret": {
+            "type": "string"
+          }
+        }
+      },
+      "ChangeClientActivationRequest": {
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "description": "The activation status of the client",
+            "example": true
+          }
+        },
+        "description": "Client activation change request"
+      },
+      "ScopeResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "PageableResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "last_client_id": {
+            "type": "string"
+          },
+          "last_created_on": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ClientInfoResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "scopes": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "client_id": {
+            "type": "string"
+          },
+          "website_url": {
+            "type": "string"
+          },
+          "terms_url": {
+            "type": "string"
+          },
+          "policy_url": {
+            "type": "string"
+          },
+          "logo": {
+            "type": "string"
+          },
+          "authentication_methods": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "is_public": {
+            "type": "boolean"
+          },
+          "created_on": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "modified_on": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string"
+          }
+        }
+      },
+      "PageableResponseClientInfoResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "last_client_id": {
+            "type": "string"
+          },
+          "last_created_on": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "PageableModificationResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "last_modified_on": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -41524,6 +45010,12 @@
         "type": "openIdConnect",
         "description": "OpenID Connect authentication",
         "openIdConnectUrl": ""
+      },
+      "x-signature": {
+        "type": "apiKey",
+        "description": "ASC JWT Signature",
+        "name": "x-signature",
+        "in": "cookie"
       }
     }
   },
@@ -41569,6 +45061,15 @@
       "tags": [
         "Group",
         "Group / Rooms"
+      ]
+    },
+    {
+      "name": "OAuth 2.0",
+      "tags": [
+        "Authorization",
+        "Client Management",
+        "Client Querying",
+        "Scope Management"
       ]
     },
     {
