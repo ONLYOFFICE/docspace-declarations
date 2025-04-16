@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "ApiSystem",
-    "version": "v2"
+    "title": "Api",
+    "version": "3.1.0"
   },
   "servers": [
     {
@@ -70,11 +70,14 @@
               "write"
             ],
             "Bearer": [],
-            "ApiKeyBearer": [],
+            "ApiKeyBearer": [
+              "read",
+              "write"
+            ],
             "Basic": [],
             "OAuth2": [
-              "api.read",
-              "api.write"
+              "read",
+              "write"
             ],
             "OpenId": []
           }
@@ -361,11 +364,14 @@
               "write"
             ],
             "Bearer": [],
-            "ApiKeyBearer": [],
+            "ApiKeyBearer": [
+              "read",
+              "write"
+            ],
             "Basic": [],
             "OAuth2": [
-              "api.read",
-              "api.write"
+              "read",
+              "write"
             ],
             "OpenId": []
           }
@@ -426,11 +432,14 @@
               "write"
             ],
             "Bearer": [],
-            "ApiKeyBearer": [],
+            "ApiKeyBearer": [
+              "read",
+              "write"
+            ],
             "Basic": [],
             "OAuth2": [
-              "api.read",
-              "api.write"
+              "read",
+              "write"
             ],
             "OpenId": []
           }
@@ -491,11 +500,14 @@
               "write"
             ],
             "Bearer": [],
-            "ApiKeyBearer": [],
+            "ApiKeyBearer": [
+              "read",
+              "write"
+            ],
             "Basic": [],
             "OAuth2": [
-              "api.read",
-              "api.write"
+              "read",
+              "write"
             ],
             "OpenId": []
           }
@@ -789,11 +801,14 @@
               "write"
             ],
             "Bearer": [],
-            "ApiKeyBearer": [],
+            "ApiKeyBearer": [
+              "read",
+              "write"
+            ],
             "Basic": [],
             "OAuth2": [
-              "api.read",
-              "api.write"
+              "read",
+              "write"
             ],
             "OpenId": []
           }
@@ -854,11 +869,14 @@
               "write"
             ],
             "Bearer": [],
-            "ApiKeyBearer": [],
+            "ApiKeyBearer": [
+              "read",
+              "write"
+            ],
             "Basic": [],
             "OAuth2": [
-              "api.read",
-              "api.write"
+              "read",
+              "write"
             ],
             "OpenId": []
           }
@@ -938,11 +956,14 @@
               "write"
             ],
             "Bearer": [],
-            "ApiKeyBearer": [],
+            "ApiKeyBearer": [
+              "read",
+              "write"
+            ],
             "Basic": [],
             "OAuth2": [
-              "api.read",
-              "api.write"
+              "read",
+              "write"
             ],
             "OpenId": []
           }
@@ -1003,11 +1024,14 @@
               "write"
             ],
             "Bearer": [],
-            "ApiKeyBearer": [],
+            "ApiKeyBearer": [
+              "read",
+              "write"
+            ],
             "Basic": [],
             "OAuth2": [
-              "api.read",
-              "api.write"
+              "read",
+              "write"
             ],
             "OpenId": []
           }
@@ -1068,11 +1092,14 @@
               "write"
             ],
             "Bearer": [],
-            "ApiKeyBearer": [],
+            "ApiKeyBearer": [
+              "read",
+              "write"
+            ],
             "Basic": [],
             "OAuth2": [
-              "api.read",
-              "api.write"
+              "read",
+              "write"
             ],
             "OpenId": []
           }
@@ -1158,7 +1185,19 @@
             ],
             "type": "integer",
             "description": "[0 - Default, 1 - AndroidV2, 2 - iOSV2, 3 - hCaptcha]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Default",
+              "AndroidV2",
+              "iOSV2",
+              "hCaptcha"
+            ],
+            "x-enum-descriptions": [
+              "Default",
+              "AndroidV2",
+              "iOSV2",
+              "hCaptcha"
+            ]
           }
         ],
         "description": "The type of CAPTCHA validation used."
@@ -1398,7 +1437,25 @@
             ],
             "type": "integer",
             "description": "[0 - Active, 1 - Suspended, 2 - Remove pending, 3 - Transfering, 4 - Restoring, 5 - Migrating, 6 - Encryption]",
-            "example": 0
+            "example": 0,
+            "x-enum-varnames": [
+              "Active",
+              "Suspended",
+              "RemovePending",
+              "Transfering",
+              "Restoring",
+              "Migrating",
+              "Encryption"
+            ],
+            "x-enum-descriptions": [
+              "Active",
+              "Suspended",
+              "Remove pending",
+              "Transfering",
+              "Restoring",
+              "Migrating",
+              "Encryption"
+            ]
           }
         ],
         "description": "The tenant status."
@@ -1423,10 +1480,10 @@
         "bearerFormat": "JWT"
       },
       "ApiKeyBearer": {
-        "type": "http",
+        "type": "apiKey",
         "description": "Authentication is determined by the 'Authorization' header",
-        "scheme": "bearer",
-        "bearerFormat": "API Key"
+        "name": "ApiKeyBearer",
+        "in": "header"
       },
       "OAuth2": {
         "type": "oauth2",
