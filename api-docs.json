@@ -26961,10 +26961,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       },
@@ -27010,10 +27007,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       }
@@ -27218,10 +27212,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       },
@@ -27319,10 +27310,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       },
@@ -27410,10 +27398,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       }
@@ -27556,10 +27541,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       },
@@ -27667,10 +27649,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       }
@@ -27763,10 +27742,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       }
@@ -27866,10 +27842,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       }
@@ -27943,10 +27916,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       }
@@ -28095,10 +28065,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       }
@@ -28177,10 +28144,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       }
@@ -28268,10 +28232,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       }
@@ -28371,10 +28332,7 @@
         },
         "security": [
           {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
+            "x-signature": []
           }
         ]
       }
@@ -49866,6 +49824,12 @@
         "type": "openIdConnect",
         "description": "OpenID Connect authentication",
         "openIdConnectUrl": ""
+      },
+      "x-signature": {
+        "type": "apiKey",
+        "description": "JWT signature used for authentication. The token must be obtained via the `api/2.0/security/oauth2/token` endpoint. It is passed as a cookie with the name `x-signature`.",
+        "name": "x-signature",
+        "in": "cookie"
       }
     }
   },
