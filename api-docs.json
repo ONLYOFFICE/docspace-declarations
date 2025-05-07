@@ -179,10 +179,12 @@
     },
     {
       "name": "Security / Access to DevTools",
+	  "description": "Operations for working with acess to devtools.",
       "x-displayName": "Security / Access to DevTools"
     },
     {
       "name": "Settings / Access to DevTools",
+	  "description": "Operations for working with acess to devtools.",
       "x-displayName": "Settings / Access to DevTools"
     },
     {
@@ -305,22 +307,22 @@
       "x-displayName": "Backup"
     },
     {
-      "name": "Authorization",
+      "name": "OAuth 2.0 / Authorization",
       "description": "APIs for managing OAuth2 authorization, including authorization and consent.",
       "x-displayName": "Authorization"
     },
     {
-      "name": "Client Management",
+      "name": "OAuth 2.0 / Client Management",
       "description": "APIs for managing OAuth2 clients, including creation, updates, deletion, and activation.",
       "x-displayName": "Client Management"
     },
     {
-      "name": "Scope Management",
+      "name": "OAuth 2.0 / Scope Management",
       "description": "APIs for retrieving OAuth2 scopes and their permissions.",
       "x-displayName": "Scope Management"
     },
     {
-      "name": "Client Querying",
+      "name": "OAuth 2.0 / Client Querying",
       "description": "APIs for retrieving OAuth2 client information and user consents.",
       "x-displayName": "Client Querying"
     }
@@ -26905,7 +26907,7 @@
     "/oauth2/authorize": {
       "get": {
         "tags": [
-          "Authorization"
+          "OAuth 2.0 / Authorization"
         ],
         "summary": "OAuth2 authorization endpoint",
         "description": "Initiates the OAuth2 authorization flow.",
@@ -26967,7 +26969,7 @@
       },
       "post": {
         "tags": [
-          "Authorization"
+          "OAuth 2.0 / Authorization"
         ],
         "summary": "OAuth2 consent endpoint",
         "description": "Sends a consent request with the specified parameters.",
@@ -27015,7 +27017,7 @@
     "/oauth2/token": {
       "post": {
         "tags": [
-          "Authorization"
+          "OAuth 2.0 / Authorization"
         ],
         "summary": "OAuth2 token endpoint",
         "description": "Exchanges an authorization code specified in the request for the access token.",
@@ -27097,7 +27099,7 @@
     "/api/2.0/clients/{clientId}": {
       "get": {
         "tags": [
-          "Client Querying"
+          "OAuth 2.0 / Client Querying"
         ],
         "summary": "Get client details",
         "description": "Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.",
@@ -27218,7 +27220,7 @@
       },
       "put": {
         "tags": [
-          "Client Management"
+          "OAuth 2.0 / Client Management"
         ],
         "summary": "Update an existing OAuth2 client",
         "description": "Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.",
@@ -27316,7 +27318,7 @@
       },
       "delete": {
         "tags": [
-          "Client Management"
+          "OAuth 2.0 / Client Management"
         ],
         "summary": "Delete an OAuth2 client",
         "description": "Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.",
@@ -27406,7 +27408,7 @@
     "/api/2.0/clients": {
       "get": {
         "tags": [
-          "Client Querying"
+          "OAuth 2.0 / Client Querying"
         ],
         "summary": "Get clients",
         "description": "Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.",
@@ -27547,7 +27549,7 @@
       },
       "post": {
         "tags": [
-          "Client Management"
+          "OAuth 2.0 / Client Management"
         ],
         "summary": "Create a new OAuth2 client",
         "description": "Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.",
@@ -27657,7 +27659,7 @@
     "/api/2.0/clients/{clientId}/regenerate": {
       "patch": {
         "tags": [
-          "Client Management"
+          "OAuth 2.0 / Client Management"
         ],
         "summary": "Regenerate the client secret",
         "description": "Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.",
@@ -27750,7 +27752,7 @@
     "/api/2.0/clients/{clientId}/activation": {
       "patch": {
         "tags": [
-          "Client Management"
+          "OAuth 2.0 / Client Management"
         ],
         "summary": "Change the client activation status",
         "description": "Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.",
@@ -27850,7 +27852,7 @@
     "/api/2.0/scopes": {
       "get": {
         "tags": [
-          "Scope Management"
+          "OAuth 2.0 / Scope Management"
         ],
         "summary": "Get available OAuth2 scopes",
         "description": "Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.",
@@ -27924,7 +27926,7 @@
     "/api/2.0/clients/{clientId}/public/info": {
       "get": {
         "tags": [
-          "Client Querying"
+          "OAuth 2.0 / Client Querying"
         ],
         "summary": "Get public client information",
         "description": "Returns the public information for a client with the ID secified din the request.",
@@ -27996,7 +27998,7 @@
     "/api/2.0/clients/{clientId}/info": {
       "get": {
         "tags": [
-          "Client Querying"
+          "OAuth 2.0 / Client Querying"
         ],
         "summary": "Get detailed client information",
         "description": "Retrieves the detailed information for a client with the ID specified in the request.",
@@ -28240,7 +28242,7 @@
     "/api/2.0/clients/{clientId}/revoke": {
       "delete": {
         "tags": [
-          "Client Management"
+          "OAuth 2.0 / Client Management"
         ],
         "summary": "Revoke client consent",
         "description": "Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.",
@@ -49880,10 +49882,10 @@
     {
       "name": "OAuth 2.0",
       "tags": [
-        "Authorization",
-        "Client Management",
-        "Client Querying",
-        "Scope Management"
+        "OAuth 2.0 / Authorization",
+        "OAuth 2.0 / Client Management",
+        "OAuth 2.0 / Client Querying",
+        "OAuth 2.0 / Scope Management"
       ]
     },
     {
@@ -49914,6 +49916,7 @@
     {
       "name": "Security",
       "tags": [
+	    "Security / Access to DevTools",
         "Security / Active connections",
         "Security / Audit trail data",
         "Security / CSP",
@@ -49925,6 +49928,7 @@
     {
       "name": "Settings",
       "tags": [
+	    "Settings / Access to DevTools",
         "Settings / Authorization",
         "Settings / Common settings",
         "Settings / Cookies",
