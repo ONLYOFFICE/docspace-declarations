@@ -2,7 +2,7 @@
   "openapi": "3.0.4",
   "info": {
     "title": "Api",
-    "version": "3.1.0"
+    "version": "3.2.0"
   },
   "servers": [
     {
@@ -650,7 +650,7 @@
           "Migration"
         ],
         "summary": "Get migrations",
-        "operationId": "list",
+        "operationId": "listMigrations",
         "responses": {
           "200": {
             "description": "Ok",
@@ -707,7 +707,7 @@
           "Migration"
         ],
         "summary": "Upload and initialize migration",
-        "operationId": "uploadAndInit",
+        "operationId": "uploadAndInitializeMigration",
         "parameters": [
           {
             "name": "migratorName",
@@ -769,7 +769,7 @@
           "Migration"
         ],
         "summary": "Get migration status",
-        "operationId": "status",
+        "operationId": "getMigrationStatus",
         "responses": {
           "200": {
             "description": "Ok",
@@ -826,7 +826,7 @@
           "Migration"
         ],
         "summary": "Cancel migration",
-        "operationId": "cancel",
+        "operationId": "cancelMigration",
         "responses": {
           "200": {
             "description": "Ok"
@@ -876,7 +876,7 @@
           "Migration"
         ],
         "summary": "Clear migration",
-        "operationId": "clear",
+        "operationId": "clearMigration",
         "responses": {
           "200": {
             "description": "Ok"
@@ -926,7 +926,7 @@
           "Migration"
         ],
         "summary": "Start migration",
-        "operationId": "migrate",
+        "operationId": "startMigration",
         "requestBody": {
           "content": {
             "application/json": {
@@ -985,7 +985,7 @@
           "Migration"
         ],
         "summary": "Get migration logs",
-        "operationId": "logs",
+        "operationId": "getMigrationLogs",
         "responses": {
           "200": {
             "description": "Ok"
@@ -1035,7 +1035,7 @@
           "Migration"
         ],
         "summary": "Finish migration",
-        "operationId": "finish",
+        "operationId": "finishMigration",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1160,7 +1160,7 @@
           "Portal / Payment"
         ],
         "summary": "Update the payment quantity",
-        "operationId": "paymentUpdate",
+        "operationId": "updatePayment",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1226,7 +1226,7 @@
           "Portal / Payment"
         ],
         "summary": "Update the wallet payment quantity",
-        "operationId": "paymentUpdateWallet",
+        "operationId": "updateWalletPayment",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1284,6 +1284,72 @@
           }
         ],
         "description": "Updates the wallet payment quantity with the parameters specified in the request."
+      }
+    },
+    "/api/2.0/portal/payment/calculatewallet": {
+      "put": {
+        "tags": [
+          "Portal / Payment"
+        ],
+        "summary": "Calculate amount of the wallet payment",
+        "operationId": "calculateWalletPayment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WalletQuantityRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Payment calculation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentCalculationWrapper"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "No permissions to perform this action"
+          }
+        },
+        "security": [
+          {
+            "asc_auth_key": [
+              "read",
+              "write"
+            ]
+          },
+          {
+            "Bearer": []
+          },
+          {
+            "ApiKeyBearer": [
+              "read",
+              "write"
+            ]
+          },
+          {
+            "Basic": []
+          },
+          {
+            "OAuth2": [
+              "read",
+              "write"
+            ]
+          },
+          {
+            "OpenId": []
+          }
+        ],
+        "description": "Calculate amount of the wallet payment with the parameters specified in the request."
       }
     },
     "/api/2.0/portal/payment/account": {
@@ -1360,7 +1426,7 @@
           "Portal / Payment"
         ],
         "summary": "Get prices",
-        "operationId": "getPrices",
+        "operationId": "getPortalPrices",
         "responses": {
           "200": {
             "description": "List of available portal prices",
@@ -1414,7 +1480,7 @@
           "Portal / Payment"
         ],
         "summary": "Get currencies",
-        "operationId": "getCurrencies",
+        "operationId": "getPaymentCurrencies",
         "responses": {
           "200": {
             "description": "List of available portal currencies",
@@ -1468,7 +1534,7 @@
           "Portal / Payment"
         ],
         "summary": "Get quotas",
-        "operationId": "getQuotas",
+        "operationId": "getPaymentQuotas",
         "parameters": [
           {
             "name": "wallet",
@@ -1533,7 +1599,7 @@
           "Portal / Payment"
         ],
         "summary": "Get quota payment information",
-        "operationId": "getQuotaInformation",
+        "operationId": "getQuotaPaymentInformation",
         "parameters": [
           {
             "name": "refresh",
@@ -1601,7 +1667,7 @@
           "Portal / Payment"
         ],
         "summary": "Send a payment request",
-        "operationId": "sendSalesRequest",
+        "operationId": "sendPaymentRequest",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1662,8 +1728,8 @@
         "tags": [
           "Portal / Payment"
         ],
-        "summary": "Get the chechout setup page URL",
-        "operationId": "getChechoutSetupUrl",
+        "summary": "Get the checkout setup page URL",
+        "operationId": "getCheckoutSetupUrl",
         "parameters": [
           {
             "name": "BackUrl",
@@ -1677,7 +1743,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The URL to the chechout setup page",
+            "description": "The URL to the checkout setup page",
             "content": {
               "application/json": {
                 "schema": {
@@ -1722,7 +1788,7 @@
             "OpenId": []
           }
         ],
-        "description": "Returns the URL to the chechout setup page."
+        "description": "Returns the URL to the checkout setup page."
       }
     },
     "/api/2.0/portal/payment/customerinfo": {
@@ -2423,7 +2489,7 @@
           "Portal / Quota"
         ],
         "summary": "Get the portal used space",
-        "operationId": "getUsedSpace",
+        "operationId": "getPortalUsedSpace",
         "responses": {
           "200": {
             "description": "Used portal space",
@@ -2477,7 +2543,7 @@
           "Portal / Quota"
         ],
         "summary": "Get a portal tariff",
-        "operationId": "getTariff",
+        "operationId": "getPortalTariff",
         "parameters": [
           {
             "name": "refresh",
@@ -2542,7 +2608,7 @@
           "Portal / Quota"
         ],
         "summary": "Get a portal quota",
-        "operationId": "getQuota",
+        "operationId": "getPortalQuota",
         "responses": {
           "200": {
             "description": "Current portal quota",
@@ -2707,7 +2773,7 @@
           "Portal / Settings"
         ],
         "summary": "Get a path to the portal",
-        "operationId": "getFullAbsolutePath",
+        "operationId": "getPortalPath",
         "parameters": [
           {
             "name": "virtualPath",
@@ -3010,7 +3076,7 @@
           "Portal / Users"
         ],
         "summary": "Get a user by ID",
-        "operationId": "getUser",
+        "operationId": "getUserById",
         "parameters": [
           {
             "name": "userID",
@@ -3077,7 +3143,7 @@
           "Portal / Users"
         ],
         "summary": "Get an invitation link",
-        "operationId": "geInviteLink",
+        "operationId": "getInvitationLink",
         "parameters": [
           {
             "name": "employeeType",
@@ -3142,7 +3208,7 @@
           "Portal / Users"
         ],
         "summary": "Get a number of portal users",
-        "operationId": "getUsersCount",
+        "operationId": "getPortalUsersCount",
         "responses": {
           "200": {
             "description": "Number of portal users",
@@ -3196,7 +3262,7 @@
           "Portal / Users"
         ],
         "summary": "Mark a gift message as read",
-        "operationId": "markPresentAsReaded",
+        "operationId": "markGiftMessageAsRead",
         "responses": {
           "200": {
             "description": "OK"
@@ -3825,6 +3891,28 @@
             "schema": {
               "$ref": "#/components/schemas/ApiDateTime"
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of audit event records to retrieve.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The index of the first audit event record to retrieve in a paged query.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
           }
         ],
         "responses": {
@@ -3883,7 +3971,7 @@
           "Security / Audit trail data"
         ],
         "summary": "Get audit trail types",
-        "operationId": "getTypes",
+        "operationId": "getAuditTrailTypes",
         "responses": {
           "200": {
             "description": "Audit trail types",
@@ -3905,7 +3993,7 @@
           "Security / Audit trail data"
         ],
         "summary": "Get audit trail mappers",
-        "operationId": "getMappers",
+        "operationId": "getAuditTrailMappers",
         "parameters": [
           {
             "name": "productType",
@@ -4129,7 +4217,7 @@
           "Security / CSP"
         ],
         "summary": "Configure CSP settings",
-        "operationId": "csp",
+        "operationId": "configureCsp",
         "requestBody": {
           "content": {
             "application/json": {
@@ -4193,7 +4281,7 @@
           "Security / CSP"
         ],
         "summary": "Get CSP settings",
-        "operationId": "getCsp",
+        "operationId": "getCspSettings",
         "responses": {
           "200": {
             "description": "Ok",
@@ -4432,6 +4520,28 @@
             "description": "The ending date and time for filtering login events.",
             "schema": {
               "$ref": "#/components/schemas/ApiDateTime"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The number of login events to retrieve in the query.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting index for fetching a subset of login events from the query results.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
             }
           }
         ],
@@ -5013,7 +5123,7 @@
           "Settings / Common settings"
         ],
         "summary": "Get the portal settings",
-        "operationId": "getSettings",
+        "operationId": "getPortalSettings",
         "parameters": [
           {
             "name": "withpassword",
@@ -5109,7 +5219,7 @@
           "Settings / Common settings"
         ],
         "summary": "Configure the deep link settings",
-        "operationId": "saveConfigureDeepLink",
+        "operationId": "configureDeepLink",
         "requestBody": {
           "content": {
             "application/json": {
@@ -5173,7 +5283,7 @@
           "Settings / Common settings"
         ],
         "summary": "Get the deep link settings",
-        "operationId": "gettDeepLinkSettings",
+        "operationId": "getDeepLinkSettings",
         "responses": {
           "200": {
             "description": "Ok",
@@ -5249,7 +5359,7 @@
           "Settings / Common settings"
         ],
         "summary": "Get time zones",
-        "operationId": "getTimeZonesAsync",
+        "operationId": "getTimeZones",
         "responses": {
           "200": {
             "description": "List of all the available time zones with their IDs and display names",
@@ -5303,7 +5413,7 @@
           "Settings / Common settings"
         ],
         "summary": "Get hostname",
-        "operationId": "getMachineName",
+        "operationId": "getPortalHostname",
         "responses": {
           "200": {
             "description": "Portal hostname",
@@ -5429,7 +5539,7 @@
           "Settings / Common settings"
         ],
         "summary": "Get a portal logo",
-        "operationId": "getLogo",
+        "operationId": "getPortalLogo",
         "responses": {
           "200": {
             "description": "Portal logo image URL",
@@ -5552,7 +5662,7 @@
           "Settings / Common settings"
         ],
         "summary": "Get a color theme",
-        "operationId": "getColorTheme",
+        "operationId": "getPortalColorTheme",
         "responses": {
           "200": {
             "description": "Settings of the portal themes",
@@ -5572,7 +5682,7 @@
           "Settings / Common settings"
         ],
         "summary": "Save a color theme",
-        "operationId": "saveColorTheme",
+        "operationId": "savePortalColorTheme",
         "requestBody": {
           "content": {
             "application/json": {
@@ -5633,7 +5743,7 @@
           "Settings / Common settings"
         ],
         "summary": "Delete a color theme",
-        "operationId": "deleteColorTheme",
+        "operationId": "deletePortalColorTheme",
         "parameters": [
           {
             "name": "id",
@@ -5866,7 +5976,7 @@
           "Settings / Common settings"
         ],
         "summary": "Get the payment settings",
-        "operationId": "paymentSettings",
+        "operationId": "getPaymentSettings",
         "responses": {
           "200": {
             "description": "Payment settings: sales email, feedback and support URL, link to pay for a portal, Standalone or not, current license, maximum quota quantity",
@@ -6723,7 +6833,7 @@
           "Settings / Greeting settings"
         ],
         "summary": "Check the default greeting settings",
-        "operationId": "isDefault",
+        "operationId": "getIsDefaultGreetingSettings",
         "responses": {
           "200": {
             "description": "Boolean value: true if the greeting settings of the current portal are set to default",
@@ -7169,7 +7279,7 @@
           "Settings / License"
         ],
         "summary": "Request a license",
-        "operationId": "requestLicense",
+        "operationId": "getIsLicenseRequired",
         "responses": {
           "200": {
             "description": "Boolean value: true if the license is required",
@@ -7511,7 +7621,7 @@
           "Settings / Messages"
         ],
         "summary": "Send a message to the administrator",
-        "operationId": "sendAdmMail",
+        "operationId": "sendAdminMail",
         "requestBody": {
           "content": {
             "application/json": {
@@ -7653,7 +7763,7 @@
           "Settings / Notifications"
         ],
         "summary": "Enable notifications",
-        "operationId": "setSettings",
+        "operationId": "setNotificationSettings",
         "requestBody": {
           "content": {
             "application/json": {
@@ -7895,7 +8005,7 @@
           "Settings / Owner"
         ],
         "summary": "Update the portal owner",
-        "operationId": "owner",
+        "operationId": "updatePortalOwner",
         "requestBody": {
           "content": {
             "application/json": {
@@ -9783,7 +9893,7 @@
           "Settings / Security"
         ],
         "summary": "Check a product administrator",
-        "operationId": "isProductAdministrator",
+        "operationId": "getIsProductAdministrator",
         "parameters": [
           {
             "name": "productid",
@@ -10517,7 +10627,7 @@
           "Settings / Storage"
         ],
         "summary": "Update the CDN storage",
-        "operationId": "updateCdn",
+        "operationId": "updateCdnStorage",
         "requestBody": {
           "content": {
             "application/json": {
@@ -10807,7 +10917,7 @@
           "Settings / TFA settings"
         ],
         "summary": "Update the TFA settings",
-        "operationId": "tfaSettings",
+        "operationId": "updateTfaSettings",
         "requestBody": {
           "content": {
             "application/json": {
@@ -10936,7 +11046,7 @@
           "Settings / TFA settings"
         ],
         "summary": "Get confirmation email",
-        "operationId": "tfaConfirmUrl",
+        "operationId": "getTfaConfirmUrl",
         "responses": {
           "200": {
             "description": "Confirmation email URL",
@@ -10990,7 +11100,7 @@
           "Settings / TFA settings"
         ],
         "summary": "Get confirmation email for updating TFA settings",
-        "operationId": "tfaSettingsLink",
+        "operationId": "updateTfaSettingsLink",
         "requestBody": {
           "content": {
             "application/json": {
@@ -11110,7 +11220,7 @@
           "Settings / TFA settings"
         ],
         "summary": "Get the TFA codes",
-        "operationId": "tfaAppGetCodes",
+        "operationId": "getTfaAppCodes",
         "responses": {
           "200": {
             "description": "List of TFA application codes",
@@ -11167,7 +11277,7 @@
           "Settings / TFA settings"
         ],
         "summary": "Update the TFA codes",
-        "operationId": "tfaAppRequestNewCodes",
+        "operationId": "updateTfaAppCodes",
         "responses": {
           "200": {
             "description": "New backup codes",
@@ -11224,7 +11334,7 @@
           "Settings / TFA settings"
         ],
         "summary": "Unlink the TFA application",
-        "operationId": "tfaAppNewApp",
+        "operationId": "unlinkTfaApp",
         "requestBody": {
           "content": {
             "application/json": {
@@ -11599,7 +11709,7 @@
           "Settings / Webhooks"
         ],
         "summary": "Get webhook logs",
-        "operationId": "getJournal",
+        "operationId": "getWebhooksLogs",
         "parameters": [
           {
             "name": "deliveryFrom",
@@ -11674,6 +11784,28 @@
             "description": "The type of event that triggered the webhook.",
             "schema": {
               "$ref": "#/components/schemas/WebhookTrigger"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of webhook log records to return in the query response.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "Specifies the starting index for retrieving webhook logs.\r\nUsed for pagination in the webhook delivery log queries.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
             }
           }
         ],
@@ -11866,7 +11998,7 @@
           "Settings / Webhooks"
         ],
         "summary": "Get webhook triggers",
-        "operationId": "triggers",
+        "operationId": "getWebhookTriggers",
         "responses": {
           "200": {
             "description": "List of triggers for a webhook",
@@ -12257,7 +12389,7 @@
         ],
         "summary": "Get the code request",
         "description": "Returns a request to get the confirmation code from URL.\n\n **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.",
-        "operationId": "get",
+        "operationId": "getThirdPartyCode",
         "parameters": [
           {
             "name": "provider",
@@ -12706,6 +12838,54 @@
               "type": "boolean",
               "example": true
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The number of records to retrieve.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting index for paginated results.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Specifies the property used to sort the query results.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text used for filtering or searching group data.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -13046,7 +13226,7 @@
           "Group"
         ],
         "summary": "Get user groups",
-        "operationId": "getByUserId",
+        "operationId": "getGroupByUserId",
         "parameters": [
           {
             "name": "userid",
@@ -13113,7 +13293,7 @@
           "Group"
         ],
         "summary": "Move group members",
-        "operationId": "transferMembersTo",
+        "operationId": "moveMembersTo",
         "parameters": [
           {
             "name": "fromId",
@@ -13427,7 +13607,7 @@
           "Group"
         ],
         "summary": "Set a group manager",
-        "operationId": "setManager",
+        "operationId": "setGroupManager",
         "parameters": [
           {
             "name": "id",
@@ -13527,6 +13707,37 @@
             "schema": {
               "type": "boolean",
               "example": true
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The number of groups to retrieve in the request.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting index from which to begin retrieving groups with their sharing settings.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text used as a filter for retrieving groups with their sharing settings.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
             }
           }
         ],
@@ -14601,6 +14812,74 @@
         ],
         "summary": "Get profiles",
         "operationId": "getAllProfiles",
+        "parameters": [
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of items to be retrieved in the response.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The zero-based index of the first item to be retrieved in a filtered result set.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "filterBy",
+            "in": "query",
+            "description": "Specifies the filter criteria for user-related queries.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Specifies the property or field name by which the results should be sorted.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterSeparator",
+            "in": "query",
+            "description": "The character or string used to separate multiple filter values in a filtering query.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text value used as an additional filter criterion for profiles retrieval.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "List of users with the detailed information",
@@ -14857,7 +15136,7 @@
           "People / Profiles"
         ],
         "summary": "Get a profile by user name",
-        "operationId": "getById",
+        "operationId": "getProfileByUserId",
         "parameters": [
           {
             "name": "userid",
@@ -15070,7 +15349,7 @@
           "People / Profiles"
         ],
         "summary": "Get my profile",
-        "operationId": "self",
+        "operationId": "getSelfProfile",
         "responses": {
           "200": {
             "description": "Detailed information about my profile",
@@ -15124,7 +15403,7 @@
           "People / Profiles"
         ],
         "summary": "Get a profile by user email",
-        "operationId": "getByEmail",
+        "operationId": "getProfileByEmail",
         "parameters": [
           {
             "name": "email",
@@ -15645,6 +15924,46 @@
                 "$ref": "#/components/schemas/EmployeeType"
               }
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The number of items to retrieve in a request.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting index for the query results.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "filterSeparator",
+            "in": "query",
+            "description": "Specifies the separator used in filter expressions.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text filter applied to the accounts search query.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -15703,7 +16022,7 @@
           "People / Search"
         ],
         "summary": "Search users by status filter",
-        "operationId": "getAdvanced",
+        "operationId": "searchUsersByStatus",
         "parameters": [
           {
             "name": "status",
@@ -15718,6 +16037,24 @@
             "name": "query",
             "in": "query",
             "description": "The advanced search query.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "filterBy",
+            "in": "query",
+            "description": "Specifies the criteria used to filter search results in advanced queries.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The value used to filter the search query.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -15780,7 +16117,7 @@
           "People / Search"
         ],
         "summary": "Search users with detaailed information by extended filter",
-        "operationId": "getFullByFilter",
+        "operationId": "searchUsersByExtendedFilter",
         "parameters": [
           {
             "name": "employeeStatus",
@@ -15944,6 +16281,63 @@
             "schema": {
               "$ref": "#/components/schemas/Area"
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of items to be retrieved in the response.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The zero-based index of the first item to be retrieved in a filtered result set.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Specifies the property or field name by which the results should be sorted.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterSeparator",
+            "in": "query",
+            "description": "Represents the separator used to split filter criteria in query parameters.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The search text used to filter results based on user input.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -16002,7 +16396,7 @@
           "People / Search"
         ],
         "summary": "Search users (using query parameters)",
-        "operationId": "getPeopleSearch",
+        "operationId": "searchUsersByQuery",
         "parameters": [
           {
             "name": "query",
@@ -16074,6 +16468,24 @@
             "in": "path",
             "description": "The search query.",
             "required": true,
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "filterBy",
+            "in": "query",
+            "description": "Specifies a filter criteria for the user search query.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The value used for filtering users, allowing additional constraints for the query.",
             "schema": {
               "type": "string",
               "example": "some text"
@@ -16300,6 +16712,63 @@
             "schema": {
               "$ref": "#/components/schemas/Area"
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of items to be retrieved in the response.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The zero-based index of the first item to be retrieved in a filtered result set.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Specifies the property or field name by which the results should be sorted.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterSeparator",
+            "in": "query",
+            "description": "Represents the separator used to split filter criteria in query parameters.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The search text used to filter results based on user input.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -16443,6 +16912,46 @@
                 "$ref": "#/components/schemas/EmployeeType"
               }
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of users to be retrieved in the request.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The zero-based index of the first record to retrieve in a paged query.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "filterSeparator",
+            "in": "query",
+            "description": "The character or string used to separate multiple filter values in a filtering query.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The filter text value used for searching or filtering user results.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -16501,7 +17010,7 @@
           "People / Theme"
         ],
         "summary": "Get the portal theme",
-        "operationId": "getTheme",
+        "operationId": "getPortalTheme",
         "responses": {
           "200": {
             "description": "Theme",
@@ -16553,7 +17062,7 @@
           "People / Theme"
         ],
         "summary": "Change the portal theme",
-        "operationId": "changeTheme",
+        "operationId": "changePortalTheme",
         "requestBody": {
           "content": {
             "application/json": {
@@ -16616,7 +17125,7 @@
           "People / Third-party accounts"
         ],
         "summary": "Get third-party accounts",
-        "operationId": "getAuthProviders",
+        "operationId": "getThirdPartyAuthProviders",
         "parameters": [
           {
             "name": "inviteView",
@@ -16676,7 +17185,7 @@
           "People / Third-party accounts"
         ],
         "summary": "Link a third-pary account",
-        "operationId": "linkAccount",
+        "operationId": "linkThirdPartyAccount",
         "requestBody": {
           "content": {
             "application/json": {
@@ -16735,7 +17244,7 @@
           "People / Third-party accounts"
         ],
         "summary": "Create a third-pary account",
-        "operationId": "signupAccount",
+        "operationId": "signupThirdPartyAccount",
         "requestBody": {
           "content": {
             "application/json": {
@@ -16765,7 +17274,7 @@
           "People / Third-party accounts"
         ],
         "summary": "Unlink a third-pary account",
-        "operationId": "unlinkAccount",
+        "operationId": "unlinkThirdPartyAccount",
         "parameters": [
           {
             "name": "provider",
@@ -17466,6 +17975,72 @@
             "schema": {
               "$ref": "#/components/schemas/EmployeeStatus"
             }
+          },
+          {
+            "name": "filterBy",
+            "in": "query",
+            "description": "Specifies the criteria used to filter the profiles in the request.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of user profiles to retrieve.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting index for retrieving data in a paginated request.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Specifies the property or field name by which the results should be sorted.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterSeparator",
+            "in": "query",
+            "description": "Represents the separator used to split multiple filter criteria in a query string.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "A string value representing additional filter criteria used in query parameters.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -17594,7 +18169,7 @@
           "People / User status"
         ],
         "summary": "Set an activation status to the users",
-        "operationId": "updateEmployeeActivationStatus",
+        "operationId": "updateUserActivationStatus",
         "parameters": [
           {
             "name": "activationstatus",
@@ -17744,7 +18319,7 @@
           "People / User type"
         ],
         "summary": "Update user type",
-        "operationId": "startUpdateUserType",
+        "operationId": "starUserTypetUpdate",
         "requestBody": {
           "content": {
             "application/json": {
@@ -17810,7 +18385,7 @@
           "People / User type"
         ],
         "summary": "Get the progress of updating user type",
-        "operationId": "getChangeTypeProgress",
+        "operationId": "getUserTypeUpdateProgress",
         "parameters": [
           {
             "name": "userid",
@@ -17877,7 +18452,7 @@
           "People / User type"
         ],
         "summary": "Terminate update user type",
-        "operationId": "terminateChangeType",
+        "operationId": "terminateUserTypeUpdate",
         "requestBody": {
           "content": {
             "application/json": {
@@ -17940,7 +18515,7 @@
           "Portal / Guests"
         ],
         "summary": "Get a guest sharing link",
-        "operationId": "getGuestShareLink",
+        "operationId": "getGuestSharingLink",
         "parameters": [
           {
             "name": "userid",
@@ -18013,7 +18588,7 @@
           "Files / Files"
         ],
         "summary": "Save file edits",
-        "operationId": "saveEditingFromForm",
+        "operationId": "saveEditingFileFromForm",
         "parameters": [
           {
             "name": "fileId",
@@ -18131,7 +18706,7 @@
           "Files / Files"
         ],
         "summary": "Start file editing",
-        "operationId": "startEdit",
+        "operationId": "startEditFile",
         "parameters": [
           {
             "name": "fileId",
@@ -18179,7 +18754,7 @@
           "Files / Files"
         ],
         "summary": "Start file filling",
-        "operationId": "startFilling",
+        "operationId": "startFillingFile",
         "parameters": [
           {
             "name": "fileId",
@@ -18315,7 +18890,7 @@
           "Files / Files"
         ],
         "summary": "Open a file configuration",
-        "operationId": "openEdit",
+        "operationId": "openEditFile",
         "parameters": [
           {
             "name": "fileId",
@@ -18528,7 +19103,7 @@
           "Files / Files"
         ],
         "summary": "Get users access rights to the protected file",
-        "operationId": "protectUsers",
+        "operationId": "getProtectedFileUsers",
         "parameters": [
           {
             "name": "fileId",
@@ -18684,7 +19259,7 @@
           "Files / Files"
         ],
         "summary": "Change version history",
-        "operationId": "changeHistory",
+        "operationId": "changeVersionHistory",
         "parameters": [
           {
             "name": "fileId",
@@ -19685,7 +20260,7 @@
           "Files / Files"
         ],
         "summary": "Restore a file version",
-        "operationId": "restoreVersion",
+        "operationId": "restoreFileVersion",
         "parameters": [
           {
             "name": "fileId",
@@ -19861,7 +20436,7 @@
           "Files / Files"
         ],
         "summary": "Set file order",
-        "operationId": "setOrderFile",
+        "operationId": "setFileOrder",
         "parameters": [
           {
             "name": "fileId",
@@ -20007,7 +20582,7 @@
           "Files / Files"
         ],
         "summary": "Get file external links",
-        "operationId": "getLinks",
+        "operationId": "getFileLinks",
         "parameters": [
           {
             "name": "id",
@@ -20149,7 +20724,7 @@
           "Files / Files"
         ],
         "summary": "Save a file as PDF",
-        "operationId": "saveAsPdf",
+        "operationId": "saveFileAsPdf",
         "parameters": [
           {
             "name": "id",
@@ -20445,7 +21020,7 @@
         ],
         "summary": "Create a file in the \"My documents\" section",
         "description": "Creates a new file in the \"My documents\" section with the title specified in the request.\n\n **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.",
-        "operationId": "createFileMyDocuments",
+        "operationId": "createFileInMyDocuments",
         "requestBody": {
           "content": {
             "application/json": {
@@ -20507,7 +21082,7 @@
           "Files / Files"
         ],
         "summary": "Create an HTML file in the \"My documents\" section",
-        "operationId": "createHtmlFileInMy",
+        "operationId": "createHtmlFileInMyDocuments",
         "requestBody": {
           "content": {
             "application/json": {
@@ -20573,7 +21148,7 @@
           "Files / Files"
         ],
         "summary": "Create a text file in the \"My documents\" section",
-        "operationId": "createTextFileInMy",
+        "operationId": "createTextFileInMyDocuments",
         "requestBody": {
           "content": {
             "application/json": {
@@ -21377,8 +21952,8 @@
         "tags": [
           "Files / Folders"
         ],
-        "summary": "Set file order",
-        "operationId": "setFileOrder",
+        "summary": "Set folder order",
+        "operationId": "setFolderOrder",
         "parameters": [
           {
             "name": "folderId",
@@ -21716,7 +22291,7 @@
           "Files / Folders"
         ],
         "summary": "Get new folder items",
-        "operationId": "getNewItems",
+        "operationId": "getNewFolderItems",
         "parameters": [
           {
             "name": "folderId",
@@ -22796,7 +23371,7 @@
           "Files / Operations"
         ],
         "summary": "Get conversion status",
-        "operationId": "checkConversion",
+        "operationId": "checkConversionStatus",
         "parameters": [
           {
             "name": "fileId",
@@ -22870,7 +23445,7 @@
           "Files / Operations"
         ],
         "summary": "Start file conversion",
-        "operationId": "startConversion",
+        "operationId": "startFileConversion",
         "parameters": [
           {
             "name": "fileId",
@@ -22947,7 +23522,7 @@
           "Files / Operations"
         ],
         "summary": "Update a comment",
-        "operationId": "updateComment",
+        "operationId": "updateFileComment",
         "parameters": [
           {
             "name": "fileId",
@@ -23254,6 +23829,17 @@
         ],
         "summary": "Empty the \"Trash\" folder",
         "operationId": "emptyTrash",
+        "parameters": [
+          {
+            "name": "Single",
+            "in": "query",
+            "description": "Specifies whether to return only the current operation",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "List of file operations",
@@ -23308,6 +23894,17 @@
         ],
         "summary": "Get active file operations",
         "operationId": "getOperationStatuses",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The ID of the file operation.",
+            "schema": {
+              "type": "string",
+              "example": "9846"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "List of file operations",
@@ -23338,6 +23935,15 @@
             "required": true,
             "schema": {
               "$ref": "#/components/schemas/FileOperationType"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The ID of the file operation.",
+            "schema": {
+              "type": "string",
+              "example": "9846"
             }
           }
         ],
@@ -23489,7 +24095,7 @@
           "Files / Operations"
         ],
         "summary": "Check and move or copy to a folder",
-        "operationId": "moveOrCopyBatchCheck",
+        "operationId": "checkMoveOrCopyBatchItems",
         "parameters": [
           {
             "name": "inDto",
@@ -23622,7 +24228,7 @@
           "Files / Operations"
         ],
         "summary": "Check for moving or copying to a folder",
-        "operationId": "moveOrCopyDestFolderCheck",
+        "operationId": "checkMoveOrCopyDestFolder",
         "parameters": [
           {
             "name": "inDto",
@@ -25070,7 +25676,7 @@
           "Files / Settings"
         ],
         "summary": "Update a file version if it exists",
-        "operationId": "updateIfExist",
+        "operationId": "updateFileIfExist",
         "requestBody": {
           "content": {
             "application/json": {
@@ -25446,7 +26052,7 @@
           "Files / Sharing"
         ],
         "summary": "Get user access rights by file ID",
-        "operationId": "sharedUsers",
+        "operationId": "getSharedUsers",
         "parameters": [
           {
             "name": "fileId",
@@ -25590,7 +26196,7 @@
           "Files / Sharing"
         ],
         "summary": "Change the file owner",
-        "operationId": "changeOwner",
+        "operationId": "changeFileOwner",
         "requestBody": {
           "content": {
             "application/json": {
@@ -25744,7 +26350,7 @@
         ],
         "summary": "Get providers",
         "description": "Returns the list of the available providers.\n\n **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.",
-        "operationId": "capabilities",
+        "operationId": "getCapabilities",
         "responses": {
           "200": {
             "description": "List of provider keys",
@@ -26087,7 +26693,7 @@
           "Rooms"
         ],
         "summary": "Start creating room template",
-        "operationId": "createTemplate",
+        "operationId": "createRoomTemplate",
         "requestBody": {
           "content": {
             "application/json": {
@@ -26150,7 +26756,7 @@
           "Rooms"
         ],
         "summary": "Get status of room template creation",
-        "operationId": "getTemplateCreatingStatus",
+        "operationId": "getRoomTemplateCreatingStatus",
         "responses": {
           "200": {
             "description": "Status",
@@ -26204,7 +26810,7 @@
           "Rooms"
         ],
         "summary": "Get public settings",
-        "operationId": "isPublic",
+        "operationId": "getPublicSettings",
         "parameters": [
           {
             "name": "id",
@@ -26271,7 +26877,7 @@
           "Rooms"
         ],
         "summary": "Set public settings",
-        "operationId": "setPublic",
+        "operationId": "setPublicSettings",
         "requestBody": {
           "content": {
             "application/json": {
@@ -27141,7 +27747,7 @@
           "Rooms"
         ],
         "summary": "Set the room external or invitation link",
-        "operationId": "setLink",
+        "operationId": "setRoomLink",
         "parameters": [
           {
             "name": "id",
@@ -27361,7 +27967,7 @@
           "Rooms"
         ],
         "summary": "Add the room tags",
-        "operationId": "addTags",
+        "operationId": "addRoomTags",
         "parameters": [
           {
             "name": "id",
@@ -27439,7 +28045,7 @@
           "Rooms"
         ],
         "summary": "Remove the room tags",
-        "operationId": "deleteTags",
+        "operationId": "deleteRoomTags",
         "parameters": [
           {
             "name": "id",
@@ -27747,7 +28353,7 @@
           "Rooms"
         ],
         "summary": "Get covers",
-        "operationId": "getCovers",
+        "operationId": "getRoomCovers",
         "responses": {
           "200": {
             "description": "Gets room cover",
@@ -28005,7 +28611,7 @@
           "Rooms"
         ],
         "summary": "Reorder the room",
-        "operationId": "reorder",
+        "operationId": "reorderRoom",
         "parameters": [
           {
             "name": "id",
@@ -28215,7 +28821,7 @@
           "Rooms"
         ],
         "summary": "Create a tag",
-        "operationId": "createTag",
+        "operationId": "createRoomTag",
         "requestBody": {
           "content": {
             "application/json": {
@@ -28279,7 +28885,7 @@
           "Rooms"
         ],
         "summary": "Get tags",
-        "operationId": "getTagsInfo",
+        "operationId": "getRoomTagsInfo",
         "responses": {
           "200": {
             "description": "List of tag names",
@@ -36619,6 +37225,66 @@
           }
         }
       },
+      "PaymentCalculation": {
+        "type": "object",
+        "properties": {
+          "operationId": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1234
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true,
+            "example": "some text"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1234
+          }
+        },
+        "additionalProperties": false,
+        "description": "The payment calculation."
+      },
+      "PaymentCalculationWrapper": {
+        "type": "object",
+        "properties": {
+          "response": {
+            "$ref": "#/components/schemas/PaymentCalculation"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "action": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
       "PaymentMethodStatus": {
         "enum": [
           0,
@@ -36868,6 +37534,7 @@
           3
         ],
         "type": "integer",
+        "description": "The product quantity type.",
         "format": "int32"
       },
       "ProductType": {
@@ -43138,6 +43805,14 @@
         "additionalProperties": false,
         "description": "The request parameters for creating a third-party account."
       },
+      "SortOrder": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "StartReassignRequestDto": {
         "required": [
           "fromUserId",
@@ -43954,6 +44629,11 @@
       "BaseBatchRequestDto": {
         "type": "object",
         "properties": {
+          "returnSingleOperation": {
+            "type": "boolean",
+            "description": "Specifies whether to return only the current operation",
+            "example": true
+          },
           "folderIds": {
             "type": "array",
             "items": {
@@ -43995,6 +44675,11 @@
       "BatchRequestDto": {
         "type": "object",
         "properties": {
+          "returnSingleOperation": {
+            "type": "boolean",
+            "description": "Specifies whether to return only the current operation",
+            "example": true
+          },
           "folderIds": {
             "type": "array",
             "items": {
@@ -45343,6 +46028,11 @@
       "DeleteBatchRequestDto": {
         "type": "object",
         "properties": {
+          "returnSingleOperation": {
+            "type": "boolean",
+            "description": "Specifies whether to return only the current operation",
+            "example": true
+          },
           "folderIds": {
             "type": "array",
             "items": {
@@ -45427,6 +46117,11 @@
         ],
         "type": "object",
         "properties": {
+          "returnSingleOperation": {
+            "type": "boolean",
+            "description": "Specifies whether to return only the current operation",
+            "example": true
+          },
           "deleteAfter": {
             "type": "boolean",
             "description": "Specifies whether to delete a file after the editing session is finished or not.",
@@ -45718,6 +46413,11 @@
       "DownloadRequestDto": {
         "type": "object",
         "properties": {
+          "returnSingleOperation": {
+            "type": "boolean",
+            "description": "Specifies whether to return only the current operation",
+            "example": true
+          },
           "folderIds": {
             "type": "array",
             "items": {
@@ -45834,6 +46534,11 @@
       "DuplicateRequestDto": {
         "type": "object",
         "properties": {
+          "returnSingleOperation": {
+            "type": "boolean",
+            "description": "Specifies whether to return only the current operation",
+            "example": true
+          },
           "folderIds": {
             "type": "array",
             "items": {
