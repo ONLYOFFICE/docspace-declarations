@@ -2311,7 +2311,7 @@
           "Portal / Payment"
         ],
         "summary": "Get list of currencies",
-        "operationId": "getAllCurrencies",
+        "operationId": "getAccountingCurrencies",
         "responses": {
           "200": {
             "description": "The list of currencies",
@@ -19198,6 +19198,28 @@
             "schema": {
               "$ref": "#/components/schemas/ApiDateTime"
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The number of history entries to retrieve for the file log.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting index for retrieving a subset of file history entries.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
           }
         ],
         "responses": {
@@ -20410,6 +20432,28 @@
               "format": "int32",
               "example": 9846
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The number of items to retrieve in the request.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting index for the query results.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
           }
         ],
         "responses": {
@@ -20593,6 +20637,28 @@
               "type": "integer",
               "format": "int32",
               "example": 9846
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The number of items to retrieve in the request.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting index for the query results.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
             }
           }
         ],
@@ -21594,6 +21660,28 @@
             "schema": {
               "$ref": "#/components/schemas/ApiDateTime"
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The number of records to retrieve for the folder history.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting index from which the history records are retrieved in the request.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
           }
         ],
         "responses": {
@@ -22122,6 +22210,54 @@
               "type": "string",
               "example": "some text"
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of items to retrieve in the request.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The zero-based index of the first item to retrieve in a paginated request.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Specifies the property used for sorting the folder request results.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text value used as a filter parameter for folder content queries.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -22480,6 +22616,54 @@
             "schema": {
               "$ref": "#/components/schemas/ApplyFilterOption"
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of items to retrieve in the response.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting position of the items to be retrieved.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "The property used to specify the sorting criteria for folder contents.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text used for filtering or searching folder contents.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -22559,6 +22743,54 @@
             "description": "The filter type.",
             "schema": {
               "$ref": "#/components/schemas/FilterType"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of items to retrieve in the request.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The zero-based index of the first item to retrieve in a paginated list.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Specifies the field by which the folder content should be sorted.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text used as a filter or search criterion for folder content queries.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
             }
           }
         ],
@@ -22649,6 +22881,54 @@
               "type": "boolean",
               "example": true
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of items to retrieve in the response.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting position of the items to be retrieved.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Specifies the field by which the folder content should be sorted.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text used as a filter for searching or retrieving folder contents.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -22736,6 +23016,54 @@
             "description": "Specifies whether to return only files, only folders or all elements.",
             "schema": {
               "$ref": "#/components/schemas/ApplyFilterOption"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of items to retrieve in the response.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting position of the items to be retrieved.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "The property used to specify the sorting criteria for folder contents.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text used for filtering or searching folder contents.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
             }
           }
         ],
@@ -27083,6 +27411,54 @@
             "schema": {
               "$ref": "#/components/schemas/StorageFilter"
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Specifies the maximum number of items to retrieve.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The index from which to start retrieving the room content.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Specifies the field by which the room content should be sorted.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text filter value used to refine search or query operations.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
           }
         ],
         "responses": {
@@ -27691,6 +28067,37 @@
             "description": "The filter type of the access rights.",
             "schema": {
               "$ref": "#/components/schemas/ShareFilterType"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The number of items to be retrieved or processed.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting index of the items to retrieve in a paginated request.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text filter value used for filtering room security information.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
             }
           }
         ],
@@ -28886,6 +29293,39 @@
         ],
         "summary": "Get tags",
         "operationId": "getRoomTagsInfo",
+        "parameters": [
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Gets or sets the number of tag results to retrieve.\r\nThis property specifies the maximum amount of tag data to be included in the result set.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "Represents the starting index from which the tags' information will be retrieved.\r\nThis property is used to define the offset for pagination when retrieving a list of tags. It determines\r\nthe point in the data set from which the retrieval begins.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "Gets or sets the text value used for searching tags.\r\nThis property is typically used as a filter value when retrieving tag information.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "List of tag names",
@@ -40811,13 +41251,16 @@
         "type": "object",
         "properties": {
           "amount": {
-            "type": "number",
+            "maximum": 999999,
+            "minimum": 1,
+            "type": "integer",
             "description": "Amount",
-            "format": "double"
+            "format": "int32",
+            "example": 1234
           },
           "currency": {
             "type": "string",
-            "description": "Currency",
+            "description": "The three-character ISO 4217 currency symbol",
             "nullable": true,
             "example": "some text"
           }
@@ -49304,11 +49747,10 @@
               "CustomRooms",
               "PublicRooms",
               "Pdf",
-              "PdfForm",
-              "AiRooms"
+              "PdfForm"
             ],
             "type": "string",
-            "description": "[None - None, FilesOnly - Files  only, FoldersOnly - Folders only, DocumentsOnly - Documents only, PresentationsOnly - Presentations only, SpreadsheetsOnly - Spreadsheets only, ImagesOnly - Images only, ByUser - By user, ByDepartment - By department, ArchiveOnly - Archive only, ByExtension - By extension, MediaOnly - Media only, FillingFormsRooms - Filling forms rooms, EditingRooms - Editing rooms, CustomRooms - Custom rooms, PublicRooms - Public rooms, Pdf - Pdf, PdfForm - Pdf form, AiRooms - AI rooms]",
+            "description": "[None - None, FilesOnly - Files  only, FoldersOnly - Folders only, DocumentsOnly - Documents only, PresentationsOnly - Presentations only, SpreadsheetsOnly - Spreadsheets only, ImagesOnly - Images only, ByUser - By user, ByDepartment - By department, ArchiveOnly - Archive only, ByExtension - By extension, MediaOnly - Media only, FillingFormsRooms - Filling forms rooms, EditingRooms - Editing rooms, CustomRooms - Custom rooms, PublicRooms - Public rooms, Pdf - Pdf, PdfForm - Pdf form]",
             "example": "None"
           },
           {
@@ -49330,11 +49772,10 @@
               17,
               20,
               22,
-              23,
-              25
+              23
             ],
             "type": "integer",
-            "description": "[0 - None, 1 - Files  only, 2 - Folders only, 3 - Documents only, 4 - Presentations only, 5 - Spreadsheets only, 7 - Images only, 8 - By user, 9 - By department, 10 - Archive only, 11 - By extension, 12 - Media only, 13 - Filling forms rooms, 14 - Editing rooms, 17 - Custom rooms, 20 - Public rooms, 22 - Pdf, 23 - Pdf form, 25 - AI rooms]",
+            "description": "[0 - None, 1 - Files  only, 2 - Folders only, 3 - Documents only, 4 - Presentations only, 5 - Spreadsheets only, 7 - Images only, 8 - By user, 9 - By department, 10 - Archive only, 11 - By extension, 12 - Media only, 13 - Filling forms rooms, 14 - Editing rooms, 17 - Custom rooms, 20 - Public rooms, 22 - Pdf, 23 - Pdf form]",
             "example": 0,
             "x-enum-varnames": [
               "None",
@@ -49354,8 +49795,7 @@
               "CustomRooms",
               "PublicRooms",
               "Pdf",
-              "PdfForm",
-              "AiRooms"
+              "PdfForm"
             ],
             "x-enum-descriptions": [
               "None",
@@ -49375,8 +49815,7 @@
               "Custom rooms",
               "Public rooms",
               "Pdf",
-              "Pdf form",
-              "AI rooms"
+              "Pdf form"
             ]
           }
         ],
@@ -50427,11 +50866,10 @@
               "FormFillingFolderDone",
               "FormFillingFolderInProgress",
               "VirtualDataRoom",
-              "RoomTemplates",
-              "AiRoom"
+              "RoomTemplates"
             ],
             "type": "string",
-            "description": "[DEFAULT - Default, COMMON - Coomon, BUNCH - Bunch, TRASH - Trash, USER - User, SHARE - Share, Projects - Projects, Favorites - Favourites, Recent - Recent, Templates - Templates, Privacy - Privacy, VirtualRooms - Virtual rooms, FillingFormsRoom - Filling forms room, EditingRoom - Editing room, CustomRoom - Custom room, Archive - Archive, ThirdpartyBackup - Thirdparty backup, PublicRoom - Public room, ReadyFormFolder - Ready form folder, InProcessFormFolder - In process form folder, FormFillingFolderDone - Form filling folder done, FormFillingFolderInProgress - Form filling folder in progress, VirtualDataRoom - Virtual Data Room, RoomTemplates - Room templates folder, AiRoom - AI room]",
+            "description": "[DEFAULT - Default, COMMON - Coomon, BUNCH - Bunch, TRASH - Trash, USER - User, SHARE - Share, Projects - Projects, Favorites - Favourites, Recent - Recent, Templates - Templates, Privacy - Privacy, VirtualRooms - Virtual rooms, FillingFormsRoom - Filling forms room, EditingRoom - Editing room, CustomRoom - Custom room, Archive - Archive, ThirdpartyBackup - Thirdparty backup, PublicRoom - Public room, ReadyFormFolder - Ready form folder, InProcessFormFolder - In process form folder, FormFillingFolderDone - Form filling folder done, FormFillingFolderInProgress - Form filling folder in progress, VirtualDataRoom - Virtual Data Room, RoomTemplates - Room templates folder]",
             "example": "DEFAULT"
           },
           {
@@ -50459,11 +50897,10 @@
               27,
               28,
               29,
-              30,
-              31
+              30
             ],
             "type": "integer",
-            "description": "[0 - Default, 1 - Coomon, 2 - Bunch, 3 - Trash, 5 - User, 6 - Share, 8 - Projects, 10 - Favourites, 11 - Recent, 12 - Templates, 13 - Privacy, 14 - Virtual rooms, 15 - Filling forms room, 16 - Editing room, 19 - Custom room, 20 - Archive, 21 - Thirdparty backup, 22 - Public room, 25 - Ready form folder, 26 - In process form folder, 27 - Form filling folder done, 28 - Form filling folder in progress, 29 - Virtual Data Room, 30 - Room templates folder, 31 - AI room]",
+            "description": "[0 - Default, 1 - Coomon, 2 - Bunch, 3 - Trash, 5 - User, 6 - Share, 8 - Projects, 10 - Favourites, 11 - Recent, 12 - Templates, 13 - Privacy, 14 - Virtual rooms, 15 - Filling forms room, 16 - Editing room, 19 - Custom room, 20 - Archive, 21 - Thirdparty backup, 22 - Public room, 25 - Ready form folder, 26 - In process form folder, 27 - Form filling folder done, 28 - Form filling folder in progress, 29 - Virtual Data Room, 30 - Room templates folder]",
             "example": 0,
             "x-enum-varnames": [
               "DEFAULT",
@@ -50489,8 +50926,7 @@
               "FormFillingFolderDone",
               "FormFillingFolderInProgress",
               "VirtualDataRoom",
-              "RoomTemplates",
-              "AiRoom"
+              "RoomTemplates"
             ],
             "x-enum-descriptions": [
               "Default",
@@ -50516,8 +50952,7 @@
               "Form filling folder done",
               "Form filling folder in progress",
               "Virtual Data Room",
-              "Room templates folder",
-              "AI room"
+              "Room templates folder"
             ]
           }
         ],
@@ -52455,11 +52890,10 @@
               "EditingRoom",
               "CustomRoom",
               "PublicRoom",
-              "VirtualDataRoom",
-              "AiRoom"
+              "VirtualDataRoom"
             ],
             "type": "string",
-            "description": "[FillingFormsRoom - Form filling room, EditingRoom - Collaboration room, CustomRoom - Custom room, PublicRoom - Public room, VirtualDataRoom - Virtual data room, AiRoom - AI room]",
+            "description": "[FillingFormsRoom - Form filling room, EditingRoom - Collaboration room, CustomRoom - Custom room, PublicRoom - Public room, VirtualDataRoom - Virtual data room]",
             "example": "FillingFormsRoom"
           },
           {
@@ -52468,27 +52902,24 @@
               2,
               5,
               6,
-              8,
-              9
+              8
             ],
             "type": "integer",
-            "description": "[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - AI room]",
+            "description": "[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room]",
             "example": 1,
             "x-enum-varnames": [
               "FillingFormsRoom",
               "EditingRoom",
               "CustomRoom",
               "PublicRoom",
-              "VirtualDataRoom",
-              "AiRoom"
+              "VirtualDataRoom"
             ],
             "x-enum-descriptions": [
               "Form filling room",
               "Collaboration room",
               "Custom room",
               "Public room",
-              "Virtual data room",
-              "AI room"
+              "Virtual data room"
             ]
           }
         ],
