@@ -5568,40 +5568,8 @@
                 }
               }
             }
-          },
-          "401": {
-            "description": "Unauthorized"
           }
         },
-        "security": [
-          {
-            "asc_auth_key": [
-              "read",
-              "write"
-            ]
-          },
-          {
-            "Bearer": []
-          },
-          {
-            "ApiKeyBearer": [
-              "read",
-              "write"
-            ]
-          },
-          {
-            "Basic": []
-          },
-          {
-            "OAuth2": [
-              "read",
-              "write"
-            ]
-          },
-          {
-            "OpenId": []
-          }
-        ],
         "description": "Returns the deep link settings."
       }
     },
@@ -21484,6 +21452,136 @@
             }
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Files / Folders"
+        ],
+        "operationId": "getFolderRecent",
+        "parameters": [
+          {
+            "name": "userIdOrGroupId",
+            "in": "query",
+            "description": "The user or group ID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+            }
+          },
+          {
+            "name": "filterType",
+            "in": "query",
+            "description": "The filter type.",
+            "schema": {
+              "$ref": "#/components/schemas/FilterType"
+            }
+          },
+          {
+            "name": "excludeSubject",
+            "in": "query",
+            "description": "Specifies whether to exclude search by user or group ID.",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "applyFilterOption",
+            "in": "query",
+            "description": "Specifies whether to return only files, only folders or all elements.",
+            "schema": {
+              "$ref": "#/components/schemas/ApplyFilterOption"
+            }
+          },
+          {
+            "name": "searchArea",
+            "in": "query",
+            "description": "The search area.",
+            "schema": {
+              "$ref": "#/components/schemas/SearchArea"
+            }
+          },
+          {
+            "name": "extension",
+            "in": "query",
+            "description": "Specifies whether to search for a specific file extension in the \"Recent\" folder.",
+            "style": "deepObject",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": ".txt"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "The maximum number of items to return.",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "description": "The starting position of the results to be returned in the query response.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1234
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Specifies the sorting criteria for the folder request.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "The order in which the results are sorted.",
+            "schema": {
+              "$ref": "#/components/schemas/SortOrder"
+            }
+          },
+          {
+            "name": "filterValue",
+            "in": "query",
+            "description": "The text used for filtering or searching folder contents.",
+            "schema": {
+              "type": "string",
+              "example": "some text"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The \"Recent\" section contents",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FolderContentIntegerWrapper"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You don't have enough permission to view the folder content"
+          },
+          "404": {
+            "description": "The required folder was not found"
+          }
+        }
       }
     },
     "/api/2.0/files/file/{fileId}/edit_session": {
@@ -29785,6 +29883,15 @@
             "description": "Culture",
             "nullable": true,
             "example": "some text"
+          },
+          "recaptchaType": {
+            "$ref": "#/components/schemas/RecaptchaType"
+          },
+          "recaptchaResponse": {
+            "type": "string",
+            "description": "The user's response to the CAPTCHA challenge.",
+            "nullable": true,
+            "example": "some text"
           }
         },
         "additionalProperties": false,
@@ -29958,7 +30065,6 @@
       "AuthKey": {
         "required": [
           "name",
-          "title",
           "value"
         ],
         "type": "object",
@@ -41412,6 +41518,15 @@
             "description": "The user email address.",
             "format": "email",
             "example": "Sydney_Roberts4@hotmail.com"
+          },
+          "recaptchaType": {
+            "$ref": "#/components/schemas/RecaptchaType"
+          },
+          "recaptchaResponse": {
+            "type": "string",
+            "description": "The user's response to the CAPTCHA challenge.",
+            "nullable": true,
+            "example": "some text"
           }
         },
         "additionalProperties": false,
@@ -42411,7 +42526,6 @@
       },
       "SignupAccountRequestDto": {
         "required": [
-          "email",
           "key",
           "serializedProfile"
         ],
@@ -46511,6 +46625,12 @@
               },
               "expirationDate": {
                 "$ref": "#/components/schemas/ApiDateTime"
+              },
+              "isLinkExpired": {
+                "type": "boolean",
+                "description": "Indicates whether the shareable link associated with the file or folder has expired.",
+                "nullable": true,
+                "example": true
               }
             }
           }
@@ -46792,6 +46912,12 @@
               },
               "expirationDate": {
                 "$ref": "#/components/schemas/ApiDateTime"
+              },
+              "isLinkExpired": {
+                "type": "boolean",
+                "description": "Indicates whether the shareable link associated with the file or folder has expired.",
+                "nullable": true,
+                "example": true
               }
             }
           }
@@ -47491,6 +47617,7 @@
           "canEditDenyDownload",
           "canEditExpirationDate",
           "canEditInternal",
+          "canRevoke",
           "isLocked",
           "isOwner",
           "subjectType"
@@ -47547,6 +47674,11 @@
           "canEditExpirationDate": {
             "type": "boolean",
             "description": "Indicates whether the expiration date of access permissions can be edited.",
+            "example": true
+          },
+          "canRevoke": {
+            "type": "boolean",
+            "description": "Specifies whether the file sharing access can be revoked by the current user.",
             "example": true
           },
           "subjectType": {
@@ -48888,7 +49020,8 @@
                 "type": "boolean",
                 "description": "Specifies if an external link to the folder is expired or not.",
                 "nullable": true,
-                "example": true
+                "example": true,
+                "deprecated": true
               }
             }
           }
@@ -49021,7 +49154,8 @@
                 "type": "boolean",
                 "description": "Specifies if an external link to the folder is expired or not.",
                 "nullable": true,
-                "example": true
+                "example": true,
+                "deprecated": true
               }
             }
           }
