@@ -22680,7 +22680,7 @@
         "tags": [
           "Files / Folders"
         ],
-        "summary": "Get the \"Recent\" section",
+        "summary": "Get recent files",
         "operationId": "getFolderRecent",
         "parameters": [
           {
@@ -24621,7 +24621,7 @@
             "schema": {
               "type": "string",
               "format": "uuid",
-              "example": "75a5f745-f697-4418-b38d-0fe0d277e258"
+              "example": "75a5f745-f697-4418-b38d-0fe0d277e258" 
             }
           },
           {
@@ -28978,7 +28978,7 @@
         "tags": [
           "Files / Sharing"
         ],
-        "summary": "Get group members with security information",
+        "summary": "Get folder group members with security information",
         "operationId": "getGroupsMembersWithFolderSecurity",
         "parameters": [
           {
@@ -29087,7 +29087,7 @@
         "tags": [
           "Files / Sharing"
         ],
-        "summary": "Get group members with security information",
+        "summary": "Get file group members with security information",
         "operationId": "getGroupsMembersWithFileSecurity",
         "parameters": [
           {
